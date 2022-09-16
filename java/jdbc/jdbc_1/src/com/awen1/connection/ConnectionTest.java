@@ -1,4 +1,4 @@
-package com.awen.connection;
+package com.awen1.connection;
 
 import org.junit.Test;
 
