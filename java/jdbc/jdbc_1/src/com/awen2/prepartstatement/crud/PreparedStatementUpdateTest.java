@@ -13,8 +13,52 @@ import java.util.Properties;
 /**
  * @author 希文
  */
-public class PrepartStatementUpdateTest {
+public class PreparedStatementUpdateTest {
 
+    @Test
+    public void testUpdate(){
+        String sql = "delete from customers where name=?";
+        int i = update(sql,"xiwen");
+        if (i>0){
+            System.out.println("更新成功");
+        }else {
+            System.out.println("更新失败");
+        }
+
+        String sql2 = "insert into customers(id,name,email,birth) values(?,?,?,?)";
+        int i2 = update(sql2,"20","cs","cs@126.com","2022-9-16");
+        if (i2>0){
+            System.out.println("更新成功");
+        }else {
+            System.out.println("更新失败");
+        }
+    }
+
+    /**
+     * 通用更新操作
+     * @param sql sql语句
+     * @param args sql语句语句中的占位符填充
+     * @return  i==0更新失败，i>0 更新成功
+     */
+    public int update(String sql,Object ... args){
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = JDBCUtils.getConnection();
+            ps = conn.prepareStatement(sql);
+            for (int i = 0; i < args.length; i++) {
+                ps.setObject(i+1, args[i]);
+            }
+
+            return ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            JDBCUtils.closeResource(conn,ps);
+        }
+
+        return 0;
+    }
 
 
     // 向customers表中添加一条记录
