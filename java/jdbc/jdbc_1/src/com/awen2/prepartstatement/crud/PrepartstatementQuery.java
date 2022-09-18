@@ -15,6 +15,8 @@ public class PrepartstatementQuery {
     //测试通用表查询
     @Test
     public void test1(){
+        
+
         String sql = "select id,name,birth from customers where id =?";
         Customers customers = getInstance(Customers.class, sql, 16);
         System.out.println(customers);
