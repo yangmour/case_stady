@@ -4,6 +4,8 @@ import com.xiwen2.dao.BaseDao;
 import com.xiwen2.dao.CustomersDao;
 import com.xiwen2.dao.bean.Customers;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.sql.Connection;
 import java.sql.Date;
 import java.util.List;
@@ -11,7 +13,10 @@ import java.util.List;
 /**
  * @author 希文
  */
-public class CustomersDaoImpl extends BaseDao implements CustomersDao {
+public class CustomersDaoImpl extends BaseDao<Customers> implements CustomersDao {
+
+
+
     @Override
     public int insert(Connection conn, Customers customers) {
         String sql = "insert into customers(name,email,birth) values(?,?,?)";
@@ -33,13 +38,13 @@ public class CustomersDaoImpl extends BaseDao implements CustomersDao {
     @Override
     public Customers getCustomersById(Connection conn, int id) {
         String sql = "select id,name,email,birth from customers where id =?";
-        return getBeanQuery(conn,Customers.class,sql,id);
+        return getBeanQuery(conn,sql,id);
     }
 
     @Override
     public List<Customers> getAll(Connection conn) {
         String sql = "select id,name,email,birth from customers";
-        return getForList(conn,Customers.class,sql);
+        return getForList(conn,sql);
     }
 
 

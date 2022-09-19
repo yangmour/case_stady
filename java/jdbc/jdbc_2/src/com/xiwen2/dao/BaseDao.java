@@ -3,6 +3,8 @@ package com.xiwen2.dao;
 import com.xiwen1.util.JDBCUtils;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
  * @author 希文
  * 基础dao
  */
-public abstract class BaseDao {
+public abstract class BaseDao<T> {
 
 
     /**
@@ -21,6 +23,17 @@ public abstract class BaseDao {
      * @param args
      * @return
      */
+    private Class<T> clazz;
+    {
+
+
+        Type genericSuperclass = this.getClass().getGenericSuperclass();
+        ParameterizedType parameterizedType = (ParameterizedType) genericSuperclass;
+        Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+        clazz = (Class<T>) actualTypeArguments[0];
+
+    }
+
     public int update(Connection conn, String sql, Object... args) {
 
         PreparedStatement ps = null;
@@ -42,14 +55,12 @@ public abstract class BaseDao {
     /**
      * 针对不同表的通用查询操作 通用查询一条数据
      *
-     * @param clazz
      * @param sql
      * @param args
-     * @param <T>
      * @return
      * @throws Exception
      */
-    public <T> T getBeanQuery(Connection conn,Class<T> clazz, String sql, Object... args) {
+    public T getBeanQuery(Connection conn, String sql, Object... args) {
         PreparedStatement ps = null;
         ResultSet resultSet = null;
         try {
@@ -84,13 +95,11 @@ public abstract class BaseDao {
     /**
      * 通用查询多条数据
      * @param conn
-     * @param clazz
      * @param sql
      * @param args
      * @return
-     * @param <T>
      */
-    public <T> List<T> getForList(Connection conn,Class<T> clazz, String sql, Object... args) {
+    public List<T> getForList(Connection conn, String sql, Object... args) {
 
         PreparedStatement ps = null;
         ResultSet resultSet = null;

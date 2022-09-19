@@ -26,7 +26,7 @@ public class CustomersDaoImplTest {
     @Test
     public void deleteById() throws Exception {
         Connection conn = JDBCUtils.getConnection();
-        int i = customersDao.deleteById(conn, 21);
+        int i = customersDao.deleteById(conn, 22);
         System.out.println(i);
 
     }
