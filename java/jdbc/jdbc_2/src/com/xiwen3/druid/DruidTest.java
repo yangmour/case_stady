@@ -36,7 +36,7 @@ public class DruidTest {
 
     @Test
     public void DruidTest2() throws Exception {
-        Connection conn = JDBCUtils.getConnection();
+        Connection conn = JDBCUtils.getDruidConnection();
 
         CustomersDaoImpl customersDao = new CustomersDaoImpl();
         List<Customers> all = customersDao.getAll(conn);
@@ -47,7 +47,7 @@ public class DruidTest {
 
     @Test
     public void DruidTest3() throws Exception {
-        Connection conn = JDBCUtils.getConnection();
+        Connection conn = JDBCUtils.getDruidConnection();
 
         CustomersDaoImpl customersDao = new CustomersDaoImpl();
         int i = customersDao.deleteById(conn, 20);

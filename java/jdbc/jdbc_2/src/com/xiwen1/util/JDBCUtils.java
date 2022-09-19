@@ -81,8 +81,8 @@ public class JDBCUtils {
     /**
      * druid德鲁伊连接池的获取连接方法
      */
-    private static DataSource datasource;
-    {
+    private static DataSource datasource = null;
+    static {
         try {
         InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream("druid.properties");
         Properties properties = new Properties();
@@ -93,7 +93,7 @@ public class JDBCUtils {
         }
     }
 
-    public Connection getDruidConnection() throws Exception {
+    public static Connection getDruidConnection() throws Exception {
         return datasource.getConnection();
     }
 
