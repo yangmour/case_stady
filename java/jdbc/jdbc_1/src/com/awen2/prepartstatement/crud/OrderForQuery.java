@@ -30,6 +30,7 @@ public class OrderForQuery {
     public Order queryForOrder(String sql,Object...args) {
         Connection conn = null;
         PreparedStatement ps = null;
+        ResultSet resultSet = null;
         try {
             //连接操作
             conn = JDBCUtils.getConnection();
@@ -42,7 +43,7 @@ public class OrderForQuery {
             }
 
             //执行语句获取对应数据
-            ResultSet resultSet = ps.executeQuery();
+            resultSet = ps.executeQuery();
 
             //获取元数据
             ResultSetMetaData metaData = resultSet.getMetaData();
@@ -72,7 +73,7 @@ public class OrderForQuery {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(conn,ps);
+            JDBCUtils.closeResource(conn,ps,resultSet);
         }
 
         return null;
@@ -106,6 +107,7 @@ public class OrderForQuery {
             System.out.println(order);
         }
 
+        JDBCUtils.closeResource(conn,ps,rs);
 
 
     }

@@ -14,8 +14,8 @@ public class PrepartstatementQuery {
 
     //测试通用表查询
     @Test
-    public void test1(){
-        
+    public void test1() {
+
 
         String sql = "select id,name,birth from customers where id =?";
         Customers customers = getInstance(Customers.class, sql, 16);
@@ -27,7 +27,7 @@ public class PrepartstatementQuery {
 
     //测试通用表查询多条数据
     @Test
-    public void test2(){
+    public void test2() {
         String sql = "select id,name,birth from customers where id <?";
         List<Customers> customersList = getForList(Customers.class, sql, 16);
         customersList.forEach(System.out::println);
@@ -36,25 +36,26 @@ public class PrepartstatementQuery {
         orderList.forEach(System.out::println);
     }
 
-    public <T> List<T> getForList(Class<T> clazz, String sql, Object...args) {
+    public <T> List<T> getForList(Class<T> clazz, String sql, Object... args) {
 
         Connection conn = null;
         PreparedStatement ps = null;
+        ResultSet resultSet = null;
         try {
             conn = JDBCUtils.getConnection();
             ps = conn.prepareStatement(sql);
 
             for (int i = 0; i < args.length; i++) {
-                ps.setObject(i+1,args[i]);
+                ps.setObject(i + 1, args[i]);
             }
 
-            ResultSet resultSet = ps.executeQuery();
+            resultSet = ps.executeQuery();
 
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
 
             List<T> list = new ArrayList<>();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 T t = clazz.newInstance();
                 for (int i = 0; i < columnCount; i++) {
                     String columnLabel = metaData.getColumnLabel(i + 1);
@@ -63,7 +64,7 @@ public class PrepartstatementQuery {
                     Field field = clazz.getDeclaredField(columnLabel);
 
                     field.setAccessible(true);
-                    field.set(t,value);
+                    field.set(t, value);
                 }
 
                 list.add(t);
@@ -73,7 +74,7 @@ public class PrepartstatementQuery {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(conn,ps);
+            JDBCUtils.closeResource(conn, ps, resultSet);
         }
 
 
@@ -81,34 +82,35 @@ public class PrepartstatementQuery {
     }
 
 
-
     /**
      * 针对不同表的通用查询操作
+     *
      * @param clazz
      * @param sql
      * @param args
-     * @return
      * @param <T>
+     * @return
      * @throws Exception
      */
-    public <T> T getInstance(Class<T> clazz,String sql,Object...args) {
+    public <T> T getInstance(Class<T> clazz, String sql, Object... args) {
 
         Connection conn = null;
         PreparedStatement ps = null;
+        ResultSet resultSet = null;
         try {
             conn = JDBCUtils.getConnection();
             ps = conn.prepareStatement(sql);
 
             for (int i = 0; i < args.length; i++) {
-                ps.setObject(i+1,args[i]);
+                ps.setObject(i + 1, args[i]);
             }
 
-            ResultSet resultSet = ps.executeQuery();
+            resultSet = ps.executeQuery();
 
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 T t = clazz.newInstance();
                 for (int i = 0; i < columnCount; i++) {
                     String columnLabel = metaData.getColumnLabel(i + 1);
@@ -117,7 +119,7 @@ public class PrepartstatementQuery {
                     Field field = clazz.getDeclaredField(columnLabel);
 
                     field.setAccessible(true);
-                    field.set(t,value);
+                    field.set(t, value);
                 }
 
                 return t;
@@ -126,7 +128,7 @@ public class PrepartstatementQuery {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            JDBCUtils.closeResource(conn,ps);
+            JDBCUtils.closeResource(conn, ps, resultSet);
         }
 
 

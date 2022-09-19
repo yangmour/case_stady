@@ -1,10 +1,7 @@
 package com.xiwen1.util;
 
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Properties;
 
 public class JDBCUtils {
@@ -47,6 +44,35 @@ public class JDBCUtils {
             e.printStackTrace();
 
         }
+    }
+
+    public static void closeResource(Connection conn, Statement ps, ResultSet rs) {
+
+        try {
+            if (ps != null) {
+                ps.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
     }
 
 

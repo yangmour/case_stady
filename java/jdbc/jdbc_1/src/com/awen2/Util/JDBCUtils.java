@@ -1,6 +1,5 @@
 package com.awen2.Util;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
@@ -45,6 +44,35 @@ public class JDBCUtils {
             e.printStackTrace();
 
         }
+    }
+
+    public static void closeResource(Connection conn, Statement ps, ResultSet rs) {
+
+        try {
+            if (ps != null) {
+                ps.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        try {
+            if (conn != null) {
+                conn.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
     }
 
 

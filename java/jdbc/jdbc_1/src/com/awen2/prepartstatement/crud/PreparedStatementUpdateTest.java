@@ -35,7 +35,7 @@ public class PreparedStatementUpdateTest {
     }
 
     /**
-     * 通用更新操作
+     * 通用更新操作 1.0版本
      * @param sql sql语句
      * @param args sql语句语句中的占位符填充
      * @return  i==0更新失败，i>0 更新成功
