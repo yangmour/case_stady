@@ -1,5 +1,8 @@
 package com.xiwen1.util;
 
+import com.alibaba.druid.pool.DruidDataSourceFactory;
+
+import javax.sql.DataSource;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
@@ -73,6 +76,25 @@ public class JDBCUtils {
 
         }
 
+    }
+
+    /**
+     * druid德鲁伊连接池的获取连接方法
+     */
+    private static DataSource datasource;
+    {
+        try {
+        InputStream is = ClassLoader.getSystemClassLoader().getResourceAsStream("druid.properties");
+        Properties properties = new Properties();
+        properties.load(is);
+            datasource = DruidDataSourceFactory.createDataSource(properties);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Connection getDruidConnection() throws Exception {
+        return datasource.getConnection();
     }
 
 
