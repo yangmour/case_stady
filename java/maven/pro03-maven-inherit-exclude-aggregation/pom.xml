@@ -6,11 +6,60 @@
 	
 	<groupId>com.xiwen.maven</groupId>
 	<artifactId>pro03-maven-inherit-exclude-aggregation</artifactId>
+	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
+	<modules>
+		<module>pro-04-maven</module>
+		<module>pro05-maven</module>
+		<module>pro06-maven</module>
+	</modules>
 	
 	<properties>
 		<maven.compiler.source>8</maven.compiler.source>
 		<maven.compiler.target>8</maven.compiler.target>
+		<!-- 自定义标签，维护Spring版本数据 -->
+		<xiwen.spring.version>4.3.6.RELEASE</xiwen.spring.version>
 	</properties>
+	
+	<!-- 使用dependencyManagement标签配置对依赖的管理 -->
+	<!-- 被管理的依赖并没有真正被引入到工程 -->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+<!--				<version>4.0.0.RELEASE</version>-->
+				<version>${xiwen.spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+<!--				<version>4.0.0.RELEASE</version>				<version>${xiwen.spring.version}</version>-->
+				<version>${xiwen.spring.version}</version>
+			
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+<!--				<version>4.0.0.RELEASE</version>-->
+				<version>${xiwen.spring.version}</version>
+			
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+<!--				<version>4.0.0.RELEASE</version>-->
+				<version>${xiwen.spring.version}</version>
+			
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+<!--				<version>4.0.0.RELEASE</version>-->
+				<version>${xiwen.spring.version}</version>
+			
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 </project>
