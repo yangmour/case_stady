@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="706eb57a-c1b8-4431-be5c-056aa4c5c539" name="Changes" comment="pom配置文件配置依赖，配置log4j.properties">
-      <change afterPath="$PROJECT_DIR$/.idea/bigdataide_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xiwen/hdfs/HdfsClient.java" afterDir="false" />
+    <list default="true" id="706eb57a-c1b8-4431-be5c-056aa4c5c539" name="Changes" comment="测试创建文件夹有没有成功">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hdfs-site.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xiwen/hdfs/HdfsClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xiwen/hdfs/HdfsClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xiwen/hdfs/HdfsClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xiwen/hdfs/HdfsClient.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -43,7 +45,9 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectId" id="2GLB69N2SGtdP9QUYP11FhnDiwy" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -65,8 +69,8 @@
     "settings.editor.selected.configurable": "bigdataide_conn_settings"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.HdfsClient.mkdirTest">
-    <configuration name="HdfsClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.HdfsClient.testListStart">
+    <configuration name="HdfsClient.testCopyFormLocalFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HdfsClientDemo" />
       <extension name="coverage">
         <pattern>
@@ -76,12 +80,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.xiwen.hdfs" />
       <option name="MAIN_CLASS_NAME" value="com.xiwen.hdfs.HdfsClient" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="testCopyFormLocalFile" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HdfsClient.mkdirTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="HdfsClient.testCopyToLocalFile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="HdfsClientDemo" />
       <extension name="coverage">
         <pattern>
@@ -91,7 +96,55 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.xiwen.hdfs" />
       <option name="MAIN_CLASS_NAME" value="com.xiwen.hdfs.HdfsClient" />
-      <option name="METHOD_NAME" value="mkdirTest" />
+      <option name="METHOD_NAME" value="testCopyToLocalFile" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HdfsClient.testListFiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HdfsClientDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xiwen.hdfs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xiwen.hdfs" />
+      <option name="MAIN_CLASS_NAME" value="com.xiwen.hdfs.HdfsClient" />
+      <option name="METHOD_NAME" value="testListFiles" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HdfsClient.testListStart" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HdfsClientDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xiwen.hdfs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xiwen.hdfs" />
+      <option name="MAIN_CLASS_NAME" value="com.xiwen.hdfs.HdfsClient" />
+      <option name="METHOD_NAME" value="testListStart" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HdfsClient.testRename" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="HdfsClientDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xiwen.hdfs.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xiwen.hdfs" />
+      <option name="MAIN_CLASS_NAME" value="com.xiwen.hdfs.HdfsClient" />
+      <option name="METHOD_NAME" value="testRename" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -99,8 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.HdfsClient.mkdirTest" />
-        <item itemvalue="JUnit.HdfsClient" />
+        <item itemvalue="JUnit.HdfsClient.testListStart" />
+        <item itemvalue="JUnit.HdfsClient.testListFiles" />
+        <item itemvalue="JUnit.HdfsClient.testRename" />
+        <item itemvalue="JUnit.HdfsClient.testCopyToLocalFile" />
+        <item itemvalue="JUnit.HdfsClient.testCopyFormLocalFile" />
       </list>
     </recent_temporary>
   </component>
@@ -112,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1666157808755</updated>
-      <workItem from="1666157811452" duration="9665000" />
+      <workItem from="1666157811452" duration="13014000" />
     </task>
     <task id="LOCAL-00001" summary="hdfs的api操作，创建HdfsClientDemo项目">
       <created>1666157861340</created>
@@ -135,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666158098124</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="测试创建文件夹有没有成功">
+      <created>1666181602636</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1666181602636</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +218,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="hdfs的api操作，创建HdfsClientDemo项目" />
     <MESSAGE value="pom配置文件配置依赖，配置log4j.properties" />
-    <option name="LAST_COMMIT_MESSAGE" value="pom配置文件配置依赖，配置log4j.properties" />
+    <MESSAGE value="测试创建文件夹有没有成功" />
+    <option name="LAST_COMMIT_MESSAGE" value="测试创建文件夹有没有成功" />
   </component>
 </project>
