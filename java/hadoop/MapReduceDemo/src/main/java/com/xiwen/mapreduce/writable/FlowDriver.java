@@ -22,6 +22,8 @@ public class FlowDriver {
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(FlowBean.class);
 
+        job.setOutputKeyClass(Text.class);
+        job.setOutputKeyClass(FlowBean.class);
 
         args = new String[]{"input/phone_data", "output"};
         FileInputFormat.setInputPaths(job, new Path(args[0]));
