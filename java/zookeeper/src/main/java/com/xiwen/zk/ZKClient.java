@@ -1,6 +1,7 @@
 package com.xiwen.zk;
 
 import org.apache.zookeeper.*;
+import org.apache.zookeeper.data.Stat;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,6 +20,17 @@ public class ZKClient {
         zkClient = new ZooKeeper(connectString, sessionTimeout, new Watcher() {
             @Override
             public void process(WatchedEvent watchedEvent) {
+                //第一个监听路径，第二个参数监听器设置为true使用默认的，上面创建客户端的监听器
+                List<String> children = null;
+                try {
+                    children = zkClient.getChildren("/", true);
+
+                    for (String child : children) {
+                        System.out.println(child);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
         });
@@ -40,12 +52,21 @@ public class ZKClient {
 
         //第一个监听路径，第二个参数监听器设置为true使用默认的，上面创建客户端的监听器
         List<String> children = zkClient.getChildren("/", true);
-        for (String child : children) {
-            System.out.println(child);
-        }
+//        for (String child : children) {
+//            System.out.println(child);
+//        }
 
         //延时阻塞
         Thread.sleep(Long.MAX_VALUE);
+
+    }
+
+    //判断znode是否存在
+    @Test
+    public void exist() throws InterruptedException, KeeperException {
+        Stat stat = zkClient.exists("/xiwen", false);
+
+        System.out.println(stat == null ? "not exist" : "exist");
 
     }
 
