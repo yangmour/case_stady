@@ -148,7 +148,6 @@ class ArrayQueue {
         front++;
         //获取数据
         int value = arr[front];
-        arr[front] = 0;
         //返回数据
         return value;
     }
@@ -175,7 +174,7 @@ class ArrayQueue {
             throw new RuntimeException("对列为空");
         }
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = front+1; i < arr.length; i++) {
             System.out.printf("arr[%d]=%d\n", i, arr[i]);
         }
 
