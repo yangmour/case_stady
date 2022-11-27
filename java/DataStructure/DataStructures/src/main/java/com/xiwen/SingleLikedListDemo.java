@@ -16,6 +16,8 @@ public class SingleLikedListDemo {
         HeroNode hero4 = new HeroNode(4, "林冲", "豹子头");
 
 
+        System.out.println("不按顺序添加节点的时候!");
+        System.out.println("-----------------------------------------");
         //测试不按顺序添加节点的时候
         SingleLikedList singleLikedList = new SingleLikedList();
         singleLikedList.add(hero1);
@@ -24,6 +26,21 @@ public class SingleLikedListDemo {
         singleLikedList.add(hero4);
 
         singleLikedList.list();
+
+
+        System.out.println("按顺序添加节点的时候!");
+        System.out.println("-----------------------------------------");
+        //测试不按顺序添加节点的时候
+        singleLikedList = new SingleLikedList();
+        singleLikedList.addByOrder(hero4);
+        singleLikedList.addByOrder(hero3);
+        singleLikedList.addByOrder(hero3);
+        singleLikedList.addByOrder(hero1);
+        singleLikedList.addByOrder(hero2);
+
+        singleLikedList.list();
+
+
 
 
     }
@@ -60,6 +77,50 @@ class SingleLikedList {
         //将最后这个节点的next指向添加的新节点
         temp.next = heroNode;
     }
+
+    /**
+     * 第二种方式在添加英雄时，根据排名将英雄插入到指定位置
+     * 如果有这个排名，则添加失败
+     * @param heroNode
+     */
+    public void addByOrder(HeroNode heroNode){
+
+        //因为head节点不能动，因此需要一个临时辅助节点
+        HeroNode temp = head;
+        boolean flag = false;
+
+        //遍历链表
+        while (true) {
+            //找到链表的最后
+            if (temp.next == null) {
+                //不在循环
+                break;
+            }
+
+            //如果下一个节点的比较大就将数据插入到前面
+            if (temp.next.no>heroNode.no){
+                break;
+            }else if (temp.next.no == heroNode.no){ //说明已存在
+                flag = true;
+                break;
+            }
+
+            //如果上面都不符合就将temp后移
+            temp = temp.next;
+        }
+
+        //判断flag，如果为true就是编号已存在
+        if (flag){
+            System.out.printf("准备插入的英雄编号 %d 已经存在了，不能加入\n", heroNode.no);
+        }else {
+            //将heroNode连接到temp的下一个
+            heroNode.next = temp.next;
+            //插入到链表，temp 的后面
+            temp.next = heroNode;
+        }
+
+    }
+
 
     /**
      * 打印所有节点信息
