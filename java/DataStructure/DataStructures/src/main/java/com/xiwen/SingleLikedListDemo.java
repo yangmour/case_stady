@@ -40,7 +40,20 @@ public class SingleLikedListDemo {
 
         singleLikedList.list();
 
+        System.out.println("修改测试!");
+        System.out.println("-----------------------------------------");
+        singleLikedList.update(new HeroNode(2,"阿文","a"));
 
+        singleLikedList.list();
+
+        System.out.println("删除测试!");
+        System.out.println("-----------------------------------------");
+        singleLikedList.del(2);
+        singleLikedList.del(1);
+        singleLikedList.del(5);
+        singleLikedList.del(4);
+
+        singleLikedList.list();
 
 
     }
@@ -121,6 +134,69 @@ class SingleLikedList {
 
     }
 
+    public void update(HeroNode newHeroNode){
+        //判断链表是不是空
+        if (head.next == null) {
+            System.out.println("链表为空！");
+            return;
+        }
+
+        //因为头节点不能动，因此需要一个辅助临时节点
+        HeroNode temp = head.next;
+        //遍历节点
+        while (true) {
+            //判断是否到了链表的最后
+            if (temp == null) {
+                System.out.println("未找到！");
+                break;
+            }
+            //找到就修改
+            if (temp.no == newHeroNode.no){
+                temp.name = newHeroNode.name;
+                temp.nickname = newHeroNode.nickname;
+                System.out.println("节点以修改！");
+                break;
+            }
+
+            temp =temp.next;
+
+        }
+    }
+
+    /**
+     * 按照编号删除
+     * @param delNo
+     */
+    public void del(int delNo){
+        //判断链表是不是空
+        if (head.next == null) {
+            System.out.println("链表为空！");
+            return;
+        }
+
+        //因为头节点不能动，因此需要一个辅助临时节点
+        HeroNode temp = head;
+        boolean flag = false;
+        //遍历节点
+        while (true) {
+            //判断是否到了链表的最后
+            if (temp.next == null) {
+                break;
+            }
+            //找到就删除
+            if (temp.next.no == delNo){
+                flag = true;
+                break;
+            }
+            temp =temp.next;
+        }
+
+        if (flag){
+            temp.next = temp.next.next;
+        }else {
+            System.out.println("未找到！");
+        }
+    }
 
     /**
      * 打印所有节点信息
