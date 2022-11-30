@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * @author yf
- * @data 2022/11/23-10:05
+ * @Create 2022/11/23-10:05
  */
 public class CircleArrayQueueDemo {
     public static void main(String[] args) {

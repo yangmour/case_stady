@@ -4,7 +4,7 @@ package com.xiwen.likedlist;
  * Description:
  *
  * @author: yf
- * @data: 2022/11/29-16:17
+ * @Create: 2022/11/29-16:17
  */
 public class DoubleLikedListDemo {
 

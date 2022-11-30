@@ -6,7 +6,7 @@ import java.util.Stack;
  * Description:
  *
  * @author: yf
- * @data: 2022/11/27-11:52
+ * @Create: 2022/11/27-11:52
  */
 public class SingleLikedListDemo {
     public static void main(String[] args) {
