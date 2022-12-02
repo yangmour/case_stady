@@ -11,7 +11,7 @@ public class Calculator {
     public static void main(String[] args) {
 
         //完成表达式的运算 7*2*2-5+1-5+3-4
-        String expression = "3+2*6-2"; // 15//如何处理多位数的问题?
+        String expression = "300+2*6-2"; // 15//如何处理多位数的问题?
 
         //创建两个栈一个存放数一个存放符号
         ArrayStack2 numStack = new ArrayStack2(10);
@@ -25,6 +25,7 @@ public class Calculator {
         int oper = 0;
         int res = 0;
         char ch = ' ';  //每次扫描的字符
+        String keepNum = ""; //拼接多位数
 
         while (true) {
             // 按顺序得到字符
@@ -55,7 +56,26 @@ public class Calculator {
                 }
 
             } else { //数
-                numStack.push(ch - '0');
+                //单位数计算不考虑多位数的情况
+//                numStack.push(ch - '0');
+
+                //计算多位数
+                keepNum += ch;
+                //判断是不是expression的最后一位,就直接入栈
+                if (index == expression.length()-1){
+                    numStack.push(Integer.parseInt(keepNum));
+                }else {
+                    //判断下一位是不是符号
+                    if (operStack.isOper(expression.substring(index+1,index+2).charAt(0))){
+
+                        //入栈
+                        numStack.push(Integer.parseInt(keepNum));
+                        //清空字符串
+                        keepNum = "";
+                    }
+                }
+
+
             }
 
             index++;
