@@ -24,14 +24,38 @@ public class BinaryTreeDemo {
         node3.setLeft(node5);
 
         binaryTree.setRoot(root);
-        // 前序
-        binaryTree.preOrder();
-        System.out.println("----------------------");
-        // 中序
-        binaryTree.infixOrder();
-        System.out.println("----------------------");
-        // 后序
-        binaryTree.postOrder();
+//        // 前序
+//        binaryTree.preOrder();
+//        System.out.println("----------------------");
+//        // 中序
+//        binaryTree.infixOrder();
+//        System.out.println("----------------------");
+//        // 后序
+//        binaryTree.postOrder();
+
+        // 前序查找
+        HeroNode heroNode = binaryTree.preOrderSearch(3);
+        if (heroNode != null) {
+            System.out.println(heroNode);
+        } else {
+            System.out.println("没有找到节点！");
+        }
+
+        // 中序查找
+        heroNode = binaryTree.infixOrderSearch(2);
+        if (heroNode != null) {
+            System.out.println(heroNode);
+        } else {
+            System.out.println("没有找到节点！");
+        }
+
+        // 后序查找
+        heroNode = binaryTree.postOrderSearch(5);
+        if (heroNode != null) {
+            System.out.println(heroNode);
+        } else {
+            System.out.println("没有找到节点！");
+        }
 
 
     }
@@ -70,6 +94,34 @@ class BinaryTree {
             System.out.println("根节点为空！");
         }
 
+    }
+
+
+    public HeroNode preOrderSearch(int no) {
+        if (root != null) {
+            return root.postOrderSearch(no);
+        } else {
+            System.out.println("根节点为空！");
+            return null;
+        }
+    }
+
+    public HeroNode infixOrderSearch(int no) {
+        if (root != null) {
+            return root.infixOrderSearch(no);
+        } else {
+            System.out.println("根节点为空！");
+            return null;
+        }
+    }
+
+    public HeroNode postOrderSearch(int no) {
+        if (root != null) {
+            return root.postOrderSearch(no);
+        } else {
+            System.out.println("根节点为空！");
+            return null;
+        }
     }
 
 
@@ -182,5 +234,84 @@ class HeroNode {
 
     }
 
+    /**
+     * 前序递归查找
+     *
+     * @param no 查找的编号
+     * @return 找到就返回这个节点没找到就返回null
+     */
+    public HeroNode preOrderSearch(int no) {
+
+        if (this.no == no) {
+            return this;
+        }
+
+        HeroNode res = null;
+        if (this.left != null) {
+            res = this.left.preOrderSearch(no);
+        }
+        if (res != null) {
+            return res;
+        }
+
+        if (this.right != null) {
+            res = this.right.preOrderSearch(no);
+        }
+        return res;
+    }
+
+    /**
+     * 中序递归查找
+     *
+     * @param no 查找的编号
+     * @return 找到就返回这个节点没找到就返回null
+     */
+    public HeroNode infixOrderSearch(int no) {
+
+        HeroNode res = null;
+        if (this.left != null) {
+            res = this.left.preOrderSearch(no);
+        }
+        if (res != null) {
+            return res;
+        }
+
+        if (this.no == no) {
+            return this;
+        }
+
+
+        if (this.right != null) {
+            res = this.right.preOrderSearch(no);
+        }
+        return res;
+    }
+
+    /**
+     * 后序递归查找
+     *
+     * @param no 查找的编号
+     * @return 找到就返回这个节点没找到就返回null
+     */
+    public HeroNode postOrderSearch(int no) {
+
+        HeroNode res = null;
+        if (this.left != null) {
+            res = this.left.preOrderSearch(no);
+        }
+        if (res != null) {
+            return res;
+        }
+
+        if (this.right != null) {
+            res = this.right.preOrderSearch(no);
+        }
+
+        if (this.no == no) {
+            return this;
+        }
+
+        return res;
+    }
 
 }
