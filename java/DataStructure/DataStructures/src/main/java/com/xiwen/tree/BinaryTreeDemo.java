@@ -57,6 +57,15 @@ public class BinaryTreeDemo {
             System.out.println("没有找到节点！");
         }
 
+        // 删除前
+        System.out.println("删除前");
+        binaryTree.preOrder();
+
+        binaryTree.delNode(5);
+
+        System.out.println("删除后");
+        binaryTree.preOrder();
+
 
     }
 }
@@ -122,6 +131,16 @@ class BinaryTree {
             System.out.println("根节点为空！");
             return null;
         }
+    }
+
+    public void delNode(int no) {
+        // 判断root节点是不是no节点如果是就删除，如果不是就递归删除
+        if (root != null && root.getNo() == no) {
+            root = null;
+        } else {
+            root.delNode(no);
+        }
+
     }
 
 
@@ -312,6 +331,36 @@ class HeroNode {
         }
 
         return res;
+    }
+
+
+    /**
+     * 删除节点
+     * 策略制定: 不考虑删除有子节点的情况下将子节点替换父节点
+     * 删除节点思路:
+     * 1.先看左节点是不是当前要删除的节点，如果是要删除的就将节点置为null
+     * 2.如果右节点是不是要删除的节点，如果是要删除的就将节点置为null
+     * 3.上面1、2思路继续向左递归继续执行，如果左节点为空就执行右递归继续执行
+     *
+     * @param no 要删除的节点
+     */
+    public void delNode(int no) {
+
+        if (this.left != null && this.left.no == no) {
+            this.left = null;
+        }
+
+        if (this.right != null && this.right.no == no) {
+            this.right = null;
+        }
+
+        if (this.left != null) {
+            this.left.delNode(no);
+        }
+
+        if (this.right != null) {
+            this.right.delNode(no);
+        }
     }
 
 }
