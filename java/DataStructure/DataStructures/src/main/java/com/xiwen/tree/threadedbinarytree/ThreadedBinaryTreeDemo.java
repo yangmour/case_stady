@@ -28,8 +28,7 @@ public class ThreadedBinaryTreeDemo {
         //测试中序线索化
         ThreadedBinaryTree threadedBinaryTree = new ThreadedBinaryTree();
         threadedBinaryTree.setRoot(root);
-        threadedBinaryTree.threadedNodes();
-
+//        threadedBinaryTree.threadedNodes(); // 中序线索化
         //测试：以10号节点测试
         HeroNode leftNode = node5.getLeft();
         HeroNode rightNode = node5.getRight();
@@ -37,7 +36,18 @@ public class ThreadedBinaryTreeDemo {
         System.out.println("10号结点的后继结点是=" + rightNode);//1
 
         // 测试中序线索化遍历
-        threadedBinaryTree.threadedList();
+//        threadedBinaryTree.threadedList();
+
+        // 前序线索化
+        threadedBinaryTree.proThreadedNodes();
+
+        leftNode = root.getLeft();
+        rightNode = root.getRight();
+
+        System.out.println("根号结点的前驱结点是=" + leftNode);//3
+        System.out.println("根号结点的后继结点是=" + rightNode);//6
+        // 前序线索化遍历
+        threadedBinaryTree.proThreadedList();
 
 
     }
@@ -53,7 +63,7 @@ class ThreadedBinaryTree {
     // 中序线索化遍历
     public void threadedList() {
 
-        if (root == null ) {
+        if (root == null) {
             return;
         }
 
@@ -67,7 +77,7 @@ class ThreadedBinaryTree {
             System.out.println(tempNode);
 
             // 找到后继节点打印
-            while (tempNode.getRightType() == 1){
+            while (tempNode.getRightType() == 1) {
                 tempNode = tempNode.getRight();
                 System.out.println(tempNode);
             }
@@ -78,9 +88,65 @@ class ThreadedBinaryTree {
 
     }
 
-    // 前序线索化
-    public void preThreadedNodes(HeroNode node){
 
+    public void proThreadedList() {
+        if (root == null){
+            System.out.println("二叉树为空");
+            return;
+        }
+
+        HeroNode node = root;
+        while (node != null) {
+
+            // 当前节点
+            System.out.println(node);
+
+            while (node.getLeftType() != 1 ) {
+                node = node.getLeft();
+                System.out.println(node);
+            }
+
+            while (node.getRight() != null ) {
+                node = node.getRight();
+                System.out.println(node);
+            }
+
+            node = node.getRight();
+        }
+
+    }
+
+    public void proThreadedNodes() {
+        proThreadedNodes(root);
+    }
+
+    // 前序线索化
+    public void proThreadedNodes(HeroNode node) {
+        if (node == null) {
+            return;
+        }
+
+        // 设置最左边
+        if (node.getLeft() == null) {
+            node.setLeft(pro);
+            node.setLeftType(1);
+        }
+
+
+        if (pro != null && pro.getRight() == null) {
+            pro.setRight(node);
+            pro.setRightType(1);
+        }
+
+        pro = node;
+
+        if (node.getLeftType() != 1) {
+            proThreadedNodes(node.getLeft());
+        }
+
+        if (node.getRightType() != 1) {
+            proThreadedNodes(node.getRight());
+        }
     }
 
     // 重载中序线索化
@@ -192,8 +258,6 @@ class ThreadedBinaryTree {
         }
 
     }
-
-
 }
 
 
