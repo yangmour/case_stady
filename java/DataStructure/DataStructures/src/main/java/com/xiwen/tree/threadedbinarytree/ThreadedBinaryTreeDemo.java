@@ -36,6 +36,9 @@ public class ThreadedBinaryTreeDemo {
         System.out.println("10号结点的前驱结点是=" + leftNode);//3
         System.out.println("10号结点的后继结点是=" + rightNode);//1
 
+        // 测试中序线索化遍历
+        threadedBinaryTree.threadedList();
+
 
     }
 }
@@ -46,6 +49,39 @@ class ThreadedBinaryTree {
     private HeroNode root;
     private HeroNode pro;
 
+
+    // 中序线索化遍历
+    public void threadedList() {
+
+        if (root == null ) {
+            return;
+        }
+
+        HeroNode tempNode = root;
+        while (tempNode != null) {
+            // 找到前驱就停止
+            while (tempNode.getLeftType() == 0) {
+                tempNode = tempNode.getLeft();
+            }
+            // 打印前驱节点
+            System.out.println(tempNode);
+
+            // 找到后继节点打印
+            while (tempNode.getRightType() == 1){
+                tempNode = tempNode.getRight();
+                System.out.println(tempNode);
+            }
+
+            tempNode = tempNode.getRight();
+
+        }
+
+    }
+
+    // 前序线索化
+    public void preThreadedNodes(HeroNode node){
+
+    }
 
     // 重载中序线索化
     public void threadedNodes() {
