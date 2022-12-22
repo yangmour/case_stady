@@ -25,6 +25,14 @@ public class ThreadedBinaryTreeDemo {
         node2.setRight(node5);
         node3.setLeft(node6);
 
+        // 后序遍历用到
+        node2.setParent(root);
+        node3.setParent(root);
+        node4.setParent(node2);
+        node5.setParent(node2);
+        node6.setParent(node3);
+
+
         //测试中序线索化
         ThreadedBinaryTree threadedBinaryTree = new ThreadedBinaryTree();
         threadedBinaryTree.setRoot(root);
@@ -39,15 +47,23 @@ public class ThreadedBinaryTreeDemo {
 //        threadedBinaryTree.threadedList();
 
         // 前序线索化
-        threadedBinaryTree.proThreadedNodes();
-
+//        threadedBinaryTree.proThreadedNodes();
+//
+//        leftNode = root.getLeft();
+//        rightNode = root.getRight();
+//
+//        System.out.println("根号结点的前驱结点是=" + leftNode);//3
+//        System.out.println("根号结点的后继结点是=" + rightNode);//6
+//        // 前序线索化遍历
+//        threadedBinaryTree.proThreadedList();
+        // 后序线索化遍历
+        threadedBinaryTree.postThreadedNodes();
         leftNode = root.getLeft();
         rightNode = root.getRight();
 
         System.out.println("根号结点的前驱结点是=" + leftNode);//3
         System.out.println("根号结点的后继结点是=" + rightNode);//6
-        // 前序线索化遍历
-        threadedBinaryTree.proThreadedList();
+        threadedBinaryTree.postThreadedList();
 
 
     }
@@ -90,7 +106,7 @@ class ThreadedBinaryTree {
 
 
     public void proThreadedList() {
-        if (root == null){
+        if (root == null) {
             System.out.println("二叉树为空");
             return;
         }
@@ -101,18 +117,82 @@ class ThreadedBinaryTree {
             // 当前节点
             System.out.println(node);
 
-            while (node.getLeftType() != 1 ) {
+            while (node.getLeftType() != 1) {
                 node = node.getLeft();
                 System.out.println(node);
             }
 
-            while (node.getRight() != null ) {
+            while (node.getRight() != null) {
                 node = node.getRight();
                 System.out.println(node);
             }
 
             node = node.getRight();
         }
+
+    }
+
+    public void postThreadedList() {
+        if (root == null) {
+            System.out.println("二叉树为空");
+            return;
+        }
+
+        HeroNode tempNode = root;
+        while (tempNode != null) {
+
+            // 左
+            while (tempNode.getLeftType() == 0) {
+                tempNode = tempNode.getLeft();
+            }
+            System.out.println(tempNode);
+
+            // 右
+            while (tempNode.getRightType() == 1) {
+                tempNode = tempNode.getRight();
+                System.out.println(tempNode);
+            }
+
+
+            // 如果getParent为空就是根节点了
+            if (tempNode.getParent() == null) {
+                break;
+            }
+
+            // 如果不为空就是赋值
+            tempNode = tempNode.getParent().getRight();
+
+
+
+        }
+
+    }
+
+    public void postThreadedNodes() {
+        postThreadedNodes(root);
+    }
+
+    public void postThreadedNodes(HeroNode node) {
+
+        if (node == null) {
+            return;
+        }
+
+        postThreadedNodes(node.getLeft());
+
+        postThreadedNodes(node.getRight());
+
+        if (node.getLeft() == null) {
+            node.setLeft(pro);
+            node.setLeftType(1);
+        }
+
+        if (pro != null && pro.getRight() == null) {
+            pro.setRight(node);
+            pro.setRightType(1);
+        }
+
+        pro = node;
 
     }
 
@@ -271,6 +351,9 @@ class HeroNode {
     // 右节点
     private HeroNode right;
 
+    //后序线索化遍历用到
+    private HeroNode parent;
+
     // leftType 等于 0 时 前序节点是左子树 等于 1 时是前驱节点
     private int leftType;
     // rightType 等于 0 时 前序节点是右子树 等于 1 时是后继节点
@@ -279,6 +362,14 @@ class HeroNode {
     public HeroNode(int no, String name) {
         this.no = no;
         this.name = name;
+    }
+
+    public HeroNode getParent() {
+        return parent;
+    }
+
+    public void setParent(HeroNode parent) {
+        this.parent = parent;
     }
 
     public int getLeftType() {
