@@ -19,7 +19,7 @@ public class HaffmanCode {
         Node huffmanTreeRoot = createHuffmanTree(nodes);
 
         huffmanTreeRoot.preOrder();
-        getCodes(huffmanTreeRoot,"",new StringBuilder());
+        getCodes(huffmanTreeRoot);
         System.out.println(huffmanCode);
 
     }
@@ -77,6 +77,19 @@ public class HaffmanCode {
     }
 
     static Map<Byte, String> huffmanCode = new HashMap<>();
+    static StringBuilder stringBuilder = new StringBuilder();
+
+    private static Map<Byte, String> getCodes(Node root) {
+        if (root == null) {
+            return null;
+        }
+        getCodes(root.left, "0", new StringBuilder());
+
+        getCodes(root.right, "1", new StringBuilder());
+
+        return huffmanCode;
+
+    }
 
     /**
      * 获取赫夫曼编码
@@ -104,7 +117,7 @@ public class HaffmanCode {
     }
 }
 
-class Node implements Comparable<Node>{
+class Node implements Comparable<Node> {
     //存放数据
     Byte data;
     //权值表示字符出现的次数
