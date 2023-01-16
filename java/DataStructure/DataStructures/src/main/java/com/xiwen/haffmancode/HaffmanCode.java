@@ -14,14 +14,83 @@ public class HaffmanCode {
         String content = "i like like like java do you like a java";
         byte[] bytes = content.getBytes();
 
+        // 封装的方法实验
+        byte[] zipRes = huffmanZip(bytes);
+        System.out.println("压缩数据显示" + Arrays.toString(zipRes));
+
+        /**
+         * 分解步骤的实验
+         */
+//
+//        List<Node> nodes = getNodes(bytes);
+//
+//        Node huffmanTreeRoot = createHuffmanTree(nodes);
+//
+//        huffmanTreeRoot.preOrder();
+//        Map<Byte, String> huffmanCodes = getCodes(huffmanTreeRoot);
+//        System.out.println("霍夫曼编码" + huffmanCodes);
+//
+//        byte[] huffmanCodeZipBytes = zip(bytes, huffmanCodes);
+//        System.out.println(Arrays.toString(huffmanCodeZipBytes));
+
+
+    }
+
+    /**
+     * 赫夫曼编码压缩封装
+     * @param bytes 元字符
+     * @return 返回压缩的字符数组
+     */
+    private static byte[] huffmanZip(byte[] bytes) {
+
         List<Node> nodes = getNodes(bytes);
-
         Node huffmanTreeRoot = createHuffmanTree(nodes);
+        Map<Byte, String> codes = getCodes(huffmanTreeRoot);
+        byte[] zipRes = zip(bytes, codes);
+        return zipRes;
+    }
 
-        huffmanTreeRoot.preOrder();
-        getCodes(huffmanTreeRoot);
-        System.out.println(huffmanCode);
 
+    /**
+     * 赫夫曼树的字符压缩
+     *
+     * @param bytes        原始字符
+     * @param huffmanCodes 原始字符的编码
+     * @return 返回的是压缩字符数组
+     */
+    private static byte[] zip(byte[] bytes, Map<Byte, String> huffmanCodes) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (byte b : bytes) {
+            stringBuilder.append(huffmanCodes.get(b));
+        }
+//        System.out.println("编码数据:" + stringBuilder);
+
+        //进行压缩
+        int len;
+        // 或者直接写成 (stringBuilder.length + 7)/8
+        if (stringBuilder.length() % 8 == 0) {
+            len = stringBuilder.length() / 8;
+        } else {
+            len = stringBuilder.length() / 8 + 1;
+        }
+        // 存放压缩的数据
+        int index = 0;
+        byte[] zipRes = new byte[len];
+
+        for (int i = 0; i < stringBuilder.length(); i += 8) {
+            // 防止越界
+            String stringByte;
+            if (i + 8 > stringBuilder.length()) {
+                stringByte = stringBuilder.substring(i);
+
+            } else {
+                stringByte = stringBuilder.substring(i, i + 8);
+            }
+            zipRes[index++] = (byte) Integer.parseInt(stringByte,2);
+        }
+
+        return zipRes;
     }
 
     /**
