@@ -18,6 +18,9 @@ public class HaffmanCode {
         byte[] zipRes = huffmanZip(bytes);
         System.out.println("压缩数据显示" + Arrays.toString(zipRes));
 
+        byte[] decode = decode(huffmanCode, zipRes);
+        System.out.println("解码后的字符" + new String(decode));
+
         /**
          * 分解步骤的实验
          */
@@ -37,7 +40,79 @@ public class HaffmanCode {
     }
 
     /**
+     * 解码
+     *
+     * @param huffmanCodes 赫夫曼编码表
+     * @param huffmanBytes 赫夫曼编码的得到的字节数组
+     * @return 返回原来正确的字符串数组
+     */
+    private static byte[] decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes) {
+        // 将每为二进制数添加到builder中
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < huffmanBytes.length; i++) {
+            byte b = huffmanBytes[i];
+            // 最后一位的编码有可能不是八位
+            boolean flag = (i == huffmanBytes.length - 1);
+            stringBuilder.append(byteToBitString(!flag, b));
+        }
+
+        // 将编码进行解码操作
+        Map<String, Byte> map = new HashMap<>();
+        for (Map.Entry<Byte, String> entry : huffmanCodes.entrySet()) {
+            map.put(entry.getValue(), entry.getKey());
+        }
+
+        // 创建一个集合存放byte
+        List<Byte> list = new ArrayList<>();
+
+        //扫描stringBuilder
+        for (int i = 0; i < stringBuilder.length(); ) {
+            int count = 1;
+            boolean flag = true;
+            Byte b = null;
+
+            while (flag) {
+                String key = stringBuilder.substring(i, i + count);
+                b = map.get(key);
+
+                if (b == null){
+                    count++;
+                }else {
+                    i +=count;
+                    flag = false;
+                    list.add(b);
+                }
+            }
+
+        }
+        byte[] bytes = new byte[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            bytes[i] = list.get(i);
+        }
+        return bytes;
+
+    }
+
+    // 将压缩的字符转换为byte编码字符串
+    private static String byteToBitString(boolean flag, byte b) {
+        int temp = b;
+        if (flag) {
+            temp |= 256; // 取模，当是正数的时候需要填充几位进行取模
+        }
+
+        String str = Integer.toBinaryString(temp);
+        if (flag) {
+            return str.substring(str.length() - 8);
+        } else {
+            return str;
+        }
+
+
+    }
+
+    /**
      * 赫夫曼编码压缩封装
+     *
      * @param bytes 元字符
      * @return 返回压缩的字符数组
      */
@@ -87,7 +162,7 @@ public class HaffmanCode {
             } else {
                 stringByte = stringBuilder.substring(i, i + 8);
             }
-            zipRes[index++] = (byte) Integer.parseInt(stringByte,2);
+            zipRes[index++] = (byte) Integer.parseInt(stringByte, 2);
         }
 
         return zipRes;
