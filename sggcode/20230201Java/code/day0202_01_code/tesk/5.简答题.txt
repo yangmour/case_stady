@@ -1,0 +1,5 @@
+5.简答题
+（1）Java的基本数据类型有哪些？String是基本数据类型吗？
+byte short int long float double boolean char ，string不是基本数据类型是引用类型
+（2）char型变量中是否可以存储一个汉字？
+可以存储一个汉字，char类型占用两个字节字节编码最大范围是65535
