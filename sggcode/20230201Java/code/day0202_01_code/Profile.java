@@ -25,5 +25,24 @@ public class Profile{
 		System.out.print("是否是本专业:");
 		System.out.println(true);
 		
+		// 变量方式保存输出
+		System.out.println("--------变量方式输出----------");
+		String name = "希文";
+		char sex = '男';
+		int age = 24;
+		float height = 183.2f;
+		Double weight = 129.1;
+		boolean isMajor = true;
+		System.out.println("姓名:" + name);
+		System.out.print("性别:");
+		System.out.println(sex);
+		System.out.println(age);
+		System.out.print("身高:");
+		System.out.println(height);
+		System.out.print("体重:");
+		System.out.println(weight);
+		System.out.print("是否是本专业:");
+		System.out.println(isMajor);
+		
 	}
 }
