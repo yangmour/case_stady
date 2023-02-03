@@ -65,8 +65,73 @@ public class Exercise3{
 		System.out.println("------------");
 		i = 0;
 		        //1 / 0
-		int result = ++i/--i;
+		//int result = ++i/--i;
 		// System.out.println("result="+result); //算数异常
+		
+		// 第八题
+		// 8.1
+		int x = 1,y = 1;
+		System.out.println(x++ == 2 & ++y == 2); //f
+		System.out.println("x = " + x + ",y = " + y); // x = 2 y=2
+		
+		// 8.2
+		x = 1;y = 1;
+		System.out.println(x++ == 2 && ++y == 2); //f
+		System.out.println("x = " + x + ",y = " + y); //x = 2 y =1
+		
+		//第九题 
+		//9.1
+		x = 1;y = 1;
+        System.out.println(x++ == 1 | ++y == 1); //t
+        System.out.println("x=" + x + ",y = " + y); //x=2 y=2
+		//9.2
+		x = 1;y = 1;
+		System.out.println(x++ == 1 || ++y == 1); //t
+		System.out.println("x = " + x + ",y = " + y); //x=2 y=1
+		
+		/**
+		10、编写条件表达式
+		int a = 85;
+		int b = 45
+		（1）编写并输出判断整数a是否是奇数的条件
+		（2）编写并输出a>b并且a的个位数是3的倍数的条件
+		（3）编写并输出判断a是否在[0,100]范围内的条件
+		（4）编写并输出判断a和b是一正一负的条件
+		*/
+		System.out.println(a % 2 != 0);
+		System.out.println(!(a % 2 == 0));
+		
+		System.out.println(a>b && a%10%3 == 0);
+		
+		System.out.println(a>=0 && a <= 100);
+		
+		System.out.println(a<0 ^ a < 0);
+		
+		// 11.判断如下程序的运行结果
+		//11.1
+		boolean flag = false;
+		System.out.println(flag == true ? "成立" : "不成立"); // 不成立
+		
+		//11.2
+		flag = false;
+		System.out.println((flag = true) ? "成立" : "不成立"); // 成立
+		
+		// 11.3
+		flag = false;
+		System.out.println(flag ? "成立" : "不成立"); // 不成立
+		
+		//11.4
+		 flag = false;
+    System.out.println(!flag ? "成立" : "不成立"); // 成立
+		
+		// 12求三个整数的最大值
+		a = 3;
+		b = 2;
+		int c = 1;
+		
+		int max = a > b ? a : b;
+		max = max > c ? max : c;
+		System.out.println("max = " + max);
 		
 		
 		
