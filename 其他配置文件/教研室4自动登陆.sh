@@ -1,3 +1,3 @@
-@echo off
+echo off
 echo connect ... 
 rasdial "宽带连接" JYS4 jiaoyanshi4 || PAUSE
