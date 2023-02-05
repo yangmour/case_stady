@@ -1,4 +1,4 @@
-package com.case01;
+package com.case01.test;
 
 import java.util.Scanner;
 
