@@ -21,6 +21,7 @@ public class Exercise6 {
         System.out.print("请输入第三个整数");
         int num3 = scanner.nextInt();
 
+        // 第一种
         if (num1 <= num2 && num2 <= num3) {
             System.out.println(num1 + "<=" + num2 + "<=" + num3);
         } else if (num1 <= num3 && num3 <= num2) {
@@ -34,6 +35,29 @@ public class Exercise6 {
         } else {
             System.out.println(num3 + "<=" + num2 + "<=" + num1);
         }
+
+        System.out.println("------------------");
+        //第二种
+        int temp;
+        if (num1 > num2) {
+            temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
+
+        if (num1 > num3) {
+            temp = num1;
+            num1 = num3;
+            num3 = temp;
+        }
+
+        if (num2 > num3) {
+            temp = num2;
+            num2 = num3;
+            num3 = temp;
+        }
+        System.out.println(num1 + "<=" + num2 + "<=" + num3);
+
 
     }
 }
