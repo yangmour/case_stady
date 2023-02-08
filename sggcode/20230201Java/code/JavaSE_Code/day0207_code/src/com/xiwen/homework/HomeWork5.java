@@ -29,20 +29,35 @@ public class HomeWork5 {
         boolean flag = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
         System.out.println(flag);
 
-        if (flag) {
+
+        Scanner scanner = new Scanner(System.in);
+        //验证年
+        do {
+            System.out.print("请输入年份值:");
+            year = scanner.nextInt();
+        } while (1990 > year);
+
+        // 当year等于1990 或者 大于1990年时
+        if (year == 1990) {
+            days = 0;
+        } else if (flag) {
             days = leapYearDays[0];
         } else {
             days = commonYearDays[0];
         }
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("请输入年份值:");
-        year = scanner.nextInt();
-        boolean r;
-        boolean p;
+        //验证月
         do {
             System.out.print("请输入月份值:");
             month = scanner.nextInt();
+        } while (month <= 0 || month > 12);
+
+        boolean r;
+        boolean p;
+        boolean b;
+        // 验证日期
+        do {
+
             System.out.print("请输入日期:");
             day = scanner.nextInt();
 
@@ -50,7 +65,8 @@ public class HomeWork5 {
             flag = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
             r = month == 2 && flag && day > 29;
             p = month == 2 && !flag && day > 28;
-        } while (month < 0 || month > 12 || day < 1 || r || p);
+            b = (2 == month || 4 == month || 6 == month || 9 == month || 11 == month) && day > 30 || (1 == month || 3 == month || 5 == month || 7 == month || 8 == month || 10 == month || 12 == month) && day > 31;
+        } while (b || day < 1 || r || p);
 
         // 平年闰年都用arr
         int[] arr;
@@ -60,10 +76,12 @@ public class HomeWork5 {
             arr = commonYearDays;
         }
 
+        //累加月份
         for (int i = 1; i < month; i++) {
             days += arr[i];
         }
 
+        // 判断打鱼还是筛网
         System.out.println(days);
         int dayFlag = days % 5;
         if (dayFlag == 4 || dayFlag == 0) {
