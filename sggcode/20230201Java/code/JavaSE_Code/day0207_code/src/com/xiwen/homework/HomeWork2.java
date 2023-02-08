@@ -40,7 +40,7 @@ public class HomeWork2 {
 
         for (String str : pu) {
             System.out.print(str);
-            if (str.contains("K")) {
+            if (("" + str).contains("K")) {
                 System.out.println();
             }
         }
