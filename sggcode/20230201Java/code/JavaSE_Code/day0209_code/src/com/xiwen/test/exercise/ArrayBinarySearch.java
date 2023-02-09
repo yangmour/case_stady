@@ -20,7 +20,7 @@ public class ArrayBinarySearch {
         int right = arr.length - 1;
 
         int flag = -1;
-        while (left <= right) {
+        while (left <= right || target < arr[0] || target > arr[arr.length - 1]) {
             // 普通的
             int mid = (left + right) / 2;
             // 升级一点
