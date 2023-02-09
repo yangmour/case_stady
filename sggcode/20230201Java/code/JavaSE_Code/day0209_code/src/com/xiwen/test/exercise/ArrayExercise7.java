@@ -26,24 +26,19 @@ public class ArrayExercise7 {
 
         int max = 0;
         int min = 0;
-        for (int i = 1; i < scores.length; i++) {
+        int sum = 0;
+        for (int i = 0; i < scores.length; i++) {
             if (scores[i] > scores[max]) {
                 max = i;
             }
 
             min = scores[i] < scores[min] ? i : min;
-
+            sum += scores[i];
         }
 
-        int sum = 0;
-        for (int i = 0; i < scores.length; i++) {
-
-            if (i != max && i != min) {
-                sum += scores[i];
-            }
-        }
-
-        System.out.println("平均分为:" + (double) sum / (scores.length - 2));
+        System.out.println("max = " + scores[max]);
+        System.out.println("min = " + scores[min]);
+        System.out.println("平均分为:" + (double) (sum - scores[max] - scores[min]) / (scores.length - 2));
 
     }
 }
