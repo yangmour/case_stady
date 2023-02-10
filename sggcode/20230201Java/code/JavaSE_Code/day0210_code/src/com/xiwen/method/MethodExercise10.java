@@ -54,12 +54,12 @@ public class MethodExercise10 {
     }
 
     private static int compare(double a, double b) {
-        if (Double.doubleToLongBits(a) == Double.doubleToLongBits(b)) {
-            return 0;
-        } else if (a < b) {
+        if (a < b) {
             return -1;
-        } else {
+        } else if (a > b) {
             return 1;
+        } else {
+            return 0;
         }
     }
 
