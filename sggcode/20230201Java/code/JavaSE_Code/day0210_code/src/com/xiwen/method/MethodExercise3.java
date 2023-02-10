@@ -23,6 +23,7 @@ public class MethodExercise3 {
 
         int[] arr = {1, 3, 4, 5, 10, 2, 6};
         arr = new int[]{7, 6, 5, 4, 3, 2, 1, 0};
+//        Arrays.sort(arr);
         System.out.println(isSmallToBig(arr) ? "是从小到大排序" : "不是从小到大排序");
         System.out.println(isBigToSmall(arr) ? "是从大到小排序" : "不是从大到小排序");
         int target = 2;
@@ -78,7 +79,7 @@ public class MethodExercise3 {
             int mid = left + (right - left) / 2;
             if (arr[mid] == target) {
                 return mid;
-            } else if (arr[mid] > target) {
+            } else if (arr[mid] < target) {
                 left = mid + 1;
             } else {
                 right = mid - 1;
