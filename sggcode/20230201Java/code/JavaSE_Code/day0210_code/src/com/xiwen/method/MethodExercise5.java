@@ -20,7 +20,7 @@ public class MethodExercise5 {
         int min = min(nums);
 
         int maxApproximate = maxApproximate(nums);
-        maxApproximate = maxApproximate(1, 3, 4, 5, 10, 2, 6);
+//        maxApproximate = maxApproximate(1, 3, 4, 5, 10, 2, 6);
         System.out.println(min);
         System.out.println(maxApproximate);
 
@@ -31,7 +31,7 @@ public class MethodExercise5 {
 
         int min = min(nums);
         int divisor = -1;
-        for (int i = 1; i <= min; i++) {
+        for (int i = min; i > 0 ; i--) {
             boolean flag = true;
             for (int j = 0; j < nums.length; j++) {
                 if (nums[j] % i != 0) {
@@ -41,6 +41,7 @@ public class MethodExercise5 {
             }
             if (flag) {
                 divisor = i;
+                break;
             }
         }
 
