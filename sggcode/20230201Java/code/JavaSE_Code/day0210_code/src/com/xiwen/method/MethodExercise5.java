@@ -16,21 +16,22 @@ public class MethodExercise5 {
          * （2）在测试类的main方法中调用测试
          */
         int[] nums = {1, 3, 4, 5, 10, 2, 6};
-        nums = new int[]{18, 24};
+        nums = new int[]{6, 12};
         int min = min(nums);
 
         int maxApproximate = maxApproximate(nums);
+        maxApproximate = maxApproximate(1, 3, 4, 5, 10, 2, 6);
         System.out.println(min);
         System.out.println(maxApproximate);
 
 
     }
 
-    private static int maxApproximate(int[] nums) {
+    private static int maxApproximate(int... nums) {
 
         int min = min(nums);
         int divisor = -1;
-        for (int i = 1; i < min; i++) {
+        for (int i = 1; i <= min; i++) {
             boolean flag = true;
             for (int j = 0; j < nums.length; j++) {
                 if (nums[j] % i != 0) {
