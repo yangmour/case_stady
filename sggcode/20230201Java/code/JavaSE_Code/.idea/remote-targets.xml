@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="centos7:root@192.168.232.101:22" type="ssh/sftp" uuid="0beb364b-30e2-40f2-aa44-30d372ef1353">
+        <config>
+          <option name="projectRootOnTarget" value="/root/products/JavaSE_Code" />
+          <option name="serverName" value="root@192.168.232.101:22 password" />
+        </config>
+        <ContributedStateBase type="JavaLanguageRuntime">
+          <config>
+            <option name="homePath" value="/opt/module/jdk1.8.0_361" />
+            <option name="javaVersionString" value="1.8.0_361" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>
