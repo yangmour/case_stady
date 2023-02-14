@@ -46,7 +46,7 @@ public class SalaryEmployee extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + ",实发工资:" + salary +
+        return super.toString() +
                 ", 生日:" + birthday;
     }
 }

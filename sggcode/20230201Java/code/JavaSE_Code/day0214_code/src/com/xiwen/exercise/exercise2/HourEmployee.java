@@ -30,7 +30,7 @@ public class HourEmployee extends Employee {
 
     @Override
     public String toString() {
-        return super.toString() + ",实发工资:" + earning() +
+        return super.toString() +
                 ",工作时间:" + hour +
                 ", 时薪:" + moneyPerHour;
     }
