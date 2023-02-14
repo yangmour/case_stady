@@ -12,6 +12,11 @@ public class Person {
     private int age;
     private String gender;
 
+    @Override
+    public String toString() {
+        return "姓名:'" + name  + ", 年龄:" + age + ", 性别:" + gender;
+    }
+
     public Person() {
     }
 
@@ -19,11 +24,6 @@ public class Person {
         this.name = name;
         this.age = age;
         this.gender = gender;
-    }
-
-    @Override
-    public String toString() {
-        return "姓名:'" + name  + ", 年龄:" + age + ", 性别:" + gender;
     }
 
     public String getName() {

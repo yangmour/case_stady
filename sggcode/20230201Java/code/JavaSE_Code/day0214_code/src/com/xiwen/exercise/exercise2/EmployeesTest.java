@@ -20,9 +20,12 @@ public class EmployeesTest {
 
         e[4] = new Manager("小明", 8000, new MyDate(1990, 2, 4), 1.2);
 
+        double totalMoney = 0;
         for (int i = 0; i < e.length; i++) {
             System.out.println(e[i]);
+            totalMoney += e[i].earning();
         }
+        System.out.println("总工资为:" + totalMoney);
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("请输入当前月份:");
