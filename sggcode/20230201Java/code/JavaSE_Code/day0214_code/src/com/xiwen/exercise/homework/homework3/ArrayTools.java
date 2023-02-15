@@ -29,9 +29,23 @@ public class ArrayTools {
                 left = mid + 1;
             }
         }
-        return -1;
+        return -left;
     }
 
+    public static int[] binarySearchInsert2(int[] arr, int value) {
+
+        int index = binarySearch(arr, value);
+        if (index<0){
+            index=-index;
+        }
+        int[] newArr = copyOf(arr, arr.length + 1);
+
+        newArr[index] = value;
+        for (int i = index + 1; i < newArr.length; i++) {
+            newArr[i] = arr[index++];
+        }
+        return newArr;
+    }
 
     public static int[] binarySearchInsert(int[] arr, int value) {
 

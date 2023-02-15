@@ -32,9 +32,11 @@ public class ArrayToolsTest {
 
 
         int index = ArrayTools.binarySearch(arr, v);
-        if (i == -1) {
+        if (i == -2) {
+            System.out.println("数组无序");
+        } else if (i < 0) {
             System.out.println("不存在");
-            System.out.println(ArrayTools.toString(ArrayTools.binarySearchInsert(arr, v)));
+            System.out.println(ArrayTools.toString(ArrayTools.binarySearchInsert2(arr, v)));
         } else {
             System.out.println("下标为:" + index);
         }
