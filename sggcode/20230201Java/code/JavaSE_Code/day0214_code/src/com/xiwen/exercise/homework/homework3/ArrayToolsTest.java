@@ -26,5 +26,9 @@ public class ArrayToolsTest {
         int i = ArrayTools.binarySearch(arr, v);
         System.out.println((i == -1 ? "不存在" : i));
 
+        System.out.println(ArrayTools.toString(ArrayTools.copyOf(arr, 5)));
+        System.out.println(ArrayTools.toString(ArrayTools.copyOf(arr, 10)));
+        System.out.println(ArrayTools.toString(ArrayTools.copyOf(arr, 15)));
+
     }
 }

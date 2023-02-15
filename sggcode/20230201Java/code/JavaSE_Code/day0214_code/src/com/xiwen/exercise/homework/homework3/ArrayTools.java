@@ -34,7 +34,7 @@ public class ArrayTools {
 
     public static int[] copyOf(int[] arr, int newLength) {
         int[] result = new int[newLength];
-        for (int i = 0; i < newLength; i++) {
+        for (int i = 0; i < newLength && i < arr.length; i++) {
             result[i] = arr[i];
         }
         return result;
@@ -62,7 +62,7 @@ public class ArrayTools {
         String result = "{";
 
         for (int i = 0; i < arr.length; i++) {
-            result += arr[i] + (i < arr.length-1 ? "," : "");
+            result += arr[i] + (i < arr.length - 1 ? "," : "");
         }
         return result + "}";
     }
