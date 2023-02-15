@@ -30,5 +30,13 @@ public class ArrayToolsTest {
         System.out.println(ArrayTools.toString(ArrayTools.copyOf(arr, 10)));
         System.out.println(ArrayTools.toString(ArrayTools.copyOf(arr, 15)));
 
+
+        int index = ArrayTools.binarySearch(arr, v);
+        if (i == -1) {
+            System.out.println("不存在");
+            System.out.println(ArrayTools.toString(ArrayTools.binarySearchInsert(arr, v)));
+        } else {
+            System.out.println("下标为:" + index);
+        }
     }
 }
