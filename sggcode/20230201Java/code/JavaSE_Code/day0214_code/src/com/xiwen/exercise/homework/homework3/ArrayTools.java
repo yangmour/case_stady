@@ -10,11 +10,7 @@ package com.xiwen.exercise.homework.homework3;
 public class ArrayTools {
     public static int binarySearch(int[] arr, int value) {
 
-        for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                return -2;
-            }
-        }
+        sort(arr);
 
         int left = 0;
         int right = arr.length - 1;
@@ -35,8 +31,8 @@ public class ArrayTools {
     public static int[] binarySearchInsert2(int[] arr, int value) {
 
         int index = binarySearch(arr, value);
-        if (index<0){
-            index=-index;
+        if (index < 0) {
+            index = -index;
         }
         int[] newArr = copyOf(arr, arr.length + 1);
 
