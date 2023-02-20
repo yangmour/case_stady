@@ -1,5 +1,7 @@
 package com.xiwen.test;
 
+import java.time.LocalDate;
+
 /**
  * Description:
  *
@@ -9,6 +11,8 @@ package com.xiwen.test;
  */
 public class Test2 {
     public static void main(String[] args) {
+        LocalDate now = LocalDate.now();
+        now.isLeapYear();
         Father2 f = new Father2();
         Son s = new Son();
         System.out.println(f.getInfo());//atguigu
