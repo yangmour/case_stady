@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.TreeSet;
 
 /**
  * Description:
@@ -53,6 +54,13 @@ public class SetTest {
 
         boolean abc = linkedHashSet.contains("abc");
 
+        TreeSet<String> treeSet = new TreeSet<>();
+        treeSet.add("abc");
+        treeSet.add("def");
+        treeSet.add("aaa");
+        treeSet.add("456");
+        treeSet.add("789");
+        System.out.println(treeSet);
     }
 
 }
