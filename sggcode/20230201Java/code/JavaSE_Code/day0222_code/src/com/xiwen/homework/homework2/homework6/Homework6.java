@@ -1,5 +1,7 @@
 package com.xiwen.homework.homework2.homework6;
 
+import java.io.IOException;
+
 /**
  * Description:
  *
@@ -8,7 +10,7 @@ package com.xiwen.homework.homework2.homework6;
  * @Version: 1.0
  */
 public class Homework6 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         MyArrayList<Integer> list = new MyArrayList<>();
         for (int i = 1; i <= 10; i++) {
             list.add(i);
