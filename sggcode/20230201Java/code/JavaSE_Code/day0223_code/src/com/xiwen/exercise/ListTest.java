@@ -2,8 +2,7 @@ package com.xiwen.exercise;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Description:
@@ -16,7 +15,6 @@ public class ListTest {
     @Test
     public void test() {
         ArrayList<String> list = new ArrayList<>();
-
         list.add("123");
         list.add("456");
         list.add("789");
@@ -66,6 +64,22 @@ public class ListTest {
 //        System.out.println(list);
 
 
+    }
 
+    @Test
+    public void test2() {
+
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add("123");
+        list.add("456");
+        list.add("789");
+        list.add("abc");
+        list.add("def");
+        list.add("aaa");
+        System.out.println(list);
+
+        List<String> strings = list.subList(1, 4);
+        System.out.println(strings);
     }
 }
