@@ -68,9 +68,7 @@ public class ListTest {
 
     @Test
     public void test2() {
-
         ArrayList<String> list = new ArrayList<>();
-
         list.add("123");
         list.add("456");
         list.add("789");
@@ -80,6 +78,8 @@ public class ListTest {
         System.out.println(list);
 
         List<String> strings = list.subList(1, 4);
+        list.set(2, "aaaa");
         System.out.println(strings);
+        System.out.println(list);
     }
 }
