@@ -96,7 +96,7 @@ public class Runner extends Thread {
                     System.out.println(name + "已经跑了" + sum + "米" + ",休息" + restTime + "秒");
                 }
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                System.out.println(name + "跑步中断了！");
             }
         }
 

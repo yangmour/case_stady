@@ -25,7 +25,34 @@ public class Runner extends com.xiwen.homework.homework1.homework3.Runner {
 
     @Override
     public void run() {
-        super.run();
+        long start = System.currentTimeMillis();
+        while (getSum() < getDistance() && runFlag) {
+            try {
+                Thread.sleep(getRunTime());
+                setSum(getSum() + 1);
+                System.out.println(getName2() + "已经跑了" + getSum() + "米");
+                if (getSum() % 10 == 0 && getSum() < getDistance()) {
+                    Thread.sleep(getRestTime());
+                    System.out.println(getName2() + "已经跑了" + getSum() + "米" + ",休息" + getRestTime() + "秒");
+                }
+            } catch (InterruptedException e) {
+                System.out.println(getName2() + "跑步中断了！");
+                setFinished(false);
+            }
+        }
+
+        long end = System.currentTimeMillis();
+        setTime(end - start);
+
+        if (getSum() == 30) {
+            setFinished(true);
+        }
+        if (isFinished()) {
+            System.out.println(getName2() + "跑了" + getSum() + "米，已到达终点，共用时" + (double) getTime() / 1000 + "秒");
+
+        } else {
+            System.out.println(getName2() + "跑了" + getSum() + "米,没有到达终点！");
+        }
         runFlag = false;
     }
 }

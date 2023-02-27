@@ -20,12 +20,12 @@ public class Homework4 {
 
         while (true) {
             //判断只要有一线程死了就判断
-            if (!r1.isAlive() && !r2.isAlive()) {
+            if (!r1.isAlive() || !r2.isAlive()) {
                 // 判断是否跑完了
                 if (!Runner.isRunFlag()) {
                     System.out.println("比赛结束！");
-
-
+                    r1.interrupt();
+                    r2.interrupt();
                     if (r1.isFinished() && r2.isFinished()) {
                         if (r1.getTime() < r2.getTime()) {
                             System.out.println("兔子赢了");
@@ -34,9 +34,12 @@ public class Homework4 {
                         } else {
                             System.out.println("平局");
                         }
+                    } else if (r2.isFinished()) {
+                        System.out.println("乌龟赢了");
+                    } else {
+                        System.out.println("兔子赢了");
+
                     }
-                    r1.interrupt();
-                    r2.interrupt();
 
                 } else {
                     System.out.println("乌龟和兔子都没有到达终点");
