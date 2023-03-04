@@ -7,7 +7,7 @@ package com.xiwen.test;
  * @Create: 2023/3/3-15:26
  * @Version: 1.0
  */
-public class Test {
+public class Test1 {
     static int x, y, z;
 
     public static void main(String[] args) {
