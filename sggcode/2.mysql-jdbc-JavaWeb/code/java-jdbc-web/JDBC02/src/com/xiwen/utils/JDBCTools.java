@@ -1,4 +1,4 @@
-package com.xiwen.jdbc;
+package com.xiwen.utils;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
