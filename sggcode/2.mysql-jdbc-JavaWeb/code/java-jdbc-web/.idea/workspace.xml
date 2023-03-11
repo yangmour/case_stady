@@ -5,11 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/JDBC02/src/com/xiwen/utils/BaseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/JDBC02/src/com/xiwen/utils/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/1.基本标签_demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/2.图片标签-块标签-实体-html.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/2.表单/form-demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/3.样式css/demo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/3.样式css/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day01_html/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JDBC02/src/com/xiwen/dbutils/DBUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/JDBC02/src/com/xiwen/dbutils/DBUtilsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JDBC02/src/com/xiwen/jdbc/JDBCTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/JDBC02/src/com/xiwen/utils/JDBCTools.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="package.json" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -51,15 +63,17 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/JDBC02/lib",
+    "last_opened_file_path": "C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day01_html/1.基本html/imgs",
     "settings.editor.selected.configurable": "editing.templates"
   },
   "keyToStringList": {
@@ -70,6 +84,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day01_html\1.基本html\imgs" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02\lib" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02\src" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02" />
@@ -187,7 +202,8 @@
       <workItem from="1678413423239" duration="6140000" />
       <workItem from="1678428924316" duration="1119000" />
       <workItem from="1678433938442" duration="1054000" />
-      <workItem from="1678438593667" duration="5246000" />
+      <workItem from="1678438593667" duration="5326000" />
+      <workItem from="1678497968216" duration="10729000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -224,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678443081252</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="封装BaseDao方法">
+      <created>1678446934805</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1678446934805</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +269,8 @@
     <MESSAGE value="sql的子查询和jdbc连接" />
     <MESSAGE value="修改模块名" />
     <MESSAGE value="封装JDBCTools方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="封装JDBCTools方法" />
+    <MESSAGE value="封装BaseDao方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="封装BaseDao方法" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

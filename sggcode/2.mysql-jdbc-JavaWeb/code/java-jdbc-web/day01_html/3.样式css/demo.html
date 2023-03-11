@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css测试</title>
+    <link rel="stylesheet" href="demo.css">
+<!--    这是内部css样式 -->
+<!--    <style>-->
+<!--        /*标签的样式*/-->
+<!--        /*p{*/-->
+<!--        /*  color: red;*/-->
+<!--        /*}*/-->
+
+<!--        /*根据id的名设置唯一的id*/-->
+<!--        #one {-->
+<!--            color: red;-->
+<!--        }-->
+
+<!--        /*根据class的名设置不唯一可以多个*/-->
+
+<!--        .two {-->
+<!--            color: antiquewhite;-->
+<!--        }-->
+
+<!--    </style>-->
+</head>
+<body>
+
+<p id="one">哈哈哈哈红红火火恍恍惚惚或</p>
+<p class="two">哈哈哈哈红红火火恍恍惚惚或</p>
+<p class="two">哈哈哈哈红红火火恍恍惚惚或</p>
+<p>哈哈哈哈红红火火恍恍惚惚或</p>
+<p>哈哈哈哈红红火火恍恍惚惚或</p>
+<p>哈哈哈哈红红火火恍恍惚惚或</p>
+
+<input id="but" type="button" value="按钮点击事件">
+<script>
+    var elementById = document.getElementById("but");
+    elementById.onclick = function(){
+        alert("干嘛点我");
+    }
+</script>
+</body>
+</html>
