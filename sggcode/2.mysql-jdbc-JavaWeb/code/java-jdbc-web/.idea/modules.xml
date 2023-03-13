@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/JDBC01/JDBC01.iml" filepath="$PROJECT_DIR$/JDBC01/JDBC01.iml" />
       <module fileurl="file://$PROJECT_DIR$/JDBC02/JDBC02.iml" filepath="$PROJECT_DIR$/JDBC02/JDBC02.iml" />
       <module fileurl="file://$PROJECT_DIR$/day01_html.iml" filepath="$PROJECT_DIR$/day01_html.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day02_javascript.iml" filepath="$PROJECT_DIR$/day02_javascript.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-jdbc-web.iml" filepath="$PROJECT_DIR$/java-jdbc-web.iml" />
     </modules>
   </component>

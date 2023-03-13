@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script>
+    var arr01 = new Array();
+    var array = new Array("1233");
+    console.log(array)
+
+    // 2.压入数据
+    arr01[0]="java";
+    arr01[1]="mysql";
+    arr01[2]="oracle";
+    arr01.push(9);
+    arr01.push("orange");
+    arr01.push("banana");
+    arr01.push("grape");
+
+    console.log(arr01)
+
+    arr01.splice(3,2)
+    console.log(arr01)
+
+    var join = arr01.join(",");
+    console.log(join)
+    var split = join.split(",");
+    console.log(split)
+
+    var strings = split.reverse();
+    console.log(strings)
+
+    for (let i = 0; i < split.length; i++) {
+      console.log(strings[0])
+    }
+
+    var arr03 = ["cat","dog","tiger"];
+    console.log(arr03);
+    //后续操作和上述一致
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/1.基本标签_demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/2.图片标签-块标签-实体-html.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/1.基本html/imgs/你的名字5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/2.表单/form-demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/3.样式css/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/3.样式css/demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/package.json" afterDir="false" />
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="练习">
+      <change afterPath="$PROJECT_DIR$/day02_javascript.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/1.引用方式.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/2.基本数据类型.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/3.函数和对象.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/4.数组.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/helloworld.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -35,6 +29,7 @@
       <list>
         <option value="Class" />
         <option value="package.json" />
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -59,29 +54,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day01_html/1.基本html/imgs",
-    "settings.editor.selected.configurable": "editing.templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day01_html/1.基本html/imgs&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day01_html\1.基本html\imgs" />
@@ -203,7 +201,14 @@
       <workItem from="1678428924316" duration="1119000" />
       <workItem from="1678433938442" duration="1054000" />
       <workItem from="1678438593667" duration="5326000" />
-      <workItem from="1678497968216" duration="10729000" />
+      <workItem from="1678497968216" duration="10748000" />
+      <workItem from="1678540959873" duration="15000" />
+      <workItem from="1678542868796" duration="166000" />
+      <workItem from="1678668858505" duration="857000" />
+      <workItem from="1678671837283" duration="467000" />
+      <workItem from="1678672312561" duration="397000" />
+      <workItem from="1678672715000" duration="73000" />
+      <workItem from="1678672798718" duration="4910000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -247,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678446934805</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="练习">
+      <created>1678525158915</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678525158915</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +282,8 @@
     <MESSAGE value="修改模块名" />
     <MESSAGE value="封装JDBCTools方法" />
     <MESSAGE value="封装BaseDao方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="封装BaseDao方法" />
+    <MESSAGE value="练习" />
+    <option name="LAST_COMMIT_MESSAGE" value="练习" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

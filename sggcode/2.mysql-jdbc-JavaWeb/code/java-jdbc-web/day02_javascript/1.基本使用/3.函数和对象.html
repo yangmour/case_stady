@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    /**
+     * 内置函数 window可以省略
+     * 也可以使用this,this代表当前window对象
+     */
+
+    window.alert("测试内置函数")
+    var f = window.confirm("选择框");
+    if (f) {
+        window.console.log("点击了确定")
+    } else {
+        window.console.log("点击了取消")
+
+    }
+
+    /**
+     * 自定义方法
+     * 1.调用过程中，可以有参数，也可以没参数，也可以写超过形参的实参
+     * @param a
+     * @param b
+     * @param c
+     */
+    function func1(a, b, c) {
+        alert(a + "这是一个方法" + c);
+    }
+
+    func1();
+    func1(1, 2);
+    func1(1, 2, 3, 4, 6);
+
+    /**
+     * 自定义匿名方法
+     * 1.调用过程中，可以有参数，也可以没参数，也可以写超过形参的实参
+     * @param a
+     * @param b
+     * @param c
+     */
+    let func2 = function (a, b, c) {
+        alert(a + "这是一个匿名方法" + c);
+    }
+
+    func2();
+    func2(1, 2);
+    func2(1, 2, 3, 4, 6);
+
+    /**
+     * 1.自定义对象
+     * 1.调用过程中，可以有参数，也可以没参数，也可以写超过形参的实参
+     * @param a
+     * @param b
+     * @param c
+     */
+    let obj2 = new Object();
+    obj2.name = "zhangsan";
+    obj2.age = 20;
+    obj2.f = true;
+    obj2.func = function () {
+        console.log(this.name+"这是obj2内置函数");
+    }
+    obj2.obj3 = {
+        name: "对象",
+        age: 20
+    }
+
+    console.log(obj2.name)
+    console.log(obj2.age)
+    console.log(obj2.f)
+    obj2.func();
+    console.log(obj2.obj3.name)
+
+</script>
+
+</body>
+</html>
