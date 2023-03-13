@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="上午练习">
-      <change afterPath="$PROJECT_DIR$/day01_html/homework/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/homework/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/homework/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day01_html/homework/register.html" afterDir="false" />
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="登陆注册页面">
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/5.json.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/6.dom查询操作.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/7.dom操作属性.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/8.dom增删改.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/9.js事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02_javascript/homework/homework-table.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +66,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day01_html/1.基本html/imgs&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day02_javascript/1.基本使用&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
@@ -78,11 +80,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day02_javascript\1.基本使用" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day01_html\1.基本html\imgs" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02\lib" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02\src" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day01_html\homework\img" />
@@ -205,7 +207,8 @@
       <workItem from="1678671837283" duration="467000" />
       <workItem from="1678672312561" duration="397000" />
       <workItem from="1678672715000" duration="73000" />
-      <workItem from="1678672798718" duration="6597000" />
+      <workItem from="1678672798718" duration="11010000" />
+      <workItem from="1678702513139" duration="6330000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -263,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678686665550</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="登陆注册页面">
+      <created>1678688361493</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1678688361493</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,7 +298,8 @@
     <MESSAGE value="封装BaseDao方法" />
     <MESSAGE value="练习" />
     <MESSAGE value="上午练习" />
-    <option name="LAST_COMMIT_MESSAGE" value="上午练习" />
+    <MESSAGE value="登陆注册页面" />
+    <option name="LAST_COMMIT_MESSAGE" value="登陆注册页面" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

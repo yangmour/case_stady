@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            document.getElementById("btn01").onclick = function () {
+                //增
+                var create = document.createElement("li");
+                create.innerText = "曹县"
+
+                var elementById = document.getElementById("citys");
+                elementById.append(create)
+
+                //将曹县2插入到西之前
+                var create2 = document.createElement("li");
+                create2.innerText = "曹县2"
+                var xi = document.getElementById("xa");
+                elementById.insertBefore(create2, xi)
+
+                //西安被曹县3替换
+                var create3 = document.createElement("li");
+                create3.innerText = "曹县3"
+                var xi = document.getElementById("xa");
+                elementById.replaceChild(create3, xi)
+
+                create3.remove()
+            }
+
+        }
+    </script>
+</head>
+<body>
+<ul id="citys">
+    <li>北京</li>
+    <li>深圳</li>
+    <li>上海</li>
+    <li>武汉</li>
+    <li id="xa">西安</li>
+    <li>成都</li>
+</ul>
+<input type="button" id="btn01" value="按钮">
+</body>
+</html>
