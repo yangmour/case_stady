@@ -120,7 +120,7 @@
                 }
             },
             btn_submit: function () {
-                if (this.usernameFlag&&this.passwordFlag&&this.password2Flag&&this.emailFlag) {
+                if (this.usernameFlag||this.passwordFlag||this.password2Flag||this.emailFlag) {
                     event.preventDefault();
                 }
             }

@@ -4,80 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="vue练习">
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/js/vue2.7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/cart/cart.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/cart/checkout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/manager/book_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/manager/book_edit.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/manager/book_manager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/manager/order_manager.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/order/order.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/login_success.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/regist.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/regist_success.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/bookManger.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/book_edit.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/cart.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/iconfont.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/minireset.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/orderManger.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/register.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/css/swiper.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/img/QR.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/img/bottom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/img/bottom1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/img/bottom2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/img/code.bmp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/img/default.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/img/logo.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/img/pwd-icons-new.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/script/swiper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/script/vue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/Javabianchengsixiang.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/ailuntulingzhuan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/bainiangudu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/banner4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/banner5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/banner6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/biancheng.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/books.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/cate4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/cate5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/cate6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/congwanqingdaominguo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/cyuyanrumenjingdian.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/dashujuyuce.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/fusang.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/geihaizideshi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/huozhe.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/huranqiri.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/jiaofu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/jieyouzahuodian.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/kanjian.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/pinang.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/pingfandeshijie.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/qiadaohaochudexingfu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/renyueshenhua.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/santi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/shejimoshizhichan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/shengmingbuxi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/shuxuezhimei.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/sudongpozhuan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/tujiejiqixuexi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/weinushiernian.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/womensa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/wukongzhuan.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/xiaowangzi.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/yingpaijianshen.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/static/uploads/zhongguozhexueshi.jpg" afterDir="false" />
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="登陆注册验证">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo04_02vue取消默认行为.html" beforeDir="false" afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo04_02vue取消默认行为.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/regist.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +211,8 @@
       <workItem from="1678753441842" duration="1042000" />
       <workItem from="1678758638503" duration="16647000" />
       <workItem from="1678790645732" duration="2486000" />
-      <workItem from="1678793150819" duration="2440000" />
+      <workItem from="1678793150819" duration="3143000" />
+      <workItem from="1678803893467" duration="16000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -368,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678789437457</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="登陆注册验证">
+      <created>1678795665965</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1678795665965</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +333,8 @@
     <MESSAGE value="登陆注册页面" />
     <MESSAGE value="动态表格" />
     <MESSAGE value="vue练习" />
-    <option name="LAST_COMMIT_MESSAGE" value="vue练习" />
+    <MESSAGE value="登陆注册验证" />
+    <option name="LAST_COMMIT_MESSAGE" value="登陆注册验证" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
