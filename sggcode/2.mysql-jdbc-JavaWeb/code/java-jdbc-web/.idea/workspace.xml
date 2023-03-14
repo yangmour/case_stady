@@ -205,6 +205,7 @@
       <workItem from="1678702513139" duration="6358000" />
       <workItem from="1678709347847" duration="107000" />
       <workItem from="1678712253228" duration="861000" />
+      <workItem from="1678753441842" duration="1042000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -276,7 +277,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678708926581</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="动态表格">
+      <created>1678753523537</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1678753523537</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
