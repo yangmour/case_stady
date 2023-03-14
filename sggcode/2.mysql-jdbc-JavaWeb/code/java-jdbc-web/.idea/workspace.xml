@@ -5,7 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="动态表格">
+      <change afterPath="$PROJECT_DIR$/day03_vue.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/1.正则/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/js/vue2.7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo01点击事件.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo02渲染属性单向绑定和双向绑定.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo03条件渲染和列表渲染.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo04_01js取消默认行为.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo04_02vue取消默认行为.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo05_01js取消冒泡行为.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo05_02vue取消冒泡行为.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo06vue监听属性.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/2.vue使用/vue-demo07vue生命周期.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/homework/homework-table.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day03_vue/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day02_javascript/1.基本使用/9.js事件.html" beforeDir="false" afterPath="$PROJECT_DIR$/day02_javascript/1.基本使用/9.js事件.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,39 +62,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day02_javascript/1.基本使用&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day03_vue/2.vue使用",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day03_vue\2.vue使用" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day03_vue\homework" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day02_javascript\1.基本使用" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day01_html\1.基本html\imgs" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02\lib" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02\src" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day01_html\homework\img" />
@@ -206,6 +223,7 @@
       <workItem from="1678709347847" duration="107000" />
       <workItem from="1678712253228" duration="861000" />
       <workItem from="1678753441842" duration="1042000" />
+      <workItem from="1678758638503" duration="15430000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>

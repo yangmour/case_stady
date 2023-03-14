@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue2.7.js"></script>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            border: green solid 2px;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            border: red solid 2px;
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="div1">
+    <div id="div2"></div>
+<!--    百分百阻止如果需要选择还是用js写-->
+</div>
+<script>
+
+    document.getElementById("div1").onclick=function (){
+        console.log("点击了大")
+    };
+    document.getElementById("div2").onclick=function (){
+        console.log("点击了小")
+        event.stopPropagation()
+    };
+
+</script>
+</body>
+</html>

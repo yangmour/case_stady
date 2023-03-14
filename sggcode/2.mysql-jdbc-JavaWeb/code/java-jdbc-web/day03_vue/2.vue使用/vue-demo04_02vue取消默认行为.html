@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue2.7.js"></script>
+</head>
+<body>
+
+<div id="app">
+<!--    百分百阻止如果需要选择还是用js写-->
+    <a href="http://www.baidu.com" @click.prevent>百度一下</a>
+    <form action="http://atguigu.com" @click.prevent="func01">
+        <input type="submit" value="提交">
+    </form>
+</div>
+<script>
+
+    new Vue({
+        el: "#app",
+        data: {},
+        methods: {
+            func01:function (){
+                console.log("跳转到---")
+
+            }
+        }
+    })
+</script>
+</body>
+</html>

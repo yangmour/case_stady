@@ -5,6 +5,10 @@
     <title>Title</title>
 
     <script>
+
+        function fun03(){
+            console.log(event.x,event.y)
+        }
         function fun02(){
             alert("被改变2")
         }
@@ -35,7 +39,7 @@
 </head>
 <body>
 <form action="10_js事件.html" method="get" onsubmit="fun01()">
-    <input type="text" id="i1" onblur="fun02()">
+    <input type="text" id="i1" onmousemove="fun03()">
     <input type="button" value="按钮" id="btn01" ondblclick="fun01()">
     <input type="submit">
 </form>

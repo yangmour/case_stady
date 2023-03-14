@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue2.7.js"></script>
+</head>
+<body>
+<div id="div1">
+    <h1 id="h1">{{msg}}</h1>
+</div>
+
+<script>
+    new Vue({
+        el: "#div1",
+        data: {
+            msg: "嘿嘿嘿"
+        },
+        methods: {
+            func01: function () {
+                console.log(this.msg)
+            }
+        },
+        beforeCreate: function () {
+            console.log("创建前")
+            func01();
+
+        },
+        created: function () {
+            console.log("创建后")
+            console.log(this.msg)
+        },
+        beforeMount: function () {
+            console.log("渲染前")
+            var innerText = document.getElementById("h1").innerText;
+            console.log(innerText)
+        },
+        mounted: function () {
+            console.log("渲染后")
+            var innerText = document.getElementById("h1").innerText;
+            console.log(innerText)
+
+        }
+    })
+</script>
+</body>
+</html>

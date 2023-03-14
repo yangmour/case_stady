@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue2.7.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{username}}</h1>
+<!--    渲染属性和单行绑定value，v-bind:可以省略 为:  -->
+    <input :type="password"  v-bind:value="username" v-bind:id="id" :name="name">
+    <!--    渲染属性和双向绑定value(只有用户可以修改的才可以双向绑定所有可以简写)， v-model:value可以省略 为v-model  -->
+    <input type="text"  v-model:value="username" v-bind:id="id" :name="name">
+    <div :style="divCss"></div>
+</div>
+<script>
+    //点击事件
+    new Vue({
+        el: "#app", //绑定id
+        data: {  //数据
+            msg: "尚硅谷",
+            username: "admin",
+            id:1,
+            name:"aaa",
+            password:"password",
+            divCss:{
+                width:"100px",
+                height:"100px",
+                border: "1px solid red",
+                // border: "1px solid red"
+            }
+        },
+    })
+</script>
+
+</body>
+</html>
