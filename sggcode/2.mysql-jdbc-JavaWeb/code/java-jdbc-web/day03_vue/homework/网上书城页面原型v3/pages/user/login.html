@@ -24,9 +24,9 @@
                 <div class="tit">
                     <h1>尚硅谷会员</h1>
                 </div>
-                <div v-if="userHintFlag" class="msg_cont">
+                <div v-if="flag" class="msg_cont">
                     <b></b>
-                    <span class="errorMsg" id="userHint">请输入用户名和密码</span>
+                    <span class="errorMsg" id="userHint">{{errorMsg}}</span>
                 </div>
                 <div class="form">
                     <form action="login_success.html">
@@ -59,7 +59,7 @@
                         />
                         <br/>
                         <br/>
-                        <input type="submit" value="登录" id="sub_btn" @click="btn_submit()"/>
+                        <input type="submit" value="登录" id="sub_btn"/>
                     </form>
                     <div class="tit">
                         <a href="regist.html">立即注册</a>
@@ -79,34 +79,26 @@
     new Vue({
         el: "#content",
         data: {
+            errorMsg:"请输入用户名和密码",
             username: '',
             password: '',
-            userHintFlag: true,
-            userReg: /[\w]{8,16}/,
-            passReg: /.{6,}/,
+            flag:true
+
         },
         methods: {
             isCheck: function () {
-                if (this.userReg.test(this.username) && this.passReg.test(this.password)) {
-                    this.userHintFlag = false;
-                } else if (this.userReg.test(this.username)) {
-                    this.userHintFlag = true;
-                    document.getElementById("userHint").innerText = "请输入密码";
-                }else if (this.passReg.test(this.password)) {
-                    this.userHintFlag = true;
-                    document.getElementById("userHint").innerText = "请输入账号";
-                } else {
-                    this.userHintFlag = true;
-                    document.getElementById("userHint").innerText = "请输入用户名和密码";
-
+                if (this.username=="") {
+                    event.preventDefault();
+                    this.flag=true;
+                    this.errorMsg = "请输入账号";
+                }else if (this.password=="") {
+                    this.flag=true;
+                    event.preventDefault();
+                    this.errorMsg = "请输入密码";
+                }else {
+                    this.flag=false;
                 }
             },
-            btn_submit: function () {
-                if (this.userHintFlag) {
-                    console.log(this.userHintFlag)
-                    event.preventDefault();
-                }
-            }
 
         }
     })
