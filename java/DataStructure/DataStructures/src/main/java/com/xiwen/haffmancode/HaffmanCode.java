@@ -1,5 +1,6 @@
 package com.xiwen.haffmancode;
 
+import java.io.*;
 import java.util.*;
 
 /**
@@ -11,7 +12,17 @@ import java.util.*;
  */
 public class HaffmanCode {
     public static void main(String[] args) {
-        String content = "i like like like java do you like a java";
+
+        String src = "data/huffmanData/第二章 HTML&CSS.md";
+        String dst = "data/huffmanData/第二章 HTML&CSS.md.zip";
+        zipFile(src, dst);
+        System.out.println("压缩完成");
+
+        src = "data/huffmanData/第二章 HTML&CSS.md.zip";
+        dst = "data/huffmanData/第二章 HTML&CSS2.md";
+        unZipFile(src, dst);
+        System.out.println("解压完成");
+       /* String content = "i like like like java do you like a java";
         byte[] bytes = content.getBytes();
 
         // 封装的方法实验
@@ -19,7 +30,7 @@ public class HaffmanCode {
         System.out.println("压缩数据显示" + Arrays.toString(zipRes));
 
         byte[] decode = decode(huffmanCode, zipRes);
-        System.out.println("解码后的字符" + new String(decode));
+        System.out.println("解码后的字符" + new String(decode));*/
 
         /**
          * 分解步骤的实验
@@ -40,6 +51,66 @@ public class HaffmanCode {
     }
 
     /**
+     * 文件解压
+     *
+     * @param src 源文件
+     * @param dst 目标文件路径
+     */
+    public static void unZipFile(String src, String dst) {
+        ObjectInputStream ois = null;
+        OutputStream os = null;
+
+        try {
+            ois = new ObjectInputStream(new FileInputStream(src));
+            byte[] srcBytes = (byte[]) ois.readObject();
+            Map<Byte, String> huffmanCode = (Map<Byte, String>) ois.readObject();
+            byte[] decode = decode(huffmanCode, srcBytes);
+            os = new FileOutputStream(dst);
+            os.write(decode);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 文件压缩
+     *
+     * @param src 源文件
+     * @param dst 目标文件路径
+     */
+    public static void zipFile(String src, String dst) {
+
+        InputStream is = null;
+        ObjectOutputStream oos = null;
+
+        try {
+            is = new FileInputStream(src);
+            oos = new ObjectOutputStream(new FileOutputStream(dst));
+
+            byte[] srcBytes = new byte[is.available()];
+            is.read(srcBytes);
+
+            byte[] dstBytes = huffmanZip(srcBytes);
+            //将压缩数据存入文件
+            oos.writeObject(dstBytes);
+            //将编码格式存入方便解压
+            oos.writeObject(huffmanCode);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                oos.close();
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    /**
      * 解码
      *
      * @param huffmanCodes 赫夫曼编码表
@@ -48,13 +119,25 @@ public class HaffmanCode {
      */
     private static byte[] decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes) {
         // 将每为二进制数添加到builder中
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
         for (int i = 0; i < huffmanBytes.length; i++) {
             byte b = huffmanBytes[i];
             // 最后一位的编码有可能不是八位
             boolean flag = (i == huffmanBytes.length - 1);
-            stringBuilder.append(byteToBitString(!flag, b));
+            builder.append(byteToBitString(!flag, b));
         }
+        //
+        Byte b = huffmanBytes[huffmanBytes.length - 1];
+        String lastByteStr = byteToBitString(false, b);
+        if (builder.length() + lastByteStr.length() == stringBuilder.length()) {
+            builder.append(lastByteStr);
+        } else {
+            while (builder.length() + lastByteStr.length() < stringBuilder.length()) {
+                builder.append(0);
+            }
+            builder.append(lastByteStr);
+        }
+
 
         // 将编码进行解码操作
         Map<String, Byte> map = new HashMap<>();
@@ -66,23 +149,26 @@ public class HaffmanCode {
         List<Byte> list = new ArrayList<>();
 
         //扫描stringBuilder
-        for (int i = 0; i < stringBuilder.length(); ) {
+        for (int i = 0; i < builder.length(); ) {
             int count = 1;
             boolean flag = true;
-            Byte b = null;
+            b = null;
 
-            while (flag) {
-                String key = stringBuilder.substring(i, i + count);
+            while (flag && (i + count) <= builder.length()) {
+                String key = builder.substring(i, i + count);
                 b = map.get(key);
 
-                if (b == null){
+                if (b == null) {
                     count++;
-                }else {
-                    i +=count;
+                } else {
                     flag = false;
-                    list.add(b);
                 }
             }
+            if (b == null) {
+                b = '0';
+            }
+            i += count;
+            list.add(b);
 
         }
         byte[] bytes = new byte[list.size()];
