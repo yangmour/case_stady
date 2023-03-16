@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="day04_web:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="登陆注册验证">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="昨天">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/day03_vue/homework/网上书城页面原型v3/pages/user/regist.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +24,20 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="package.json" />
-        <option value="JavaScript File" />
+        <option value="Class" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,11 +73,12 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day03_vue/homework/网上书城页面原型v3/js&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/网上书城页面原型v3&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2505747&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -78,49 +90,36 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_web\web\WEB-INF\lib" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_tomcat\lib" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day03_vue\homework\网上书城页面原型v3\js" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day03_vue\homework" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day03_vue\2.vue使用" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day02_javascript\1.基本使用" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day01_html\1.基本html\imgs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_web\web" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_web\web\WEB-INF\js" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_tomcat\src" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day01_html\homework\img" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\JDBC02\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="exer" />
+      <recent name="com.xiwen.exer" />
+      <recent name="" />
       <recent name="com.xiwen.jdbc" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DBUtilsTest.test9">
-    <configuration name="DBUtilsTest.test5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JDBC02" />
+  <component name="RunManager" selected="JUnit.Doc4jTest.test1">
+    <configuration name="Doc4jTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xiwen.exer.Doc4jTest" />
+      <module name="day04_doc4j" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xiwen.dbutils.*" />
+          <option name="PATTERN" value="com.xiwen.exer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.xiwen.dbutils" />
-      <option name="MAIN_CLASS_NAME" value="com.xiwen.dbutils.DBUtilsTest" />
-      <option name="METHOD_NAME" value="test5" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DBUtilsTest.test6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JDBC02" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xiwen.dbutils.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xiwen.dbutils" />
-      <option name="MAIN_CLASS_NAME" value="com.xiwen.dbutils.DBUtilsTest" />
-      <option name="METHOD_NAME" value="test6" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -173,13 +172,124 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Doc4jTest.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="day04_doc4j" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xiwen.exer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xiwen.exer" />
+      <option name="MAIN_CLASS_NAME" value="com.xiwen.exer.Doc4jTest" />
+      <option name="METHOD_NAME" value="test1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 8.5.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="day04_web:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/day04_web_war" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="02e4c73b-edb9-439f-a670-803cb1cb9687" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="62961" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="day04_web:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Doc4jTest" />
+      <item itemvalue="JUnit.Doc4jTest.test1" />
+      <item itemvalue="JUnit.DBUtilsTest.test7" />
+      <item itemvalue="JUnit.DBUtilsTest.test8" />
+      <item itemvalue="JUnit.DBUtilsTest.test9" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.27" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Doc4jTest.test1" />
+        <item itemvalue="Application.Doc4jTest" />
         <item itemvalue="JUnit.DBUtilsTest.test9" />
         <item itemvalue="JUnit.DBUtilsTest.test8" />
         <item itemvalue="JUnit.DBUtilsTest.test7" />
-        <item itemvalue="JUnit.DBUtilsTest.test6" />
-        <item itemvalue="JUnit.DBUtilsTest.test5" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +327,13 @@
       <workItem from="1678804317174" duration="8000" />
       <workItem from="1678804333922" duration="6000" />
       <workItem from="1678806138494" duration="18000" />
-      <workItem from="1678841168834" duration="4040000" />
+      <workItem from="1678841168834" duration="9638000" />
+      <workItem from="1678859098160" duration="3689000" />
+      <workItem from="1678864830298" duration="1703000" />
+      <workItem from="1678867377391" duration="30000" />
+      <workItem from="1678952152536" duration="71000" />
+      <workItem from="1678952253969" duration="189000" />
+      <workItem from="1679014606505" duration="6000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -317,7 +433,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678804114660</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="登陆注册验证更新">
+      <created>1678846297044</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1678846297044</updated>
+    </task>
+    <task id="LOCAL-00016" summary="昨天">
+      <created>1678952433991</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1678952433991</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -346,7 +476,9 @@
     <MESSAGE value="动态表格" />
     <MESSAGE value="vue练习" />
     <MESSAGE value="登陆注册验证" />
-    <option name="LAST_COMMIT_MESSAGE" value="登陆注册验证" />
+    <MESSAGE value="登陆注册验证更新" />
+    <MESSAGE value="昨天" />
+    <option name="LAST_COMMIT_MESSAGE" value="昨天" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -359,6 +491,11 @@
           <url>file://$PROJECT_DIR$/JDBC02/src/com/xiwen/utils/BaseDao.java</url>
           <line>49</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/day04_tomcat/src/com/xiwen/exer/Doc4jTest.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
