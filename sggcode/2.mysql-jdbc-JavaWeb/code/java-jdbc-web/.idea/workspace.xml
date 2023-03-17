@@ -9,23 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="昨天">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/day05_servlet_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day05_servlet/day05_servlet.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/FirstServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day05_servlet/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day05_servlet/web/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-demo01.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-demo01/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-demo01/demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-demo01/demo.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-demo01/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-demo01/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="上午练习servlet">
+      <change afterPath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/GenericServletDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/HttpServletDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/test/PathTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/FirstServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/FirstServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day05_servlet/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/day05_servlet/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day05_servlet/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/day05_servlet/web/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +34,9 @@
         <option value="package.json" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="HTML File" />
         <option value="Vue Single File Component" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -128,12 +120,12 @@
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.day05_servlet">
-    <configuration name="Doc4jTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xiwen.exer.Doc4jTest" />
-      <module name="day04_doc4j" />
+    <configuration name="PathTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xiwen.test.PathTest" />
+      <module name="day05_servlet" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xiwen.exer.*" />
+          <option name="PATTERN" value="com.xiwen.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -383,7 +375,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Doc4jTest" />
+      <item itemvalue="Application.PathTest" />
       <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="JUnit.Doc4jTest.test1" />
       <item itemvalue="JUnit.DBUtilsTest.test7" />
@@ -394,11 +386,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PathTest" />
         <item itemvalue="JUnit.Doc4jTest.test1" />
         <item itemvalue="JUnit.DBUtilsTest.test9" />
         <item itemvalue="JUnit.DBUtilsTest.test8" />
         <item itemvalue="JUnit.DBUtilsTest.test7" />
-        <item itemvalue="Application.Doc4jTest" />
       </list>
     </recent_temporary>
   </component>
@@ -450,6 +442,7 @@
       <workItem from="1679025432958" duration="76000" />
       <workItem from="1679025511207" duration="1929000" />
       <workItem from="1679033377983" duration="333000" />
+      <workItem from="1679035102429" duration="7379000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -570,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679016955586</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="上午练习servlet">
+      <created>1679035281483</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1679035281483</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +601,8 @@
     <MESSAGE value="登陆注册验证" />
     <MESSAGE value="登陆注册验证更新" />
     <MESSAGE value="昨天" />
-    <option name="LAST_COMMIT_MESSAGE" value="昨天" />
+    <MESSAGE value="上午练习servlet" />
+    <option name="LAST_COMMIT_MESSAGE" value="上午练习servlet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

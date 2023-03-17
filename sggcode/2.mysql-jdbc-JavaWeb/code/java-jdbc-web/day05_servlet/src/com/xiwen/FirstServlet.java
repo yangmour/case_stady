@@ -34,6 +34,19 @@ public class FirstServlet implements Servlet {
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         System.out.println("访问了FirstServlet");
+        ServletContext servletContext = servletRequest.getServletContext();
+        //获取共享域中的数据
+        Object hello1 = servletContext.getAttribute("hello1");
+        Object hello2 = servletContext.getAttribute("hello2");
+        System.out.println(hello1);
+        System.out.println(hello2);
+
+        //获取上下文路径
+        String contextPath = servletContext.getContextPath();
+        System.out.println(contextPath);
+
+        //删除共享域中的数据
+        servletContext.removeAttribute("hello1");
     }
 
     @Override
