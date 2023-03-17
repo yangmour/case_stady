@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="day04_web:war exploded" />
+      <artifact name="day05_servlet:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,6 +10,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="昨天">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/day05_servlet_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day05_servlet/day05_servlet.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/FirstServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day05_servlet/src/com/xiwen/HelloServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day05_servlet/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day05_servlet/web/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-demo01.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-demo01/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-demo01/demo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-demo01/demo.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-demo01/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-demo01/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,10 +40,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package.json" />
-        <option value="Class" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="Class" />
+        <option value="HTML File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -75,11 +91,12 @@
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/网上书城页面原型v3&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2505747&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -110,7 +127,7 @@
       <recent name="com.xiwen.jdbc" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Doc4jTest.test1">
+  <component name="RunManager" selected="Tomcat Server.day05_servlet">
     <configuration name="Doc4jTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xiwen.exer.Doc4jTest" />
       <module name="day04_doc4j" />
@@ -188,7 +205,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 8.5.27" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:8080">
+      <method v="2" />
+    </configuration>
+    <configuration name="day04_web" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="day04_web:war exploded">
@@ -275,21 +295,110 @@
         </option>
       </method>
     </configuration>
+    <configuration name="day05_servlet" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="day05_servlet:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/day05_servlet" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="6a787a8f-8c9f-4c0d-9827-cc94b7e67c9b" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="60693" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="day05_servlet:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Doc4jTest" />
+      <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="JUnit.Doc4jTest.test1" />
       <item itemvalue="JUnit.DBUtilsTest.test7" />
       <item itemvalue="JUnit.DBUtilsTest.test8" />
       <item itemvalue="JUnit.DBUtilsTest.test9" />
-      <item itemvalue="Tomcat Server.Tomcat 8.5.27" />
+      <item itemvalue="Tomcat Server.day04_web" />
+      <item itemvalue="Tomcat Server.day05_servlet" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.Doc4jTest.test1" />
-        <item itemvalue="Application.Doc4jTest" />
         <item itemvalue="JUnit.DBUtilsTest.test9" />
         <item itemvalue="JUnit.DBUtilsTest.test8" />
         <item itemvalue="JUnit.DBUtilsTest.test7" />
+        <item itemvalue="Application.Doc4jTest" />
       </list>
     </recent_temporary>
   </component>
@@ -334,6 +443,13 @@
       <workItem from="1678952152536" duration="71000" />
       <workItem from="1678952253969" duration="189000" />
       <workItem from="1679014606505" duration="6000" />
+      <workItem from="1679016943482" duration="6148000" />
+      <workItem from="1679024287231" duration="425000" />
+      <workItem from="1679024720748" duration="490000" />
+      <workItem from="1679025220429" duration="210000" />
+      <workItem from="1679025432958" duration="76000" />
+      <workItem from="1679025511207" duration="1929000" />
+      <workItem from="1679033377983" duration="333000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -447,7 +563,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678952433991</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="昨天">
+      <created>1679016955586</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1679016955586</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
