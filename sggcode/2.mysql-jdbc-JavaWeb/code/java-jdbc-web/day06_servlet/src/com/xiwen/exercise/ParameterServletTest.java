@@ -53,6 +53,9 @@ public class ParameterServletTest extends HttpServlet {
         System.out.println("referer = " + referer);
         String requestHeader = request.getHeader("User-Agent");
         System.out.println("User-Agent = " + requestHeader);
+        //获取上下文路径就是项目访问路径名
+        String contextPath = request.getContextPath();
+        System.out.println(contextPath);
 
         System.out.println("测试BeanUtils");
         User user1 = new User();

@@ -27,8 +27,11 @@ public class FirstServlet extends HttpServlet {
         //设置共享域数据
         request.setAttribute("key1","v");
         //获取转发对象
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("sends");
-        requestDispatcher.forward(request, response);
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("sends");
+//        requestDispatcher.forward(request, response);
 
+        //重定向相当于发送两次请求
+//        response.sendRedirect("successful.html");
+        response.sendRedirect("sends");
     }
 }

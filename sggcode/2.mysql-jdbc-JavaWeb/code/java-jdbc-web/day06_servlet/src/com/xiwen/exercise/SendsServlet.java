@@ -6,9 +6,11 @@ package com.xiwen.exercise; /**
  * @Version: 1.0
  */
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "SeedsServlet", value = "/sends")
@@ -26,10 +28,20 @@ public class SendsServlet extends HttpServlet {
         Object key1 = request.getAttribute("key1");
         System.out.println(key1);
         //获取转发对象
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("successful.html");
-        requestDispatcher.forward(request, response);
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("successful.html");
+//        requestDispatcher.forward(request, response);
+
+//        response.setContentType("text/html;charset=utf-8");
+//
+//        PrintWriter printWriter = response.getWriter();
+//        printWriter.print("<h1>测试打印数据可以识别标签</h1>");
+//        printWriter.print("测试打印数据可以写网页");
 
 
+        //路径问题
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/successful.html");
+//        requestDispatcher.forward(request, response);
 
+        response.sendRedirect(request.getContextPath()+"/successful.html");
     }
 }
