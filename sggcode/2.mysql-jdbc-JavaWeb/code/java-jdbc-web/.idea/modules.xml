@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/day04_doc4j/day04_doc4j.iml" filepath="$PROJECT_DIR$/day04_doc4j/day04_doc4j.iml" />
       <module fileurl="file://$PROJECT_DIR$/day04_web/day04_web.iml" filepath="$PROJECT_DIR$/day04_web/day04_web.iml" />
       <module fileurl="file://$PROJECT_DIR$/day05_servlet/day05_servlet.iml" filepath="$PROJECT_DIR$/day05_servlet/day05_servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day06_homework/day06_homework.iml" filepath="$PROJECT_DIR$/day06_homework/day06_homework.iml" />
       <module fileurl="file://$PROJECT_DIR$/day06_servlet/day06_servlet.iml" filepath="$PROJECT_DIR$/day06_servlet/day06_servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-jdbc-web.iml" filepath="$PROJECT_DIR$/java-jdbc-web.iml" />
     </modules>

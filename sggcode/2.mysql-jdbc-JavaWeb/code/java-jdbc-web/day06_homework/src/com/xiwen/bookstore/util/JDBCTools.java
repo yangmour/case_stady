@@ -1,4 +1,4 @@
-package com.xiwen.utils;
+package com.xiwen.bookstore.util;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
@@ -24,7 +24,7 @@ public class JDBCTools {
     static {
         Properties properties = new Properties();
         try {
-            properties.load(JDBCTools.class.getResourceAsStream("jdbc.properties"));
+            properties.load(JDBCTools.class.getClassLoader().getResourceAsStream("jdbc.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
