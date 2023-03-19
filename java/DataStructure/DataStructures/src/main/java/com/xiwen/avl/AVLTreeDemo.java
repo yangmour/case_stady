@@ -11,7 +11,9 @@ public class AVLTreeDemo {
 
     public static void main(String[] args) {
 //        int[] arr = {4, 3, 6, 5, 7, 8};
-        int[] arr = {10, 12, 8, 9, 7, 6};
+//        int[] arr = {10, 12, 8, 9, 7, 6};
+        int[] arr = {10, 11, 7, 6, 8, 9};
+
         AVLTree avlTree = new AVLTree();
         for (int num : arr) {
             avlTree.add(new Node(num));
@@ -236,9 +238,18 @@ class Node {
             }
         }
 
+        // 双旋转
         if (rightHeight() - leftHeight() > 1) {
-            this.leftRotate();
+            if (right != null && right.leftHeight() > right.rightHeight()) {
+                right.rightRotate(); // 先右旋转
+            }
+            //在左旋转
+            leftRotate();
         } else if (leftHeight() - rightHeight() > 1) {
+            if (left != null && left.rightHeight() > left.leftHeight()) {
+                left.leftRotate(); //先左旋转
+            }
+            //在右旋转
             rightRotate();
         }
 
