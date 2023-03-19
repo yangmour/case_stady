@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 
     private static UserDao userDao = new UserDaoImpl();
 
-    @Override
+   /* @Override
     public boolean register(User user) {
         boolean flag = userDao.selectUserName(user.getUsername());
         if (!flag) {
@@ -29,5 +29,23 @@ public class UserServiceImpl implements UserService {
     public User login(User user) {
         User selectUser = userDao.selectUser(user);
         return selectUser;
+    }*/
+
+    @Override
+    public boolean register(User user) {
+        User getUser = userDao.getUser(user);
+        if (getUser == null) {
+            return userDao.saveUser(user);
+        }
+        return false;
+    }
+
+    @Override
+    public User login(User user) {
+        User daoUser = userDao.getUser(user);
+        if (daoUser != null && user.getPassword().equals(daoUser.getPassword())) {
+            return daoUser;
+        }
+        return null;
     }
 }

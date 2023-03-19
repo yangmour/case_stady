@@ -19,6 +19,20 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
     }
 
+    /**
+     * 这个做登陆和查询是否存在重复用户
+     * @param user
+     * @return
+     */
+    public User getUser(User user) {
+        String sql = "select id,username,password,email from users where username = ?";
+        User bean = getBean(sql, user.getUsername());
+        return bean;
+    }
+
+
+
+
     @Override
     public boolean selectUserName(String username) {
         String sql = "select count(*) from users where username = ?";
@@ -36,4 +50,5 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
         User bean = getBean(sql, user.getUsername(), user.getPassword());
         return bean;
     }
+
 }

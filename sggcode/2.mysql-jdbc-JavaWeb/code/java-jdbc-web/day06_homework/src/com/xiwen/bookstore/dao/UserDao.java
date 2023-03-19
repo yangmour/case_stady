@@ -35,5 +35,6 @@ public interface UserDao {
      */
     User selectUser(User user);
 
+    User getUser(User user);
 
 }
