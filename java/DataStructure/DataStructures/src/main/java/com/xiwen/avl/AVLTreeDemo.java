@@ -10,8 +10,8 @@ package com.xiwen.avl;
 public class AVLTreeDemo {
 
     public static void main(String[] args) {
-        int[] arr = {4, 3, 6, 5, 7, 8};
-
+//        int[] arr = {4, 3, 6, 5, 7, 8};
+        int[] arr = {10, 12, 8, 9, 7, 6};
         AVLTree avlTree = new AVLTree();
         for (int num : arr) {
             avlTree.add(new Node(num));
@@ -185,6 +185,18 @@ class Node {
         this.left = newNode;
     }
 
+    public void rightRotate() {
+        //创建一个新节点
+        Node newNode = new Node(value);
+        //新节点的左节点等于当前节点的左节点
+        newNode.right = right;
+        //将当前节点的值等于当前节点的左节点的值
+        value = left.value;
+        //将当前左节点节点赋值为左节点的左节点
+        left = left.left;
+        //将当前右节点的值等于右节点
+        right = newNode;
+    }
 
     public int rightHeight() {
         if (right == null) {
@@ -226,6 +238,8 @@ class Node {
 
         if (rightHeight() - leftHeight() > 1) {
             this.leftRotate();
+        } else if (leftHeight() - rightHeight() > 1) {
+            rightRotate();
         }
 
 
