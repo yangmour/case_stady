@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Map;
 
 @WebServlet(name = "RegisterServlet", value = "/register")
@@ -47,8 +46,8 @@ public class RegisterServlet extends HttpServlet {
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("pages/user/regist_success.html");
             requestDispatcher.forward(request, response);
         } else {
-            PrintWriter writer = response.getWriter();
-            writer.println("注册失败！");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("pages/user/regist.html");
+            requestDispatcher.forward(request, response);
         }
     }
 }

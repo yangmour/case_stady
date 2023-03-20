@@ -4,6 +4,7 @@ import com.xiwen.bookstore.bean.User;
 import com.xiwen.bookstore.dao.UserDao;
 import com.xiwen.bookstore.dao.impl.UserDaoImpl;
 import com.xiwen.bookstore.service.UserService;
+import com.xiwen.bookstore.util.MD5Util;
 
 /**
  * Description:
@@ -35,6 +36,8 @@ public class UserServiceImpl implements UserService {
     public boolean register(User user) {
         User getUser = userDao.getUser(user);
         if (getUser == null) {
+            //md5加密
+            user.setPassword(MD5Util.encode(user.getPassword()));
             return userDao.saveUser(user);
         }
         return false;
@@ -43,7 +46,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User login(User user) {
         User daoUser = userDao.getUser(user);
-        if (daoUser != null && user.getPassword().equals(daoUser.getPassword())) {
+        if (daoUser != null && MD5Util.encode(user.getPassword()).equals(daoUser.getPassword())) {
             return daoUser;
         }
         return null;

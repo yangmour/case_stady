@@ -11,11 +11,13 @@ import com.xiwen.bookstore.service.UserService;
 import com.xiwen.bookstore.service.impl.UserServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Map;
 
 @WebServlet(name = "LoginServlet", value = "/login")
@@ -40,12 +42,11 @@ public class LoginServlet extends HttpServlet {
         }
         User selectUser = userService.login(user);
         if (selectUser != null) {
-            response.getWriter().println(selectUser.getUsername() + "登陆成功");
-//            RequestDispatcher requestDispatcher = request.getRequestDispatcher("pages/user/login_success.html");
-//            requestDispatcher.forward(request, response);
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher( "pages/user/login_success.html");
+            requestDispatcher.forward(request, response);
         } else {
-            PrintWriter writer = response.getWriter();
-            writer.println("登陆失败！");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("pages/user/login.html");
+            requestDispatcher.forward(request, response);
         }
     }
 }
