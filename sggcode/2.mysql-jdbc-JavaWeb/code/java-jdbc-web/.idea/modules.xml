@@ -12,6 +12,8 @@
       <module fileurl="file://$PROJECT_DIR$/day05_servlet/day05_servlet.iml" filepath="$PROJECT_DIR$/day05_servlet/day05_servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/day06_homework/day06_homework.iml" filepath="$PROJECT_DIR$/day06_homework/day06_homework.iml" />
       <module fileurl="file://$PROJECT_DIR$/day06_servlet/day06_servlet.iml" filepath="$PROJECT_DIR$/day06_servlet/day06_servlet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/day07_thymeleaf/day07_thymeleaf.iml" filepath="$PROJECT_DIR$/day07_thymeleaf/day07_thymeleaf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-jdbc-web.iml" filepath="$PROJECT_DIR$/java-jdbc-web.iml" />
     </modules>
   </component>

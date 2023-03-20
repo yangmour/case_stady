@@ -2,14 +2,38 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="day06_homework:war exploded" />
+      <artifact name="day07_thymeleaf:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="登陆注册">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="修改书城">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/day07_thymeleaf_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/day07_thymeleaf.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/src/com/xiwen/ThymeleafDemo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/src/com/xiwen/ViewBaseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/WEB-INF/lib/attoparser-2.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/WEB-INF/lib/javassist-3.20.0-GA.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/WEB-INF/lib/log4j-1.2.15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/WEB-INF/lib/ognl-3.1.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/WEB-INF/lib/slf4j-api-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/WEB-INF/lib/slf4j-log4j12-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/WEB-INF/lib/thymeleaf-3.0.12.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/WEB-INF/lib/unbescape-1.1.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/view/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day07_thymeleaf/web/view/target.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/demo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/xiwen/ArrayTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/xiwen/Bullet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/xiwen/EnemyTank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/xiwen/PlayerTank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/xiwen/SnakeGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/com/xiwen/TankGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,9 +52,9 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Vue Single File Component" />
-        <option value="HTML File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -61,50 +85,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day06_homework/web/WEB-INF/lib&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2505747&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day07_thymeleaf/web/WEB-INF/lib",
+    "list.type.of.created.stylesheet": "CSS",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2505747",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.xiwen" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day07_thymeleaf\web\WEB-INF\lib" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\demo\src\com\xiwen" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day06_homework\web\WEB-INF\lib" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day06_homework\src\com\xiwen\bookstore\util" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day06_homework\web" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day07_homework\web" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day07_homework\web\WEB-INF\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day07_thymeleaf\web\view" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day06_servlet\web\WEB-INF\lib" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_web\web" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_web\web\WEB-INF\js" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_tomcat\src" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day01_html\homework\img" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.xiwen.util" />
@@ -114,13 +141,13 @@
       <recent name="com.xiwen.jdbc" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.day06_homework">
-    <configuration name="PathTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xiwen.test.PathTest" />
-      <module name="day05_servlet" />
+  <component name="RunManager" selected="Tomcat Server.day07_thymeleaf">
+    <configuration name="ArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xiwen.ArrayTest" />
+      <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xiwen.test.*" />
+          <option name="PATTERN" value="com.xiwen.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -128,34 +155,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DBUtilsTest.test7" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JDBC02" />
+    <configuration name="SnakeGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xiwen.SnakeGame" />
+      <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xiwen.dbutils.*" />
+          <option name="PATTERN" value="com.xiwen.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.xiwen.dbutils" />
-      <option name="MAIN_CLASS_NAME" value="com.xiwen.dbutils.DBUtilsTest" />
-      <option name="METHOD_NAME" value="test7" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DBUtilsTest.test8" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="JDBC02" />
+    <configuration name="TankGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xiwen.TankGame" />
+      <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xiwen.dbutils.*" />
+          <option name="PATTERN" value="com.xiwen.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.xiwen.dbutils" />
-      <option name="MAIN_CLASS_NAME" value="com.xiwen.dbutils.DBUtilsTest" />
-      <option name="METHOD_NAME" value="test8" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -543,25 +564,114 @@
         </option>
       </method>
     </configuration>
+    <configuration name="day07_thymeleaf" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/day07_thymeleaf/view" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="day07_thymeleaf:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/day07_thymeleaf" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="c27c97f4-1f88-4319-af3c-7c777b7ba146" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="58564" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="day07_thymeleaf:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.PathTest" />
+      <item itemvalue="Application.ArrayTest" />
+      <item itemvalue="Application.SnakeGame" />
+      <item itemvalue="Application.TankGame" />
       <item itemvalue="JavaScript Debug.Debug Application" />
       <item itemvalue="JUnit.Doc4jTest.test1" />
-      <item itemvalue="JUnit.DBUtilsTest.test7" />
-      <item itemvalue="JUnit.DBUtilsTest.test8" />
       <item itemvalue="JUnit.DBUtilsTest.test9" />
       <item itemvalue="Tomcat Server.day06_homework" />
+      <item itemvalue="Tomcat Server.day07_thymeleaf" />
       <item itemvalue="Tomcat Server.day06_servlet" />
       <item itemvalue="Tomcat Server.day04_web" />
       <item itemvalue="Tomcat Server.day05_servlet" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.SnakeGame" />
+        <item itemvalue="Application.TankGame" />
+        <item itemvalue="Application.ArrayTest" />
         <item itemvalue="JUnit.Doc4jTest.test1" />
         <item itemvalue="JUnit.DBUtilsTest.test9" />
-        <item itemvalue="JUnit.DBUtilsTest.test8" />
-        <item itemvalue="JUnit.DBUtilsTest.test7" />
-        <item itemvalue="Application.PathTest" />
       </list>
     </recent_temporary>
   </component>
@@ -621,7 +731,8 @@
       <workItem from="1679192642037" duration="7000" />
       <workItem from="1679213389810" duration="2682000" />
       <workItem from="1679233931749" duration="5000" />
-      <workItem from="1679272415932" duration="1280000" />
+      <workItem from="1679272415932" duration="2068000" />
+      <workItem from="1679276796720" duration="17426000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -791,7 +902,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679232231786</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="把jar包都加进去">
+      <created>1679275114900</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1679275114900</updated>
+    </task>
+    <task id="LOCAL-00026" summary="修改书城">
+      <created>1679296006786</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1679296006786</updated>
+    </task>
+    <task id="LOCAL-00027" summary="修改书城">
+      <created>1679298527690</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1679298527690</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -827,20 +959,27 @@
     <MESSAGE value="练习servlet的request转发" />
     <MESSAGE value="response和路径问题" />
     <MESSAGE value="登陆注册" />
-    <option name="LAST_COMMIT_MESSAGE" value="登陆注册" />
+    <MESSAGE value="把jar包都加进去" />
+    <MESSAGE value="修改书城" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改书城" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/JDBC02/src/com/xiwen/utils/BaseDao.java</url>
           <line>49</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/day04_tomcat/src/com/xiwen/exer/Doc4jTest.java</url>
           <line>37</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/day06_homework/src/com/xiwen/bookstore/util/MD5Util.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
