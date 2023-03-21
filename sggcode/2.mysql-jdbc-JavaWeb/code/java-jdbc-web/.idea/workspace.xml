@@ -11,14 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="crud">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/bean/Soldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/bean/Soldier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/SoldierService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/SoldierService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/impl/SoldierServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/impl/SoldierServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SaveServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SaveServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/save.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,8 +74,8 @@
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/crud-demo/web/WEB-INF/view&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
@@ -900,7 +894,9 @@
       <workItem from="1679314129529" duration="665000" />
       <workItem from="1679360047385" duration="8077000" />
       <workItem from="1679382211290" duration="13420000" />
-      <workItem from="1679400838347" duration="4015000" />
+      <workItem from="1679400838347" duration="4178000" />
+      <workItem from="1679444896391" duration="82000" />
+      <workItem from="1679444987677" duration="70000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -1119,7 +1115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679402118322</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="crud">
+      <created>1679404985849</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1679404985849</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1179,11 +1182,6 @@
           <url>file://$PROJECT_DIR$/day06_homework/src/com/xiwen/bookstore/util/MD5Util.java</url>
           <line>29</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

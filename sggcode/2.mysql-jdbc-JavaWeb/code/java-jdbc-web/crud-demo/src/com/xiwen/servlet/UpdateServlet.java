@@ -16,7 +16,7 @@ import java.io.IOException;
  * Description:
  *
  * @author: yf
- * @Create: 2023/03/21 -19:20
+ * @Create: 2023/03/21 19:20
  * @Version: 1.0
  */
 @WebServlet(value = "/updateServlet")
@@ -31,14 +31,14 @@ public class UpdateServlet extends ViewBaseServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String update = request.getParameter("update");
+        String method = request.getParameter("method");
         Soldier soldier = new Soldier();
         try {
             BeanUtils.populate(soldier, request.getParameterMap());
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if (update == null) {
+        if (method == null) {
             boolean f = soldierService.update(soldier);
             if (f) {
                 response.sendRedirect(request.getContextPath() + "/index.html");
@@ -46,7 +46,7 @@ public class UpdateServlet extends ViewBaseServlet {
                 request.setAttribute("mgs", "保存失败!");
                 processTemplate("save", request, response);
             }
-        } else if ("update".equals(update)) {
+        } else if ("update".equals(method)) {
             request.setAttribute("soldierId", soldier.getSoldierId());
             request.setAttribute("soldierName", soldier.getSoldierName());
             request.setAttribute("soldierWeapon", soldier.getSoldierWeapon());
