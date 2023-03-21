@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="/crud-demo/">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/saveServlet}">
+    <table>
+        <tr>
+            <td>姓名:<input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>武器:<input type="text" name="weapon"></td>
+        </tr>
+    </table>
+    <input type="submit" value="保存"/>
+    <a href="index.html"><input type="button" value="返回"></a>
+</form>
+</body>
+</html>

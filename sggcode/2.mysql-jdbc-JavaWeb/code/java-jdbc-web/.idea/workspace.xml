@@ -2,39 +2,51 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="day08_thymeleaf:war exploded" />
+      <artifact name="crud-demo:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="demo是测试东西的一个模块没什么用，今天学习了thymeleaf模板简单使用">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/day08_thymeleaf_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/day08_thymeleaf.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/src/com/xiwen/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/src/com/xiwen/IndexServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/src/com/xiwen/OgnlServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/src/com/xiwen/ThymeleafDemoServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/src/com/xiwen/ViewBaseServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/src/com/xiwen/bean/Computer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/src/com/xiwen/bean/Employees.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/lib/attoparser-2.0.5.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/lib/javassist-3.20.0-GA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/lib/log4j-1.2.15.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/lib/ognl-3.1.26.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/lib/slf4j-api-1.7.25.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/lib/slf4j-log4j12-1.7.25.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/lib/thymeleaf-3.0.12.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/lib/unbescape-1.1.6.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/view/ThymeleafViewTest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/view/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/view/ognlDemo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/a.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day08_thymeleaf/web/b.css" afterDir="false" />
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="thymeleaf练习">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/crud_demo_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/crud-demo.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/resources/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/bean/Soldier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/BaseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/SoldierDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/impl/SoldierDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/SoldierService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/impl/SoldierServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/DeleteServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SaveServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/ShowSoldierServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/utils/JDBCTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/utils/ViewBaseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/attoparser-2.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/commons-beanutils-1.9.4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/commons-collections-3.2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/commons-dbutils-1.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/druid-1.1.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/javassist-3.20.0-GA.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/log4j-1.2.15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/mysql-connector-java-8.0.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/ognl-3.1.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/slf4j-api-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/slf4j-log4j12-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/thymeleaf-3.0.12.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/unbescape-1.1.6.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/save.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/update.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JDBC02/src/com/xiwen/utils/JDBCTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/JDBC02/src/com/xiwen/utils/JDBCTools.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +62,9 @@
       <list>
         <option value="package.json" />
         <option value="Vue Single File Component" />
-        <option value="Interface" />
         <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="Interface" />
         <option value="HTML File" />
         <option value="Class" />
       </list>
@@ -99,7 +111,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/day08_Thymeleaf&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/crud-demo/web/WEB-INF/view&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
@@ -117,37 +129,41 @@
 }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.xiwen.dao.impl" />
+      <recent name="com.xiwen.dao" />
+      <recent name="com.xiwen.service.impl" />
+      <recent name="com.xiwen.service" />
       <recent name="com.xiwen" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\crud-demo\web\WEB-INF\view" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\crud-demo\resources" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\crud-demo\web\WEB-INF\lib" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\crud-demo\src\com\xiwen\utils" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day08_thymeleaf\web\WEB-INF" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day08_thymeleaf\web\WEB-INF\lib" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day07_thymeleaf\web\WEB-INF\lib" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\demo\src\com\xiwen" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day06_homework\web\WEB-INF\lib" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\crud-demo\web\WEB-INF\view" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day08_thymeleaf\web\WEB-INF" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day07_thymeleaf\web\view" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day06_servlet\web\WEB-INF\lib" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_web\web" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day04_web\web\WEB-INF\js" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xiwen.servlet" />
+      <recent name="com.xiwen.utils" />
       <recent name="com.xiwen" />
       <recent name="com.xiwen.util" />
       <recent name="exer" />
-      <recent name="com.xiwen.exer" />
-      <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.day08_thymeleaf">
+  <component name="RunManager" selected="Tomcat Server.crud_demo">
     <configuration name="ArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xiwen.ArrayTest" />
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xiwen.*" />
+          <option name="PATTERN" value="com.xiwen.bean.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -160,7 +176,7 @@
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xiwen.*" />
+          <option name="PATTERN" value="com.xiwen.bean.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -173,7 +189,7 @@
       <module name="demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.xiwen.*" />
+          <option name="PATTERN" value="com.xiwen.bean.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -215,6 +231,93 @@
     </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:8080">
       <method v="2" />
+    </configuration>
+    <configuration name="crud_demo" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="crud-demo:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/crud_demo" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="63f51884-4894-46d2-a8bc-24b3af007d48" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="56912" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="crud-demo:war exploded" />
+        </option>
+      </method>
     </configuration>
     <configuration name="day04_web" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -749,6 +852,7 @@
       <item itemvalue="Tomcat Server.day06_homework" />
       <item itemvalue="Tomcat Server.day07_thymeleaf" />
       <item itemvalue="Tomcat Server.day08_thymeleaf" />
+      <item itemvalue="Tomcat Server.crud_demo" />
       <item itemvalue="Tomcat Server.day06_servlet" />
       <item itemvalue="Tomcat Server.day04_web" />
       <item itemvalue="Tomcat Server.day05_servlet" />
@@ -823,7 +927,8 @@
       <workItem from="1679276796720" duration="17815000" />
       <workItem from="1679314129529" duration="665000" />
       <workItem from="1679360047385" duration="8077000" />
-      <workItem from="1679382211290" duration="4156000" />
+      <workItem from="1679382211290" duration="13420000" />
+      <workItem from="1679400838347" duration="1120000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -1028,7 +1133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679309063447</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="thymeleaf练习">
+      <created>1679388438249</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1679388438249</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1067,7 +1179,8 @@
     <MESSAGE value="把jar包都加进去" />
     <MESSAGE value="修改书城" />
     <MESSAGE value="demo是测试东西的一个模块没什么用，今天学习了thymeleaf模板简单使用" />
-    <option name="LAST_COMMIT_MESSAGE" value="demo是测试东西的一个模块没什么用，今天学习了thymeleaf模板简单使用" />
+    <MESSAGE value="thymeleaf练习" />
+    <option name="LAST_COMMIT_MESSAGE" value="thymeleaf练习" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1086,6 +1199,11 @@
           <url>file://$PROJECT_DIR$/day06_homework/src/com/xiwen/bookstore/util/MD5Util.java</url>
           <line>29</line>
           <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SaveServlet.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

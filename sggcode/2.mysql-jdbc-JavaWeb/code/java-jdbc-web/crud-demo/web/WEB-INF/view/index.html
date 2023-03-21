@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="/crud-demo/">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" width="400px" align="center">
+    <tr>
+        <th colspan="5">士兵展示</th>
+    </tr>
+    <tr>
+        <th>序号</th>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>武器</th>
+        <th>操作</th>
+    </tr>
+    <tr align="center" th:each="item,status : ${items}">
+        <td th:text="${status.count}">序号</td>
+        <td th:text="${item.soldierId}" th:name="soldier_id">编号</td>
+        <td th:text="${item.soldierName}">姓名</td>
+        <td th:text="${item.soldierWeapon}">武器</td>
+        <td>
+            <a th:href="@{/updateServlet(id=${item.soldierId},name=${item.soldierName},weapon=${item.soldierWeapon},update='update')}">修改</a>
+            <a th:href="@{/deleteServlet(id=${item.soldierId})}" name="soldierId">删除</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" align="center"><a th:href="@{/saveServlet(method='add')}">添加</a></td>
+    </tr>
+
+</table>
+</body>
+</html>
