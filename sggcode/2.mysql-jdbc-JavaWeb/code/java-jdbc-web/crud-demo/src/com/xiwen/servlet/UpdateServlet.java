@@ -1,8 +1,10 @@
 package com.xiwen.servlet;
 
+import com.xiwen.bean.Soldier;
 import com.xiwen.service.SoldierService;
 import com.xiwen.service.impl.SoldierServiceImpl;
 import com.xiwen.utils.ViewBaseServlet;
+import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,12 +31,15 @@ public class UpdateServlet extends ViewBaseServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String id = request.getParameter("id");
-        String name = request.getParameter("name");
-        String weapon = request.getParameter("weapon");
         String update = request.getParameter("update");
+        Soldier soldier = new Soldier();
+        try {
+            BeanUtils.populate(soldier, request.getParameterMap());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         if (update == null) {
-            boolean f = soldierService.saveSoldier(name, weapon);
+            boolean f = soldierService.update(soldier);
             if (f) {
                 response.sendRedirect(request.getContextPath() + "/index.html");
             } else {
@@ -42,9 +47,9 @@ public class UpdateServlet extends ViewBaseServlet {
                 processTemplate("save", request, response);
             }
         } else if ("update".equals(update)) {
-            request.setAttribute("t_id", id);
-            request.setAttribute("t_name", name);
-            request.setAttribute("t_weapon", weapon);
+            request.setAttribute("soldierId", soldier.getSoldierId());
+            request.setAttribute("soldierName", soldier.getSoldierName());
+            request.setAttribute("soldierWeapon", soldier.getSoldierWeapon());
             processTemplate("update", request, response);
         }
 

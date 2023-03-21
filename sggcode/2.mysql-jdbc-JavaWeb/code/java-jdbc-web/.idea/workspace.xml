@@ -9,44 +9,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="thymeleaf练习">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/crud_demo_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/crud-demo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/resources/jdbc.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/bean/Soldier.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/BaseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/SoldierDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/impl/SoldierDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/SoldierService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/impl/SoldierServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/DeleteServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SaveServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/ShowSoldierServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/utils/JDBCTools.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/utils/ViewBaseServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/attoparser-2.0.5.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/commons-beanutils-1.9.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/commons-collections-3.2.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/commons-dbutils-1.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/druid-1.1.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/javassist-3.20.0-GA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/log4j-1.2.15.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/mysql-connector-java-8.0.25.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/ognl-3.1.26.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/slf4j-api-1.7.25.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/slf4j-log4j12-1.7.25.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/thymeleaf-3.0.12.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/lib/unbescape-1.1.6.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/save.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/update.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="crud">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JDBC02/src/com/xiwen/utils/JDBCTools.java" beforeDir="false" afterPath="$PROJECT_DIR$/JDBC02/src/com/xiwen/utils/JDBCTools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/bean/Soldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/bean/Soldier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/SoldierService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/SoldierService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/impl/SoldierServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/impl/SoldierServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SaveServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SaveServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/update.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -928,7 +900,7 @@
       <workItem from="1679314129529" duration="665000" />
       <workItem from="1679360047385" duration="8077000" />
       <workItem from="1679382211290" duration="13420000" />
-      <workItem from="1679400838347" duration="1120000" />
+      <workItem from="1679400838347" duration="4015000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -1140,7 +1112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679388438249</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="crud">
+      <created>1679402118322</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1679402118322</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1180,7 +1159,8 @@
     <MESSAGE value="修改书城" />
     <MESSAGE value="demo是测试东西的一个模块没什么用，今天学习了thymeleaf模板简单使用" />
     <MESSAGE value="thymeleaf练习" />
-    <option name="LAST_COMMIT_MESSAGE" value="thymeleaf练习" />
+    <MESSAGE value="crud" />
+    <option name="LAST_COMMIT_MESSAGE" value="crud" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1201,9 +1181,9 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SaveServlet.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="17" />
+          <url>file://$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -14,9 +14,9 @@ import java.util.List;
 public interface SoldierService {
     List<Soldier> getAll();
 
-    boolean saveSoldier(String name, String weapon);
+    boolean saveSoldier(Soldier soldier);
 
-    boolean update(Integer id, String name, String weapon);
+    boolean update(Soldier soldier);
 
     boolean delete(Integer integer);
 }

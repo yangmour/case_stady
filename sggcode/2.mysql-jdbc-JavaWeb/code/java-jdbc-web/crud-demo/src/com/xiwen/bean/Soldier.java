@@ -15,11 +15,6 @@ public class Soldier {
     public Soldier() {
     }
 
-    public Soldier(String soldierName, String soldierWeapon) {
-        this.soldierName = soldierName;
-        this.soldierWeapon = soldierWeapon;
-    }
-
     public Soldier(Integer soldierId, String soldierName, String soldierWeapon) {
         this.soldierId = soldierId;
         this.soldierName = soldierName;

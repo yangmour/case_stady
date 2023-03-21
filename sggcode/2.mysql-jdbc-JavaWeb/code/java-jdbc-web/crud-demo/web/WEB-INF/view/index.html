@@ -23,7 +23,7 @@
         <td th:text="${item.soldierName}">姓名</td>
         <td th:text="${item.soldierWeapon}">武器</td>
         <td>
-            <a th:href="@{/updateServlet(id=${item.soldierId},name=${item.soldierName},weapon=${item.soldierWeapon},update='update')}">修改</a>
+            <a th:href="@{/updateServlet(soldierId=${item.soldierId},soldierName=${item.soldierName},soldierWeapon=${item.soldierWeapon},update='update')}">修改</a>
             <a th:href="@{/deleteServlet(id=${item.soldierId})}" name="soldierId">删除</a>
         </td>
     </tr>

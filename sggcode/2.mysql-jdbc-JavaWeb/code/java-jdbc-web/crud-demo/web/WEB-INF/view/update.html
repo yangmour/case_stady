@@ -10,10 +10,13 @@
     <table>
 
         <tr>
-            <td>姓名:<input type="text" name="name" th:value="${t_name}"></td>
+            <td>姓名:<input readonly="readonly" type="text" name="soldierId" th:value="${soldierId}"></td>
         </tr>
         <tr>
-            <td>武器:<input type="text" name="weapon" th:value="${t_weapon}"></td>
+            <td>姓名:<input type="text" name="soldierName" th:value="${soldierName}"></td>
+        </tr>
+        <tr>
+            <td>武器:<input type="text" name="soldierWeapon" th:value="${soldierWeapon}"></td>
         </tr>
     </table>
     <input type="submit" value="更新"/>

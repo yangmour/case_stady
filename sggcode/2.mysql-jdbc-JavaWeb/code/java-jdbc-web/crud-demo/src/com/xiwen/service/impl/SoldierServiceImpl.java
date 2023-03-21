@@ -24,14 +24,12 @@ public class SoldierServiceImpl implements SoldierService {
     }
 
     @Override
-    public boolean saveSoldier(String name, String weapon) {
-        Soldier soldier = new Soldier(name, weapon);
+    public boolean saveSoldier(Soldier soldier) {
         return soldierDao.saveSoldier(soldier);
     }
 
     @Override
-    public boolean update(Integer id, String name, String weapon) {
-        Soldier soldier = new Soldier(id, name, weapon);
+    public boolean update(Soldier soldier) {
         return soldierDao.update(soldier);
     }
 
