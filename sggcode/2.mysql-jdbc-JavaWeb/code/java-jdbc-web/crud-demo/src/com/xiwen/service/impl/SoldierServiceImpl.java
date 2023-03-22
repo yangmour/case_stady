@@ -39,4 +39,9 @@ public class SoldierServiceImpl implements SoldierService {
         return soldierDao.delete(id);
     }
 
+    @Override
+    public Soldier getById(String soldierId) {
+        return soldierDao.getById(soldierId);
+    }
+
 }

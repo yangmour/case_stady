@@ -11,6 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="crud">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/SoldierDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/SoldierDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/impl/SoldierDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/impl/SoldierDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/SoldierService.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/SoldierService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/impl/SoldierServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/service/impl/SoldierServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" afterDir="false" />
     </list>
@@ -896,7 +900,7 @@
       <workItem from="1679382211290" duration="13420000" />
       <workItem from="1679400838347" duration="4178000" />
       <workItem from="1679444896391" duration="82000" />
-      <workItem from="1679444987677" duration="70000" />
+      <workItem from="1679444987677" duration="2553000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -1122,7 +1126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679404985849</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="crud">
+      <created>1679445127381</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1679445127381</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

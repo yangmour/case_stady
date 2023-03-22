@@ -32,13 +32,17 @@ public class UpdateServlet extends ViewBaseServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String method = request.getParameter("method");
-        Soldier soldier = new Soldier();
-        try {
-            BeanUtils.populate(soldier, request.getParameterMap());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        String soldierId = request.getParameter("soldierId");
+
+
         if (method == null) {
+            Soldier soldier = new Soldier();
+
+            try {
+                BeanUtils.populate(soldier, request.getParameterMap());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             boolean f = soldierService.update(soldier);
             if (f) {
                 response.sendRedirect(request.getContextPath() + "/index.html");
@@ -47,6 +51,7 @@ public class UpdateServlet extends ViewBaseServlet {
                 processTemplate("save", request, response);
             }
         } else if ("update".equals(method)) {
+            Soldier soldier = soldierService.getById(soldierId);
             request.setAttribute("soldierId", soldier.getSoldierId());
             request.setAttribute("soldierName", soldier.getSoldierName());
             request.setAttribute("soldierWeapon", soldier.getSoldierWeapon());

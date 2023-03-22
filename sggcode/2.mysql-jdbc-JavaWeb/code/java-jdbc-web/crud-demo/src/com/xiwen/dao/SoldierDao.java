@@ -19,4 +19,6 @@ public interface SoldierDao {
     boolean update(Soldier soldier);
 
     boolean delete(Integer id);
+
+    Soldier getById(String soldierId);
 }

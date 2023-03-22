@@ -40,5 +40,9 @@ public class SoldierDaoImpl extends BaseDao<Soldier> implements SoldierDao {
         return update(sql, id);
     }
 
-
+    @Override
+    public Soldier getById(String soldierId) {
+        String sql = "select soldier_id soldierId,soldier_name soldierName,soldier_weapon soldierWeapon from t_soldier where soldier_id = ?";
+        return getBean(sql, soldierId);
+    }
 }

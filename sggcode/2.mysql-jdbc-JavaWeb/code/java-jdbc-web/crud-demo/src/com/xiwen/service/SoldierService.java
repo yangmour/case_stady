@@ -19,4 +19,6 @@ public interface SoldierService {
     boolean update(Soldier soldier);
 
     boolean delete(Integer integer);
+
+    Soldier getById(String soldierId);
 }
