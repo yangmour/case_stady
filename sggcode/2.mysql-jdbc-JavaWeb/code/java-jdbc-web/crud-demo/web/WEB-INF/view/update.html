@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <base href="/crud-demo/">
+    <base href="/crud_demo/">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form th:action="@{/updateServlet}">
+<form th:action="@{/soldierServlet(method=update)}" method="post">
     <table>
 
         <tr>

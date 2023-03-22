@@ -7,7 +7,7 @@ package com.xiwen.bean;
  * @Create: 2023/03/21 -18:08
  * @Version: 1.0
  */
-public class Soldier {
+public class Soldier{
     private Integer soldierId;
     private String soldierName;
     private String soldierWeapon;

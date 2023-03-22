@@ -2,25 +2,19 @@ package com.xiwen.servlet; /**
  * Description:
  *
  * @author: yf
- * @Create: 2023/03/21 -18:25
+ * @Create: 2023/03/22 -14:47
  * @Version: 1.0
  */
 
-import com.xiwen.bean.Soldier;
-import com.xiwen.service.SoldierService;
-import com.xiwen.service.impl.SoldierServiceImpl;
 import com.xiwen.utils.ViewBaseServlet;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
+import java.lang.reflect.Method;
 
-@WebServlet(name = "ShowSoldierServlet", value = "/index.html")
-public class ShowSoldierServlet extends ViewBaseServlet {
-    private SoldierService soldierService = new SoldierServiceImpl();
+public class BaseServlet extends ViewBaseServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,10 +23,16 @@ public class ShowSoldierServlet extends ViewBaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        String methodParam = request.getParameter("method");
 
-        List<Soldier> list = soldierService.getAll();
-        request.setAttribute("items", list);
-        processTemplate("index", request, response);
+        try {
+            Method method = this.getClass().getDeclaredMethod(methodParam, HttpServletRequest.class, HttpServletResponse.class);
+            method.setAccessible(true);
+            method.invoke(this, request, response);
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
