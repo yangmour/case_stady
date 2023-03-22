@@ -9,19 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="crud">
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/BaseServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SoldierServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/show.html" afterDir="false" />
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="反射调用方法">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/bean/Soldier.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/bean/Soldier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/DeleteServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SaveServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/ShowSoldierServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/ToIndexPageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/UpdateServlet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/save.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/save.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/update.html" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/web/WEB-INF/view/update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/impl/SoldierDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/dao/impl/SoldierDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SoldierServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/crud-demo/src/com/xiwen/servlet/SoldierServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -905,7 +896,7 @@
       <workItem from="1679382211290" duration="13420000" />
       <workItem from="1679400838347" duration="4178000" />
       <workItem from="1679444896391" duration="82000" />
-      <workItem from="1679444987677" duration="12586000" />
+      <workItem from="1679444987677" duration="18124000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -1145,7 +1136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679450307422</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="反射调用方法">
+      <created>1679467762693</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1679467762693</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1186,7 +1184,8 @@
     <MESSAGE value="demo是测试东西的一个模块没什么用，今天学习了thymeleaf模板简单使用" />
     <MESSAGE value="thymeleaf练习" />
     <MESSAGE value="crud" />
-    <option name="LAST_COMMIT_MESSAGE" value="crud" />
+    <MESSAGE value="反射调用方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="反射调用方法" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

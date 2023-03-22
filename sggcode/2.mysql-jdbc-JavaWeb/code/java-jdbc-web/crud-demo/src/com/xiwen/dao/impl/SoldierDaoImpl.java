@@ -3,7 +3,9 @@ package com.xiwen.dao.impl;
 import com.xiwen.bean.Soldier;
 import com.xiwen.dao.BaseDao;
 import com.xiwen.dao.SoldierDao;
+import com.xiwen.utils.JDBCTools;
 
+import java.sql.*;
 import java.util.List;
 
 /**
@@ -25,7 +27,30 @@ public class SoldierDaoImpl extends BaseDao<Soldier> implements SoldierDao {
     public boolean saveSoldier(Soldier soldier) {
 
         String sql = "insert into t_soldier values(null,?,?)";
-        return update(sql, soldier.getSoldierName(), soldier.getSoldierWeapon());
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet generatedKeys = null;
+        try {
+            connection = JDBCTools.getConnection();
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setObject(1, soldier.getSoldierName());
+            preparedStatement.setObject(2, soldier.getSoldierWeapon());
+
+            preparedStatement.executeUpdate();
+            generatedKeys = preparedStatement.getGeneratedKeys();
+            while (generatedKeys.next()) {
+                String id = generatedKeys.getString(1);
+                soldier.setSoldierId(Integer.valueOf(id));
+            }
+            return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } finally {
+            JDBCTools.close(connection, preparedStatement, generatedKeys);
+        }
+
+
+//        return update(sql, soldier.getSoldierName(), soldier.getSoldierWeapon());
     }
 
     @Override
