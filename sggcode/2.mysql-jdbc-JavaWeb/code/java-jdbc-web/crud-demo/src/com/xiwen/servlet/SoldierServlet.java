@@ -10,6 +10,7 @@ import com.xiwen.bean.Soldier;
 import com.xiwen.service.SoldierService;
 import com.xiwen.service.impl.SoldierServiceImpl;
 import org.apache.commons.beanutils.BeanUtils;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -121,5 +122,21 @@ public class SoldierServlet extends BaseServlet {
             request.setAttribute("mgs", "删除失败!");
             processTemplate("deleteServlet", request, response);
         }
+    }
+
+    protected void search(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String key = request.getParameter("key");
+        Map<Integer, Soldier> soldierMap = (Map<Integer, Soldier>) request.getServletContext().getAttribute("soldiers");
+        List<Soldier> list = null;
+        if (soldierMap != null && !StringUtils.isEmpty(key)) {
+            list = soldierMap.values().stream()
+                    .filter(s -> s.getSoldierName().contains(key) || s.getSoldierWeapon().contains(key))
+                    .collect(Collectors.toList());
+            request.setAttribute("items", list);
+            processTemplate("show", request, response);
+        } else {
+            response.sendRedirect(request.getContextPath() + "/soldierServlet?method=showSoldiers");
+        }
+
     }
 }

@@ -9,6 +9,16 @@
 <table border="1" width="400px" align="center">
     <tr>
         <th colspan="5">士兵展示</th>
+
+    </tr>
+    <tr>
+        <form action="soldierServlet">
+            <input type="hidden" name="method" value="search">
+            <th colspan="5">
+                <input type="text" name="key" th:value="${param.key}">
+                <button>搜索</button>
+            </th>
+        </form>
     </tr>
     <tr>
         <th>序号</th>
