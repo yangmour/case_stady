@@ -80,9 +80,9 @@
     new Vue({
         el: "#content",
         data: {
-            errorMsg:  '[[${errMsg==null?"请输入用户名和密码":errMsg}]]',
-            username: '[[${param.username}]]',
-            password: '[[${param.password}]]',
+            errorMsg: '[[${errMsg==null?"请输入用户名和密码":errMsg}]]',
+            username: '[[${param.username==null?username:param.username}]]',
+            password: '[[${param.password==null?password:param.password}]]',
             flag: true
 
         },

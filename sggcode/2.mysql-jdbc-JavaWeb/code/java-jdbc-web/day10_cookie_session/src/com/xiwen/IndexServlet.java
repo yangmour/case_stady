@@ -22,6 +22,13 @@ public class IndexServlet extends ViewBaseServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        processTemplate("index",request,response);
+        HttpSession session = request.getSession();
+        //如果是新创建的session就让他失效并跳到登陆页面
+        if (session.isNew()) {
+            session.invalidate();
+        }
+
+        //没有失效将跳到首页
+        processTemplate("index", request, response);
     }
 }
