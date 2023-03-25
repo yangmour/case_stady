@@ -11,6 +11,16 @@
   <component name="ChangeListManager">
     <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="练习">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/base/header_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/base/header_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/book_add.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/book_add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/book_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/book_edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/book_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/book_manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/order_manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/manager/order_manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/regist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/pages/user/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/user/regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/pages/user/regist.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1079,7 +1089,7 @@
       <workItem from="1679644594904" duration="1540000" />
       <workItem from="1679647032299" duration="8351000" />
       <workItem from="1679659975346" duration="2351000" />
-      <workItem from="1679704081380" duration="415000" />
+      <workItem from="1679704081380" duration="1413000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -1354,7 +1364,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679659248425</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="练习">
+      <created>1679704515427</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1679704515427</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
