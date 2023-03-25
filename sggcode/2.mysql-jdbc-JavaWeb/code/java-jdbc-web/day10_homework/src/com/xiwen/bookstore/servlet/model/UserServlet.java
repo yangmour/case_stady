@@ -30,14 +30,19 @@ public class UserServlet extends BaseServlet {
 
     protected void toLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if (cookie.getName().equals("username")) {
-                request.setAttribute(cookie.getName(), cookie.getValue());
-            } else if (cookie.getName().equals("password")) {
-                request.setAttribute(cookie.getName(), cookie.getValue());
-            }
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("username")) {
+                    request.setAttribute(cookie.getName(), cookie.getValue());
+                } else if (cookie.getName().equals("password")) {
+                    request.setAttribute(cookie.getName(), cookie.getValue());
+                } else if (cookie.getName().equals("check")) {
+                    request.setAttribute(cookie.getName(), cookie.getValue());
+                }
 //            System.out.println(cookie.getName() + ":" + cookie.getValue());
+            }
         }
+
         processTemplate("user/login", request, response);
     }
 
@@ -62,18 +67,38 @@ public class UserServlet extends BaseServlet {
             e.printStackTrace();
         }
 
-        //设置cookie保存密码
+
         String cookiePath = request.getContextPath() + "/userServlet";
-        Cookie username = new Cookie("username", user.getUsername());
-        Cookie password = new Cookie("password", user.getPassword());
+        Cookie checkCookie = null;
+        Cookie username = null;
+        Cookie password = null;
+        String check = request.getParameter("check");
+        if (check != null) {
+            checkCookie = new Cookie("check", "on");
+            //设置cookie保存密码
+            username = new Cookie("username", user.getUsername());
+            password = new Cookie("password", user.getPassword());
+
+
+            //一周
+            username.setMaxAge(60 * 60 * 24 * 7);
+            password.setMaxAge(60 * 60 * 24 * 7);
+            checkCookie.setMaxAge(60 * 60 * 24 * 7);
+
+        } else {
+            username = new Cookie("username", "");
+            password = new Cookie("password", "");
+            checkCookie = new Cookie("check", "");
+        }
+
         username.setPath(cookiePath);
         password.setPath(cookiePath);
-        //一周
-        username.setMaxAge(60 * 60 * 24 * 7);
-        password.setMaxAge(60 * 60 * 24 * 7);
+        checkCookie.setPath(cookiePath);
+
         //将当前用户回显到输入框
         response.addCookie(username);
         response.addCookie(password);
+        response.addCookie(checkCookie);
 
 
         User selectUser = userService.login(user);

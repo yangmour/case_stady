@@ -9,11 +9,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="获取username">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="注册的验证码">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/day11_AJAX_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/day11_AJAX.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/src/com/xiwen/base/AjaxTestServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/src/com/xiwen/base/BaseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/js/axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/js/axios.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/js/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/lib/attoparser-2.0.5.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/lib/javassist-3.20.0-GA.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/lib/log4j-1.2.15.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/lib/ognl-3.1.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/lib/slf4j-api-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/lib/slf4j-log4j12-1.7.25.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/lib/thymeleaf-3.0.12.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day11_AJAX/web/lib/unbescape-1.1.6.RELEASE.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/servlet/model/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/servlet/model/UserServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/regist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,11 +98,11 @@
     "full.screen.before.presentation.mode": "false",
     "import_schema_mapping": "<schema-mapping>\n  <databases>\n    <list>\n      <schema-mapping-item>\n        <source-data-source-id>28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a</source-data-source-id>\n        <source-path>schema/&quot;atguigudb&quot;</source-path>\n        <target-data-source-id>28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a</target-data-source-id>\n        <target-path>schema/&quot;bookstore&quot;</target-path>\n      </schema-mapping-item>\n    </list>\n  </databases>\n</schema-mapping>",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day10_homework/web/WEB-INF/lib",
+    "last_opened_file_path": "C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day11_AJAX/web/js",
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Facets",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2505747",
     "settings.editor.selected.configurable": "preferences.lookFeel",
@@ -105,18 +123,18 @@
       <recent name="com.xiwen" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day11_AJAX\web\js" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day11_AJAX\web" />
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day11_AJAX\src\com\xiwen\a" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day10_homework\web\WEB-INF\lib" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day10_cookie_session\web\WEB-INF\lib" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day10_cookie_session\src\com\xiwen" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day09_homework\web\WEB-INF" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day09_homework\src\com\xiwen\bookstore\servlet\base" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day11_AJAX\web" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day10_cookie_session\web\WEB-INF\pages" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day10_cookie_session\web\WEB-INF" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day09_homework\web\WEB-INF\pages" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day09_homework\web\WEB-INF" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day06_homework\web" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.xiwen.bookstore.servlet.model" />
@@ -985,6 +1003,93 @@
         </option>
       </method>
     </configuration>
+    <configuration name="day11_AJAX" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="day11_AJAX:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/day11_AJAX" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="9eec0341-3b69-4cfa-8423-0421f6e9391c" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="57327" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="day11_AJAX:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ArrayTest" />
       <item itemvalue="Application.SnakeGame" />
@@ -998,6 +1103,7 @@
       <item itemvalue="Tomcat Server.crud_demo" />
       <item itemvalue="Tomcat Server.day06_servlet" />
       <item itemvalue="Tomcat Server.day10_homework" />
+      <item itemvalue="Tomcat Server.day11_AJAX" />
       <item itemvalue="Tomcat Server.day10_cookie_session" />
       <item itemvalue="Tomcat Server.day04_web" />
       <item itemvalue="Tomcat Server.day05_servlet" />
@@ -1082,7 +1188,7 @@
       <workItem from="1679644594904" duration="1540000" />
       <workItem from="1679647032299" duration="8351000" />
       <workItem from="1679659975346" duration="2351000" />
-      <workItem from="1679704081380" duration="9599000" />
+      <workItem from="1679704081380" duration="24835000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -1385,7 +1491,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679710195968</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="注册的验证码">
+      <created>1679713945469</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1679713945469</updated>
+    </task>
+    <task id="LOCAL-00045" summary="注册的验证码">
+      <created>1679713969154</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1679713969154</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1404,7 +1524,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="封装BaseDao方法" />
     <MESSAGE value="上午练习" />
     <MESSAGE value="登陆注册页面" />
     <MESSAGE value="动态表格" />
@@ -1429,7 +1548,8 @@
     <MESSAGE value="练习" />
     <MESSAGE value="动态获取上下文路径" />
     <MESSAGE value="获取username" />
-    <option name="LAST_COMMIT_MESSAGE" value="获取username" />
+    <MESSAGE value="注册的验证码" />
+    <option name="LAST_COMMIT_MESSAGE" value="注册的验证码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

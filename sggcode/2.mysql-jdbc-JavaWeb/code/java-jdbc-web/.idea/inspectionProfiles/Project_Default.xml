@@ -1365,7 +1365,7 @@
     <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
-          <list size="33">
+          <list size="34">
             <item index="0" class="java.lang.String" itemvalue="@tap" />
             <item index="1" class="java.lang.String" itemvalue="@tap.stop" />
             <item index="2" class="java.lang.String" itemvalue="@tap.prevent" />
@@ -1399,6 +1399,7 @@
             <item index="30" class="java.lang.String" itemvalue="v-bind:style" />
             <item index="31" class="java.lang.String" itemvalue="v-bind:id" />
             <item index="32" class="java.lang.String" itemvalue="v-bind:href" />
+            <item index="33" class="java.lang.String" itemvalue="th:value" />
           </list>
         </value>
       </option>
