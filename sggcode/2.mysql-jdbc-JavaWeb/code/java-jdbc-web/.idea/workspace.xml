@@ -9,12 +9,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="动态获取上下文路径">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="获取username">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day06_homework/web/pages/user/login_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/day06_homework/web/pages/user/login_success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day06_homework/web/pages/user/regist_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/day06_homework/web/pages/user/regist_success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/user/login_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/pages/user/login_success.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/user/regist_success.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/pages/user/regist_success.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/cart/cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/cart/checkout.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/manager/book_add.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/manager/book_edit.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/manager/book_manager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/manager/order_manager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/order/order.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/user/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/user/login_success.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/user/regist.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/pages/user/regist_success.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1083,7 +1091,7 @@
       <workItem from="1679644594904" duration="1540000" />
       <workItem from="1679647032299" duration="8351000" />
       <workItem from="1679659975346" duration="2351000" />
-      <workItem from="1679704081380" duration="3616000" />
+      <workItem from="1679704081380" duration="5947000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -1372,7 +1380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679705603736</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="获取username">
+      <created>1679707823332</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1679707823332</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1391,7 +1406,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="封装JDBCTools方法" />
     <MESSAGE value="封装BaseDao方法" />
     <MESSAGE value="上午练习" />
     <MESSAGE value="登陆注册页面" />
@@ -1416,7 +1430,8 @@
     <MESSAGE value="cookie和session练习，书城的增删改查" />
     <MESSAGE value="练习" />
     <MESSAGE value="动态获取上下文路径" />
-    <option name="LAST_COMMIT_MESSAGE" value="动态获取上下文路径" />
+    <MESSAGE value="获取username" />
+    <option name="LAST_COMMIT_MESSAGE" value="获取username" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
