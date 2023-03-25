@@ -51,4 +51,13 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    @Override
+    public boolean checkUserName(String checkUserName) {
+        boolean f = userDao.selectUserName(checkUserName);
+        if (f) {
+            return true;
+        }
+        return false;
+    }
 }

@@ -8,6 +8,7 @@ package com.xiwen.bookstore.servlet.model;
  * @Version: 1.0
  */
 
+import com.google.gson.Gson;
 import com.xiwen.bookstore.bean.User;
 import com.xiwen.bookstore.service.UserService;
 import com.xiwen.bookstore.service.impl.UserServiceImpl;
@@ -20,7 +21,10 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Map;
 
 @WebServlet("/userServlet")
@@ -123,8 +127,7 @@ public class UserServlet extends BaseServlet {
 
         String code = request.getParameter("code");
         Object codeKey = request.getSession().getAttribute("KAPTCHA_SESSION_KEY");
-        System.out.println(codeKey);
-        System.out.println(code);
+
         if (codeKey.equals(code)) {
             Map<String, String[]> parameterMap = request.getParameterMap();
             User user = new User();
@@ -145,6 +148,36 @@ public class UserServlet extends BaseServlet {
             processTemplate("user/regist", request, response);
         }
 
+
+    }
+
+    protected void checkUserName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json;charset=UTF-8");
+
+        BufferedReader reader = request.getReader();
+        StringBuilder stringBuilder = new StringBuilder();
+        String line = "";
+        while ((line = reader.readLine()) != null) {
+            stringBuilder.append(line);
+        }
+
+        Gson gson = new Gson();
+        User checkUserName = gson.fromJson(stringBuilder.toString(), User.class);
+
+        boolean flag = userService.checkUserName(checkUserName.getUsername());
+        PrintWriter writer = response.getWriter();
+
+        HashMap<String, String> map = new HashMap<>();
+        if (flag) {
+            map.put("checkMsg", "可以创建用户！");
+            String s = gson.toJson(map);
+            writer.write(s);
+        } else {
+            map.put("checkMsg", "用户以重复！");
+            String s = gson.toJson(map);
+            writer.write(s);
+        }
+        writer.close();
 
     }
 }

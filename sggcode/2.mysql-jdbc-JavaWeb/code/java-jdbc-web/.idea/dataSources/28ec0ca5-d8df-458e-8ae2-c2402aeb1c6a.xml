@@ -5476,7 +5476,7 @@ email</ColNames>
       <Position>7</Position>
     </column>
     <column id="791" parent="309" name="soldier_id">
-      <AutoIncrement>22</AutoIncrement>
+      <AutoIncrement>21</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
@@ -5500,7 +5500,7 @@ email</ColNames>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
     <column id="796" parent="310" name="id">
-      <AutoIncrement>6</AutoIncrement>
+      <AutoIncrement>9</AutoIncrement>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>

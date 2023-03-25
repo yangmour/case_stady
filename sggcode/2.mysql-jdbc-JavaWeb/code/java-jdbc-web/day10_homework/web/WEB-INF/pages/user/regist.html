@@ -13,6 +13,7 @@
         }
     </style>
     <script src="js/vue2.7.js"></script>
+    <script src="js/axios.js"></script>
 </head>
 <body>
 <div id="login_header">
@@ -30,8 +31,9 @@
                 <div>
                     <label>用户名称:</label>
                     <input type="text" name="username" placeholder="请输入用户名" v-model="username"
-                           @blur="usernameCheck()"/>
+                           @blur="usernameCheck()" @change="usernameCheck"/>
                 </div>
+                <a>{{checkUserName}}</a>
                 <span class="errMess">{{usernameMsg}}</span>
             </div>
             <div class="form-item">
@@ -88,6 +90,7 @@
             email: '[[${param.email}]]',
             code: '[[${param.code}]]',
             codeSrc: "kaptcha",
+            checkUserName: "",
 
             usernameMsg: "[[${param.username==null?'用户名应为6~16位数组和字母组成':'√'}]]",
             passwordMsg: "[[${param.password==null?'密码的长度至少为8位':'√'}]]",
@@ -105,6 +108,21 @@
                 var userReg = /[\w]{6,16}/;
                 if (userReg.test(this.username)) {
                     this.usernameMsg = "√"
+
+                    axios({
+                        method: "post",
+                        url: "userServlet",
+                        params: {
+                            method: "checkUserName"
+                        },
+                        data: {
+                            username: this.username,
+                        }
+                    }).then(response => {
+                        var data = response.data;
+                        this.checkUserName = data.checkMsg;
+                    })
+
                     return false;
                 } else {
                     this.usernameMsg = "用户名应为6~16位数组和字母组成"
@@ -145,6 +163,9 @@
                     event.preventDefault();
                 }
             }
+        },
+        mounted: function () {
+            this.usernameCheck();
         }
     })
 </script>

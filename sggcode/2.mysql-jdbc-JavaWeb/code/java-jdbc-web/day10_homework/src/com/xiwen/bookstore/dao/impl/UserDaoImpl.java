@@ -21,6 +21,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
     /**
      * 这个做登陆和查询是否存在重复用户
+     *
      * @param user
      * @return
      */
@@ -31,17 +32,14 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
     }
 
 
-
-
     @Override
     public boolean selectUserName(String username) {
         String sql = "select count(*) from users where username = ?";
-        Object value = getValue(sql, username);
-        Long o = (Long) value;
+        Long o = (Long) getValue(sql, username);
         if (o == 0) {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     @Override
