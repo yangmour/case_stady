@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/day11_AJAX/">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/axios.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>json数据来回传递</h1>
+    <input type="button" @click="jsonTest" value="点击">
+    <span>{{result}}</span>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            result: ""
+        },
+        methods: {
+            jsonTest: function () {
+                axios({
+                    method: "post",
+                    url: "ajaxTest?method=jsonTest",
+                    data: {
+                        username: "admin",
+                        password: "admin666"
+                    }
+                }).then(response => {
+                    var data = response.data;
+                    console.log(data)
+                    this.result = data.username + "+" + data.password;
+                })
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
