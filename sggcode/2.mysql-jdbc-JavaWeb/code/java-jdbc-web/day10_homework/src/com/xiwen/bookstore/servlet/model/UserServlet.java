@@ -14,7 +14,6 @@ import com.xiwen.bookstore.service.impl.UserServiceImpl;
 import com.xiwen.bookstore.servlet.base.BaseServlet;
 import org.apache.commons.beanutils.BeanUtils;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -49,7 +48,7 @@ public class UserServlet extends BaseServlet {
 
     protected void logOut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getSession().invalidate();
-        response.sendRedirect(request.getContextPath()+"/userServlet?method=toLogin");
+        response.sendRedirect(request.getContextPath() + "/userServlet?method=toLogin");
     }
 
     protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -97,19 +96,30 @@ public class UserServlet extends BaseServlet {
     protected void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
 
-        Map<String, String[]> parameterMap = request.getParameterMap();
-        User user = new User();
-        try {
-            BeanUtils.populate(user, parameterMap);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        boolean flag = userService.register(user);
-        if (flag) {
-            processTemplate("user/regist_success", request, response);
+        String code = request.getParameter("code");
+        Object codeKey = request.getSession().getAttribute("KAPTCHA_SESSION_KEY");
+        System.out.println(codeKey);
+        System.out.println(code);
+        if (codeKey.equals(code)) {
+            Map<String, String[]> parameterMap = request.getParameterMap();
+            User user = new User();
+            try {
+                BeanUtils.populate(user, parameterMap);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            boolean flag = userService.register(user);
+            if (flag) {
+                processTemplate("user/regist_success", request, response);
+            } else {
+                processTemplate("user/regist", request, response);
+
+            }
         } else {
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("pages/user/regist.html");
-            requestDispatcher.forward(request, response);
+            request.setAttribute("codeMsg", "验证码错误");
+            processTemplate("user/regist", request, response);
         }
+
+
     }
 }

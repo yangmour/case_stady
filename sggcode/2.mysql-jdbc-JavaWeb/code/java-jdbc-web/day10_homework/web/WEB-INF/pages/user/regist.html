@@ -62,11 +62,11 @@
                 <div>
                     <label>验证码:</label>
                     <div class="verify">
-                        <input type="text" placeholder=""/>
-                        <img src="static/img/code.bmp" alt="" height="50px"/>
+                        <input name="code" type="text" placeholder="" v-model="code"/>
+                        <img :src="codeSrc" @click="changeCode" alt="" height="50px" width="140px"/>
                     </div>
                 </div>
-                <span class="errMess">请输入正确的验证码</span>
+                <span class="errMess">{{codeMsg}}</span>
             </div>
             <button class="btn" @click="btn_submit">注册</button>
         </form>
@@ -82,19 +82,25 @@
     new Vue({
         el: "#reg_form",
         data: {
-            username: '',
-            password: '',
-            password2: '',
-            email: '',
+            username: '[[${param.username}]]',
+            password: '[[${param.password}]]',
+            password2: '[[${param.password}]]',
+            email: '[[${param.email}]]',
+            code: '[[${param.code}]]',
+            codeSrc: "kaptcha",
 
-            usernameMsg: "用户名应为6~16位数组和字母组成",
-            passwordMsg: "密码的长度至少为8位",
-            password2Msg: "密码两次输入不一致",
-            emailMsg: "请输入正确的邮箱格式",
-
-
+            usernameMsg: "[[${param.username==null?'用户名应为6~16位数组和字母组成':'√'}]]",
+            passwordMsg: "[[${param.password==null?'密码的长度至少为8位':'√'}]]",
+            password2Msg: "[[${param.password==null?'密码两次输入不一致':'√'}]]",
+            emailMsg: "[[${param.email==null?'请输入正确的邮箱格式':'√'}]]",
+            codeMsg: "[[${codeMsg==null?'请输入正确的验证码':codeMsg}]]"
         },
         methods: {
+
+            changeCode: function () {
+                this.codeSrc = "kaptcha?time=" + new Date();
+            },
+
             usernameCheck: function () {
                 var userReg = /[\w]{6,16}/;
                 if (userReg.test(this.username)) {
