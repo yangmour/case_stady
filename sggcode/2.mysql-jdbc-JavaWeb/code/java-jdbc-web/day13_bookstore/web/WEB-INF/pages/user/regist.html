@@ -121,11 +121,12 @@
                         }
                     }).then(response => {
                         var data = response.data;
-                        if (data.flag === "ok") {
+                        console.log(data)
+                        if (data.flag) {
                             this.usernameMsg = "√"
                             this.flag.usernameFlag = true;
                         } else {
-                            this.usernameMsg = data.checkMsg;
+                            this.usernameMsg = data.resultData.checkMsg;
                             this.flag.usernameFlag = false;
                         }
                     })

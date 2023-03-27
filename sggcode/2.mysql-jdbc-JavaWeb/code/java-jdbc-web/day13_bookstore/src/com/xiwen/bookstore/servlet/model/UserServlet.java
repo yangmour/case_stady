@@ -13,6 +13,7 @@ import com.xiwen.bookstore.bean.User;
 import com.xiwen.bookstore.service.UserService;
 import com.xiwen.bookstore.service.impl.UserServiceImpl;
 import com.xiwen.bookstore.servlet.base.BaseServlet;
+import com.xiwen.bookstore.util.CommonResult;
 import org.apache.commons.beanutils.BeanUtils;
 
 import javax.servlet.ServletException;
@@ -167,18 +168,17 @@ public class UserServlet extends BaseServlet {
         boolean flag = userService.checkUserName(user);
         PrintWriter writer = response.getWriter();
 
-        HashMap<String, String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
+
+        CommonResult r = null;
         if (flag) {
-            map.put("flag", "ok");
-            map.put("checkMsg", "可以创建用户！");
-            String s = gson.toJson(map);
-            writer.write(s);
+            r = CommonResult.ok().setResultData(map);
         } else {
-            map.put("flag", "fail");
             map.put("checkMsg", "用户以重复！");
-            String s = gson.toJson(map);
-            writer.write(s);
+            r = CommonResult.error().setResultData(map);
         }
+        String s = gson.toJson(r);
+        writer.write(s);
         writer.close();
 
     }
