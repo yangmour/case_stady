@@ -9,11 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="购物车显示">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="购物车删除">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/model/CartServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/model/CartServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/web/WEB-INF/pages/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/web/WEB-INF/pages/cart/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/base/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/base/BaseServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1263,14 +1261,8 @@
       <workItem from="1679757145826" duration="4607000" />
       <workItem from="1679806878836" duration="18000" />
       <workItem from="1679877566259" duration="11463000" />
-      <workItem from="1679897719226" duration="8860000" />
-    </task>
-    <task id="LOCAL-00005" summary="封装JDBCTools方法">
-      <created>1678443081252</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1678443081252</updated>
+      <workItem from="1679897719226" duration="9550000" />
+      <workItem from="1679913779735" duration="23000" />
     </task>
     <task id="LOCAL-00006" summary="封装BaseDao方法">
       <created>1678446934805</created>
@@ -1608,7 +1600,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679905498311</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="购物车删除">
+      <created>1679907658601</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1679907658601</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1627,7 +1626,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="练习servlet三种实习方式" />
     <MESSAGE value="练习servlet的request转发" />
     <MESSAGE value="response和路径问题" />
     <MESSAGE value="登陆注册" />
@@ -1652,7 +1650,8 @@
     <MESSAGE value="优化用通用返回对象" />
     <MESSAGE value="购物车添加" />
     <MESSAGE value="购物车显示" />
-    <option name="LAST_COMMIT_MESSAGE" value="购物车显示" />
+    <MESSAGE value="购物车删除" />
+    <option name="LAST_COMMIT_MESSAGE" value="购物车删除" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1671,11 +1670,6 @@
           <url>file://$PROJECT_DIR$/day06_homework/src/com/xiwen/bookstore/servlet/LoginServlet.java</url>
           <line>42</line>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/model/CartServlet.java</url>
-          <line>100</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
