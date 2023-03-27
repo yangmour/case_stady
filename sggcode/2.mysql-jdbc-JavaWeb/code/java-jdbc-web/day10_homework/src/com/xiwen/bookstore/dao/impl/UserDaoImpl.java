@@ -31,22 +31,4 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
         return bean;
     }
 
-
-    @Override
-    public boolean selectUserName(String username) {
-        String sql = "select count(*) from users where username = ?";
-        Long o = (Long) getValue(sql, username);
-        if (o == 0) {
-            return true;
-        }
-        return false;
-    }
-
-    @Override
-    public User selectUser(User user) {
-        String sql = "select id,username,email from users where username = ? && password=?";
-        User bean = getBean(sql, user.getUsername(), user.getPassword());
-        return bean;
-    }
-
 }

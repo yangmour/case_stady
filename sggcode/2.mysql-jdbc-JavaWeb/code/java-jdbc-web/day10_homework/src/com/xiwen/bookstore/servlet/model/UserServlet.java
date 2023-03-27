@@ -162,17 +162,19 @@ public class UserServlet extends BaseServlet {
         }
 
         Gson gson = new Gson();
-        User checkUserName = gson.fromJson(stringBuilder.toString(), User.class);
+        User user = gson.fromJson(stringBuilder.toString(), User.class);
 
-        boolean flag = userService.checkUserName(checkUserName.getUsername());
+        boolean flag = userService.checkUserName(user);
         PrintWriter writer = response.getWriter();
 
         HashMap<String, String> map = new HashMap<>();
         if (flag) {
+            map.put("flag", "ok");
             map.put("checkMsg", "可以创建用户！");
             String s = gson.toJson(map);
             writer.write(s);
         } else {
+            map.put("flag", "fail");
             map.put("checkMsg", "用户以重复！");
             String s = gson.toJson(map);
             writer.write(s);

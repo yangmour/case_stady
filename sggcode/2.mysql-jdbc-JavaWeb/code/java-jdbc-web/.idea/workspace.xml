@@ -9,9 +9,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="第五阶段注册验证用户">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="点击注册时不在验证用户存不存在，异步做了">
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/dao/impl/UserDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/servlet/model/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/src/com/xiwen/bookstore/servlet/model/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/regist.html" beforeDir="false" afterPath="$PROJECT_DIR$/day10_homework/web/WEB-INF/pages/user/regist.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1172,7 +1178,7 @@
       <workItem from="1679754075009" duration="3004000" />
       <workItem from="1679757145826" duration="4607000" />
       <workItem from="1679806878836" duration="18000" />
-      <workItem from="1679877566259" duration="1146000" />
+      <workItem from="1679877566259" duration="4148000" />
     </task>
     <task id="LOCAL-00001" summary="sql的子查询和jdbc连接">
       <created>1678261896320</created>
@@ -1503,7 +1509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679761769539</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="点击注册时不在验证用户存不存在，异步做了">
+      <created>1679878775282</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1679878775282</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1522,7 +1535,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="动态表格" />
     <MESSAGE value="vue练习" />
     <MESSAGE value="登陆注册验证" />
     <MESSAGE value="登陆注册验证更新" />
@@ -1547,7 +1559,8 @@
     <MESSAGE value="注册的验证码" />
     <MESSAGE value="练习题" />
     <MESSAGE value="第五阶段注册验证用户" />
-    <option name="LAST_COMMIT_MESSAGE" value="第五阶段注册验证用户" />
+    <MESSAGE value="点击注册时不在验证用户存不存在，异步做了" />
+    <option name="LAST_COMMIT_MESSAGE" value="点击注册时不在验证用户存不存在，异步做了" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

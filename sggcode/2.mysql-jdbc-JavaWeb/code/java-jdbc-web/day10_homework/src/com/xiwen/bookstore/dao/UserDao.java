@@ -19,22 +19,6 @@ public interface UserDao {
      */
     boolean saveUser(User user);
 
-    /**
-     * 查看用户是否重复
-     *
-     * @param username
-     * @return
-     */
-    boolean selectUserName(String username);
-
-    /**
-     * 验证登陆
-     *
-     * @param user
-     * @return
-     */
-    User selectUser(User user);
-
     User getUser(User user);
 
 }
