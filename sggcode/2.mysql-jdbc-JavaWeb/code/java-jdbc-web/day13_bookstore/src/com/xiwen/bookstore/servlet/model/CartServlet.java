@@ -70,15 +70,46 @@ public class CartServlet extends BaseServlet {
         Gson gson = new Gson();
         CommonResult commonResult = null;
         if (cart != null) {
-            map.put("cartItems", cart.getCartItems());
-            map.put("totalCount", cart.getTotalCount());
-            map.put("totalAmount", cart.getTotalAmount());
-            commonResult = CommonResult.ok().setResultData(map);
+            String s = getCartData(cart);
+            writer.write(s);
         } else {
             commonResult = CommonResult.error();
+            writer.write(gson.toJson(commonResult));
         }
-        writer.write(gson.toJson(commonResult));
         writer.close();
+    }
+
+    protected void deleteItem(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=utf-8");
+        HttpSession session = request.getSession();
+
+        String bookId = request.getParameter("bookId");
+
+        Cart cart = (Cart) session.getAttribute("cart");
+        cart.deleteItem(Integer.parseInt(bookId));
+
+        PrintWriter writer = response.getWriter();
+
+        String s = getCartData(cart);
+
+        writer.write(s);
+        writer.close();
+    }
+
+
+    protected void clearItems(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().removeAttribute("cart");
+        response.getWriter().write(new Gson().toJson(CommonResult.ok()));
+    }
+
+    public String getCartData(Cart cart) {
+        Gson gson = new Gson();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("cartItems", cart.getCartItems());
+        map.put("totalCount", cart.getTotalCount());
+        map.put("totalAmount", cart.getTotalAmount());
+        return gson.toJson(CommonResult.ok().setResultData(map));
+
     }
 
 }

@@ -52,4 +52,9 @@ public class Cart {
     public List<CartItem> getCartItems() {
         return cartItemMap.values().stream().collect(Collectors.toList());
     }
+
+    public void deleteItem(int bookId) {
+        cartItemMap.remove(bookId);
+    }
+
 }
