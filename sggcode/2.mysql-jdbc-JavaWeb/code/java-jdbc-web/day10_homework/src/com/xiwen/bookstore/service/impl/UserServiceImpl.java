@@ -34,13 +34,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean register(User user) {
-        User getUser = userDao.getUser(user);
-        if (getUser == null) {
-            //md5加密
-            user.setPassword(MD5Util.encode(user.getPassword()));
-            return userDao.saveUser(user);
-        }
-        return false;
+        //md5加密
+        user.setPassword(MD5Util.encode(user.getPassword()));
+        return userDao.saveUser(user);
     }
 
     @Override
