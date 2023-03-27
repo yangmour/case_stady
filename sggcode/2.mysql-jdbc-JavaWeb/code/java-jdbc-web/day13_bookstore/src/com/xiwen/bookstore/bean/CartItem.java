@@ -15,7 +15,9 @@ public class CartItem {
     public CartItem(Book book, Integer count) {
         this.book = book;
         this.count = count;
-    }
+        if (book != null) {
+            amount = count * book.getPrice();
+        }    }
 
     public CartItem() {
     }
@@ -34,10 +36,13 @@ public class CartItem {
 
     public void setCount(Integer count) {
         this.count = count;
+        if (book != null) {
+            amount = count * book.getPrice();
+        }
     }
 
     public Double getAmount() {
-        return count * book.getPrice();
+        return amount;
     }
 
 

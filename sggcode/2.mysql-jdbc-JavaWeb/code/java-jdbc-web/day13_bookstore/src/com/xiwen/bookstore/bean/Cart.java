@@ -1,7 +1,9 @@
 package com.xiwen.bookstore.bean;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Description:
@@ -12,8 +14,7 @@ import java.util.Map;
  */
 public class Cart {
     private Map<Integer, CartItem> cartItemMap = new HashMap<>();
-    private Integer count;
-    private Double amount;
+    private Double totalAmount;
 
 
     public void addBook(Book book) {
@@ -37,5 +38,18 @@ public class Cart {
             totalCount += cartItem.getCount();
         }
         return totalCount;
+    }
+
+    public Double getTotalAmount() {
+
+        Double totalAmount = 0D;
+        for (CartItem cartItem : cartItemMap.values()) {
+            totalAmount += cartItem.getAmount();
+        }
+        return totalAmount;
+    }
+
+    public List<CartItem> getCartItems() {
+        return cartItemMap.values().stream().collect(Collectors.toList());
     }
 }

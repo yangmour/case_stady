@@ -58,7 +58,27 @@ public class CartServlet extends BaseServlet {
                 writer.close();
             }
         }
+    }
 
+    protected void showCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=utf-8");
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+        PrintWriter writer = response.getWriter();
+
+        HashMap<String, Object> map = new HashMap<>();
+        Gson gson = new Gson();
+        CommonResult commonResult = null;
+        if (cart != null) {
+            map.put("cartItems", cart.getCartItems());
+            map.put("totalCount", cart.getTotalCount());
+            map.put("totalAmount", cart.getTotalAmount());
+            commonResult = CommonResult.ok().setResultData(map);
+        } else {
+            commonResult = CommonResult.error();
+        }
+        writer.write(gson.toJson(commonResult));
+        writer.close();
     }
 
 }
