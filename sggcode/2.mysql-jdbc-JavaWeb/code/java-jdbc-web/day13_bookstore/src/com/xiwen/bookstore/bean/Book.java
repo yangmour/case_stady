@@ -74,4 +74,17 @@ public class Book {
     public void setImgPath(String imgPath) {
         this.imgPath = imgPath;
     }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "bookId=" + bookId +
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", price=" + price +
+                ", sales=" + sales +
+                ", stock=" + stock +
+                ", imgPath='" + imgPath + '\'' +
+                '}';
+    }
 }
