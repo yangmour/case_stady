@@ -9,12 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="hello过滤器">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="购物车的修改一会在修复double不精确问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/base/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/base/BaseServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/model/CartServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/model/CartServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/web/WEB-INF/pages/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/web/WEB-INF/pages/cart/cart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/filter/HelloFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/filter/HelloFilter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +124,7 @@
       <recent name="com.xiwen.util" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.day13_bookstore">
+  <component name="RunManager" selected="Tomcat Server.day14_filterAndListener">
     <configuration name="ArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xiwen.ArrayTest" />
       <module name="demo" />
@@ -1355,14 +1352,7 @@
       <workItem from="1679897719226" duration="9550000" />
       <workItem from="1679913779735" duration="220000" />
       <workItem from="1679914137433" duration="2313000" />
-      <workItem from="1679965437445" duration="7345000" />
-    </task>
-    <task id="LOCAL-00008" summary="上午练习">
-      <created>1678686665550</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1678686665550</updated>
+      <workItem from="1679965437445" duration="7770000" />
     </task>
     <task id="LOCAL-00009" summary="登陆注册页面">
       <created>1678688361493</created>
@@ -1700,7 +1690,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679967983318</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="购物车的修改一会在修复double不精确问题">
+      <created>1679973262831</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1679973262831</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1719,7 +1716,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="登陆注册" />
     <MESSAGE value="把jar包都加进去" />
     <MESSAGE value="修改书城" />
     <MESSAGE value="demo是测试东西的一个模块没什么用，今天学习了thymeleaf模板简单使用" />
@@ -1744,7 +1740,8 @@
     <MESSAGE value="购物车删除" />
     <MESSAGE value="抛异常" />
     <MESSAGE value="hello过滤器" />
-    <option name="LAST_COMMIT_MESSAGE" value="hello过滤器" />
+    <MESSAGE value="购物车的修改一会在修复double不精确问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="购物车的修改一会在修复double不精确问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
