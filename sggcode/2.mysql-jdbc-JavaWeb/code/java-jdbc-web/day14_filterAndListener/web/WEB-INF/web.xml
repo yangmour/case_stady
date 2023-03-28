@@ -26,6 +26,8 @@
         <!--        <url-pattern>/user/filterpath.action</url-pattern>-->
         <!--        servlet名字匹配-->
         <!--        <servlet-name>FilterPathServlet</servlet-name>-->
+        <!--        静态资源也可以过滤-->
+        <!--        <servlet-name>hello.index</servlet-name>-->
     </filter-mapping>
 
     <!--    过滤链是跟mapping的先后顺序有关，和filter无关-->

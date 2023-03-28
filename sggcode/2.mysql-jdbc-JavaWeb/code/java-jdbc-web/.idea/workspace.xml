@@ -9,13 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="注解方式的过滤路径">
-      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/filter/Filter1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/filter/Filter2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/servlet/FilterChainServlet.java" afterDir="false" />
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="过滤器链">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day14_filterAndListener/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/day14_filterAndListener/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_filterAndListener/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/day14_filterAndListener/web/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1356,14 +1352,7 @@
       <workItem from="1679897719226" duration="9550000" />
       <workItem from="1679913779735" duration="220000" />
       <workItem from="1679914137433" duration="2313000" />
-      <workItem from="1679965437445" duration="9572000" />
-    </task>
-    <task id="LOCAL-00012" summary="vue练习">
-      <created>1678789437457</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1678789437457</updated>
+      <workItem from="1679965437445" duration="9730000" />
     </task>
     <task id="LOCAL-00013" summary="登陆注册验证">
       <created>1678795665965</created>
@@ -1701,7 +1690,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679974602657</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="过滤器链">
+      <created>1679975211521</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1679975211521</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1720,7 +1716,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="thymeleaf练习" />
     <MESSAGE value="crud" />
     <MESSAGE value="反射调用方法" />
     <MESSAGE value="添加缓存" />
@@ -1745,7 +1740,8 @@
     <MESSAGE value="生命周期" />
     <MESSAGE value="测试匹配模式" />
     <MESSAGE value="注解方式的过滤路径" />
-    <option name="LAST_COMMIT_MESSAGE" value="注解方式的过滤路径" />
+    <MESSAGE value="过滤器链" />
+    <option name="LAST_COMMIT_MESSAGE" value="过滤器链" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
