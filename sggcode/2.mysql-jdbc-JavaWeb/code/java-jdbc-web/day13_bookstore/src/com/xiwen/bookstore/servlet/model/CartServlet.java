@@ -112,4 +112,39 @@ public class CartServlet extends BaseServlet {
 
     }
 
+    protected void addCount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+
+        String bookId = request.getParameter("bookId");
+        String sub = request.getParameter("sub");
+        if ("sub".equals(sub)) { //减一
+            cart.addCount(Integer.parseInt(bookId), -1);
+        } else { //加一
+            cart.addCount(Integer.parseInt(bookId), 1);
+        }
+
+
+        PrintWriter writer = response.getWriter();
+        String s = getCartData(cart);
+
+        writer.write(s);
+        writer.close();
+    }
+
+    protected void modifCount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+
+        String bookId = request.getParameter("bookId");
+        String count = request.getParameter("count");
+        cart.modifCount(Integer.parseInt(bookId), Integer.parseInt(count));
+
+
+        PrintWriter writer = response.getWriter();
+        String s = getCartData(cart);
+
+        writer.write(s);
+        writer.close();
+    }
 }

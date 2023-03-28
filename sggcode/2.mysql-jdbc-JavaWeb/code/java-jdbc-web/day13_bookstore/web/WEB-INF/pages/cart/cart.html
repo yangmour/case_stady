@@ -57,9 +57,10 @@
                     </td>
                     <td>{{cartItem.book.bookName}}</td>
                     <td>
-                        <span class="count">-</span>
-                        <input class="count-num" type="text" v-model="cartItem.count"/>
-                        <span class="count">+</span>
+                        <span class="count" @click="subCount(cartItem.book.bookId)">-</span>
+                        <input class="count-num" @change="modifCount(cartItem.book.bookId)" type="text"
+                               v-model="cartItem.count"/>
+                        <span class="count" @click="addCount(cartItem.book.bookId)">+</span>
                     </td>
                     <td>{{cartItem.book.price}}</td>
                     <td>{{cartItem.amount}}</td>
@@ -178,6 +179,76 @@
                         this.totalAmount = 0;
                     }
                 })
+            },
+            addCount: function (bookId) {
+                alert(bookId)
+                axios({
+                    method: "post",
+                    url: "cart",
+                    params: {
+                        method: "addCount",
+                        bookId: bookId,
+                    }
+                }).then(response => {
+                    var data = response.data;
+                    if (data.flag) {
+                        this.cartItems = data.resultData.cartItems;
+                        this.totalCount = data.resultData.totalCount;
+                        this.totalAmount = data.resultData.totalAmount;
+                    }
+                })
+            },
+            subCount: function (bookId) {
+                var count = event.target.nextElementSibling.value;
+                if (count === 1) {
+                    var b = confirm("最后一个商品真的要删除吗?");
+                    if (b) {
+                        this.deleteItem(bookId);
+                    }
+                } else {
+                    axios({
+                        method: "post",
+                        url: "cart",
+                        params: {
+                            method: "addCount",
+                            bookId: bookId,
+                            sub: "sub"
+                        }
+                    }).then(response => {
+                        var data = response.data;
+                        if (data.flag) {
+                            this.cartItems = data.resultData.cartItems;
+                            this.totalCount = data.resultData.totalCount;
+                            this.totalAmount = data.resultData.totalAmount;
+                        }
+                    })
+                }
+
+            },
+            modifCount: function (bookId) {
+                var count = event.target.value;
+                if (count < 0) {
+                    alert("参数不合法！")
+                } else if (count === 0) {
+                    this.subCount(bookId);
+                } else {
+                    axios({
+                        method: "post",
+                        url: "cart",
+                        params: {
+                            method: "modifCount",
+                            bookId: bookId,
+                            count: count
+                        }
+                    }).then(response => {
+                        var data = response.data;
+                        if (data.flag) {
+                            this.cartItems = data.resultData.cartItems;
+                            this.totalCount = data.resultData.totalCount;
+                            this.totalAmount = data.resultData.totalAmount;
+                        }
+                    })
+                }
             }
         },
         created: function () {

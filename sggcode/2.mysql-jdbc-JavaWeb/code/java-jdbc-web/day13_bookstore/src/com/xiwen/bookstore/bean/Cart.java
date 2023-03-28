@@ -57,4 +57,17 @@ public class Cart {
         cartItemMap.remove(bookId);
     }
 
+    public void addCount(int bookId, int num) {
+        CartItem cartItem = cartItemMap.get(bookId);
+        if (num == -1 && cartItem.getCount() == 1) {
+            cartItemMap.remove(bookId);
+        } else {
+            cartItem.setCount(cartItem.getCount() + num);
+        }
+    }
+
+    public void modifCount(int bookId, int count) {
+        CartItem cartItem = cartItemMap.get(bookId);
+        cartItem.setCount(count);
+    }
 }
