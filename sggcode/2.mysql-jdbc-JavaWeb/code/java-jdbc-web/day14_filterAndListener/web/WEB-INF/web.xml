@@ -3,14 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <filter>
-        <filter-name>HelloFilter</filter-name>
-        <filter-class>com.xiwen.filter.HelloFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>HelloFilter</filter-name>
-        <url-pattern>/hello</url-pattern>
-    </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>HelloFilter</filter-name>-->
+<!--        <filter-class>com.xiwen.filter.HelloFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>HelloFilter</filter-name>-->
+<!--        <url-pattern>/hello</url-pattern>-->
+<!--    </filter-mapping>-->
     <filter>
         <filter-name>FilterPathFilter</filter-name>
         <filter-class>com.xiwen.filter.FilterPathFilter</filter-class>

@@ -1,6 +1,7 @@
 package com.xiwen.filter;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
 /**
@@ -10,6 +11,7 @@ import java.io.IOException;
  * @Create: 2023/03/28 -09:37
  * @Version: 1.0
  */
+@WebFilter(urlPatterns = {"/hello"})
 public class HelloFilter implements Filter {
     public HelloFilter() {
         System.out.println("创建HelloFilter过滤器");
