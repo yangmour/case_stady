@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="day13_bookstore:war exploded" />
+      <artifact name="day14_filterAndListener:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="购物车删除">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="抛异常">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/day14_filterAndListener_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/day14_filterAndListener.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/filter/HelloFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/servlet/HelloServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/web/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/base/BaseServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/servlet/base/BaseServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +36,8 @@
         <option value="JavaScript File" />
         <option value="CSS File" />
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -124,7 +130,7 @@
       <recent name="com.xiwen.util" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.day13_bookstore">
+  <component name="RunManager" selected="Tomcat Server.day14_filterAndListener">
     <configuration name="ArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xiwen.ArrayTest" />
       <module name="demo" />
@@ -993,7 +999,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="9eec0341-3b69-4cfa-8423-0421f6e9391c" />
+        <option name="BASE_DIRECTORY_NAME" value="bf516bf4-442d-4b7d-9451-464d575da8f4" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -1157,6 +1163,93 @@
         </option>
       </method>
     </configuration>
+    <configuration name="day14_filterAndListener" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="day14_filterAndListener:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/day14_filterAndListener" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="1f366e13-f2ad-4bc9-9297-9a2ab51cd021" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="49203" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="day14_filterAndListener:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ArrayTest" />
       <item itemvalue="Application.SnakeGame" />
@@ -1172,6 +1265,7 @@
       <item itemvalue="Tomcat Server.day10_homework" />
       <item itemvalue="Tomcat Server.day13_bookstore" />
       <item itemvalue="Tomcat Server.day11_AJAX" />
+      <item itemvalue="Tomcat Server.day14_filterAndListener" />
       <item itemvalue="Tomcat Server.day10_cookie_session" />
       <item itemvalue="Tomcat Server.day04_web" />
       <item itemvalue="Tomcat Server.day05_servlet" />
@@ -1262,14 +1356,9 @@
       <workItem from="1679806878836" duration="18000" />
       <workItem from="1679877566259" duration="11463000" />
       <workItem from="1679897719226" duration="9550000" />
-      <workItem from="1679913779735" duration="23000" />
-    </task>
-    <task id="LOCAL-00006" summary="封装BaseDao方法">
-      <created>1678446934805</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1678446934805</updated>
+      <workItem from="1679913779735" duration="220000" />
+      <workItem from="1679914137433" duration="2313000" />
+      <workItem from="1679965437445" duration="2402000" />
     </task>
     <task id="LOCAL-00007" summary="练习">
       <created>1678525158915</created>
@@ -1607,7 +1696,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679907658601</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="抛异常">
+      <created>1679913995216</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1679913995216</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1626,7 +1722,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="练习servlet的request转发" />
     <MESSAGE value="response和路径问题" />
     <MESSAGE value="登陆注册" />
     <MESSAGE value="把jar包都加进去" />
@@ -1651,7 +1746,8 @@
     <MESSAGE value="购物车添加" />
     <MESSAGE value="购物车显示" />
     <MESSAGE value="购物车删除" />
-    <option name="LAST_COMMIT_MESSAGE" value="购物车删除" />
+    <MESSAGE value="抛异常" />
+    <option name="LAST_COMMIT_MESSAGE" value="抛异常" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
