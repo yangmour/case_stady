@@ -9,10 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="测试匹配模式">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="注解方式的过滤路径">
+      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/filter/Filter1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/filter/Filter2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/servlet/FilterChainServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/filter/HelloFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_filterAndListener/src/com/xiwen/filter/HelloFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day14_filterAndListener/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/day14_filterAndListener/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day14_filterAndListener/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/day14_filterAndListener/web/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1353,14 +1356,7 @@
       <workItem from="1679897719226" duration="9550000" />
       <workItem from="1679913779735" duration="220000" />
       <workItem from="1679914137433" duration="2313000" />
-      <workItem from="1679965437445" duration="8961000" />
-    </task>
-    <task id="LOCAL-00011" summary="动态表格">
-      <created>1678753523537</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1678753523537</updated>
+      <workItem from="1679965437445" duration="9572000" />
     </task>
     <task id="LOCAL-00012" summary="vue练习">
       <created>1678789437457</created>
@@ -1698,7 +1694,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679974494221</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="注解方式的过滤路径">
+      <created>1679974602657</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1679974602657</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1717,7 +1720,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="demo是测试东西的一个模块没什么用，今天学习了thymeleaf模板简单使用" />
     <MESSAGE value="thymeleaf练习" />
     <MESSAGE value="crud" />
     <MESSAGE value="反射调用方法" />
@@ -1742,7 +1744,8 @@
     <MESSAGE value="购物车的修改一会在修复double不精确问题" />
     <MESSAGE value="生命周期" />
     <MESSAGE value="测试匹配模式" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试匹配模式" />
+    <MESSAGE value="注解方式的过滤路径" />
+    <option name="LAST_COMMIT_MESSAGE" value="注解方式的过滤路径" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
