@@ -11,4 +11,19 @@
         <filter-name>HelloFilter</filter-name>
         <url-pattern>/hello</url-pattern>
     </filter-mapping>
+    <filter>
+        <filter-name>FilterPathFilter</filter-name>
+        <filter-class>com.xiwen.filter.FilterPathFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>FilterPathFilter</filter-name>
+        <!--        后缀匹配-->
+        <url-pattern>*.action</url-pattern>
+        <!--前缀匹配-->
+<!--        <url-pattern>/user/*</url-pattern>-->
+        <!--        精准匹配-->
+<!--        <url-pattern>/user/filterpath.action</url-pattern>-->
+        <!--        servlet名字匹配-->
+<!--        <servlet-name>FilterPathServlet</servlet-name>-->
+    </filter-mapping>
 </web-app>
