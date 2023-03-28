@@ -1,5 +1,7 @@
 package com.xiwen.bookstore.bean;
 
+import java.math.BigDecimal;
+
 /**
  * Description:
  *
@@ -15,9 +17,13 @@ public class CartItem {
     public CartItem(Book book, Integer count) {
         this.book = book;
         this.count = count;
+
         if (book != null) {
-            amount = count * book.getPrice();
-        }    }
+            BigDecimal bigDecimalCount = new BigDecimal(count + "");
+            BigDecimal bigDecimalPrice = new BigDecimal(book.getPrice() + "");
+            amount = bigDecimalCount.multiply(bigDecimalPrice).doubleValue();
+        }
+    }
 
     public CartItem() {
     }
@@ -37,7 +43,9 @@ public class CartItem {
     public void setCount(Integer count) {
         this.count = count;
         if (book != null) {
-            amount = count * book.getPrice();
+            BigDecimal bigDecimalCount = new BigDecimal(count + "");
+            BigDecimal bigDecimalPrice = new BigDecimal(book.getPrice() + "");
+            amount = bigDecimalCount.multiply(bigDecimalPrice).doubleValue();
         }
     }
 

@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="day14_filterAndListener:war exploded" />
+      <artifact name="day13_bookstore:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="过滤器链">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="补充静态资源也可以过滤">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_filterAndListener/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/day14_filterAndListener/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/CartItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +125,7 @@
       <recent name="com.xiwen.util" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.day14_filterAndListener">
+  <component name="RunManager" selected="Tomcat Server.day13_bookstore">
     <configuration name="ArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xiwen.ArrayTest" />
       <module name="demo" />
@@ -1352,14 +1353,7 @@
       <workItem from="1679897719226" duration="9550000" />
       <workItem from="1679913779735" duration="220000" />
       <workItem from="1679914137433" duration="2313000" />
-      <workItem from="1679965437445" duration="9730000" />
-    </task>
-    <task id="LOCAL-00013" summary="登陆注册验证">
-      <created>1678795665965</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1678795665965</updated>
+      <workItem from="1679965437445" duration="11429000" />
     </task>
     <task id="LOCAL-00014" summary="登陆注册验证">
       <created>1678804114660</created>
@@ -1697,7 +1691,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679975211521</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="补充静态资源也可以过滤">
+      <created>1679975363309</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1679975363309</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1716,7 +1717,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="crud" />
     <MESSAGE value="反射调用方法" />
     <MESSAGE value="添加缓存" />
     <MESSAGE value="模糊查询" />
@@ -1741,7 +1741,8 @@
     <MESSAGE value="测试匹配模式" />
     <MESSAGE value="注解方式的过滤路径" />
     <MESSAGE value="过滤器链" />
-    <option name="LAST_COMMIT_MESSAGE" value="过滤器链" />
+    <MESSAGE value="补充静态资源也可以过滤" />
+    <option name="LAST_COMMIT_MESSAGE" value="补充静态资源也可以过滤" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

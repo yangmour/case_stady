@@ -1,5 +1,6 @@
 package com.xiwen.bookstore.bean;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,11 +43,12 @@ public class Cart {
 
     public Double getTotalAmount() {
 
-        Double totalAmount = 0D;
+        BigDecimal totalAmount = new BigDecimal(0 + "");
         for (CartItem cartItem : cartItemMap.values()) {
-            totalAmount += cartItem.getAmount();
+            BigDecimal bigDecimalPrice = new BigDecimal(cartItem.getAmount() + "");
+            totalAmount = totalAmount.add(bigDecimalPrice);
         }
-        return totalAmount;
+        return totalAmount.doubleValue();
     }
 
     public List<CartItem> getCartItems() {
