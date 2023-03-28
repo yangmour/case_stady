@@ -2,17 +2,115 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="day13_bookstore:war exploded" />
+      <artifact name="day14_bookstore:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="补充静态资源也可以过滤">
+    <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="价格精度问题">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/day14_bookstore_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/day14_bookstore.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/resources/jdbc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/bean/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/bean/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/bean/CartItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/bean/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/BaseDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/BookDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/impl/BookDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/BookService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/impl/BookServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/servlet/base/BaseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/servlet/base/ViewBaseServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/servlet/model/CartServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/servlet/model/IndexServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/servlet/model/ManagerBooksServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/servlet/model/UserServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/util/CommonResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/util/JDBCTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/util/MD5Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/cart/cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/cart/checkout.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/manager/base/header_base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/manager/book_add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/manager/book_edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/manager/book_manager.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/manager/order_manager.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/order/order.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/user/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/user/login_success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/user/regist.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/user/regist_success.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/js/axios.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/js/vue2.7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/bookManger.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/book_edit.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/cart.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/common.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/iconfont.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/minireset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/orderManger.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/register.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/css/swiper.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/img/QR.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/img/bottom.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/img/bottom1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/img/bottom2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/img/code.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/img/default.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/img/logo.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/img/pwd-icons-new.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/script/swiper.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/script/vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/Javabianchengsixiang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/ailuntulingzhuan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/bainiangudu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/banner4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/banner5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/banner6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/biancheng.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/books.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/cate4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/cate5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/cate6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/congwanqingdaominguo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/cyuyanrumenjingdian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/dashujuyuce.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/fusang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/geihaizideshi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/huozhe.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/huranqiri.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/jiaofu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/jieyouzahuodian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/kanjian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/pinang.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/pingfandeshijie.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/qiadaohaochudexingfu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/renyueshenhua.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/santi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/shejimoshizhichan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/shengmingbuxi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/shuxuezhimei.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/sudongpozhuan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/tujiejiqixuexi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/weinushiernian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/womensa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/wukongzhuan.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/xiaowangzi.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/yingpaijianshen.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/web/static/uploads/zhongguozhexueshi.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/CartItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/day13_bookstore/src/com/xiwen/bookstore/bean/CartItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +177,7 @@
     "full.screen.before.presentation.mode": "false",
     "import_schema_mapping": "<schema-mapping>\n  <databases>\n    <list>\n      <schema-mapping-item>\n        <source-data-source-id>28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a</source-data-source-id>\n        <source-path>schema/&quot;atguigudb&quot;</source-path>\n        <target-data-source-id>28ec0ca5-d8df-458e-8ae2-c2402aeb1c6a</target-data-source-id>\n        <target-path>schema/&quot;bookstore&quot;</target-path>\n      </schema-mapping-item>\n    </list>\n  </databases>\n</schema-mapping>",
     "jdk.selected.JAVA_MODULE": "1.8",
-    "last_opened_file_path": "C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day13_bookstore",
+    "last_opened_file_path": "C:/Users/xiwen/Desktop/sgg/sggcode/2.mysql-jdbc-JavaWeb/code/java-jdbc-web/day14_bookstore",
     "list.type.of.created.stylesheet": "CSS",
     "nodejs_interpreter_path": "node",
     "nodejs_package_manager_path": "npm",
@@ -104,11 +202,11 @@
       <recent name="com.xiwen.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day14_bookstore" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day13_bookstore" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day10_homework\web\js" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day10_homework\web\WEB-INF\lib" />
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day11_AJAX\web\lib" />
-      <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day11_AJAX\web\js" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\xiwen\Desktop\sgg\sggcode\2.mysql-jdbc-JavaWeb\code\java-jdbc-web\day13_bookstore\src\com\xiwen\bookstore\util" />
@@ -125,7 +223,7 @@
       <recent name="com.xiwen.util" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.day13_bookstore">
+  <component name="RunManager" selected="Tomcat Server.day14_bookstore">
     <configuration name="ArrayTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xiwen.ArrayTest" />
       <module name="demo" />
@@ -1158,6 +1256,93 @@
         </option>
       </method>
     </configuration>
+    <configuration name="day14_bookstore" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="day14_bookstore:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/day14_bookstore" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="22127112-0e09-417d-9be3-2bcc3f645972" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51212" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="day14_bookstore:war exploded" />
+        </option>
+      </method>
+    </configuration>
     <configuration name="day14_filterAndListener" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.27" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -1259,6 +1444,7 @@
       <item itemvalue="Tomcat Server.day06_servlet" />
       <item itemvalue="Tomcat Server.day10_homework" />
       <item itemvalue="Tomcat Server.day13_bookstore" />
+      <item itemvalue="Tomcat Server.day14_bookstore" />
       <item itemvalue="Tomcat Server.day11_AJAX" />
       <item itemvalue="Tomcat Server.day14_filterAndListener" />
       <item itemvalue="Tomcat Server.day10_cookie_session" />
@@ -1353,14 +1539,7 @@
       <workItem from="1679897719226" duration="9550000" />
       <workItem from="1679913779735" duration="220000" />
       <workItem from="1679914137433" duration="2313000" />
-      <workItem from="1679965437445" duration="11429000" />
-    </task>
-    <task id="LOCAL-00014" summary="登陆注册验证">
-      <created>1678804114660</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1678804114660</updated>
+      <workItem from="1679965437445" duration="13453000" />
     </task>
     <task id="LOCAL-00015" summary="登陆注册验证更新">
       <created>1678846297044</created>
@@ -1698,7 +1877,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679975363309</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="价格精度问题">
+      <created>1679983694743</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1679983694743</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1717,7 +1903,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="反射调用方法" />
     <MESSAGE value="添加缓存" />
     <MESSAGE value="模糊查询" />
     <MESSAGE value="cookie和session练习，书城的增删改查" />
@@ -1742,7 +1927,8 @@
     <MESSAGE value="注解方式的过滤路径" />
     <MESSAGE value="过滤器链" />
     <MESSAGE value="补充静态资源也可以过滤" />
-    <option name="LAST_COMMIT_MESSAGE" value="补充静态资源也可以过滤" />
+    <MESSAGE value="价格精度问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="价格精度问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
