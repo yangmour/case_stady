@@ -22,4 +22,5 @@ public interface BookDao {
 
     boolean updateBook(Book book);
 
+    List<Book> getByIds(List<Integer> ids);
 }

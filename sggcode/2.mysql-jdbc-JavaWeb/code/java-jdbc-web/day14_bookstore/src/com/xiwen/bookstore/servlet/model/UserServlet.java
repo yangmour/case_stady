@@ -37,6 +37,7 @@ public class UserServlet extends BaseServlet {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
+
                 if (cookie.getName().equals("username")) {
                     request.setAttribute(cookie.getName(), cookie.getValue());
                 } else if (cookie.getName().equals("password")) {
@@ -110,8 +111,7 @@ public class UserServlet extends BaseServlet {
         if (selectUser != null) {
             //获取session
             HttpSession session = request.getSession();
-            session.setAttribute("username", user.getUsername());
-            session.setAttribute("password", user.getUsername());
+            session.setAttribute("user", user);
             //闲置30分钟自动失效
             session.setMaxInactiveInterval(30);
 

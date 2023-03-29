@@ -1,0 +1,87 @@
+package com.xiwen.bookstore.bean;
+
+/**
+ * Description:
+ *
+ * @author: yf
+ * @Create: 2023/03/28 -16:34
+ * @Version: 1.0
+ */
+public class Order {
+    private Integer orderId;
+    private String orderSequence;
+    private String createTime;
+    private String totalCount;
+    private String totalAmount;
+    private Integer orderStatus;
+    private Integer userId;
+
+    public Order() {
+    }
+
+    public Order(Integer orderId, String orderSequence, String createTime, String totalCount, String totalAmount, Integer orderStatus, Integer userId) {
+        this.orderId = orderId;
+        this.orderSequence = orderSequence;
+        this.createTime = createTime;
+        this.totalCount = totalCount;
+        this.totalAmount = totalAmount;
+        this.orderStatus = orderStatus;
+        this.userId = userId;
+    }
+
+    public Integer getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Integer orderId) {
+        this.orderId = orderId;
+    }
+
+    public String getOrderSequence() {
+        return orderSequence;
+    }
+
+    public void setOrderSequence(String orderSequence) {
+        this.orderSequence = orderSequence;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(String totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    public String getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(String totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public Integer getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(Integer orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+}

@@ -4,6 +4,7 @@ import com.xiwen.bookstore.bean.Book;
 import com.xiwen.bookstore.dao.BaseDao;
 import com.xiwen.bookstore.dao.BookDao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,5 +43,18 @@ public class BookDaoImpl extends BaseDao<Book> implements BookDao {
     public boolean updateBook(Book book) {
         String sql = "update books set title=?,author=?,price=?,sales=?,stock=? where id=?";
         return update(sql, book.getBookName(), book.getAuthor(), book.getPrice(), book.getSales(), book.getStock(), book.getBookId());
+    }
+
+
+    @Override
+    public List<Book> getByIds(List<Integer> ids) {
+
+        ArrayList<Book> books = new ArrayList<>();
+        String sql = "select id bookId,title bookName,author,price,sales,stock,img_path imgPath from books where id = ?";
+        for (Integer id : ids) {
+            Book bean = getBean(sql, id);
+            books.add(bean);
+        }
+        return books;
     }
 }
