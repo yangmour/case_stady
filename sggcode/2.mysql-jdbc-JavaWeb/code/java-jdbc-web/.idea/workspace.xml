@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="去结账功能">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/impl/OrderServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -1429,14 +1428,7 @@
       <workItem from="1680008982368" duration="1190000" />
       <workItem from="1680011053137" duration="734000" />
       <workItem from="1680011966076" duration="3427000" />
-      <workItem from="1680049345080" duration="2431000" />
-    </task>
-    <task id="LOCAL-00017" summary="昨天">
-      <created>1679016955586</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1679016955586</updated>
+      <workItem from="1680049345080" duration="2455000" />
     </task>
     <task id="LOCAL-00018" summary="上午练习servlet">
       <created>1679035281483</created>
@@ -1774,7 +1766,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680050723629</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="去结账功能">
+      <created>1680051791769</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1680051791769</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

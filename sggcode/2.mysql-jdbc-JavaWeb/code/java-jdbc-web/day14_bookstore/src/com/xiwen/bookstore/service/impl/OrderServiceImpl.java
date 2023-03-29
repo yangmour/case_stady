@@ -75,7 +75,7 @@ public class OrderServiceImpl implements OrderService {
                 Book itemBook = cartItem.getBook();
                 Book book = bookDao.getById(String.valueOf(itemBook.getBookId()));
                 book.setStock(book.getStock() - cartItem.getCount());
-                book.setSales(book.getStock() + cartItem.getCount());
+                book.setSales(book.getSales() + cartItem.getCount());
                 bookDao.updateBook(book);
             }
             return CommonResult.ok();
