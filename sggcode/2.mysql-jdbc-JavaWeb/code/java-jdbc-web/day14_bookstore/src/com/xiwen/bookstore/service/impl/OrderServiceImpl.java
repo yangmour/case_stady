@@ -9,7 +9,6 @@ import com.xiwen.bookstore.dao.impl.OrderDaoImpl;
 import com.xiwen.bookstore.dao.impl.OrderItemDaoImpl;
 import com.xiwen.bookstore.service.OrderService;
 
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -31,7 +30,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String checkOut(User user, Cart cart) {
-        try {
             //先查看库存
             List<CartItem> cartItems = cart.getCartItems();
             List<Integer> ids = cartItems.stream().map(cartItem -> cartItem.getBook().getBookId()).collect(Collectors.toList());
@@ -94,9 +92,6 @@ public class OrderServiceImpl implements OrderService {
                 bookDao.updateBook(book);
             }
             return uuid;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     @Override

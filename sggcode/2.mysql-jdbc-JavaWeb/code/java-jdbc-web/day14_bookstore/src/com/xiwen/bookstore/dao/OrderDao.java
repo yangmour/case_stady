@@ -2,7 +2,6 @@ package com.xiwen.bookstore.dao;
 
 import com.xiwen.bookstore.bean.Order;
 
-import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -13,7 +12,7 @@ import java.util.List;
  * @Version: 1.0
  */
 public interface OrderDao {
-    void insert(Order order) throws SQLException;
+    void insert(Order order);
 
     List<Order> getByUserId(Integer id);
 }

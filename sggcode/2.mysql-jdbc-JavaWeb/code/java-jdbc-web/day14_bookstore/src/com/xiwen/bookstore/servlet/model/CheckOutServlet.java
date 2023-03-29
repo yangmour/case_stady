@@ -43,12 +43,7 @@ public class CheckOutServlet extends BaseServlet {
         }
 
         // 业务
-        String uuid = null;
-        try {
-            uuid = orderService.checkOut(user, cart);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        String uuid = orderService.checkOut(user, cart);
 
         //清空你的购物车
         session.removeAttribute("cart");

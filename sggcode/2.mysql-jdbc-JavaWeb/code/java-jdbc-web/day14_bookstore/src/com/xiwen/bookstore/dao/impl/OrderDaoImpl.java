@@ -42,13 +42,17 @@ public class OrderDaoImpl extends BaseDao<Order> implements OrderDao {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new RuntimeException(e);
+            throw new RuntimeException();
         } finally {
             try {
-                preparedStatement.close();
-                resultSet.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
+                if (resultSet != null) {
+                    resultSet.close();
+                }
+                if (preparedStatement != null) {
+                    preparedStatement.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
