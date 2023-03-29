@@ -1,15 +1,13 @@
 package com.xiwen.bookstore.dao.impl;
 
-import com.xiwen.bookstore.bean.Cart;
 import com.xiwen.bookstore.bean.Order;
-import com.xiwen.bookstore.bean.User;
+import com.xiwen.bookstore.bean.OrderItem;
 import com.xiwen.bookstore.dao.BaseDao;
 import com.xiwen.bookstore.dao.OrderDao;
 import com.xiwen.bookstore.util.JDBCTools;
 
 import java.sql.*;
-import java.util.Date;
-import java.util.UUID;
+import java.util.List;
 
 /**
  * Description:
@@ -21,27 +19,32 @@ import java.util.UUID;
 public class OrderDaoImpl extends BaseDao<Order> implements OrderDao {
 
     @Override
-    public Integer insert(User user, Cart cart) throws SQLException {
+    public void insert(Order order) throws SQLException {
         Connection connection = JDBCTools.getConnection();
         String sql = "insert into t_order values (null,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
         //uuid的低64位
-        UUID uuid = UUID.randomUUID();
-        preparedStatement.setObject(1, uuid.getLeastSignificantBits()); //id
-        preparedStatement.setObject(2, new Date()); //create_time
-        preparedStatement.setObject(3, cart.getTotalCount()); //count
-        preparedStatement.setObject(4, cart.getTotalAmount()); //amount
-        preparedStatement.setObject(5, 0); //status
-        preparedStatement.setObject(6, user.getId()); //user_id
+        preparedStatement.setObject(1, order.getOrderSequence()); //id
+        preparedStatement.setObject(2, order.getCreateTime()); //create_time
+        preparedStatement.setObject(3, order.getTotalCount()); //count
+        preparedStatement.setObject(4, order.getTotalAmount()); //amount
+        preparedStatement.setObject(5, order.getOrderStatus()); //status
+        preparedStatement.setObject(6, order.getUserId()); //user_id
         preparedStatement.executeUpdate();
 
         ResultSet resultSet = preparedStatement.getGeneratedKeys();
 
-        Integer order_Id = null;
         while (resultSet.next()) {
-            order_Id = resultSet.getInt(1);
+            order.setOrderId(resultSet.getInt(1));
         }
-        return order_Id;
     }
+
+    @Override
+    public List<Order> getByUserId(Integer id) {
+        String sql = "select order_id orderId,order_sequence orderSequence,create_time createTime,total_count totalCount,total_amount totalAmount,order_status orderStatus,user_id userId from t_order where user_id = ?";
+        return getList(sql, id);
+    }
+
+
 }

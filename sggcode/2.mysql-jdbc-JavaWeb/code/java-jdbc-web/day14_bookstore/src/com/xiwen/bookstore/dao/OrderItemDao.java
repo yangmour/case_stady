@@ -1,6 +1,8 @@
 package com.xiwen.bookstore.dao;
 
-import com.xiwen.bookstore.bean.Cart;
+import com.xiwen.bookstore.bean.OrderItem;
+
+import java.util.List;
 
 /**
  * Description:
@@ -10,5 +12,7 @@ import com.xiwen.bookstore.bean.Cart;
  * @Version: 1.0
  */
 public interface OrderItemDao {
-    boolean insert(Integer orderId, Cart cart);
+    boolean insert(OrderItem orderItem);
+
+    List<OrderItem> getByOrderId(Integer orderId);
 }

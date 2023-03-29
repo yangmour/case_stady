@@ -1,8 +1,5 @@
 package com.xiwen.bookstore.dao.impl;
 
-import com.xiwen.bookstore.bean.Book;
-import com.xiwen.bookstore.bean.Cart;
-import com.xiwen.bookstore.bean.CartItem;
 import com.xiwen.bookstore.bean.OrderItem;
 import com.xiwen.bookstore.dao.BaseDao;
 import com.xiwen.bookstore.dao.OrderItemDao;
@@ -18,13 +15,21 @@ import java.util.List;
  */
 public class OrderItemDaoImpl extends BaseDao<OrderItem> implements OrderItemDao {
     @Override
-    public boolean insert(Integer orderId, Cart cart) {
+    public boolean insert(OrderItem orderItem) {
         String sql = "insert into t_order_item values(null,?,?,?,?,?,?)";
-        List<CartItem> cartItems = cart.getCartItems();
-        for (CartItem cartItem : cartItems) {
-            Book book = cartItem.getBook();
-            update(sql, book.getBookName(), book.getPrice(), book.getImgPath(), cartItem.getCount(), cartItem.getAmount(), orderId);
-        }
+
+        update(sql, orderItem.getBookName(),
+                orderItem.getPrice(),
+                orderItem.getImgPath(),
+                orderItem.getItemCount(),
+                orderItem.getItemAmount(),
+                orderItem.getOrderId());
         return true;
+    }
+
+    @Override
+    public List<OrderItem> getByOrderId(Integer orderId) {
+        String sql = "select item_Id itemId,book_name bookName,price,img_path imgPath,item_count itemCount,item_amount itemAmount,order_id orderId from t_order_item where order_id =?";
+        return getList(sql, orderId);
     }
 }

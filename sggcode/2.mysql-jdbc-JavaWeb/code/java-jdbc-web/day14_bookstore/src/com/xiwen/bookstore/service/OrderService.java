@@ -1,8 +1,10 @@
 package com.xiwen.bookstore.service;
 
 import com.xiwen.bookstore.bean.Cart;
+import com.xiwen.bookstore.bean.Order;
 import com.xiwen.bookstore.bean.User;
-import com.xiwen.bookstore.util.CommonResult;
+
+import java.util.List;
 
 /**
  * Description:
@@ -12,5 +14,7 @@ import com.xiwen.bookstore.util.CommonResult;
  * @Version: 1.0
  */
 public interface OrderService {
-    CommonResult checkOut(User user, Cart cart);
+    String checkOut(User user, Cart cart);
+
+    List<Order> showOrders(Integer id);
 }

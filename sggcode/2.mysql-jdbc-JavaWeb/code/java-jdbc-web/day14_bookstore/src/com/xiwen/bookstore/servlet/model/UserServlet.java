@@ -111,7 +111,7 @@ public class UserServlet extends BaseServlet {
         if (selectUser != null) {
             //获取session
             HttpSession session = request.getSession();
-            session.setAttribute("user", user);
+            session.setAttribute("user", selectUser);
             //闲置30分钟自动失效
             session.setMaxInactiveInterval(30);
 

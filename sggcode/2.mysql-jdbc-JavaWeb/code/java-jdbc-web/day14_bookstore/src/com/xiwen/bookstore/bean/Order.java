@@ -11,15 +11,15 @@ public class Order {
     private Integer orderId;
     private String orderSequence;
     private String createTime;
-    private String totalCount;
-    private String totalAmount;
+    private Integer totalCount;
+    private Double totalAmount;
     private Integer orderStatus;
     private Integer userId;
 
     public Order() {
     }
 
-    public Order(Integer orderId, String orderSequence, String createTime, String totalCount, String totalAmount, Integer orderStatus, Integer userId) {
+    public Order(Integer orderId, String orderSequence, String createTime, Integer totalCount, Double totalAmount, Integer orderStatus, Integer userId) {
         this.orderId = orderId;
         this.orderSequence = orderSequence;
         this.createTime = createTime;
@@ -53,19 +53,19 @@ public class Order {
         this.createTime = createTime;
     }
 
-    public String getTotalCount() {
+    public Integer getTotalCount() {
         return totalCount;
     }
 
-    public void setTotalCount(String totalCount) {
+    public void setTotalCount(Integer totalCount) {
         this.totalCount = totalCount;
     }
 
-    public String getTotalAmount() {
+    public Double getTotalAmount() {
         return totalAmount;
     }
 
-    public void setTotalAmount(String totalAmount) {
+    public void setTotalAmount(Double totalAmount) {
         this.totalAmount = totalAmount;
     }
 

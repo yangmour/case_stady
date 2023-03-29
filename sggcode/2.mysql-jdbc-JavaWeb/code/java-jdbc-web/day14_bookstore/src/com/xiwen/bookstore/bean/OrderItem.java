@@ -10,16 +10,16 @@ package com.xiwen.bookstore.bean;
 public class OrderItem {
     private String itemId;
     private String bookName;
-    private String price;
+    private Double price;
     private String imgPath;
-    private String itemCount;
-    private String itemAmount;
-    private String orderId;
+    private Integer itemCount;
+    private Double itemAmount;
+    private Integer orderId;
 
     public OrderItem() {
     }
 
-    public OrderItem(String itemId, String bookName, String price, String imgPath, String itemCount, String itemAmount, String orderId) {
+    public OrderItem(String itemId, String bookName, Double price, String imgPath, Integer itemCount, Double itemAmount, Integer orderId) {
         this.itemId = itemId;
         this.bookName = bookName;
         this.price = price;
@@ -45,11 +45,11 @@ public class OrderItem {
         this.bookName = bookName;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -61,40 +61,27 @@ public class OrderItem {
         this.imgPath = imgPath;
     }
 
-    public String getItemCount() {
+    public Integer getItemCount() {
         return itemCount;
     }
 
-    public void setItemCount(String itemCount) {
+    public void setItemCount(Integer itemCount) {
         this.itemCount = itemCount;
     }
 
-    public String getItemAmount() {
+    public Double getItemAmount() {
         return itemAmount;
     }
 
-    public void setItemAmount(String itemAmount) {
+    public void setItemAmount(Double itemAmount) {
         this.itemAmount = itemAmount;
     }
 
-    public String getOrderId() {
+    public Integer getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(String orderId) {
+    public void setOrderId(Integer orderId) {
         this.orderId = orderId;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderItem{" +
-                "itemId='" + itemId + '\'' +
-                ", bookName='" + bookName + '\'' +
-                ", price='" + price + '\'' +
-                ", imgPath='" + imgPath + '\'' +
-                ", itemCount='" + itemCount + '\'' +
-                ", itemAmount='" + itemAmount + '\'' +
-                ", orderId='" + orderId + '\'' +
-                '}';
     }
 }
