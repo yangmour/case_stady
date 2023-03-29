@@ -31,35 +31,33 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public String checkOut(User user, Cart cart) {
-        //先查看库存
-        List<CartItem> cartItems = cart.getCartItems();
-        List<Integer> ids = cartItems.stream().map(cartItem -> cartItem.getBook().getBookId()).collect(Collectors.toList());
-        List<Book> books = bookDao.getByIds(ids);
+        try {
+            //先查看库存
+            List<CartItem> cartItems = cart.getCartItems();
+            List<Integer> ids = cartItems.stream().map(cartItem -> cartItem.getBook().getBookId()).collect(Collectors.toList());
+            List<Book> books = bookDao.getByIds(ids);
 
-        if (books.size() <= 0) {
-            System.out.println("没有书");
-        }
-        //查看书的库存够不够
-        for (Book book : books) {
-            if (book.getStock() <= 0) {
-                System.out.println("书的库存不足！");
+            if (books.size() <= 0) {
+                System.out.println("没有书");
+                throw new RuntimeException("没有书");
             }
-            for (CartItem cartItem : cartItems) {
-                Book itemBook = cartItem.getBook();
-                //当库存小于购买的时候就报错
-                if (itemBook.getBookId().equals(book.getBookId()) && book.getStock() < itemBook.getStock()) {
+            //查看书的库存够不够
+            for (Book book : books) {
+                if (book.getStock() <= 0) {
                     System.out.println("书的库存不足！");
+                    throw new RuntimeException("书的库存不足");
+
+                }
+                for (CartItem cartItem : cartItems) {
+                    Book itemBook = cartItem.getBook();
+                    //当库存小于购买的时候就报错
+                    if (itemBook.getBookId().equals(book.getBookId()) && book.getStock() < itemBook.getStock()) {
+                        System.out.println("书的库存不足！");
+                        throw new RuntimeException("书的库存不足");
+                    }
                 }
             }
 
-
-        }
-
-
-        //开启事务
-//        Connection connection = JDBCTools.getConnection();
-        try {
-//            connection.setAutoCommit(false);
 
             //书的库存够了就生成订单
             String uuid = UUID.randomUUID().toString();
@@ -73,8 +71,10 @@ public class OrderServiceImpl implements OrderService {
                     cart.getTotalAmount(),
                     0,
                     user.getId());
-            orderDao.insert(order);
 
+            orderDao.insert(order);
+            //模拟报错测试回滚
+//            int a = 10 / 0;
             for (CartItem cartItem : cartItems) {
                 //添加书的数据项
                 OrderItem orderItem = new OrderItem(
@@ -95,20 +95,7 @@ public class OrderServiceImpl implements OrderService {
             }
             return uuid;
         } catch (SQLException e) {
-//            try {
-//                connection.rollback();
-//            } catch (SQLException ex) {
-//                ex.printStackTrace();
-//            }
-            e.printStackTrace();
-            return null;
-        } finally {
-//            try {
-//                connection.commit();
-//                connection.setAutoCommit(true);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
+            throw new RuntimeException(e);
         }
     }
 

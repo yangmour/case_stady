@@ -32,8 +32,9 @@ public abstract class BaseDao<T> {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+            new RuntimeException(e);
         } finally {
-            JDBCTools.close();
+//            JDBCTools.close();
         }
         return false;
     }
@@ -97,10 +98,10 @@ public abstract class BaseDao<T> {
             return queryRunner.query(JDBCTools.getConnection(), sql, new BeanHandler<>(clazz), params);
         } catch (SQLException e) {
             e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
-            JDBCTools.close();
+//            JDBCTools.close();
         }
-        return null;
     }
 
     public Object getValue(String sql, Object... params) {

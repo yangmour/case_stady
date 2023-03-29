@@ -10,21 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20c5642f-4f7b-46ae-85d2-aad6538255b1" name="Changes" comment="去结账功能">
-      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/OrderItemService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/impl/OrderItemServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/filter/TransactionFilter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/bean/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/bean/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/bean/OrderItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/bean/OrderItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/OrderItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/OrderItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/BaseDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/impl/OrderDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/impl/OrderDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/impl/OrderItemDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/dao/impl/OrderItemDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/OrderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/servlet/model/CheckOutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/src/com/xiwen/bookstore/servlet/model/CheckOutServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/cart/cart.html" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/cart/cart.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/cart/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/cart/checkout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/order/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/day14_bookstore/web/WEB-INF/pages/order/order.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

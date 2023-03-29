@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(value = "/order")
@@ -36,9 +37,18 @@ public class CheckOutServlet extends BaseServlet {
 
         User user = (User) session.getAttribute("user");
         Cart cart = (Cart) session.getAttribute("cart");
+        if (cart == null) {
+            processTemplate("index", request, response);
+            return;
+        }
 
         // 业务
-        String uuid = orderService.checkOut(user, cart);
+        String uuid = null;
+        try {
+            uuid = orderService.checkOut(user, cart);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
         //清空你的购物车
         session.removeAttribute("cart");
@@ -58,6 +68,7 @@ public class CheckOutServlet extends BaseServlet {
         processTemplate("order/order", request, response);
     }
 
+    //跳转没做
     protected void orderDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         String orderId = request.getParameter("orderId");

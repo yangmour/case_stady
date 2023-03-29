@@ -1,7 +1,6 @@
 package com.xiwen.bookstore.dao.impl;
 
 import com.xiwen.bookstore.bean.Order;
-import com.xiwen.bookstore.bean.OrderItem;
 import com.xiwen.bookstore.dao.BaseDao;
 import com.xiwen.bookstore.dao.OrderDao;
 import com.xiwen.bookstore.util.JDBCTools;
@@ -19,24 +18,38 @@ import java.util.List;
 public class OrderDaoImpl extends BaseDao<Order> implements OrderDao {
 
     @Override
-    public void insert(Order order) throws SQLException {
-        Connection connection = JDBCTools.getConnection();
-        String sql = "insert into t_order values (null,?,?,?,?,?,?)";
-        PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+    public void insert(Order order) {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            Connection connection = JDBCTools.getConnection();
+            String sql = "insert into t_order values (null,?,?,?,?,?,?)";
+            preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-        //uuid的低64位
-        preparedStatement.setObject(1, order.getOrderSequence()); //id
-        preparedStatement.setObject(2, order.getCreateTime()); //create_time
-        preparedStatement.setObject(3, order.getTotalCount()); //count
-        preparedStatement.setObject(4, order.getTotalAmount()); //amount
-        preparedStatement.setObject(5, order.getOrderStatus()); //status
-        preparedStatement.setObject(6, order.getUserId()); //user_id
-        preparedStatement.executeUpdate();
+            //uuid的低64位
+            preparedStatement.setObject(1, order.getOrderSequence()); //id
+            preparedStatement.setObject(2, order.getCreateTime()); //create_time
+            preparedStatement.setObject(3, order.getTotalCount()); //count
+            preparedStatement.setObject(4, order.getTotalAmount()); //amount
+            preparedStatement.setObject(5, order.getOrderStatus()); //status
+            preparedStatement.setObject(6, order.getUserId()); //user_id
+            preparedStatement.executeUpdate();
 
-        ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            resultSet = preparedStatement.getGeneratedKeys();
 
-        while (resultSet.next()) {
-            order.setOrderId(resultSet.getInt(1));
+            while (resultSet.next()) {
+                order.setOrderId(resultSet.getInt(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        } finally {
+            try {
+                preparedStatement.close();
+                resultSet.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

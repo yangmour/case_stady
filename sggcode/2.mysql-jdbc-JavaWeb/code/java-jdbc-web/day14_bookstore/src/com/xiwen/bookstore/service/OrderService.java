@@ -4,6 +4,7 @@ import com.xiwen.bookstore.bean.Cart;
 import com.xiwen.bookstore.bean.Order;
 import com.xiwen.bookstore.bean.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
  * @Version: 1.0
  */
 public interface OrderService {
-    String checkOut(User user, Cart cart);
+    String checkOut(User user, Cart cart) throws SQLException;
 
     List<Order> showOrders(Integer id);
 }
