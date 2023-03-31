@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>com.xiwen</groupId>
         <artifactId>parent</artifactId>
@@ -11,10 +10,9 @@
         <!--        找父pom文件的相对路径-->
         <relativePath>../parent/pom.xml</relativePath>
     </parent>
-    <!--    相同的groupId和version一样可以省略-->
-    <!--    <groupId>com.xiwen</groupId>-->
-    <artifactId>day01_maven02</artifactId>
-    <!--    <version>1.0-SNAPSHOT</version>-->
+    <groupId>com.xiwen.03</groupId>
+    <artifactId>day01_maven03</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -25,8 +23,18 @@
     <dependencies>
         <dependency>
             <groupId>com.xiwen</groupId>
-            <artifactId>day01_maven01</artifactId>
+            <artifactId>day01_maven02</artifactId>
             <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--   父类类声明就直接使用父类的依赖版本     -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>5.3.1</version>
         </dependency>
     </dependencies>
 

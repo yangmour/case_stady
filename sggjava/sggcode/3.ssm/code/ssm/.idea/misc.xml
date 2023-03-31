@@ -9,6 +9,8 @@
       <list>
         <option value="$PROJECT_DIR$/day01_maven01/pom.xml" />
         <option value="$PROJECT_DIR$/day01_maven02/pom.xml" />
+        <option value="$PROJECT_DIR$/day01_maven03/pom.xml" />
+        <option value="$PROJECT_DIR$/parent/pom.xml" />
       </list>
     </option>
   </component>

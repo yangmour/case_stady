@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="day01_maven01" />
         <module name="day01_maven02" />
+        <module name="day01_maven03" />
       </profile>
     </annotationProcessing>
   </component>
