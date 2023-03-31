@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="http://www.baidu.com" onclick="func01()">百度一下</a>
+<form action="http://atguigu.com" onclick="func01()">
+    <input type="submit" value="提交">
+</form>
+
+<script>
+
+    function func01() {
+        console.log("跳转到---")
+        event.preventDefault()
+    }
+
+    // new Vue({
+    //     el: "#app",
+    //     data: {
+    //         flag: 0,
+    //         flag2: true,
+    //         names: ["张三", "李四", "王五"]
+    //     },
+    //     methods: {
+    //         func01: function () {
+    //
+    //         }
+    //     }
+    // })
+</script>
+</body>
+</html>

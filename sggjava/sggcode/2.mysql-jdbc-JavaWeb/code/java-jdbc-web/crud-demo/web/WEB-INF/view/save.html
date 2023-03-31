@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="/crud_demo/">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/soldierServlet(method='save')}" method="post">
+    <table>
+        <tr>
+
+            <td>姓名:<input type="text" name="soldierName"></td>
+        </tr>
+        <tr>
+            <td>武器:<input type="text" name="soldierWeapon"></td>
+        </tr>
+    </table>
+    <input type="submit" value="保存"/>
+    <a href="index.html"><input type="button" value="返回"></a>
+</form>
+</body>
+</html>

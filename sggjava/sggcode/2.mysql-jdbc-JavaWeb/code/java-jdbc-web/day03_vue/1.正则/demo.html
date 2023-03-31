@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 创建一个最简单的正则表达式对象
+    var reg = /o/;
+    // 创建一个字符串对象作为目标字符串
+    var str = 'Hello World!';
+    // 调用正则表达式对象的test()方法验证目标字符串是否满足我们指定的这个模式，返回结果true
+    console.log(reg.test(str));
+
+    var resultArr = str.match(reg);
+    // 数组长度为1
+    console.log(resultArr[0]);
+    console.log(resultArr.length);
+
+    console.log(str.indexOf("o"))
+
+    // 目标字符串
+    var targetStr = 'Hello World!';
+
+    // 使用了全局匹配的正则表达式
+    var reg = /[A-Z]/g;
+    // 获取全部匹配
+    var resultArr = targetStr.match(reg);
+    // 数组长度为2
+    console.log("resultArr.length="+resultArr.length);
+
+</script>
+
+</body>
+</html>

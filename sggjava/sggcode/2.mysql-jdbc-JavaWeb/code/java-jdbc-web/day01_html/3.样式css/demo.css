@@ -1,0 +1,17 @@
+/*标签的样式*/
+/*p {*/
+/*    color: red;*/
+/*}*/
+
+
+/*根据id的名设置唯一的id*/
+#one {
+    color: red;
+
+}
+
+<!-- /*根据class的名设置不唯一可以多个*/
+
+.two {
+    color: antiquewhite;
+}

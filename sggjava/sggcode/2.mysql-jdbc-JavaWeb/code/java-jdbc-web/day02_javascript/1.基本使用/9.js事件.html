@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        function fun03(){
+            console.log(event.x,event.y)
+        }
+        function fun02(){
+            alert("被改变2")
+        }
+        window.onload=function (){
+            //单机
+            // var btn = document.getElementById("btn01");
+            // btn.onclick=function (){
+            //     alert("被点击")
+            // }
+
+            // var btn = document.getElementById("btn01");
+            // btn.ondblclick=function (){
+            //     alert("被双击")
+            // }
+
+            var btn = document.getElementById("btn01");
+            btn.ondblclick=function (){
+                alert("被双击")
+            }
+            // var i = document.getElementById("i1");
+            // i.onchange=function (){
+            //     alert("被改变")
+            //
+            // }
+
+        }
+    </script>
+</head>
+<body>
+<form action="10_js事件.html" method="get" onsubmit="fun01()">
+    <input type="text" id="i1" onmousemove="fun03()">
+    <input type="button" value="按钮" id="btn01" ondblclick="fun01()">
+    <input type="submit">
+</form>
+<div style="width: 100px;height: 100px;border: 1px solid red"></div>
+</body>
+</html>

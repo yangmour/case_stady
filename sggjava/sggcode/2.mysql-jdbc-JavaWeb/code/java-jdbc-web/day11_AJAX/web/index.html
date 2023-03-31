@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base href="/day11_AJAX/">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/axios.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>首页</h1>
+    <input type="submit" @click="ajaxTest">
+    <span>{{result}}</span>
+</div>
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            result: "",
+
+        },
+        methods: {
+            ajaxTest: function () {
+                axios({
+                    method: "post",
+                    url: "ajaxTest?method=first",
+                    params: {
+                        username: "admin",
+                        password: "root"
+                    }
+                }).then(res => {
+                    var data = res.data;
+                    console.log(data)
+                    this.result = data;
+                }).catch(error => {
+                    console.log(error.response.status)
+                    console.log(error.response)
+                })
+            }
+        }
+    });
+</script>
+</body>
+</html>

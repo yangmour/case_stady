@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue2.7.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{firstname}}</h1>
+    <h1>{{lastname}}</h1>
+    <!--    <input type="text">-->
+    <input type="text" v-model="firstname"><br>
+    <input type="text" v-model="lastname">
+    <h1>{{name}}</h1>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            firstname: "嘿嘿嘿",
+            lastname: "hhhh",
+            name: "嘿嘿嘿hhhh"
+        },
+        methods: {},
+        watch: {
+            firstname: function () {
+                this.name = this.firstname + " " + this.lastname;
+            },
+            lastname: function () {
+                this.name = this.firstname + " " + this.lastname;
+            }
+        }
+    })
+</script>
+</body>
+</html>

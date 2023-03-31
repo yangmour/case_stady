@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            //根据id属性值获取元素对象
+            var div01 = document.getElementById("div01");
+            console.log(div01)
+            console.log("--------------------")
+            //根据name属性值获取元素对象
+            var aaa = document.getElementsByName("aaa");
+            for (let i = 0; i < aaa.length; i++) {
+                console.log(aaa[i])
+            }
+
+            console.log("--------------------")
+            //根据class属性值获取元素对象
+            var bbb = document.getElementsByClassName("bbb");
+            for (let i = 0; i < bbb.length; i++) {
+                console.log(bbb[i])
+            }
+            console.log("--------------------")
+            //根据标签名获取元素对象
+            var elementsByTagName = document.getElementsByTagName("input");
+            for (let i = 0; i < elementsByTagName.length; i++) {
+                console.log(elementsByTagName[i])
+            }
+            console.log("--------------------")
+            //所有子级
+            var children = div01.children;
+            console.log(children)
+            var firstElementChild = div01.firstElementChild;
+            console.log(firstElementChild)
+            var lastElementChild = div01.lastElementChild;
+            console.log(lastElementChild)
+
+            console.log("--------------------")
+            //根据子级找父级
+            var passwordId = document.getElementById("password");
+            var parente = passwordId.parentElement
+            console.log(parente)
+            console.log("--------------------")
+            //找兄弟节点
+            var passwordId = document.getElementById("password");
+            var pre = passwordId.previousElementSibling
+            console.log(pre)
+            var next = passwordId.nextElementSibling
+            console.log(next)
+        }
+
+
+    </script>
+</head>
+<body>
+<input type="text" id="username" name="aaa" class="bbb"/><br/>
+<input type="text" name="aaa" class="bbb"/><br/>
+
+<div id="div01">
+    <br/>
+    <input type="password" id="password" class="bbb">
+    <h1 name="aaa">尚硅谷</h1>
+    <a href="http://atguigu.com" class="bbb">尚硅谷</a>
+    <ul>
+        <li>北京</li>
+        <li id="sh">上海</li>
+        <li>深圳</li>
+    </ul>
+</div>
+</body>
+</html>

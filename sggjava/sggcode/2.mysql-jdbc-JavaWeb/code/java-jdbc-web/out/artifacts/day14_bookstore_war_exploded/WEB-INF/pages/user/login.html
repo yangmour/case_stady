@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.teymeleaf.org">
+<head>
+    <base th:href="@{/}">
+    <meta charset="UTF-8"/>
+    <title>尚硅谷会员登录页面</title>
+    <link type="text/css" rel="stylesheet" href="static/css/style.css"/>
+    <script src="js/vue2.7.js"></script>
+</head>
+<body>
+<div id="login_header">
+    <a href="index.html">
+        <img class="logo_img" alt="" src="static/img/logo.gif"/>
+    </a>
+</div>
+
+<div class="login_banner">
+    <div id="l_content">
+        <span class="login_word">欢迎登录</span>
+    </div>
+
+    <div id="content">
+        <div class="login_form">
+            <div class="login_box">
+                <div class="tit">
+                    <h1>尚硅谷会员</h1>
+                </div>
+                <div v-if="flag" class="msg_cont">
+                    <b></b>
+                    <span class="errorMsg" id="userHint">{{errorMsg}}</span>
+                </div>
+                <div class="form">
+                    <form action="userServlet?method=login" method="post">
+                        <label>用户名称：</label>
+                        <input
+                                class="itxt"
+                                type="text"
+                                placeholder="请输入用户名"
+                                autocomplete="off"
+                                tabindex="1"
+                                name="username"
+                                id="username"
+                                v-model="username"
+                                @blur="isCheck()"
+                        />
+                        <br/>
+                        <br/>
+                        <label>用户密码：</label>
+                        <input
+                                class="itxt"
+                                type="password"
+                                placeholder="请输入密码"
+                                autocomplete="off"
+                                tabindex="1"
+                                name="password"
+                                id="password"
+                                v-model="password"
+                                @blur="isCheck()"
+
+                        />
+                        <br/>
+                        <span><input id="rememb" type="checkbox" name="check"
+                                     v-model="check">记住密码</span><br/>
+                        <input type="submit" value="登录" id="sub_btn" @click="isCheck()"/>
+                    </form>
+                    <div class="tit">
+                        <a href="userServlet?method=toRegister">立即注册</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="bottom">
+      <span>
+        尚硅谷书城.Copyright &copy;2015
+      </span>
+</div>
+
+<script>
+
+
+    new Vue({
+        el: "#content",
+        data: {
+            errorMsg: '[[${errMsg==null?"请输入用户名和密码":errMsg}]]',
+            username: '[[${param.username==null?username:param.username}]]',
+            password: '[[${param.password==null?password:param.password}]]',
+            flag: true,
+            // check: '[[${check}]]',
+            check: '[[${check}]]',
+        },
+        methods: {
+            isCheck: function () {
+                if (this.username == "") {
+                    event.preventDefault();
+                    this.flag = true;
+                    this.errorMsg = "请输入账号";
+                } else if (this.password == "") {
+                    this.flag = true;
+                    event.preventDefault();
+                    this.errorMsg = "请输入密码";
+                } else {
+                    this.flag = false;
+                }
+            },
+        },
+        watch: {
+            check: function () {
+                var rememb = document.getElementById("rememb");
+                if (rememb.checked) {
+                    this.check = "on";
+                    rememb.checked = true;
+                }
+            }
+        }
+    })
+
+
+    // var rememb = document.getElementById("rememb");
+    // console.log(rememb.getAttribute("value"))
+    // if (rememb.getAttribute("value") === "on") {
+    //     rememb.checked = true;
+    // } else {
+    //     rememb.checked = false;
+    // }
+
+</script>
+</body>
+</html>

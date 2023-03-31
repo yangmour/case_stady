@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base th:href="@{/}" href="">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script th:src="@{/a.js}"></script>
+    <link rel="stylesheet" th:href="@{/b.css}" href="../../b.css">
+</head>
+<body>
+
+<p th:text="${mgs}">aaa</p>
+<h1 th:text="${mgs}">bbb</h1>
+<i th:text="${mgs}">ccc</i>
+<d th:text="${mgs}">ddd</d>
+
+<a th:href="${http}" th:id="${mgs}" th:class="${mgs}">百度</a><br>
+<!--
+使用Thymeleaf解析url地址
+-->
+<a th:href="@{/index.html}">访问index.html</a><br>
+<a href="index.html">访问index.html</a><br>
+
+<img th:src="${mgs}" th:align="${mgs}"/>
+<!--动态获取上下文路径-->
+<p th:text="@{/}"></p>
+
+<!--请求路径-->
+<a th:href="@{/hello?a=b&b=c}">HelloServlet</a>
+<a th:href="@{/hello(a='b',b='c')}">HelloServlet</a>
+
+<h1>获取全局参数</h1>
+<p th:text="${application.name}"></p>
+
+<h1>内置对象</h1>
+<p th:text="${#request.getAttribute('mgs')}"></p>
+<p th:text="${#request.getContextPath()}"></p>
+<p th:text="${#request.getParameter('name')}"></p>
+<p th:text="${#request.getServletContext().getAttribute('name')}"></p>
+
+<h1>获取param参数</h1>
+<p th:text="${param.a}"></p>
+<p th:text="${param.name}"></p>
+<p th:text="${param.hobby}"></p>
+<p th:text="${param.hobby[0]}"></p>
+<p th:text="${param.hobby[1]}"></p>
+
+<h1>公共对象</h1>
+<p th:text="${#strings.length(mgs)}"></p>
+<p th:text="${#strings.substring(mgs,3)}"></p>
+<p th:text="${#strings.trim(mgs)}"></p>
+<p th:text="${#lists.size(list)}"></p>
+<p th:text="${#lists.isEmpty(list)}"></p>
+<p th:text="${#dates.format(date,'yyyy年MM月dd日 HH时mm分ss秒')}"></p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="day10_homework:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/day10_homework_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="day10_homework" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/ognl-3.1.26.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/druid-1.1.10.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/log4j-1.2.15.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/slf4j-api-1.7.25.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/commons-dbutils-1.6.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/commons-logging-1.2.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/javassist-3.20.0-GA.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/slf4j-log4j12-1.7.25.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/commons-beanutils-1.9.4.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/unbescape-1.1.6.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/attoparser-2.0.5.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/thymeleaf-3.0.12.RELEASE.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/commons-collections-3.2.1.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/day10_homework/web/WEB-INF/lib/mysql-connector-java-8.0.25.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="day10_homework/web/Web" />
+    </root>
+  </artifact>
+</component>

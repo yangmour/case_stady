@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="/day08_thymeleaf/"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>ognl测试</h1>
+<!--if 可以使用表达式什么的-->
+<h1>if测试</h1>
+<p th:if="${#lists.isEmpty(list)}">集合为空</p>
+<p th:if="${not #lists.isEmpty(list)}">集合不为空</p>
+<p th:unless="${#lists.isEmpty(list)}">集合不为空</p>
+
+<p th:if="${list != null}">集合不为空</p>
+<p th:if="${not list != null}">集合为空</p>
+<p th:unless="${list != null}">集合为空</p>
+<!--集合-->
+<h1>集合下标调用和遍历</h1>
+<p th:text="${list[0].name}"></p>
+
+<table border="1" width="500">
+    <tr>
+        <th>序号</th>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>工资</th>
+        <th>地址</th>
+        <th>电脑型号</th>
+    </tr>
+    <tr th:each="emp,status : ${list}">
+        <td th:text="${status.count}"></td>
+        <td th:text="${emp.id}">编号</td>
+        <td th:text="${emp.name}">姓名</td>
+        <td th:text="${emp.age}">年龄</td>
+        <td th:text="${emp.salary}">工资</td>
+        <td th:text="${emp.address}">地址</td>
+        <td th:text="${emp.computer.id}">电脑型号</td>
+        <td th:text="${emp.computer.brand}">电脑型号</td>
+        <td th:text="${emp.computer.price}">电脑型号</td>
+    </tr>
+</table>
+<h1>map调用</h1>
+<!-- map调用 -->
+<table border="1" width="200px">
+    <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>工资</th>
+        <th>地址</th>
+        <th>电脑型号</th>
+    </tr>
+    <tr>
+        <td th:text="${map.m1.id}">编号</td>
+        <td th:text="${map.m1.name}">姓名</td>
+        <td th:text="${map.m1.age}">年龄</td>
+        <td th:text="${map.m1.salary}">工资</td>
+        <td th:text="${map.m1.address}">地址</td>
+        <td th:text="${map.m1.computer.id}">电脑型号</td>
+        <td th:text="${map.m1.computer.brand}">电脑型号</td>
+        <td th:text="${map.m1.computer.price}">电脑型号</td>
+    </tr>
+    <tr>
+        <td th:text="${map.m2.id}">编号</td>
+        <td th:text="${map.m2.name}">姓名</td>
+        <td th:text="${map.m2.age}">年龄</td>
+        <td th:text="${map.m2.salary}">工资</td>
+        <td th:text="${map.m2.address}">地址</td>
+        <td th:text="${map.m2.computer.id}">电脑型号</td>
+        <td th:text="${map.m2.computer.brand}">电脑型号</td>
+        <td th:text="${map.m2.computer.price}">电脑型号</td>
+    </tr>
+    <tr>
+        <td th:text="${map.m3.id}">编号</td>
+        <td th:text="${map.m3.name}">姓名</td>
+        <td th:text="${map.m3.age}">年龄</td>
+        <td th:text="${map.m3.salary}">工资</td>
+        <td th:text="${map.m3.address}">地址</td>
+        <td th:text="${map.m3.computer.id}">电脑型号</td>
+        <td th:text="${map.m3.computer.brand}">电脑型号</td>
+        <td th:text="${map.m3.computer.price}">电脑型号</td>
+    </tr>
+</table>
+
+
+</body>
+</html>

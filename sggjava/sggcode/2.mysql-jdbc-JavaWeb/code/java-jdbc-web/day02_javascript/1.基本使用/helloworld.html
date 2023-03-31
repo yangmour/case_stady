@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1.基本数据类型</title>
+<!--    外部引用的,内部就不能写js代码了 -->
+    <script src="1.引用方式.js">
+        //这里
+    </script>
+</head>
+<body>
+<!--内部使用的能在上面使用的-->
+<!--<script>-->
+<!--&lt;!&ndash;    加载完后在执行js代码&ndash;&gt;-->
+<!--    window.onload=function (){-->
+<!--        var elementById = document.getElementById("but01");-->
+<!--        elementById.onclick = function () {-->
+<!--            alert("点我干嘛")-->
+<!--        }-->
+<!--    }-->
+
+<!--</script>-->
+
+
+<input type="button" id="but01" value="点我">
+<!--内部使用的不能在上面使用的-->
+<!--<script>-->
+<!--    var elementById = document.getElementById("but01");-->
+<!--    elementById.onclick = function () {-->
+<!--        alert("点我干嘛")-->
+<!--    }-->
+<!--</script>-->
+
+</body>
+</html>

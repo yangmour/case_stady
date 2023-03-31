@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue2.7.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <!--    判断渲染-->
+    <h1 v-if="flag==1">你好！</h1>
+    <h1 v-else-if="flag==2">222！</h1>
+    <h1 v-else="flag">hh</h1>
+
+    <input type="button" value="按钮" v-on:click="func01()">
+
+    <h1 v-if="flag2">你好！</h1>
+    <h1 v-else="flag2">hh</h1>
+<!--    会隐藏 -->
+    <h1 v-show="flag2">嘿嘿嘿</h1>
+
+    <input type="button" value="按钮" v-on:click="func02()">
+
+    <!--    迭代渲染-->
+    <ol>
+        <li v-for="name in names">{{name}}</li>
+    </ol>
+
+    <table border="1">
+        <tr>
+            <td>序号</td>
+            <td>id</td>
+            <td>名字</td>
+            <td>年龄</td>
+        </tr>
+        <tr v-for="(boss,i) in bosses">
+            <td>{{i+1}}</td>
+            <td>{{boss.id}}</td>
+            <td>{{boss.name}}</td>
+            <td>{{boss.age}}</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            flag: 0,
+            flag2: true,
+            names: ["张三", "李四", "王五"],
+            bosses: [
+                {
+                    id: 1,
+                    name: "张三",
+                    age: 20
+                },
+                {
+                    id: 2,
+                    name: "李四",
+                    age:30
+                }, {
+                    id:3,
+                    name: "王五",
+                    age:30
+                }]
+        },
+        methods: {
+            //判断渲染方法
+            func01: function () {
+                this.flag = 2;
+            },
+            func02: function () {
+                this.flag2 = !this.flag2;
+            }
+        }
+    })
+</script>
+</body>
+</html>

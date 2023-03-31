@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue2.7.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>{{msg}}</h1>
+    <input type="button" v-on:click="func01()" value="按钮">
+</div>
+<script>
+    //点击事件
+    new Vue({
+        el: "#app", //绑定id
+        data: {  //数据
+            msg: "尚硅谷"
+        },
+        methods: {
+            func01: function () {
+                console.log(this.msg)
+                this.msg = "新文本"
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

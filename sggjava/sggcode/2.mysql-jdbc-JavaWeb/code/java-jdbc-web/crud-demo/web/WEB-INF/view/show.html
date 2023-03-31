@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <base href="/crud_demo/">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" width="400px" align="center">
+    <tr>
+        <th colspan="5">士兵展示</th>
+
+    </tr>
+    <tr>
+        <form action="soldierServlet">
+            <input type="hidden" name="method" value="search">
+            <th colspan="5">
+                <input type="text" name="key" th:value="${param.key}">
+                <button>搜索</button>
+            </th>
+        </form>
+    </tr>
+    <tr>
+        <th>序号</th>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>武器</th>
+        <th>操作</th>
+    </tr>
+    <tr align="center" th:each="item,status : ${items}">
+        <td th:text="${status.count}">序号</td>
+        <td th:text="${item.soldierId}" th:name="soldier_id">编号</td>
+        <td th:text="${item.soldierName}">姓名</td>
+        <td th:text="${item.soldierWeapon}">武器</td>
+        <td>
+            <a th:href="@{/soldierServlet(soldierId=${item.soldierId},method='toUpdate')}">修改</a>
+            <a th:href="@{/soldierServlet(method='delete',id=${item.soldierId})}" name="soldierId">删除</a>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="5" align="center"><a th:href="@{/soldierServlet(method='toSave')}">添加</a></td>
+    </tr>
+
+</table>
+</body>
+</html>

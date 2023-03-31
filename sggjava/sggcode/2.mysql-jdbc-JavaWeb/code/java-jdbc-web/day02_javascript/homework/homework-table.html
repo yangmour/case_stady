@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态表格</title>
+</head>
+<body>
+
+<table border="1" cellpadding="10" id="table">
+    <tr>
+        <th>序号</th>
+        <th>用户</th>
+        <th>性别</th>
+        <th>操作</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>张三</td>
+        <td>男</td>
+        <td><input type="button" value="删除" onclick="del()"></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>李四</td>
+        <td>女</td>
+        <td><input type="button" value="删除" onclick="del()"></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>王五</td>
+        <td>不详</td>
+        <td><input type="button" value="删除" onclick="del()"></td>
+    </tr>
+</table>
+序号 <input type="text" id="id"><br>
+用户 <input type="text" id="user"><br>
+性别 <input type="text" id="gender"><br>
+<input type="button" value="添加用户" id="but">
+
+
+<script>
+
+    function del() {
+        event.target.parentElement.parentElement.remove();
+    }
+
+
+    var but = document.getElementById("but");
+    but.onclick = function () {
+        var elementById = document.getElementById("id");
+        var id = elementById.value;
+
+        var elementByUser = document.getElementById("user");
+        var user = elementByUser.value;
+
+        var elementByGender = document.getElementById("gender");
+        var gender = elementByGender.value;
+
+        var elementByTable = document.getElementById("table").children[0];
+
+        var tr = document.createElement("tr");
+
+        var tdId = document.createElement("td");
+        tdId.innerText = id
+        var tdUser = document.createElement("td");
+        tdUser.innerText = user
+        var tdGender = document.createElement("td");
+        tdGender.innerText = gender
+        var tdDel = document.createElement("td");
+        tdDel.innerHTML = "<input type='button' value='删除' onclick='del()'/>";
+
+        tr.appendChild(tdId)
+        tr.appendChild(tdUser)
+        tr.appendChild(tdGender)
+        tr.appendChild(tdDel)
+
+        elementByTable.appendChild(tr)
+
+
+    }
+</script>
+
+</body>
+</html>

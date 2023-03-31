@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            document.getElementById("btn01").onclick = function () {
+                //获取属性
+                var username = document.getElementById("username");
+                console.log(username.value)
+                console.log(username.type)
+                console.log(username.id)
+
+                //设置属性值
+                username.value = "尚硅谷"
+                console.log(username.value)
+
+                //获取文本值
+                var elementById = document.getElementById("title01");
+                console.log(elementById.innerText);
+                console.log(elementById.innerHTML);
+
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="username"/><br/>
+<h1 id="title01">尚硅<b>谷</b></h1>
+<input type="button" value="点我" id="btn01">
+</body>
+</html>
