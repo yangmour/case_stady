@@ -24,5 +24,7 @@
     <!--  加载映射文件  -->
     <mappers>
         <mapper resource="mybatis/mappings/EmployeeDao.xml"/>
+        <mapper resource="mybatis/mappings/DepartmentDao.xml"/>
     </mappers>
+
 </configuration>

@@ -21,7 +21,7 @@ public interface EmployeeDao {
 
     int insert(Employee employee);
 
-    int delete(Integer employee);
+    int delete(Integer id);
 
     int update(Employee employee);
 
