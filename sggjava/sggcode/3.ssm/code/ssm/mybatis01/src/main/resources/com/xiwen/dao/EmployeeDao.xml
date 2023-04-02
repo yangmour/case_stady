@@ -9,7 +9,7 @@
     </select>
 
     <!--    List<Employee> findAll();-->
-    <select id="findAll" resultType="com.xiwen.bean.Employee">
+    <select id="findAll" resultType="employee">
         select * from employees
     </select>
 

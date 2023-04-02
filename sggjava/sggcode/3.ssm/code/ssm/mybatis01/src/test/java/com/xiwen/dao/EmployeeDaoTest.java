@@ -27,7 +27,7 @@ public class EmployeeDaoTest {
 
     @Before
     public void init() throws IOException {
-        InputStream is = Resources.getResourceAsStream("mybatis/mybatis-config.xml");
+        InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactory build = new SqlSessionFactoryBuilder().build(is);
         sqlSession = build.openSession();
     }
