@@ -75,21 +75,15 @@
            </insert>
          -->
 
-    <!--    int delete(Integer id);-->
-    <delete id="delete" parameterType="int">
-        delete
+    <!--    Map<String, Object> getByIdMap(Integer id);-->
+    <select id="getByIdMap" resultType="map">
+        select *
         from employees
-        where id = #{id};
-    </delete>
-
-    <!--    int update(Employee employee);-->
-    <update id="update" parameterType="com.xiwen.bean.Employee">
-        update employees
-        set last_name = #{lastName},
-            email=#{email},
-            gender=#{gender},
-            dept_id=#{deptId}
         where id = #{id}
-    </update>
-
+    </select>
+    <!--    Map<Integer, Employee> getMaps();-->
+    <select id="getMaps" resultType="map">
+        select *
+        from employees
+    </select>
 </mapper>

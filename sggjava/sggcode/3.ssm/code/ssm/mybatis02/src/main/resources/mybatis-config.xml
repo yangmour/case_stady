@@ -10,7 +10,9 @@
         <property name="username" value="aaa"/>
     </properties>
     <settings>
-        <!--   自动映射开关     -->
+        <!--   关闭自动映射开关     -->
+<!--        <setting name="autoMappingBehavior" value="NONE"/>-->
+        <!--   命名自动映射开关     -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!--    懒加载    -->
         <setting name="lazyLoadingEnabled" value="true"/>

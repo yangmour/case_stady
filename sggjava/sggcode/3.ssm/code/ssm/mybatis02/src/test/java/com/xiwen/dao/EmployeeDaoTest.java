@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description:
@@ -91,5 +92,21 @@ public class EmployeeDaoTest {
 //        List<Employee> employees = employeeDao.getByNameAndSalary(new Employee("测", 3000D));
         employees.stream().forEach(System.out::println);
 
+    }
+
+    @Test
+    public void getByIdMap() {
+        EmployeeDao employeeDao = sqlSession.getMapper(EmployeeDao.class);
+        Map<String, Object> map = employeeDao.getByIdMap(2);
+        System.out.println("map = " + map);
+    }
+
+    @Test
+    public void getMaps() {
+        EmployeeDao employeeDao = sqlSession.getMapper(EmployeeDao.class);
+        Map<Integer, Employee> maps = employeeDao.getMaps();
+        for (Map.Entry<Integer, Employee> entry : maps.entrySet()) {
+            System.out.println(entry);
+        }
     }
 }

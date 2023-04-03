@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiwen.dao.EmployeePlusDao">
+
+    <!--    复合映射 -->
+    <resultMap id="empPlus" type="employeePlus">
+        <id column="id" property="id"/>
+        <result column="last_name" property="lastName"/>
+        <result column="email" property="email"/>
+        <result column="gender" property="gender"/>
+        <result column="salary" property="salary"/>
+
+        <association property="department" javaType="department">
+            <id column="dept_id" property="id"/>
+            <result column="name" property="name"/>
+        </association>
+    </resultMap>
+
+    <!--        Employee getById(Integer id); -->
+    <select id="getById" resultMap="empPlus">
+        select e.*, d.name
+        from employees e
+                 join departments d on e.dept_id = d.id
+        where e.id = #{id}
+    </select>
+</mapper>
