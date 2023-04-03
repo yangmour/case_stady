@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -54,32 +55,41 @@ public class EmployeeDaoTest {
     }
 
     @Test
-    public void getByIdName() {
+    public void getByName() {
         EmployeeDao employeeDao = sqlSession.getMapper(EmployeeDao.class);
-        String name = employeeDao.getByIdName(2);
-        System.out.println(name);
+        List<Employee> employees = employeeDao.getByName("测");
+        employees.stream().forEach(System.out::println);
     }
 
     @Test
     public void insert() {
         EmployeeDao employeeDao = sqlSession.getMapper(EmployeeDao.class);
         Employee employee = new Employee(null, "测试", "cs@163.com", 1, 5000.0, 1);
-        int rows = employeeDao.insert(employee);
-        System.out.println("rows = " + rows);
+        int index = employeeDao.insert(employee);
+        System.out.println("index = " + index);
+        Employee byId = employeeDao.getById(employee.getId());
+        System.out.println("rows = " + byId);
+    }
+
+
+    @Test
+    public void getByNameAndSalary() {
+        EmployeeDao employeeDao = sqlSession.getMapper(EmployeeDao.class);
+        List<Employee> employees = employeeDao.getByNameAndSalary("测", 3000D);
+//        List<Employee> employees = employeeDao.getByNameAndSalary(new Employee("测", 3000D));
+        employees.stream().forEach(System.out::println);
+
     }
 
     @Test
-    public void delete() {
+    public void getByNameAndSalary2() {
         EmployeeDao employeeDao = sqlSession.getMapper(EmployeeDao.class);
-        int rows = employeeDao.delete(5);
-        System.out.println("rows = " + rows);
-    }
+        HashMap<Object, Object> map = new HashMap<>();
+        map.put("name", "测");
+        map.put("salary", 3000D);
+        List<Employee> employees = employeeDao.getByNameAndSalary02(map);
+//        List<Employee> employees = employeeDao.getByNameAndSalary(new Employee("测", 3000D));
+        employees.stream().forEach(System.out::println);
 
-    @Test
-    public void update() {
-        EmployeeDao employeeDao = sqlSession.getMapper(EmployeeDao.class);
-        Employee employee = new Employee(5, "cscscs", "cs@163.com", 1, 5000.0, 1);
-        int rows = employeeDao.update(employee);
-        System.out.println("rows = " + rows);
     }
 }

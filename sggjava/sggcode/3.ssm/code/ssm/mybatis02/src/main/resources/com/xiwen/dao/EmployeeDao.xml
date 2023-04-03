@@ -1,46 +1,95 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiwen.dao.EmployeeDao">
     <!--        Employee getById(Integer id); -->
-    <select id="getById" parameterType="integer" resultType="com.xiwen.bean.Employee">
-        select * from employees where id = #{id}
+    <select id="getById" resultType="com.xiwen.bean.Employee">
+        select *
+        from employees
+        where id = #{id}
     </select>
 
     <!--    List<Employee> findAll();-->
     <select id="findAll" resultType="employee">
-        select * from employees
+        select *
+        from employees
     </select>
 
-    <!--    String getByIdName(Integer id);-->
-    <select id="getByIdName" parameterType="int" resultType="string">
-        select last_name from employees where id = #{id}
+    <!--    String getByName(String name);-->
+    <!--    <select id="getByName" parameterType="string" resultType="employee">-->
+    <!-- select * from employees where last_name like concat('%', #{name}, '%') -->
+    <select id="getByName" resultType="employee">
+        select *
+        from employees
+        where last_name like concat('%', #{param1}, '%')
     </select>
-    <!--    int insert(Employee employee);-->
-    <insert id="insert" parameterType="com.xiwen.bean.Employee">
-        insert into employees values(
-        null,
-        #{lastName},
-        #{email},
-        #{gender},
-        #{salary},
-        #{deptId}
-        );
+    <!--    int insert(Employee employee); 如mysql数据库，返回自增主键
+     useGeneratedKeys="true" 返回自增
+     keyProperty="id"  设置到employee类的id属性上
+    -->
+    <!--        List<Employee> getByNameAndSalary(String name,Double salary); -->
+    <!-- 如果接口的参数写了param注解 代替的是arg类型的形参，param类型没有代替，可以继续使用，如果前面写了一个名字，第二个就是从第二个开始   -->
+    <select id="getByNameAndSalary" resultType="employee">
+        select *
+        from employees
+        where last_name
+        like concat('%', #{n}, '%') and salary > #{param2}
+        <!--    where last_name like concat('%', #{arg0}, '%') and salary > #{arg1}-->
+
+    </select>
+    <!-- 接口里使用的map中key设定的名字  -->
+    <select id="getByNameAndSalary02" resultType="employee">
+        select *
+        from employees
+        where last_name
+        like concat('%', #{name}, '%') and salary > #{salary}
+        <!--    where last_name like concat('%', #{arg0}, '%') and salary > #{arg1}-->
+
+    </select>
+
+    <insert id="insert" parameterType="com.xiwen.bean.Employee" useGeneratedKeys="true" keyProperty="id">
+        insert into employees
+        values (null,
+                #{lastName},
+                #{email},
+                #{gender},
+                #{salary},
+                #{deptId});
     </insert>
+    <!--  没有自增机制的oracle数据库 需要设置自增序列 需要在看
+           <insert id="addEmployee" databaseId="oracle">
+               <selectKey order="BEFORE" keyProperty="id" resultType="integer">
+                   select employee_seq.nextval from dual
+               </selectKey>
+               insert into oracle_employees(id,last_name,email,salary,dept_id)
+               values(#{id},#{lastName},#{email},#{salary},#{deptId})
+           </insert>
+           //或者
+           <insert id="addEmployee" databaseId="oracle">
+           <selectKey order="AFTER" keyProperty="id" resultType="integer">
+               select employee_seq.currval from dual
+           </selectKey>
+           insert into oracle_employees(id,last_name,email,salary,dept_id)
+           values(employee_seq.nextval,#{lastName},#{email},#{salary},#{deptId})
+           </insert>
+         -->
 
     <!--    int delete(Integer id);-->
     <delete id="delete" parameterType="int">
-        delete from employees where id = #{id};
+        delete
+        from employees
+        where id = #{id};
     </delete>
 
     <!--    int update(Employee employee);-->
     <update id="update" parameterType="com.xiwen.bean.Employee">
-        update employees set last_name = #{lastName},
-                             email=#{email},
-                             gender=#{gender},
-                             dept_id=#{deptId}
-                        where id =#{id}
+        update employees
+        set last_name = #{lastName},
+            email=#{email},
+            gender=#{gender},
+            dept_id=#{deptId}
+        where id = #{id}
     </update>
 
 </mapper>

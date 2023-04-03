@@ -1,8 +1,10 @@
 package com.xiwen.dao;
 
 import com.xiwen.bean.Employee;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description:
@@ -17,12 +19,12 @@ public interface EmployeeDao {
 
     List<Employee> findAll();
 
-    String getByIdName(Integer id);
+    List<Employee> getByName(String name);
+
+    List<Employee> getByNameAndSalary02(Map map);
+    List<Employee> getByNameAndSalary(@Param("n") String name, Double salary);
 
     int insert(Employee employee);
 
-    int delete(Integer id);
-
-    int update(Employee employee);
 
 }
