@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiwen.dao.EmployeeDao">
+    <!--        Employee getById(Integer id); -->
+    <select id="getById" parameterType="integer" resultType="com.xiwen.bean.Employee">
+        select * from employees where id = #{id}
+    </select>
+
+    <!--    List<Employee> findAll();-->
+    <select id="findAll" resultType="employee">
+        select * from employees
+    </select>
+
+    <!--    String getByIdName(Integer id);-->
+    <select id="getByIdName" parameterType="int" resultType="string">
+        select last_name from employees where id = #{id}
+    </select>
+    <!--    int insert(Employee employee);-->
+    <insert id="insert" parameterType="com.xiwen.bean.Employee">
+        insert into employees values(
+        null,
+        #{lastName},
+        #{email},
+        #{gender},
+        #{salary},
+        #{deptId}
+        );
+    </insert>
+
+    <!--    int delete(Integer id);-->
+    <delete id="delete" parameterType="int">
+        delete from employees where id = #{id};
+    </delete>
+
+    <!--    int update(Employee employee);-->
+    <update id="update" parameterType="com.xiwen.bean.Employee">
+        update employees set last_name = #{lastName},
+                             email=#{email},
+                             gender=#{gender},
+                             dept_id=#{deptId}
+                        where id =#{id}
+    </update>
+
+</mapper>

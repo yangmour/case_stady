@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.xiwen</groupId>
-    <artifactId>mybatis01</artifactId>
+    <artifactId>mybatis02</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -13,7 +13,6 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
     <dependencies>
         <dependency>
             <groupId>mysql</groupId>
@@ -37,4 +36,5 @@
         </dependency>
 
     </dependencies>
+
 </project>
