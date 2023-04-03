@@ -17,17 +17,12 @@ public class HorseChessboard {
     private static boolean[] visited; //已访问记录
     private static boolean success;
 
-    //[1, 6, 24, 31, 22, 26]
-//[4, 30, 13, 14, 19, 28]
-//[3, 2, 5, 33, 16, 11]
-//[29, 7, 23, 20, 8, 35]
-//[12, 25, 27, 10, 34, 36]
-//[15, 32, 21, 18, 17, 9]
+
     public static void main(String[] args) {
-        x = 6;
-        y = 6;
-        int row = 4;
-        int column =4;
+        x = 8;
+        y = 8;
+        int row = 1;
+        int column = 1;
         System.out.println("开始");
         int[][] chessboard = new int[x][y];
         visited = new boolean[x * y];
@@ -52,7 +47,7 @@ public class HorseChessboard {
         visited[row * y + column] = true;
         //获取当前位置的下一个位置集合
         ArrayList<Point> next = next(new Point(column, row));
-
+        sort(next);
         while (!next.isEmpty()) {
             //取出下一个可走的节点
             Point point = next.remove(0);
@@ -70,6 +65,11 @@ public class HorseChessboard {
         } else {
             success = true;
         }
+    }
+
+    public static void sort(ArrayList<Point> list) {
+        list.sort((o1, o2) -> next(o1).size() - next(o2).size());
+
     }
 
     /**
@@ -112,8 +112,8 @@ public class HorseChessboard {
         if ((p.x = curPoint.x + 2) < x && (p.y = curPoint.y - 1) >= 0) {
             next.add(new Point(p));
         }
-        //左 3
-        if ((p.x = curPoint.x + 1) < x && (p.y = curPoint.y - 1) >= 0) {
+        //左 4
+        if ((p.x = curPoint.x + 1) < x && (p.y = curPoint.y - 2) >= 0) {
             next.add(new Point(p));
         }
         return next;
