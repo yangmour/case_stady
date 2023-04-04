@@ -12,13 +12,15 @@
         <result column="gender" property="gender"/>
         <result column="salary" property="salary"/>
 
-        <association property="department" column="dept_id" select="com.xiwen.dao."></association>
+        <!--  单独设置的懒加载，看需求  -->
+        <association property="department" column="dept_id" select="com.xiwen.dao.DepartmentDao.getById"
+                     fetchType="lazy"></association>
     </resultMap>
 
     <!--        Employee getById(Integer id); -->
     <select id="getById" resultMap="empPlus">
         select *
         from employees
-        where e.id = #{id}
+        where id = #{id}
     </select>
 </mapper>

@@ -11,20 +11,26 @@
     </properties>
     <settings>
         <!--   关闭自动映射开关     -->
-<!--        <setting name="autoMappingBehavior" value="NONE"/>-->
+        <!--        <setting name="autoMappingBehavior" value="NONE"/>-->
         <!--   命名自动映射开关     -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
         <!--    懒加载    -->
+        <!--   懒加载的你如果只是用当前对象表中的数据不操作，分步表中的数据就延迟加载，如果使用第二张表的数据，就在发第二条数据
+                如果有的表不想用或者想用可以单独设置延迟加载属性
+                在3.4.1之前的mybatis版本中需要使用懒加载要单独设置设置按需加载为false，默认为true，后面的版本不需要设置
+                如  <setting name="aggressiveLazyLoading" value="false"/>
+             -->
         <setting name="lazyLoadingEnabled" value="true"/>
+        <!--   如果是     -->
         <!--     二级缓存   -->
         <setting name="cacheEnabled" value="false"/>
     </settings>
 
     <!--  设置别名  -->
     <typeAliases>
-<!--        <typeAlias type="com.xiwen.bean.Employee" alias="employee"/>-->
-<!--        &lt;!&ndash;    不设置别名默认是类名    &ndash;&gt;-->
-<!--        <typeAlias type="com.xiwen.bean.Department"/>-->
+        <!--        <typeAlias type="com.xiwen.bean.Employee" alias="employee"/>-->
+        <!--        &lt;!&ndash;    不设置别名默认是类名    &ndash;&gt;-->
+        <!--        <typeAlias type="com.xiwen.bean.Department"/>-->
         <package name="com.xiwen.bean"/>
     </typeAliases>
 
