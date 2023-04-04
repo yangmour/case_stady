@@ -2,6 +2,9 @@ package com.xiwen.dao;
 
 import com.xiwen.bean.Employee;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * Description:
  *
@@ -12,5 +15,13 @@ import com.xiwen.bean.Employee;
 public interface EmployeeDao {
 
     Employee getById(Integer id);
+
+    List<Employee> getByMap(Map<String, Object> map);
+
+    List<Employee> getByMap02(Map<String, Object> map);
+
+    int update(Employee e);
+
+    List<Employee> getByIds(List<Integer> ids);
 
 }

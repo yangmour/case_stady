@@ -5,10 +5,116 @@
 <mapper namespace="com.xiwen.dao.EmployeeDao">
 
 
-    <!--        Employee getById(Integer id); -->
-    <select id="getById" resultType="employee">
+    <sql id="sql01">
         select *
         from employees
-        where id = #{i} or last_name = #{n}
+    </sql>
+
+    <!--        Employee getById(Integer id); -->
+    <select id="getById" resultType="employee">
+        <include refid="sql01"></include>
+        where id = #{id}
+        <!--  or last_name = #{n}-->
+    </select>
+
+    <!--     List<Employee> getByMap(Map<String, Object> map);  -->
+    <select id="getByMap" resultType="employee">
+
+        <!-- 提取到sql标签中，然后引用sql标签 -->
+        <include refid="sql01"></include>
+
+        <!-- 第一版拼接
+        where 1=1
+        <if test="lastName!=null and lastName!=''">
+            and last_name like concat('%',#{lastName},'%')
+        </if>
+        <if test="salary!=null">
+            and salary > #{salary}
+        </if>
+        <if test="gender!=null">
+            and gender = #{gender}
+        </if>  -->
+
+        <!-- 第二版拼接 -->
+        <where>
+            <if test="lastName!=null and lastName!=''">
+                and last_name like concat('%',#{lastName},'%')
+            </if>
+            <if test="salary!=null">
+                and salary > #{salary}
+            </if>
+            <if test="gender!=null">
+                and gender = #{gender}
+            </if>
+        </where>
+        <!-- 第三版拼接（不常用） prefix：前面拼接where prefixOverrides去掉前面的and符号,拼接，和去掉后面的有属性可以设置 -->
+        <!--        <trim prefix="where" prefixOverrides="and">-->
+        <!--            <if test="lastName!=null and lastName!=''">-->
+        <!--                and last_name like concat('%',#{lastName},'%')-->
+        <!--            </if>-->
+        <!--            <if test="salary!=null">-->
+        <!--                and salary > #{salary}-->
+        <!--            </if>-->
+        <!--            <if test="gender!=null">-->
+        <!--                and gender = #{gender}-->
+        <!--            </if>-->
+        <!--        </trim>-->
+    </select>
+
+
+    <!--     List<Employee> getByMap02(Map<String, Object> map);  -->
+    <select id="getByMap02" resultType="employee">
+
+        <!-- 提取到sql标签中，然后引用sql标签 -->
+        <include refid="sql01"></include>
+
+        <where>
+            <if test="lastName!=null and lastName!=''">
+                and last_name like concat('%',#{lastName},'%')
+            </if>
+            <if test="gender!=null">
+                and gender = #{gender}
+            </if>
+        </where>
+
+        <!-- 第一版拼接 -->
+        <choose>
+            <when test="salary!=null &amp;&amp; salary&lt;5000">
+                and salary &lt;= 5000
+            </when>
+            <when test="salary!=null &amp;&amp; salary&lt;10000">
+                and salary &lt;= 10000
+            </when>
+            <otherwise>
+                and salary &lt;= #{salary}
+            </otherwise>
+        </choose>
+
+    </select>
+    <!--      int update(Employee e);  -->
+    <update id="update">
+        update employees
+        <set>
+            <if test="lastName!=null">
+                last_name = #{lastName},
+            </if>
+            <if test="gender!=null">
+                gender = #{gender},
+            </if>
+            <if test="email!=null">
+                email = #{email},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--     List<Employee> getByIds(List<Integer> ids);   -->
+    <select id="getByIds" resultType="employee">
+        <include refid="sql01"></include>
+        where id in
+        <!-- collection参数类型，open:开始的符号，separator:中间连接的符号，close:最后拼接的符号，index下标，item,每个参数 -->
+        <foreach collection="list" open="(" separator="," close=")" index="i" item="id">
+            #{id}
+        </foreach>
     </select>
 </mapper>
