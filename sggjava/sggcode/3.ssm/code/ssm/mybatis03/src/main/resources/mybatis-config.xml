@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--  配置数据库连接信息  -->
+    <properties resource="db.properties">
+        <!--   中间也可以使用一般不用，文件和标签内都写了会以文件为准，因为先加载标签在加载文件     -->
+        <!--   开发换中引用 方式: ${username}     -->
+        <property name="username" value="aaa"/>
+    </properties>
+    <settings>
+        <!--   关闭自动映射开关     -->
+<!--        <setting name="autoMappingBehavior" value="NONE"/>-->
+        <!--   命名自动映射开关     -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--    懒加载    -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--     二级缓存   -->
+        <setting name="cacheEnabled" value="false"/>
+    </settings>
+
+    <!--  设置别名  -->
+    <typeAliases>
+<!--        <typeAlias type="com.xiwen.bean.Employee" alias="employee"/>-->
+<!--        &lt;!&ndash;    不设置别名默认是类名    &ndash;&gt;-->
+<!--        <typeAlias type="com.xiwen.bean.Department"/>-->
+        <package name="com.xiwen.bean"/>
+    </typeAliases>
+
+    <!--  插件  -->
+    <!--    <plugins>-->
+    <!--        <plugin interceptor="">-->
+    <!--        </plugin>-->
+    <!--    </plugins>-->
+
+    <!--  切换开发环境  -->
+    <environments default="development">
+        <!--   开发环境1     -->
+        <environment id="development">
+            <!--      jdbc事务      -->
+            <transactionManager type="JDBC"/>
+            <!--      mybatis的自带数据库连接池      -->
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--  加载映射文件  -->
+    <mappers>
+        <!--     第一种   -->
+        <!--        <mapper resource="com/xiwen/dao/EmployeeDao.xml"/>-->
+        <!--        <mapper resource="com/xiwen/dao/DepartmentDao.xml"/>-->
+        <!--    第二种 编译后必须同包同名   -->
+        <!--        <mapper class="com.xiwen.dao.EmployeeDao"/>-->
+        <!--        <mapper class="com.xiwen.dao.DepartmentDao"/>-->
+        <!--     第三种 已包为为映射   -->
+        <package name="com.xiwen.dao"/>
+    </mappers>
+
+</configuration>

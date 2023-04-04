@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="day02_web" />
+        <module name="mybatis03" />
         <module name="day01_maven01" />
         <module name="mybatis01" />
         <module name="day01_maven02" />
         <module name="mybatis02" />
         <module name="day01_maven03" />
-        <module name="day02_web" />
       </profile>
     </annotationProcessing>
   </component>
