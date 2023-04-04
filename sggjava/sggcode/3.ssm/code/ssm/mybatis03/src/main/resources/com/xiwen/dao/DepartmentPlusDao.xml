@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiwen.dao.DepartmentPlusDao">
+
+    <!--    第一个版本 联合查询-->
+    <!--    <resultMap id="DepartmentPlusMap" type="DepartmentPlus">-->
+    <!--        <id column="dept_id" property="id"/>-->
+    <!--        <result column="name" property="name"/>-->
+    <!--        <collection property="emps" ofType="employee">-->
+    <!--            <id column="id" property="id"/>-->
+    <!--            <result column="last_name" property="lastName"/>-->
+    <!--            <result column="email" property="email"/>-->
+    <!--            <result column="gender" property="gender"/>-->
+    <!--            <result column="salary" property="salary"/>-->
+    <!--            <result column="dept_id" property="deptId"/>-->
+    <!--        </collection>-->
+    <!--    </resultMap>-->
+    <!--    &lt;!&ndash;      DepartmentPlus getById(Integer id);  &ndash;&gt;-->
+    <!--    <select id="getById" resultMap="DepartmentPlusMap">-->
+    <!--        select d.name, e.*-->
+    <!--        from departments d-->
+    <!--                 join employees e on d.id = e.dept_id-->
+    <!--        where d.id = #{id}-->
+    <!--    </select>-->
+
+    <!--    第二个版本分布查询-->
+    <resultMap id="DepartmentPlusMap" type="DepartmentPlus">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <collection property="emps" column="{i=id, n=name}" fetchType="lazy" select="com.xiwen.dao.EmployeeDao.getById"/>
+    </resultMap>
+    <select id="getById" resultMap="DepartmentPlusMap">
+        select *
+        from departments
+        where id = #{id}
+    </select>
+</mapper>
