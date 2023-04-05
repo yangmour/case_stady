@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据绑定</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- 数据绑定 -->
+        <h1>数据绑定</h1>
+        单向绑定:<input type="text" v-bind:value="bind" />
+        单向绑定:<input type="text" :value="bind" />
+        双向绑定:<input type="text" v-model="model" />
+        双向绑定:<input type="text" v-model:value="model" />
+
+
+
+    </div>
+
+    <script>
+
+        new Vue({
+            el: "#root",
+            data: {
+                bind: "单向绑定",
+                model: "双向绑定"
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>
