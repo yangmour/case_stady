@@ -42,12 +42,17 @@ public class EmployeeDaoTest {
     public void getById() {
         SqlSession sqlSession1 = build.openSession();
         EmployeeDao sqlSessionMapper = sqlSession1.getMapper(EmployeeDao.class);
-        Employee employee = sqlSessionMapper.getById(1);
+        Employee employee = sqlSessionMapper.getById(8);
         System.out.println(employee);
+
+        sqlSessionMapper.update(new Employee(8, "hhhh", "hhhh.com", null, null, null));
+        sqlSession1.commit();
 
         SqlSession sqlSession2 = build.openSession();
         EmployeeDao sqlSessionMapper2 = sqlSession2.getMapper(EmployeeDao.class);
-        Employee employee2 = sqlSessionMapper2.getById(1);
+        Employee employee2 = sqlSessionMapper2.getById(8);
         System.out.println(employee2);
+        sqlSession2.commit();
+
     }
 }

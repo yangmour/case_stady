@@ -13,4 +13,5 @@ public interface EmployeeDao {
 
     Employee getById(Integer id);
 
+    int update(Employee e);
 }

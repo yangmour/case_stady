@@ -1,7 +1,10 @@
 package com.xiwen.bean;
 
 
-public class Employee {
+import java.io.Serializable;
+
+public class Employee implements Serializable {
+    private static final long serialVersionUID = 7573258562534746850L;
 
     private Integer id;
     private String lastName;
