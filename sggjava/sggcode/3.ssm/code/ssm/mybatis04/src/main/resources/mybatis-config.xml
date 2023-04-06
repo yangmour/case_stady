@@ -23,7 +23,7 @@
         <setting name="lazyLoadingEnabled" value="true"/>
         <!--   如果是     -->
         <!--     二级缓存 默认是true  -->
-        <!--        <setting name="cacheEnabled" value="false"/>-->
+                <setting name="cacheEnabled" value="false"/>
     </settings>
 
     <!--  设置别名  -->
