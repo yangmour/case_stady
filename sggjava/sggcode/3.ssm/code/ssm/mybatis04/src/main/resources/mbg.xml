@@ -10,11 +10,11 @@
             <property name="nullCatalogMeansCurrent" value="true"/>
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.xiwen.mbg2.bean" targetProject="src/main/java"/>
+        <javaModelGenerator targetPackage="com.xiwen.mbg2.bean" targetProject="mybatis04/src/main/java"/>
 
-        <sqlMapGenerator targetPackage="com.xiwen.mbg2.mapper" targetProject="src/main/resources"/>
+        <sqlMapGenerator targetPackage="com.xiwen.mbg2.mapper" targetProject="mybatis04/src/main/resources"/>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xiwen.mbg2.mapper" targetProject="src/main/java"/>
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xiwen.mbg2.mapper" targetProject="mybatis04/src/main/java"/>
 
         <!--        <table tableName="employees"/>-->
         <!--        <table tableName="departments"/>-->
