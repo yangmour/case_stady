@@ -11,6 +11,7 @@
         <module name="mybatis04" />
         <module name="day01_maven01" />
         <module name="mybatis01" />
+        <module name="spring01" />
         <module name="day01_maven02" />
         <module name="mybatis02" />
         <module name="day01_maven03" />
