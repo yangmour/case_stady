@@ -35,10 +35,13 @@
     </typeAliases>
 
     <!--  插件  -->
-    <!--    <plugins>-->
-    <!--        <plugin interceptor="">-->
-    <!--        </plugin>-->
-    <!--    </plugins>-->
+    <plugins>
+        <!--      5.0版本插件会用用这个类，之前的用PageHelper类      -->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <!-- 设置数据库类型  Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL 六种数据库,可以不用写-->
+            <!-- <property name="helperDialect" value="Mysql"/>  -->
+        </plugin>
+    </plugins>
 
     <!--  切换开发环境  -->
     <environments default="development">
