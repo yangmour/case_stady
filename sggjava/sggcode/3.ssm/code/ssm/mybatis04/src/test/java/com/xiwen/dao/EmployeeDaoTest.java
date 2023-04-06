@@ -45,7 +45,7 @@ public class EmployeeDaoTest {
         Employee employee = sqlSessionMapper.getById(8);
         System.out.println(employee);
 
-        sqlSessionMapper.update(new Employee(8, "hhhh", "hhhh.com", null, null, null));
+//        sqlSessionMapper.update(new Employee(8, "hhhh", "hhhh.com", null, null, null));
         sqlSession1.commit();
 
         SqlSession sqlSession2 = build.openSession();

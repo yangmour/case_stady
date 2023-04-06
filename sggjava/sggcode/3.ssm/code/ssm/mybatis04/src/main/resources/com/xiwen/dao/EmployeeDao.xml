@@ -5,7 +5,7 @@
 <mapper namespace="com.xiwen.dao.EmployeeDao">
 
     <!--  二级缓存标签   -->
-    <cache/>
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
 
     <sql id="sql01">
         select *
