@@ -1,0 +1,23 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="simple" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:33068/ssm"
+                        userId="root" password="xiwen123">
+            <!--      mysql8需要添加一个配置      -->
+            <property name="nullCatalogMeansCurrent" value="true"/>
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.xiwen.mbg.bean" targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="com.xiwen.mbg.mapper" targetProject="src/main/resources"/>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xiwen.mbg.mapper" targetProject="src/main/java"/>
+
+<!--        <table tableName="employees"/>-->
+<!--        <table tableName="departments"/>-->
+        <table tableName="%"/>
+    </context>
+</generatorConfiguration>

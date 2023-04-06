@@ -65,6 +65,7 @@
         <!--        <mapper class="com.xiwen.dao.DepartmentDao"/>-->
         <!--     第三种 已包为为映射   -->
         <package name="com.xiwen.dao"/>
+        <package name="com.xiwen.mbg.mapper"/>
     </mappers>
 
 </configuration>
