@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>回顾Object.defineproperty方法</title>
+</head>
+<body>
+<div id="root">
+
+
+</div>
+
+<script>
+    // let person = {
+    //     name: "张三",
+    //     sex: "男",
+    // }
+    // Object.defineProperty(person, "age", {
+    //     value: 18,
+    //     enumerable: true, //可以被枚举，就是可以遍历
+    //     writable: true // 可以被修改
+    // })
+    // console.log(person)
+    // for (const key in person) {
+    //     console.log("@"+person[key])
+    // }
+
+    let age = 18
+    let person = {
+        name: "张三",
+        sex: "男",
+    }
+    Object.defineProperty(person, "age", {
+        get() {
+            return age;
+        },
+        set(v) {
+            age = v;
+        }
+    })
+    console.log(person)
+
+    // <!-- 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）-->
+    let A = {n: 100}
+    let B = {m: 200}
+
+    Object.defineProperty(B, "n", {
+        get() {
+            return A.n;
+        },
+        set(v) {
+            A.n = v;
+        }
+    })
+    console.log(B)
+
+
+</script>
+
+</body>
+</html>

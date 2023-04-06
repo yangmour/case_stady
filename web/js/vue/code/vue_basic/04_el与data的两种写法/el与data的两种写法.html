@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+<div id="root">
+    <h1>数据绑定{{text}}</h1>
+
+
+
+</div>
+
+<script>
+
+    let vm = new Vue({
+        // el: "#root",
+
+        // data: {
+        //     text: "测试"
+        // }
+
+        // data:function (){
+        //     return{
+        //         text:"测试"
+        //     }
+        // }
+
+        data(){
+            return{
+                text:"测试"
+            }
+        }
+    })
+    //第二种写法
+    vm.$mount("#root")
+</script>
+
+</body>
+
+</html>
