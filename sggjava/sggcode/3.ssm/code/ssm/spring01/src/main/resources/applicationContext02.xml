@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <bean id="helloWorld" class="com.xiwen.bean.HelloWorld">
+        <property name="name" value="权志龙">
+        </property>
+    </bean>
+    <!--
+        自动装配 :
+            autowire="byName" 根据名字就是和属性名一样就装配
+            autowire="byType" 根据类型，有多个会报错
+            注意：根据类型找不到也不会根据名字自动装配，xml配置的方式没有，注解的方式有这种特性
+      -->
+    <bean id="employee01" class="com.xiwen.bean.Employee" autowire="byName">
+        <property name="name" value="马云"/>
+        <property name="age" value="30"/>
+        <property name="salary" value="5000"/>
+    </bean>
+
+    <bean id="car01" class="com.xiwen.bean.Car">
+        <property name="name" value="五菱宏光"/>
+        <property name="colour" value="银色"/>
+        <property name="price" value="50000"/>
+    </bean>
+
+    <bean id="car" class="com.xiwen.bean.Car">
+        <property name="name" value="五菱宏光-v"/>
+        <property name="colour" value="白色"/>
+        <property name="price" value="60000"/>
+    </bean>
+
+
+</beans>

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
     <bean id="helloWorld" class="com.xiwen.bean.HelloWorld">
         <property name="name" value="权志龙">
         </property>
     </bean>
+    <!--  set注入  -->
     <bean id="employee01" class="com.xiwen.bean.Employee">
         <property name="name" value="马云"/>
         <property name="age" value="30"/>
@@ -13,6 +15,7 @@
         <property name="salary" value="5000"/>
     </bean>
 
+    <!--  构造器注入  -->
     <bean id="employee02" class="com.xiwen.bean.Employee">
         <constructor-arg name="name" value="测试构造器"/>
         <constructor-arg name="age" value="20"/>
@@ -25,4 +28,135 @@
         <property name="colour" value="银色"/>
         <property name="price" value="50000"/>
     </bean>
+
+    <bean id="car02" class="com.xiwen.bean.Car">
+        <property name="name" value="五菱宏光-v"/>
+        <property name="colour" value="白色"/>
+        <property name="price" value="60000"/>
+    </bean>
+    <!--  特殊值的处理  -->
+    <bean id="employee03" class="com.xiwen.bean.Employee">
+        <property name="name">
+            <value><![CDATA[<<特殊值处理>>]]></value>
+        </property>
+        <property name="age" value="31"/>
+        <property name="car" ref="car01"/>
+        <property name="salary" value="1000"/>
+    </bean>
+    <!--  p命名空间  -->
+    <bean id="emp04" class="com.xiwen.bean.Employee" p:name="cs" p:salary="10000" p:age="20" p:car-ref="car01"/>
+
+    <!--  内部bean  -->
+    <bean id="emp05" class="com.xiwen.bean.Employee">
+        <property name="name">
+            <value><![CDATA[<<特殊值处理>>]]></value>
+        </property>
+        <property name="age" value="31"/>
+        <property name="car">
+            <bean class="com.xiwen.bean.Car">
+                <property name="name" value="宝马"/>
+                <property name="colour" value="黑"/>
+                <property name="price" value="300"/>
+            </bean>
+        </property>
+        <property name="salary" value="1000"/>
+    </bean>
+
+    <!-- 级联属性赋值   -->
+    <bean id="emp06" class="com.xiwen.bean.Employee">
+        <property name="name">
+            <value><![CDATA[<<特殊值处理>>]]></value>
+        </property>
+        <property name="age" value="31"/>
+        <property name="car" ref="car01"/>
+        <property name="car.colour" value="黄色"/>
+        <property name="salary" value="1000"/>
+    </bean>
+
+    <!-- 集合类型   -->
+    <bean id="collectionBean" class="com.xiwen.bean.CollectionBean">
+
+        <!--
+            int[] arr;
+            List<String> strings;
+            List<Car> cars;
+            Set<String> sets;
+            Set<Car> setCars;
+            Map<String, String> map;
+            Map<String, Car> carMap;
+            Properties properties;
+        -->
+        <property name="arr">
+            <array>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </array>
+        </property>
+        <property name="strings">
+            <list>
+                <value>测试1</value>
+                <value>测试2</value>
+                <value>测试3</value>
+            </list>
+        </property>
+        <property name="cars">
+            <list>
+                <ref bean="car01"/>
+                <ref bean="car02"/>
+                <bean class="com.xiwen.bean.Car">
+                    <property name="name" value="宝马"/>
+                    <property name="colour" value="黑"/>
+                    <property name="price" value="300"/>
+                </bean>
+            </list>
+        </property>
+        <property name="sets">
+            <set>
+                <value>测试1</value>
+                <value>测试2</value>
+                <value>测试3</value>
+            </set>
+        </property>
+        <property name="setCars">
+            <set>
+                <ref bean="car01"/>
+                <ref bean="car02"/>
+                <bean class="com.xiwen.bean.Car">
+                    <property name="name" value="宝马"/>
+                    <property name="colour" value="黑"/>
+                    <property name="price" value="300"/>
+                </bean>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="aaa" value="bbb"/>
+                <entry key="bbbb" value="cccc"/>
+            </map>
+        </property>
+        <property name="carMap">
+            <map>
+                <entry key="aaa" value-ref="car01"/>
+                <entry key="bbbb" value-ref="car02"/>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="user">root</prop>
+                <prop key="pass">password</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!--  集合类型的bean   -->
+    <util:list id="cars">
+        <ref bean="car01"/>
+        <ref bean="car02"/>
+        <bean class="com.xiwen.bean.Car">
+            <property name="name" value="宝马"/>
+            <property name="colour" value="黑"/>
+            <property name="price" value="300"/>
+        </bean>
+    </util:list>
 </beans>
