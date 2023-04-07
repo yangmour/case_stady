@@ -1,13 +1,17 @@
 package com.xiwen;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.xiwen.bean.Car;
 import com.xiwen.bean.CollectionBean;
 import com.xiwen.bean.Employee;
+import com.xiwen.bean.MyPrototype;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -22,11 +26,13 @@ public class HelloWorldTest {
 
     private ApplicationContext ioc;
     private ApplicationContext ioc2;
+    private ConfigurableApplicationContext ioc3;
 
     @Before
     public void init() {
         ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
         ioc2 = new ClassPathXmlApplicationContext("applicationContext02.xml");
+        ioc3 = new ClassPathXmlApplicationContext("applicationContext03.xml");
     }
 
     @Test
@@ -98,8 +104,24 @@ public class HelloWorldTest {
     }
 
     @Test
-    public void test05(){
+    public void test05() {
         Object employee01 = ioc2.getBean("employee01");
         System.out.println(employee01);
+    }
+
+    @Test
+    public void test06() throws SQLException {
+        DruidDataSource dataSource = ioc3.getBean("dataSource", DruidDataSource.class);
+        System.out.println(dataSource.getConnection());
+
+        Car car = ioc3.getBean("myCarFactoryBean", Car.class);
+        System.out.println(car);
+    }
+
+    @Test
+    public void test07() {
+        MyPrototype myPrototype = ioc3.getBean("myPrototype", MyPrototype.class);
+        ioc3.close();
+        System.out.println(myPrototype);
     }
 }
