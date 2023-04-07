@@ -2,9 +2,27 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="helloWorld" class="com.xiwen.HelloWorld">
+    <bean id="helloWorld" class="com.xiwen.bean.HelloWorld">
         <property name="name" value="权志龙">
-
         </property>
+    </bean>
+    <bean id="employee01" class="com.xiwen.bean.Employee">
+        <property name="name" value="马云"/>
+        <property name="age" value="30"/>
+        <property name="car" ref="car01"/>
+        <property name="salary" value="5000"/>
+    </bean>
+
+    <bean id="employee02" class="com.xiwen.bean.Employee">
+        <constructor-arg name="name" value="测试构造器"/>
+        <constructor-arg name="age" value="20"/>
+        <constructor-arg name="salary" value="20000"/>
+        <constructor-arg name="car" ref="car01"/>
+    </bean>
+
+    <bean id="car01" class="com.xiwen.bean.Car">
+        <property name="name" value="五菱宏光"/>
+        <property name="colour" value="银色"/>
+        <property name="price" value="50000"/>
     </bean>
 </beans>

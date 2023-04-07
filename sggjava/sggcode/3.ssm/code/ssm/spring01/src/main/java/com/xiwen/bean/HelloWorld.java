@@ -1,4 +1,4 @@
-package com.xiwen;
+package com.xiwen.bean;
 
 /**
  * Description:
