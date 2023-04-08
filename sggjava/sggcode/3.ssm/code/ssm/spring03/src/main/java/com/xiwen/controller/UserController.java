@@ -1,7 +1,6 @@
 package com.xiwen.controller;
 
 import com.xiwen.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -24,7 +23,7 @@ public class UserController {
     // jdk的自带的注解也可以最好还是使用spring框架的注解
 //    @Resource(name = "userServiceImpl")
 
-    @Autowired
+//    @Autowired
     private UserService userService;
 
     public void getName() {
