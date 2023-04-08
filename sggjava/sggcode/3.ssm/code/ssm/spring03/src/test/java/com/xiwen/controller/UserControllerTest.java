@@ -1,5 +1,6 @@
 package com.xiwen.controller;
 
+import com.xiwen.dao.UserDao;
 import com.xiwen.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,8 +32,14 @@ public class UserControllerTest {
 //        AnnotationConfigApplicationContext ioc = new AnnotationConfigApplicationContext(SpringConfiguration.class);
         UserController userController = ioc.getBean("userController", UserController.class);
         System.out.println(userController);
-        UserService service = ioc.getBean("userService", UserService.class);
+
+        UserDao dao = ioc.getBean("userDaoImpl", UserDao.class);
+        System.out.println(dao);
+
+        UserService service = ioc.getBean("userServiceImpl", UserService.class);
         System.out.println(service);
+
+
 //        userController.getName();
     }
 
