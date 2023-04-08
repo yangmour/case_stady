@@ -1,5 +1,6 @@
 package com.xiwen.controller;
 
+import com.xiwen.aop02.Calculator;
 import com.xiwen.dao.UserDao;
 import com.xiwen.service.UserService;
 import org.junit.Test;
@@ -23,6 +24,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class UserControllerTest {
     @Autowired
     private UserController userController;
+
 
     @Test
     public void setUserService() {
@@ -49,5 +51,15 @@ public class UserControllerTest {
         userController.getName();
 
 
+    }
+
+    @Autowired
+    private Calculator calculator;
+
+    @Test
+    public void text03() {
+
+        int add = calculator.add(10, 2);
+        System.out.println(add);
     }
 }
