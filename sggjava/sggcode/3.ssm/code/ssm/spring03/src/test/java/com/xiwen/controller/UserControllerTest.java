@@ -14,7 +14,7 @@ public class UserControllerTest {
 
     @Test
     public void setUserService() {
-        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("exerciseBeans.xml");
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserController userController = ioc.getBean("userController", UserController.class);
         userController.getName();
 
