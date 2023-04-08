@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+<div id="root">
+    <h1>天气案例</h1>
+    <h1>天气{{weather}}</h1>
+    <button @click="but">切换天气</button>
+
+</div>
+
+<script>
+    const vm = new Vue({
+        el: "#root",
+        data: {
+            isFlag: true
+        },
+        methods: {
+            but() {
+                this.isFlag = !this.isFlag
+            }
+        },
+        computed: {
+            weather() {
+                return this.isFlag ? "凉爽" : "炎热";
+            }
+        },
+        //方式1
+        // watch: {
+        //     isFlag: {
+        //         immediate: true, //初始化就执行
+        //         handler(newValue, oldValue) {
+        //             console.log("isFalse发生了变化！", newValue, oldValue)
+        //         }
+        //     }
+        // }
+    })
+
+    //方式2
+    vm.$watch("isFlag",{
+        immediate: true, //初始化就执行
+                handler(newValue, oldValue) {
+                    console.log("isFalse发生了变化！", newValue, oldValue)
+                }
+    })
+
+</script>
+
+</body>
+
+</html>
