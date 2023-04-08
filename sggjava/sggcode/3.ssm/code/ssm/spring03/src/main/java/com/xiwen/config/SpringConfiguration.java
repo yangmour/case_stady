@@ -1,5 +1,8 @@
 package com.xiwen.config;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
 /**
  * Description:
  *
@@ -8,7 +11,7 @@ package com.xiwen.config;
  * @Version: 1.0
  */
 // 完全注解开发扫描包
-//@ComponentScan(basePackages = "com.xiwen")
-//@Configuration
+@ComponentScan(basePackages = "com.xiwen")
+@Configuration
 public class SpringConfiguration {
 }
