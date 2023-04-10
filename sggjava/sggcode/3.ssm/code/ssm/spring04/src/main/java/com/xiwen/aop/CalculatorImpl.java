@@ -1,5 +1,7 @@
 package com.xiwen.aop;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Description:
  *
@@ -7,7 +9,7 @@ package com.xiwen.aop;
  * @Create: 2023/04/08 -15:02
  * @Version: 1.0
  */
-//@Component
+@Component
 public class CalculatorImpl implements Calculator {
     @Override
     public int add(int a, int b) {
