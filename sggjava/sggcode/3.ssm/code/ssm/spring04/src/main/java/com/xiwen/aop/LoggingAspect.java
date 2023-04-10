@@ -2,9 +2,6 @@ package com.xiwen.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
@@ -21,9 +18,9 @@ import java.util.Arrays;
  * 方式1继承接口ordered实现getOrder方法
  * 方式2使用order注解设置value值
  */
-@Component
-@Aspect
-@Order(1)
+//@Component
+//@Aspect
+//@Order(1)
 public class LoggingAspect {
 //public class LoggingAspect implements Ordered {
 
@@ -47,7 +44,7 @@ public class LoggingAspect {
      * !execution(public int com.xiwen.aop.Calculator.add(int ,int))
      */
 
-    @Pointcut("execution(* *.*(..))")
+//    @Pointcut("execution(* *.*(..))")
     public void pointCut() {
     }
 
@@ -56,14 +53,14 @@ public class LoggingAspect {
      *
      * @param joinPoint
      */
-    @Before("pointCut()")
+//    @Before("pointCut()")
     public void before(JoinPoint joinPoint) {
         System.out.println("方法名:" + joinPoint.getSignature().getName());
         System.out.println("参数" + Arrays.toString(joinPoint.getArgs()));
         System.out.println("任务完成前执行！");
     }
 
-    @After("pointCut()")
+//    @After("pointCut()")
     public void after(JoinPoint joinPoint) {
         System.out.println("任务完成后执行！");
     }
@@ -73,17 +70,17 @@ public class LoggingAspect {
      * 在注解里是先执行afterReturning的方法在执行after的方法
      * 如果是在配置文件中是按照xml配置的先后顺序执行
      */
-    @AfterReturning(value = "pointCut()", returning = "result")
+//    @AfterReturning(value = "pointCut()", returning = "result")
     public void afterReturning(JoinPoint joinPoint, Object result) {
         System.out.println("获取结果" + result);
     }
 
-    @AfterThrowing(value = "pointCut()", throwing = "e")
+//    @AfterThrowing(value = "pointCut()", throwing = "e")
     public void afterThrowing(JoinPoint joinPoint, Exception e) {
         System.out.println("出现异常" + e.getMessage());
     }
 
-    @Around("pointCut()")
+//    @Around("pointCut()")
     public Object around(ProceedingJoinPoint pjp) {
 
         String name = pjp.getSignature().getName();

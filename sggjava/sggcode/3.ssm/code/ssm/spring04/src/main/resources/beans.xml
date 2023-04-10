@@ -5,9 +5,26 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 扫描包   -->
-    <context:component-scan base-package="com.xiwen">
-
-    </context:component-scan>
+    <!--        <context:component-scan base-package="com.xiwen">-->
+    <!--        </context:component-scan>-->
     <!-- 开启aop注解支持   -->
-    <aop:aspectj-autoproxy/>
+    <!--    <aop:aspectj-autoproxy/>-->
+
+    <bean id="calculator" class="com.xiwen.aop.CalculatorImpl"></bean>
+    <bean id="loggingAspect" class="com.xiwen.aop.LoggingAspect"></bean>
+    <bean id="loggingAspect02" class="com.xiwen.aop.LoggingAspect02"></bean>
+
+    <aop:config>
+        <aop:pointcut id="pointCut" expression="execution(* com.xiwen.aop.Calculator.*(..))"/>
+        <aop:aspect id="loggingAspect" ref="loggingAspect">
+            <aop:before method="before" pointcut-ref="pointCut"/>
+            <aop:after method="after" pointcut-ref="pointCut"/>
+        </aop:aspect>
+
+        <aop:aspect id="loggingAspect02" ref="loggingAspect02">
+            <aop:before method="before" pointcut-ref="pointCut"/>
+            <aop:after method="after" pointcut-ref="pointCut"/>
+        </aop:aspect>
+    </aop:config>
+
 </beans>

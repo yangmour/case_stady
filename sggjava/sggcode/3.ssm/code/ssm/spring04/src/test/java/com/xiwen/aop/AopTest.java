@@ -24,6 +24,6 @@ public class AopTest {
     public void test() {
         int add = calculator.add(10, 5);
 
-        System.out.println(add);
+        System.out.println("结果:" + add);
     }
 }
