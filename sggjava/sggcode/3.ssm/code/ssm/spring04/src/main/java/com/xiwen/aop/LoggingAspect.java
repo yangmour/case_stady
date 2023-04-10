@@ -30,6 +30,11 @@ public class LoggingAspect {
      * execution(int *.*(..))
      * 任意类的任意方法的任意返回值的符号*
      * execution(int *.*(..))
+     *
+     * 逻辑运算符
+     * execution(public int com.xiwen.aop.Calculator.add(int ,int)) || execution(public int com.xiwen.aop.Calculator.add(int ,int))
+     * execution(public int com.xiwen.aop.Calculator.add(int ,int)) && execution(public int com.xiwen.aop.Calculator.add(int ,int))
+     * !execution(public int com.xiwen.aop.Calculator.add(int ,int))
      */
 
     /**
