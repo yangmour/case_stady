@@ -36,6 +36,28 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../leetcode/temp/leetcode/editor/cn/[35]搜索插入位置.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../../../../../leetcode/temp/leetcode/editor/cn/doc/content/[35]搜索插入位置.md" />
+              <option name="frontendQuestionId" value="leetcode.cn35" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../../../../../leetcode/temp/leetcode/editor/cn/[35]搜索插入位置.java" />
+              <option name="titleSlug" value="search-insert-position" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../../../../../../leetcode/temp/leetcode/editor/cn/[36]有效的数独.java">
+          <value>
+            <LeetcodeEditor>
+              <option name="contentPath" value="$PROJECT_DIR$/../../../../../../leetcode/temp/leetcode/editor/cn/doc/content/[36]有效的数独.md" />
+              <option name="frontendQuestionId" value="leetcode.cn36" />
+              <option name="host" value="leetcode.cn" />
+              <option name="path" value="$PROJECT_DIR$/../../../../../../leetcode/temp/leetcode/editor/cn/[36]有效的数独.java" />
+              <option name="titleSlug" value="valid-sudoku" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
