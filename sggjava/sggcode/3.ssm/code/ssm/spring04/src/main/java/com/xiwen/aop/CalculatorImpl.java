@@ -14,6 +14,7 @@ public class CalculatorImpl implements Calculator {
     @Override
     public int add(int a, int b) {
         int result = a + b;
+//        int i = 10/0;
         return result;
     }
 
