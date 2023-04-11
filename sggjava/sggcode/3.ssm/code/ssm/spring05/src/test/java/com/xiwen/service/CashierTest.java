@@ -1,14 +1,15 @@
 package com.xiwen.service;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+//import org.junit.Test;
+//import org.junit.runner.RunWith;
+
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
+//import static org.junit.Assert.*;
 
 /**
  * Description:
@@ -17,8 +18,9 @@ import static org.junit.Assert.*;
  * @Create: 2023/04/11 -10:08
  * @Version: 1.0
  */
-@ContextConfiguration(locations = "classpath:jdbc.xml")
-@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations = "classpath:jdbc.xml")
+//@RunWith(SpringJUnit4ClassRunner.class)
+@SpringJUnitConfig(locations = "classpath:jdbc.xml")
 public class CashierTest {
 
     @Autowired
