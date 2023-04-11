@@ -1,17 +1,9 @@
 package com.xiwen.mapper;
 
 import com.xiwen.bean.Employee;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.io.IOException;
-import java.io.InputStream;
-
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
 /**
  * Description:
@@ -20,21 +12,23 @@ import static org.junit.Assert.*;
  * @Create: 2023/04/11 -15:13
  * @Version: 1.0
  */
+@SpringJUnitConfig(locations = "classpath:applicationContext.xml")
 public class EmployeeMapperTest {
 
-    private SqlSession sqlSession;
+//    private SqlSession sqlSession;
+//    @Before
+//    public void init() throws IOException {
+//        InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
+//        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
+//        sqlSession = sqlSessionFactory.openSession();
+//    }
 
-
-    @Before
-    public void init() throws IOException {
-        InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
-        sqlSession = sqlSessionFactory.openSession();
-    }
+    @Autowired
+    private EmployeeMapper employeeMapper;
 
     @Test
     public void getById() {
-        EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
+//        EmployeeMapper employeeMapper = sqlSession.getMapper(EmployeeMapper.class);
         Employee employee = employeeMapper.getById(1);
         System.out.println(employee);
     }

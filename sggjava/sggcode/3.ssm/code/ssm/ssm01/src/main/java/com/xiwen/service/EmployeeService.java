@@ -1,4 +1,4 @@
-package com.xiwen.mapper;
+package com.xiwen.service;
 
 import com.xiwen.bean.Employee;
 
@@ -8,10 +8,10 @@ import java.util.List;
  * Description:
  *
  * @author: yf
- * @Create: 2023/04/01 -11:40
+ * @Create: 2023/04/11 -18:08
  * @Version: 1.0
  */
-public interface EmployeeMapper {
+public interface EmployeeService {
 
     Employee getById(Integer id);
 

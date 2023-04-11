@@ -5,6 +5,35 @@
 <mapper namespace="com.xiwen.mapper.EmployeeMapper">
     <!--      Employee getById(Integer id);  -->
     <select id="getById" resultType="employee">
-        select * from employees where id = #{id}
+        select *
+        from employees
+        where id = #{id}
     </select>
+    <!--    List<Employee> findAll();-->
+    <select id="findAll" resultType="employee">
+        select *
+        from employees;
+    </select>
+    <!--    int insert(Employee employee);-->
+    <insert id="insert">
+        insert into employees
+        values (null, #{lastName}, #{email}, #{gender}, #{salary}, #{deptId})
+    </insert>
+    <!--    int update(Employee employee);-->
+    <update id="update">
+        update employees
+        set last_name=#{lastName},
+            email=#{email},
+            gender= #{gender},
+            salary= #{salary},
+            dept_id = #{deptId}
+        where id = #{id}
+    </update>
+    <!--    int delete(Integer id);-->
+    <delete id="delete">
+        delete
+        from employees
+        where id = #{id};
+    </delete>
+
 </mapper>
