@@ -9,6 +9,8 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.FileNotFoundException;
+
 /**
  * Description:
  *
@@ -31,12 +33,19 @@ public class BookServiceImpl implements BookService {
      * @Transactional(propagation = Propagation.REQUIRED) 默认传播行为，要么都成功要么都回退
      * @Transactional(propagation = Propagation.REQUIRES_NEW) 默认传播行为，相当于每个小的事务，成一个提交一个，失败了就回滚当前方法事务与其他事务无关
      */
-    @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.READ_UNCOMMITTED)
+    @Transactional(propagation = Propagation.REQUIRES_NEW, isolation = Isolation.READ_UNCOMMITTED,
+            timeout = 3, //超时就回滚
+//            readOnly = true,  //默认是false,如果是true就是只读
+            rollbackFor = {FileNotFoundException.class} //设置回滚的受检异常，一般不设置的话不会回滚
+//            noRollbackFor = {ArithmeticException.class} //设置不回滚的异常
+    )
     public void purchase(int userId, String bookId) {
 
         Double price = bookDao.getById(bookId);
         bookDao.updateBookStock(bookId);
 //        int a = 10 / 0;
+//        new FileInputStream("");
+
         accountDao.updateBalance(userId, price);
     }
 
