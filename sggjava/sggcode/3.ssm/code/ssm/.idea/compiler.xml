@@ -6,18 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ssm01" />
+        <module name="day02_web" />
+        <module name="day01_maven01" />
+        <module name="spring01" />
+        <module name="day01_maven02" />
+        <module name="day01_maven03" />
         <module name="spring03" />
         <module name="spring04" />
-        <module name="day02_web" />
         <module name="spring05" />
         <module name="mybatis03" />
         <module name="mybatis04" />
-        <module name="day01_maven01" />
         <module name="mybatis01" />
-        <module name="spring01" />
-        <module name="day01_maven02" />
         <module name="mybatis02" />
-        <module name="day01_maven03" />
       </profile>
     </annotationProcessing>
   </component>
