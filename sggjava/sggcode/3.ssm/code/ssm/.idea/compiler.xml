@@ -9,6 +9,7 @@
         <module name="spring03" />
         <module name="spring04" />
         <module name="day02_web" />
+        <module name="spring05" />
         <module name="mybatis03" />
         <module name="mybatis04" />
         <module name="day01_maven01" />
