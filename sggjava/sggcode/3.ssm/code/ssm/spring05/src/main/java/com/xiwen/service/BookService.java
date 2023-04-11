@@ -9,4 +9,6 @@ package com.xiwen.service;
  */
 public interface BookService {
     void purchase(int userId, String BookId);
+
+    public void purchase02(int userId, String bookId);
 }

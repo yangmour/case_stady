@@ -23,4 +23,9 @@ public class BookServiceTest {
     public void purchase() {
         bookService.purchase(1, String.valueOf(1001));
     }
+
+    @Test
+    public void purchase02() {
+        bookService.purchase02(1, String.valueOf(1001));
+    }
 }

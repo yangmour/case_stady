@@ -28,6 +28,5 @@ public class CashierImpl implements Cashier {
             bookService.purchase(userId, id);
             System.out.println(id + "成功！");
         }
-
     }
 }
