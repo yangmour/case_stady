@@ -13,6 +13,7 @@
         <module name="day01_maven02" />
         <module name="day01_maven03" />
         <module name="spring03" />
+        <module name="springmvc01" />
         <module name="spring04" />
         <module name="spring05" />
         <module name="mybatis03" />
