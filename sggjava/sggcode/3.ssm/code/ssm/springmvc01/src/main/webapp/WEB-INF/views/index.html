@@ -23,7 +23,32 @@
 <h1>获取参数</h1>
 <a href="hello/param?key1=参数&key2=参数2">Test Param</a><br>
 <a href="hello/param/value/param2">Test Param2</a><br>
-
+<h1>Restful风格请求</h1>
+<h2>get请求</h2><br>
+<a href="book/1">查询请求</a><br>
+<h2>post请求</h2><br>
+<form action="book" method="post">
+    <input type="submit" value="新增请求">
+</form>
+<h2>put请求</h2><br>
+<!--如何发送put和delete请求
+        原理：通过post请求进行转化
+            1. 创建表单将method设置为post
+            2. 在请求内添加一个参数
+                name属性必须为：_method
+                value属性的值为你想转化的请求方式
+            3. 添加一个过滤器 (在webxml中添加HiddenHttpMethodFilter过滤器,在类中会转换为put或者delete方法)
+                让过滤器过滤该请求(过滤器已存在)
+    -->
+<form action="book" method="post">
+    <input type="hidden" name="_method" value="put">
+    <input type="submit" value="修改请求">
+</form>
+<h2>delete请求</h2><br>
+<form action="book/6" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="删除请求">
+</form>
 <br>
 </body>
 </html>
