@@ -51,6 +51,14 @@
 </form>
 <a href="user/requestParam?username=admin&age=20&gender=2&hobby=唱&hobby=跳&hobby=rap">测试RequestParam注解</a><br>
 <a href="user/requestParamUser?username=admin&age=20&phone=1231232412&hobby=唱&hobby=跳&hobby=rap">测试RequestParamrequestParamUser注解</a><br>
+<form action="user/requestParamUser" method="post">
+    username:<input type="text" name="username"><br>
+    age:<input type="text" name="age"><br>
+    phone:<input type="text" name="phone"><br>
+    hobby:<input type="checkbox" name="hobby" value="唱">唱
+    <input type="checkbox" name="hobby" value="rap">rap<br>
+    <input type="submit" value="提交"><br>
+</form>
 <a href="user/requestHarder">测试RequestHeader注解</a><br>
 <a href="user/setCookie">设置Cookie</a><br>
 <a href="user/getCookie">获取Cookie</a><br>
