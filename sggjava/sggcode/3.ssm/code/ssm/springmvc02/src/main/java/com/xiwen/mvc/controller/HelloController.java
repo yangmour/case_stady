@@ -19,11 +19,11 @@ import java.util.Map;
 @RequestMapping("/hello")
 public class HelloController {
 
-    @RequestMapping("/toIndexPage")
-    public ModelAndView toIndexPage(ModelAndView mv) {
-        mv.setViewName("index");
-        return mv;
-    }
+//    @RequestMapping("/toIndexPage")
+//    public ModelAndView toIndexPage(ModelAndView mv) {
+//        mv.setViewName("index");
+//        return mv;
+//    }
 
 
     @RequestMapping("/mvTest")

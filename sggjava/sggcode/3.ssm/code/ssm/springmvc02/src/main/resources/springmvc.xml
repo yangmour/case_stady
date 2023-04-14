@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!--  注解扫描包  -->
     <context:component-scan base-package="com.xiwen.mvc"/>
     <!--配置视图解析器 (SpringBoot不用配，所以复制即可)-->
@@ -29,5 +30,10 @@
         </property>
     </bean>
 
-
+    <!--  1.xml方式设置访问首页
+            如果controller中没有业务代码就可以这么写
+    -->
+    <mvc:view-controller path="hello/toIndexPage" view-name="index"/>
+    <!-- 2.设置这个为了跳转其他页面时候是正常的，不加就会有问题  -->
+    <mvc:annotation-driven/>
 </beans>
