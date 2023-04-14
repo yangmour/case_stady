@@ -36,4 +36,17 @@
     <mvc:view-controller path="hello/toIndexPage" view-name="index"/>
     <!-- 2.设置这个为了跳转其他页面时候是正常的，不加就会有问题  -->
     <mvc:annotation-driven/>
+
+    <!-- 静态资源的访问  ★
+        也是需要mvc:annotation-driven标签
+        效果：客户端发送请求到前端控制器，前端控制器会让HandlerMapping根据url寻找controller
+             找得到，直接访问Controller就ok
+             找不到,开始判断是否配置了静态资源访问
+                没有配置，直接404
+                有配置，在根据url去寻找静态资源
+                    能找到，直接返回静态资源内容
+                    找不到，还是404
+        注意：如果Controller的映射路径和静态资源相同，会走Controller
+    -->
+    <mvc:default-servlet-handler/>
 </beans>
