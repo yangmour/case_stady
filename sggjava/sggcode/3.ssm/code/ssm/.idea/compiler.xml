@@ -15,6 +15,7 @@
         <module name="spring03" />
         <module name="springmvc01" />
         <module name="spring04" />
+        <module name="springmvc02" />
         <module name="spring05" />
         <module name="mybatis03" />
         <module name="mybatis04" />
