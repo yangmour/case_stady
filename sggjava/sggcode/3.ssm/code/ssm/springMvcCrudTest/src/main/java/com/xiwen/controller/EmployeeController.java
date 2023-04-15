@@ -29,42 +29,65 @@ public class EmployeeController {
     @Autowired
     private DepartmentService departmentService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping
     public String findAll(Model model) {
         List<Employee> emps = employeeService.findAll();
         model.addAttribute("emps", emps);
         return "index";
     }
 
-    @RequestMapping("toInsertEmpPage")
-    public String toAddEmpPage(Model model) {
-        List<Department> depts = departmentService.findAll();
-        model.addAttribute("depts", depts);
-        return "insertEmp";
-    }
 
-    @RequestMapping(value = "insertEmp",method = RequestMethod.POST)
-    public String insertEmp(Employee employee) {
-        employeeService.insert(employee);
-        return "redirect:/emp/";
-    }
+    @RequestMapping(value = "toInsertAndUpdateEmpPage")
+    public String toUpdateEmpPage(Model model, Integer id) {
+        Employee emp = null;
+        if (id == null) {
+            emp = new Employee();
+            emp.setDepartment(new Department());
 
-    @RequestMapping(value = "toUpdateEmpPage")
-    public String toUpdateEmpPage(Model model,Integer id) {
-        Employee emp = employeeService.getById(id);
-        List<Department> depts = departmentService.findAll();
+        } else {
+            emp = employeeService.getById(id);
+        }
+
         model.addAttribute("emp", emp);
+        List<Department> depts = departmentService.findAll();
         model.addAttribute("depts", depts);
-        return "updateEmp";
+        return "insertAndUpdateEmp";
     }
 
-    @RequestMapping(value = "updateEmp",method = RequestMethod.PUT)
+//    @RequestMapping("toInsertEmpPage")
+//    public String toAddEmpPage(Model model) {
+//        List<Department> depts = departmentService.findAll();
+//        model.addAttribute("depts", depts);
+//        return "insertEmp";
+//    }
+//    @RequestMapping(value = "toUpdateEmpPage")
+//    public String toUpdateEmpPage(Model model,Integer id) {
+//        Employee emp = employeeService.getById(id);
+//        List<Department> depts = departmentService.findAll();
+//        model.addAttribute("emp", emp);
+//        model.addAttribute("depts", depts);
+//        return "updateEmp";
+//    }
+
+    @RequestMapping(value = "insertOrUpdateEmp", method = {RequestMethod.POST, RequestMethod.PUT})
     public String updateEmp(Employee employee) {
-        employeeService.update(employee);
+        employeeService.insertOrUpdate(employee);
         return "redirect:/emp/";
     }
 
-    @RequestMapping(value = "deleteEmp",method = RequestMethod.DELETE)
+//    @RequestMapping(value = "insertEmp", method = RequestMethod.POST)
+//    public String insertEmp(Employee employee) {
+//        employeeService.insert(employee);
+//        return "redirect:/emp/";
+//    }
+//
+//    @RequestMapping(value = "updateEmp", method = RequestMethod.PUT)
+//    public String updateEmp(Employee employee) {
+//        employeeService.update(employee);
+//        return "redirect:/emp/";
+//    }
+
+    @RequestMapping(value = "deleteEmp", method = RequestMethod.DELETE)
     public String deleteEmp(Integer id) {
         employeeService.delete(id);
         return "redirect:/emp/";

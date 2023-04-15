@@ -30,6 +30,5 @@
         </property>
     </bean>
     <!--    静态资源访问-->
-    <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
 </beans>

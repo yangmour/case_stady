@@ -14,9 +14,11 @@ import java.util.List;
 public interface EmployeeService {
     List<Employee> findAll();
 
-    void insert(Employee employee);
+    void insertOrUpdate(Employee employee);
 
-    void update(Employee employee);
+//    void insert(Employee employee);
+
+//    void update(Employee employee);
 
     void delete(Integer id);
 

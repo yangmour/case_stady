@@ -25,7 +25,7 @@
         <td th:text="${emp.department.id}">部门编号</td>
         <td th:text="${emp.department.departmentName}">部门名称</td>
         <td>
-            <a th:href="@{emp/toUpdateEmpPage(id=${emp.id})}">修改</a>
+            <a th:href="@{emp/toInsertAndUpdateEmpPage(id=${emp.id})}">修改</a>
             <form action="emp/deleteEmp" method="post">
                 <input type="hidden" name="_method" value="delete">
                 <input type="hidden" name="id" th:value="${emp.id}">
@@ -35,6 +35,6 @@
         </td>
     </tr>
 </table>
-<a href="emp/toInsertEmpPage">添加员工</a>
+<a href="emp/toInsertAndUpdateEmpPage">添加员工</a>
 </body>
 </html>

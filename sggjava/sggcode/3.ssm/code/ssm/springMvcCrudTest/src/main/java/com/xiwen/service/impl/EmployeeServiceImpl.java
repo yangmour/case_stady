@@ -27,14 +27,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void insert(Employee employee) {
+    public void insertOrUpdate(Employee employee) {
         employeeDao.saveOrUpdate(employee);
     }
 
-    @Override
-    public void update(Employee employee) {
-        employeeDao.saveOrUpdate(employee);
-    }
+    //    @Override
+//    public void insert(Employee employee) {
+//        employeeDao.saveOrUpdate(employee);
+//    }
+//
+//    @Override
+//    public void update(Employee employee) {
+//        employeeDao.saveOrUpdate(employee);
+//    }
 
     @Override
     public void delete(Integer id) {
