@@ -10,6 +10,7 @@
         <module name="day02_web" />
         <module name="day01_maven01" />
         <module name="spring01" />
+        <module name="springmvc03" />
         <module name="day01_maven02" />
         <module name="day01_maven03" />
         <module name="springMvcCrudTest" />
