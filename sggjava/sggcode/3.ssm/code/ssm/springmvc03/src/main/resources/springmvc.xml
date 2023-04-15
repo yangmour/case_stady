@@ -30,6 +30,44 @@
         </property>
     </bean>
 
-    <mvc:default-servlet-handler/>
     <mvc:annotation-driven/>
+
+    <!--为文件上传配置解析器
+      id的值必须为multipartResolver ★
+  -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--设置编码格式-->
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!--   每个单独的文件大小     -->
+        <property name="maxUploadSizePerFile" value="10240"/>
+        <!--   总共上传的文件大小     -->
+        <property name="maxUploadSize" value="102400"/>
+    </bean>
+
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <!--拦截器配置方式一：bean标签，拦截所有过SpringMVC的请求-->
+        <!--        <bean id="helloInterceptor" class="com.atguigu.interceptor.HelloInterceptor"/>-->
+        <!--拦截器配置方式二：mvc:interceptor标签
+            mvc:mapping ：设置拦截路径
+            bean ：  拦截器的bean
+        -->
+
+        <!--        <bean id="helloInterceptor" class="com.xiwen.interceptor.HelloInterceptor"/>-->
+        <!--        <mvc:interceptor>-->
+        <!--            <mvc:mapping path="/hello/*"/>-->
+        <!--            <bean id="helloInterceptor" class="com.xiwen.interceptor.HelloInterceptor"/>-->
+        <!--        </mvc:interceptor>-->
+
+        <!--    设置拦截链哪个在上先执行哪个    -->
+        <mvc:interceptor>
+            <mvc:mapping path="/hello/**"/>
+            <bean id="helloInterceptor" class="com.xiwen.interceptor.HelloInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/hello/*"/>
+            <bean class="com.xiwen.interceptor.SecondInterceptor"/>
+        </mvc:interceptor>
+
+    </mvc:interceptors>
 </beans>

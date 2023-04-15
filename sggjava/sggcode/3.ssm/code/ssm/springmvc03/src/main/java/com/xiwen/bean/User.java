@@ -1,7 +1,5 @@
 package com.xiwen.bean;
 
-import java.util.Arrays;
-
 /**
  * Description:
  *
@@ -12,9 +10,16 @@ import java.util.Arrays;
 public class User {
     private Integer id;
     private String username;
-    private String phone;
-    private Integer age;
-    private String[] hobby;
+    private String password;
+
+    public User() {
+    }
+
+    public User(Integer id, String username, String password) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
 
     public Integer getId() {
         return id;
@@ -32,28 +37,12 @@ public class User {
         this.username = username;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String[] getHobby() {
-        return hobby;
-    }
-
-    public void setHobby(String[] hobby) {
-        this.hobby = hobby;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -61,9 +50,7 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
-                ", phone='" + phone + '\'' +
-                ", age=" + age +
-                ", hobby=" + Arrays.toString(hobby) +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

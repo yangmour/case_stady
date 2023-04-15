@@ -1,0 +1,12 @@
+ /**
+     * @ResponseBody 将当前方法的返回值直接写给请求发送者
+     * 位置：
+     * 类上：当前类的所有方法的返回值都是响应数据
+     * 方法上： 当前方法的返回值是响应数据
+     * 注意：和Thymeleaf毫无关系
+     */
+    @ResponseBody
+    @RequestMapping(value = "responseBodyTest", method = {RequestMethod.GET, RequestMethod.POST})
+    public String responseBodyTest() {
+        return "<h2 style='color:red'>success<h2>";
+    }

@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <base th:href="@{/hello/}" href="/">
     <meta charset="UTF-8">
     <title>首页</title>
 </head>
 <body>
 <h1>首页</h1>
+<h2>测试@RequestBody</h2>
+<form action="requestBodyTest" method="get">
+    username:<input type="text" name="username" value="admin"><br>
+    password:<input type="text" name="password" value="root"><br>
+    <input type="submit" value="get提交"><br>
+</form>
+<form action="requestBodyTest" method="post">
+    username:<input type="text" name="username" value="admin"><br>
+    password:<input type="text" name="password" value="root"><br>
+    <input type="submit" value="post提交">
+</form>
+<h2>测试HttpEntity</h2>
+<form action="requestHttpEntityTest" method="get">
+    username:<input type="text" name="username" value="admin"><br>
+    password:<input type="text" name="password" value="root"><br>
+    <input type="submit" value="get提交"><br>
+</form>
+<form action="requestHttpEntityTest" method="post">
+    username:<input type="text" name="username" value="admin"><br>
+    password:<input type="text" name="password" value="root"><br>
+    <input type="submit" value="post提交">
+</form>
+<br>
+<a href="responseBodyTest">测试@ResponseBody</a>
+<a href="downLoad">测试文件下载</a>
+<a href="userJson">返回json数据</a>
+
+<h1>上传文件</h1>
+<form action="upload" method="post" enctype="multipart/form-data">
+    介绍:<input type="text" name="desc"><br>
+    abc: <input type="file" name="abc"><br>
+    abc: <input type="file" name="abc"><br>
+    file: <input type="file" name="file"><br>
+    file: <input type="file" name="file"><br>
+    <input type="submit" value="上传"><br>
+</form>
+
+<a href="aa/bb/cc">/hello/aa/bb/cc</a>
+
 
 </body>
 </html>
