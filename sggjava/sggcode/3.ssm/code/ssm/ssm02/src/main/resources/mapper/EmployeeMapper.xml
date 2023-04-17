@@ -6,4 +6,8 @@
     <select id="getById" resultType="employee">
         select * from employees where id = #{id}
     </select>
+    <!--      List<Employee> findAll();  -->
+    <select id="findAll" resultType="employee">
+        select * from employees
+    </select>
 </mapper>

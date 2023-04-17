@@ -2,6 +2,8 @@ package com.xiwen.dao;
 
 import com.xiwen.bean.Employee;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -11,4 +13,5 @@ import com.xiwen.bean.Employee;
  */
 public interface EmployeeDao {
     Employee getById(Integer id);
+    List<Employee> findAll();
 }

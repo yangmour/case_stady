@@ -2,6 +2,8 @@ package com.xiwen.service;
 
 import com.xiwen.bean.Employee;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -12,4 +14,6 @@ import com.xiwen.bean.Employee;
 public interface EmployeeService {
 
     Employee getById(Integer id);
+    List<Employee> findAll();
+
 }

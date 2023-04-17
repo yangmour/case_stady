@@ -6,6 +6,8 @@ import com.xiwen.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Description:
  *
@@ -21,5 +23,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee getById(Integer id) {
         return employeeDao.getById(id);
+    }
+
+    @Override
+    public List<Employee> findAll() {
+        return employeeDao.findAll();
     }
 }

@@ -7,7 +7,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
     <!-- 1.注解扫描包-->
-    <context:component-scan base-package="com.xiwen"/>
+    <context:component-scan base-package="com.xiwen">
+        <!--   排除controller注解的类让springmvc加载    -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <!-- 2.引入db.properties文件   -->
     <bean:property-placeholder location="classpath:db.properties"/>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--  注解扫描包  -->
+    <context:component-scan base-package="com.xiwen.controller"/>
+    <!--配置视图解析器 (SpringBoot不用配，所以复制即可)-->
+    <bean class="org.thymeleaf.spring5.view.ThymeleafViewResolver" id="viewResolver">
+        <!--配置字符集属性-->
+        <property name="characterEncoding" value="UTF-8"/>
+        <!--配置模板引擎属性-->
+        <property name="templateEngine">
+            <!--配置内部bean-->
+            <bean class="org.thymeleaf.spring5.SpringTemplateEngine">
+                <!--配置模块的解析器属性-->
+                <property name="templateResolver">
+                    <!--配置内部bean-->
+                    <bean class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
+                        <!--配置前缀-->
+                        <property name="prefix" value="/WEB-INF/views/"/>
+                        <!--配置后缀-->
+                        <property name="suffix" value=".html"/>
+                        <!--配置字符集-->
+                        <property name="characterEncoding" value="UTF-8"/>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+    <mvc:view-controller path="toIndexPage" view-name="index"/>
+    <mvc:annotation-driven/>
+</beans>
