@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ssm01" />
+        <module name="ssm02" />
         <module name="day02_web" />
         <module name="day01_maven01" />
         <module name="spring01" />
