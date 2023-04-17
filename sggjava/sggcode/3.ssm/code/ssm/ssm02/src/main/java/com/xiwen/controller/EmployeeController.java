@@ -27,10 +27,40 @@ public class EmployeeController {
     }
 
     @RequestMapping("showEmployees")
-    public String showEmployees(Model model){
+    public String showEmployees(Model model) {
         List<Employee> emps = employeeService.findAll();
-        model.addAttribute("emps",emps);
+        model.addAttribute("emps", emps);
         return "showEmployees";
+    }
+
+    @RequestMapping("toAddEmpPage")
+    public String toAddEmpPage() {
+        return "addEmp";
+    }
+
+    @RequestMapping("addEmp")
+    public String addEmp(Employee employee) {
+        employeeService.addEmployee(employee);
+        return "redirect:showEmployees";
+    }
+
+    @RequestMapping("toEditEmpPage")
+    public String toEditEmpPage(Integer id, Model model) {
+        Employee emp = employeeService.getById(id);
+        model.addAttribute("emp", emp);
+        return "editEmp";
+    }
+
+    @RequestMapping("editEmp")
+    public String editEmp(Employee employee) {
+        employeeService.editEmployee(employee);
+        return "redirect:showEmployees";
+    }
+
+    @RequestMapping("deleteEmp")
+    public String deleteEmp(Integer id) {
+        employeeService.deleteById(id);
+        return "redirect:showEmployees";
     }
 
 }

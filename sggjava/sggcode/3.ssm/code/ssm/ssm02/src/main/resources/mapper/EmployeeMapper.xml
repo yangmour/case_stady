@@ -4,10 +4,35 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiwen.dao.EmployeeDao">
     <select id="getById" resultType="employee">
-        select * from employees where id = #{id}
+        select *
+        from employees
+        where id = #{id}
     </select>
     <!--      List<Employee> findAll();  -->
     <select id="findAll" resultType="employee">
-        select * from employees
+        select *
+        from employees
     </select>
+
+    <!--    int insertEmployee(Employee employee);-->
+    <insert id="insertEmployee">
+        insert into employees
+        values (null, #{lastName}, #{email}, #{gender}, #{salary}, #{deptId})
+    </insert>
+    <!--    int updateEmployee(Employee employee);-->
+    <update id="updateEmployee">
+        update employees
+        set last_name = #{lastName},
+            email     = #{email},
+            gender    = #{gender},
+            salary    = #{salary},
+            dept_id   = #{deptId}
+        where id = #{id}
+    </update>
+    <!--    int deleteById(Employee employee);-->
+    <delete id="deleteById">
+        delete
+        from employees
+        where id = #{id}
+    </delete>
 </mapper>

@@ -13,5 +13,14 @@ import java.util.List;
  */
 public interface EmployeeDao {
     Employee getById(Integer id);
+
     List<Employee> findAll();
+
+    int insertEmployee(Employee employee);
+
+    int updateEmployee(Employee employee);
+
+    int deleteById(Integer id);
+
+
 }

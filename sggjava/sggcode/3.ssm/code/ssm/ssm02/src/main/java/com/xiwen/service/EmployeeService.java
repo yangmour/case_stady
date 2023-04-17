@@ -16,4 +16,8 @@ public interface EmployeeService {
     Employee getById(Integer id);
     List<Employee> findAll();
 
+    int addEmployee(Employee employee);
+    int editEmployee(Employee employee);
+    int deleteById(Integer id);
+
 }
