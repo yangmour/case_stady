@@ -23,12 +23,16 @@ public class SecKill_redis1 {
         String count = jedis.get(skProdIdStock);
         if (count == null || count.length() == 0) {
             System.out.println("秒杀还没开始！");
+            jedis.close();
+
             return false;
         }
 
         //2.当秒杀开始了，没有库存了就失败
         if (Integer.parseInt(count) <= 0) {
             System.out.println("库存以清空！");
+            jedis.close();
+
             return false;
         }
 
@@ -36,12 +40,15 @@ public class SecKill_redis1 {
         boolean sIsMember = jedis.sismember(skProdIdUIds,uid);
         if (sIsMember) {
             System.out.println(uid + "当前用户以抢到了！！");
+            jedis.close();
             return false;
         }
         //4.如果上面都不满足就让抢到，减库存，加uid，返回true
         jedis.decr(skProdIdStock);
         jedis.sadd(skProdIdUIds, uid);
         System.out.println(uid + "秒杀成功！");
+        jedis.close();
+
         return true;
     }
 
