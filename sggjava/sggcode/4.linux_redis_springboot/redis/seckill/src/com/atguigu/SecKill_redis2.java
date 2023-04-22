@@ -55,7 +55,15 @@ public class SecKill_redis2 {
 		//4.如果上面都不满足就让抢到，减库存，加uid，返回true
 		multi.decr(skProdIdStock);
 		multi.sadd(skProdIdUIds, uid);
-		multi.exec();
+		//执行事务
+		List<Object> list = multi.exec();
+
+		//判断事务提交是否失败
+		if(list==null || list.size()==0) {
+			System.out.println("秒杀失败");
+			jedis.close();
+			return false;
+		}
 		System.out.println(uid + "秒杀成功！");
 		jedis.close();
 

@@ -17,9 +17,9 @@ public class SecKillServlet extends HttpServlet {
 		String prodid =request.getParameter("prodid");
 		
 //		boolean if_success=SecKill_redis1.doSecKill(userid,prodid);
-		boolean if_success=SecKill_redis2.doSecKill(userid,prodid);
+//		boolean if_success=SecKill_redis2.doSecKill(userid,prodid);
 		//boolean if_success=SecKill_redis3.doSecKill(userid,prodid);
-		//boolean if_success=SecKill_redisByScript.doSecKill(userid,prodid);
+		boolean if_success=SecKill_redisByScript.doSecKill(userid,prodid);
  
 		response.getWriter().print(if_success);
 	}

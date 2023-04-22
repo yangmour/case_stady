@@ -21,8 +21,7 @@ public class JedisPoolUtil {
 					poolConfig.setBlockWhenExhausted(true);
 					poolConfig.setTestOnBorrow(true);
 
-					jedisPool = new JedisPool(poolConfig, "192.168.137.110", 6379, 60000);
-
+					jedisPool = new JedisPool(poolConfig, "192.168.232.201", 6379, 60000,"redis123");
 				}
 			}
 		}
