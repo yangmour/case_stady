@@ -16,14 +16,10 @@ public class SecKill_redisByScript {
 
 	public static void main(String[] args) {
 
-		JedisPool jedispool = JedisPoolUtil.getJedisPoolInstance();
 
-		Jedis jedis = jedispool.getResource();
+		Jedis jedis = new Jedis("192.168.232.201",6379,1000000000);
+		jedis.auth("redis123");
 		System.out.println(jedis.ping());
-
-		Set<HostAndPort> set = new HashSet<HostAndPort>();
-
-		// doSecKill("201","sk:0101");
 
 	}
 
