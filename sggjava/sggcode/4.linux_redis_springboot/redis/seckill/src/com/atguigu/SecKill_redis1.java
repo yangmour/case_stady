@@ -9,47 +9,40 @@ import redis.clients.jedis.Jedis;
 //实验一，存在超卖情况
 public class SecKill_redis1 {
 
-	private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SecKill_redis1.class);
+    private static final org.slf4j.Logger logger = LoggerFactory.getLogger(SecKill_redis1.class);
 
-	public static boolean doSecKill(String uid, String prodid) throws IOException {
+    public static boolean doSecKill(String uid, String prodid) throws IOException {
 
-		//1.准备存储的key
-		//拼key
-		String qtkey = "sk:"+prodid+":qt";
-		String usrkey = "sk:"+prodid+":usr";
-		
-		//2.判断用户是否已经秒到，不能重复秒
-		Jedis jedis = new Jedis("192.168.137.110",6379);
-		if(jedis.sismember(usrkey, uid)) {			
-			System.out.println("不能重复秒杀");
-			jedis.close();
-			return false ;
-		}
-		
-		//3.判断库存
-		String qtkeystr = jedis.get(qtkey);
-		if(qtkeystr==null || "".equals(qtkeystr.trim())) {
-			System.out.println("未初始化库存");
-			jedis.close();
-			return false ;
-		}
-		
-		int qt = Integer.parseInt(qtkeystr);
-		if(qt<=0) {
-			System.out.println("已经秒光");
-			jedis.close();
-			return false;
-		}
-		
-		//4.减少库存
-		jedis.decr(qtkey);
-		
-		//5.加人
-		jedis.sadd(usrkey, uid);		
-		jedis.close();
-		System.out.println("秒杀成功");
-		
-		return true;
-	}
+        //准备key
+        String skProdIdStock = "sk:" + prodid + ":stock";
+        String skProdIdUIds = "sk:" + prodid + ":uid";
+
+        Jedis jedis = new Jedis("192.168.232.201", 6379);
+        jedis.auth("redis123");
+        //1.当秒杀没开始的时候失败
+        String count = jedis.get(skProdIdStock);
+        if (count == null || count.length() == 0) {
+            System.out.println("秒杀还没开始！");
+            return false;
+        }
+
+        //2.当秒杀开始了，没有库存了就失败
+        if (Integer.parseInt(count) <= 0) {
+            System.out.println("库存以清空！");
+            return false;
+        }
+
+        //3.当秒杀开始了，有库存，但是当前用户已经抢到了就返回失败
+        boolean sIsMember = jedis.sismember(skProdIdUIds,uid);
+        if (sIsMember) {
+            System.out.println(uid + "当前用户以抢到了！！");
+            return false;
+        }
+        //4.如果上面都不满足就让抢到，减库存，加uid，返回true
+        jedis.decr(skProdIdStock);
+        jedis.sadd(skProdIdUIds, uid);
+        System.out.println(uid + "秒杀成功！");
+        return true;
+    }
 
 }
