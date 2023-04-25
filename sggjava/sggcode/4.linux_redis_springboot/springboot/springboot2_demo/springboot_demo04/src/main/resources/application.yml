@@ -1,0 +1,11 @@
+spring:
+  aaa:
+    jdbc:
+      datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql:///springboot_01
+        username: root
+        password: root
+        type: c3p0
+
+
