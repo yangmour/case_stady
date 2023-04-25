@@ -9,3 +9,7 @@ spring:
         url: jdbc:mysql://localhost:3306/springboot02
         username: root
         password: root
+        hobbys:
+          - hhh
+          - nihao
+          - 测试

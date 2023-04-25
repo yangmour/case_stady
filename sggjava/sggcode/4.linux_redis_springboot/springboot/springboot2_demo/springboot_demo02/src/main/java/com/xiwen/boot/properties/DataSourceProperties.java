@@ -10,6 +10,8 @@ package com.xiwen.boot.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.List;
+
 /**
  * 将properties|yml文件中的键值对绑定到Properties类对应的属性上：三种方式：
  *   方式1：Properties类上加@Component 、同时在Properties类属性上加@Value
@@ -30,6 +32,8 @@ public class DataSourceProperties {
     private String username;
     private String password;
 
+    private List<String> hobbys;
+
     public void setDriverClassName(String driverClassName) {
         this.driverClassName = driverClassName;
     }
@@ -46,6 +50,14 @@ public class DataSourceProperties {
         this.password = password;
     }
 
+    public List<String> getHobbys() {
+        return hobbys;
+    }
+
+    public void setHobbys(List<String> hobbys) {
+        this.hobbys = hobbys;
+    }
+
     @Override
     public String toString() {
         return "DataSourceProperties{" +
@@ -53,6 +65,7 @@ public class DataSourceProperties {
                 ", url='" + url + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", hobbys=" + hobbys +
                 '}';
     }
 }

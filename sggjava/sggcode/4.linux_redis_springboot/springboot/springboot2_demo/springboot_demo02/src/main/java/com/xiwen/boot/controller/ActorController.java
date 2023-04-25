@@ -23,6 +23,7 @@ public class ActorController {
     @GetMapping("hello")
     public String hello(){
         System.out.println(dataSourceProperties);
+        dataSourceProperties.getHobbys().forEach(System.out::println);
         System.out.println("访问了hello");
         return "蔡徐坤";
     }
