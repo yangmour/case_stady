@@ -1,0 +1,15 @@
+#在springboot中有一个叫做ResourceProperties的类，里面就定义了静态资源的默认查找路径：
+#  默认的静态资源路径为：
+#  •	classpath:/META-INF/resources/
+#  •	classpath:/resources/
+#  •	classpath:/static/
+#  •	classpath:/public
+
+# 先找第一个文件夹里面有的话就直接访问，就不下面的文件寻找了.
+#   没有就一次向下面的文件寻找直达找到就访问，没有就报错
+
+#当自己指定了文件夹，默认的就被覆盖了
+
+spring:
+  resources:
+    static-locations: classpath:/webapp/
