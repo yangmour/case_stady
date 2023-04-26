@@ -9,6 +9,13 @@ spring:
     host: 192.168.232.201
     port: 6379
     password: redis123
+  #指定admin-server服务端的注册地址
+  boot:
+    admin:
+      client:
+        url: http://localhost:8888
+  application:
+    name: admin-client
 #健康监控 如果不设置base-path路径默认上下文路径是 actuator
 management:
   endpoints:
