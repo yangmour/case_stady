@@ -1,5 +1,6 @@
-package com.xiwen.boot;
+package com.xiwen.system;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: 1.0
  */
 @SpringBootApplication
+@MapperScan("com.xiwen.system.mapper")
 public class ServiceSystemApplication {
     public static void main(String[] args) {
         SpringApplication.run(ServiceSystemApplication.class, args);

@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:33068/guigu-auth
+    username: root
+    password: xiwen123
+
+#打印日志1
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#打印日志2
+#logging:
+#  level:
+#    #   代表所有依赖的包都是info级别
+#    # root: debug
+#    # 指定某个包下的使用某个级别的日志
+#    com.xiwen.system.mapper: debug
+
