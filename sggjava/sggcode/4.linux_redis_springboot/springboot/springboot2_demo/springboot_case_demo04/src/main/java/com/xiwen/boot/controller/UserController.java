@@ -4,7 +4,10 @@ import com.xiwen.boot.bean.User;
 import com.xiwen.boot.service.UserService;
 import com.xiwen.boot.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Description:
@@ -20,9 +23,20 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
     @GetMapping("findAll")
     public R findAllUser() {
-        return R.ok("成功", userService.findAll());
+        long start = System.currentTimeMillis();
+        List<User> userList = (List<User>) redisTemplate.boundValueOps("userList").get();
+        if (userList == null) {
+            userList = userService.findAll();
+            System.out.println("数据库查询时间" + (System.currentTimeMillis() - start) + "毫秒");
+        } else {
+            System.out.println("缓存查询时间" + (System.currentTimeMillis() - start) + "毫秒");
+        }
+        return R.ok("成功", userList);
     }
 
     @GetMapping("get")

@@ -4,3 +4,10 @@ spring:
     url: jdbc:mysql://localhost:33068/springboot?serverTimezone=Asia/Shanghai
     username: root
     password: xiwen123
+  #redis
+  redis:
+    host: 192.168.232.201
+    port: 6379
+    password: redis123
+
+
