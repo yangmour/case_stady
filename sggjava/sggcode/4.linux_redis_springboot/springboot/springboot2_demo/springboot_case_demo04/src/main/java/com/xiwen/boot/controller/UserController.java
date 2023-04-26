@@ -32,7 +32,8 @@ public class UserController {
         List<User> userList = (List<User>) redisTemplate.boundValueOps("userList").get();
         if (userList == null) {
             userList = userService.findAll();
-            System.out.println("数据库查询时间" + (System.currentTimeMillis() - start) + "毫秒");
+            redisTemplate.boundValueOps("userList").set(userList);
+        System.out.println("数据库查询时间" + (System.currentTimeMillis() - start) + "毫秒");
         } else {
             System.out.println("缓存查询时间" + (System.currentTimeMillis() - start) + "毫秒");
         }
