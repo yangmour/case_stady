@@ -1,6 +1,6 @@
 package com.xiwen.ggkt.vo.order;
 
-import com.atguigu.ggkt.model.order.OrderInfo;
+import com.xiwen.ggkt.model.order.OrderInfo;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

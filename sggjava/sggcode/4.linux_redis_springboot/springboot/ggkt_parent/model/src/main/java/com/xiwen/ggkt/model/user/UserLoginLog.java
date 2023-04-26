@@ -1,6 +1,6 @@
 package com.xiwen.ggkt.model.user;
 
-import com.atguigu.ggkt.model.base.BaseEntity;
+import com.xiwen.ggkt.model.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;

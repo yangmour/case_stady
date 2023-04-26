@@ -1,7 +1,7 @@
 package com.xiwen.ggkt.vo.live;
 
-import com.atguigu.ggkt.model.live.LiveCourse;
-import com.atguigu.ggkt.model.vod.Teacher;
+import com.xiwen.ggkt.model.live.LiveCourse;
+import com.xiwen.ggkt.model.vod.Teacher;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

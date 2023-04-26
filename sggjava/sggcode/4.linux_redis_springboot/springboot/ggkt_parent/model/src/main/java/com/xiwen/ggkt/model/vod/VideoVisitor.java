@@ -1,6 +1,6 @@
 package com.xiwen.ggkt.model.vod;
 
-import com.atguigu.ggkt.model.base.BaseEntity;
+import com.xiwen.ggkt.model.base.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;

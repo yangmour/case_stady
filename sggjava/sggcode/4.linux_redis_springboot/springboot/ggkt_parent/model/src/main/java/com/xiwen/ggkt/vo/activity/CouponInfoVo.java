@@ -1,6 +1,6 @@
 package com.xiwen.ggkt.vo.activity;
 
-import com.atguigu.ggkt.model.base.BaseEntity;
+import com.xiwen.ggkt.model.base.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
