@@ -1,6 +1,8 @@
 package com.xiwen.boot.controller;
 
-import com.xiwen.boot.mapper.UserMapper;
+import com.xiwen.boot.service.UserService;
+import com.xiwen.boot.utils.R;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,15 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private final UserMapper userMapper;
 
-    public UserController(UserMapper userMapper) {
-        this.userMapper = userMapper;
-    }
+    @Autowired
+    private UserService userService;
 
-    @GetMapping("getAll")
-    public Object findAllUser(){
-       return userMapper.selectAll();
+    @GetMapping("findAll")
+    public Object findAllUser() {
+        return R.ok("成功", userService.findAll());
 
     }
 }
