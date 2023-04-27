@@ -34,6 +34,8 @@ public class SysRoleController {
     @ApiOperation("获取所有角色数据")
     @GetMapping("findAll")
     public Result<List<SysRole>> findAll() {
+        // 制造异常，统一抛出异常，设置一个全局管理异常的类
+//        int a = 10 / 0;
         List<SysRole> list = sysRoleService.list();
         return Result.ok(list);
     }
