@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xiwen.common.result.Result;
 import com.xiwen.model.system.SysRole;
+import com.xiwen.model.vo.SysRoleQueryVo;
 import com.xiwen.system.service.SysRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -68,8 +69,8 @@ public class SysRoleController {
     }
 
     @ApiOperation("根据带分页的查询数据")
-    @GetMapping("findById/{pageNum}/{sizeNum}")
-    public Result<Page<SysRole>> findAllPage(@ApiParam("页码") @PathVariable Integer pageNum,@ApiParam("条数")  @PathVariable Integer sizeNum) {
+    @GetMapping("findAllPage/{pageNum}/{sizeNum}")
+    public Result<Page<SysRole>> findAllPage(@ApiParam("页码") @PathVariable Integer pageNum, @ApiParam("条数") @PathVariable Integer sizeNum) {
         Page<SysRole> page = new Page<>(pageNum, sizeNum);
         sysRoleService.page(page);
         return Result.ok(page);
@@ -77,10 +78,22 @@ public class SysRoleController {
 
     @ApiOperation("根据名字查询角色")
     @GetMapping("findByName/{roleName}")
-    public Result<List<SysRole>> findById(@ApiParam("根据名字模糊查询")  @PathVariable String roleName) {
+    public Result<List<SysRole>> findByName(@ApiParam("根据名字模糊查询") @PathVariable String roleName) {
         QueryWrapper<SysRole> queryWrapper = new QueryWrapper<SysRole>()
                 .like(!StringUtils.isEmpty(roleName), "role_name", roleName);
         return Result.ok(sysRoleService.list(queryWrapper));
+    }
+
+    @ApiOperation("根据带分页的模糊查询名字的")
+    @GetMapping("findByNamePage/{pageNum}/{sizeNum}")
+    public Result<Page<SysRole>> findByNamePage(
+            @ApiParam("页码") @PathVariable Integer pageNum,
+            @ApiParam("条数") @PathVariable Integer sizeNum,
+            @ApiParam(value = "查询条件的", required = true) SysRoleQueryVo sysRoleQueryVo) {
+        Page<SysRole> page = new Page<>(pageNum, sizeNum);
+
+        sysRoleService.selectPage(page, sysRoleQueryVo);
+        return Result.ok(page);
     }
 
 }

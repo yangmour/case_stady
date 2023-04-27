@@ -1,7 +1,10 @@
 package com.xiwen.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xiwen.model.system.SysRole;
+import com.xiwen.model.vo.SysRoleQueryVo;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -13,4 +16,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface SysRoleMapper extends BaseMapper<SysRole> {
+    Page<SysRole> selectPage(Page<SysRole> page, @Param("vo") SysRoleQueryVo sysRoleQueryVo);
 }
