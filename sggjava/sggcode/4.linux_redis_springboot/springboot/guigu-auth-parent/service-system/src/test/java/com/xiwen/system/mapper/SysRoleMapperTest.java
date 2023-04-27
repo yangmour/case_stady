@@ -2,6 +2,7 @@ package com.xiwen.system.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xiwen.model.base.BaseEntity;
 import com.xiwen.model.system.SysRole;
 import org.junit.jupiter.api.Test;
@@ -23,6 +24,21 @@ class SysRoleMapperTest {
     @Autowired
     private SysRoleMapper sysRoleMapper;
 
+
+    @Test
+    public void testQueryPage() {
+        QueryWrapper<SysRole> queryWrapper = new QueryWrapper<>();
+        Page<SysRole> page = new Page<>(1,2);
+        sysRoleMapper.selectPage(page,queryWrapper);
+
+        System.out.println(page.getPages());
+        System.out.println(page.getTotal());
+        System.out.println(page.hasPrevious());
+        System.out.println(page.hasNext());
+
+        List<SysRole> records = page.getRecords();
+        records.stream().forEach(System.out::println);
+    }
 
     @Test
     public void testQuery1() {

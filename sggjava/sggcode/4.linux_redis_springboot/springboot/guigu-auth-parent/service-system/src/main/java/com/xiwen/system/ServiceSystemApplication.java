@@ -3,6 +3,7 @@ package com.xiwen.system;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Description:
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Version: 1.0
  */
 @SpringBootApplication
+@ComponentScan("com.xiwen")
 @MapperScan("com.xiwen.system.mapper")
 public class ServiceSystemApplication {
     public static void main(String[] args) {
