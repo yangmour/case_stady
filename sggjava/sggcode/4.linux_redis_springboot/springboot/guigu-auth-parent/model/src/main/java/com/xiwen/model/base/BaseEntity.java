@@ -3,7 +3,6 @@ package com.xiwen.model.base;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableLogic;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -23,7 +22,7 @@ public class BaseEntity implements Serializable {
     @TableField("update_time")
     private Date updateTime;
 
-    @TableLogic
+//    @TableLogic
     @TableField("is_deleted")
     private Integer isDeleted;
 

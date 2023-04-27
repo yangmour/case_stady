@@ -11,6 +11,11 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+      logic-delete-field: isDeleted #全局指定实体类中哪个字段逻辑删除 ，使用注解的就是局部的
 #打印日志2
 #logging:
 #  level:
