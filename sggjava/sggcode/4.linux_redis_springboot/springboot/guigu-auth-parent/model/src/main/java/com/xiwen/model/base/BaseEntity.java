@@ -3,6 +3,8 @@ package com.xiwen.model.base;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -19,13 +21,14 @@ public class BaseEntity implements Serializable {
     @TableField("create_time")
     private Date createTime;
 
+    @ApiModelProperty("修改时间")
     @TableField("update_time")
     private Date updateTime;
 
-//    @TableLogic
+    @TableLogic
     @TableField("is_deleted")
     private Integer isDeleted;
 
     @TableField(exist = false)
-    private Map<String,Object> param = new HashMap<>();
+    private Map<String, Object> param = new HashMap<>();
 }

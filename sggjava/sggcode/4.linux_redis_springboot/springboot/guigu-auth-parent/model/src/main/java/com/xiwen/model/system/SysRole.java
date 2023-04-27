@@ -9,7 +9,7 @@ import lombok.Data;
 
 
 @Data
-@ApiModel(description = "角色")
+@ApiModel(description = "角色实体")
 @TableName("sys_role")
 public class SysRole extends BaseEntity {
 	
