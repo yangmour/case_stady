@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xiwen.common.result.Result;
 import com.xiwen.model.system.SysRole;
 import com.xiwen.model.vo.SysRoleQueryVo;
-import com.xiwen.system.exception.GuiGuException;
 import com.xiwen.system.service.SysRoleService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,11 +38,12 @@ public class SysRoleController {
 //        int a = 10 / 0;
 
         //2.手动抛出异常测试
-        try {
-            int a = 10 / 0;
-        } catch (Exception e) {
-            throw new GuiGuException(10000,"通用权限管理异常");
-        }
+//        try {
+//            int a = 10 / 0;
+//        } catch (Exception e) {
+//            throw new GuiGuException(10000,"通用权限管理异常");
+//        }
+
         List<SysRole> list = sysRoleService.list();
         return Result.ok(list);
     }
