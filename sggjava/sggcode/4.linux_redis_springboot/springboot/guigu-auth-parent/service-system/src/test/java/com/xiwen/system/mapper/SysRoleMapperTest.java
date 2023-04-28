@@ -2,6 +2,7 @@ package com.xiwen.system.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xiwen.model.base.BaseEntity;
 import com.xiwen.model.system.SysRole;
@@ -24,6 +25,18 @@ class SysRoleMapperTest {
     @Autowired
     private SysRoleMapper sysRoleMapper;
 
+
+    @Test
+    public void testUpdate2(){
+        SysRole sysRole=new SysRole();
+        sysRole.setRoleName("饲养管理员");
+
+        UpdateWrapper<SysRole> updateWrapper=new UpdateWrapper<>();
+        updateWrapper.eq("role_code","abc");
+
+        //update sys_role  set role_name="" where role_code="animal" and is_deleted=0
+        sysRoleMapper.update(sysRole,updateWrapper);
+    }
 
     @Test
     public void testQueryPage() {

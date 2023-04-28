@@ -44,7 +44,7 @@ public class SysRoleController {
     @PostMapping("saveRole")
     public Result<Object> saveRole(@ApiParam(value = "需要添加的对象") @RequestBody SysRole sysRole) {
         sysRoleService.save(sysRole);
-        return Result.ok();
+        return Result.ok(sysRole);
     }
 
     @ApiOperation("删除角色")
