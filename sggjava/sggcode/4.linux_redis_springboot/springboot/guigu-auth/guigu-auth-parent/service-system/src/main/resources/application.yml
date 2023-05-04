@@ -6,6 +6,9 @@ spring:
     url: jdbc:mysql://localhost:33068/guigu-auth
     username: root
     password: xiwen123
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
 
 #打印日志1
 mybatis-plus:
