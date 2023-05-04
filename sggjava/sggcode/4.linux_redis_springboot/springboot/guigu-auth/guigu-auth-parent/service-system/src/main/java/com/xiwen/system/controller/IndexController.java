@@ -41,5 +41,10 @@ public class IndexController {
         return Result.ok(map);
     }
 
+    @PostMapping("/logout")
+    public Result<Object> logout() {
+        System.out.println();
+        return Result.ok();
+    }
 
 }
