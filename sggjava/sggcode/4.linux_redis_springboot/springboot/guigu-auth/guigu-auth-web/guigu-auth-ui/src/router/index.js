@@ -54,6 +54,20 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
+  {
+    path: '/system',
+    component: Layout,
+    redirect: '/system/rolelist',
+    alwaysShow: true,
+    meta: { title: '系统管理', icon: 'el-icon-s-tools' },
+
+    children: [{
+      path: 'rolelist',
+      name: 'Dashboard',
+      component: () => import('@/views/system/role/list'),
+      meta: { title: '用户管理', icon: 'el-icon-user' }
+    }]
+  },
 
 
   // 404 page must be placed at the end !!!

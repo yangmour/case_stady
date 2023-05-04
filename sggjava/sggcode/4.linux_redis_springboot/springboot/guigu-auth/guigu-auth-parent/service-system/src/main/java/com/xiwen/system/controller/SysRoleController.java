@@ -95,7 +95,7 @@ public class SysRoleController {
     }
 
     @ApiOperation("根据带分页的模糊查询名字的")
-    @GetMapping("findByNamePage/{pageNum}/{sizeNum}")
+    @PostMapping("findByNamePage/{pageNum}/{sizeNum}")
     public Result<Page<SysRole>> findByNamePage(
             @ApiParam("页码") @PathVariable Integer pageNum,
             @ApiParam("条数") @PathVariable Integer sizeNum,
@@ -103,6 +103,7 @@ public class SysRoleController {
         Page<SysRole> page = new Page<>(pageNum, sizeNum);
 
         sysRoleService.selectPage(page, sysRoleQueryVo);
+        System.out.println(page.getRecords());
         return Result.ok(page);
     }
 
