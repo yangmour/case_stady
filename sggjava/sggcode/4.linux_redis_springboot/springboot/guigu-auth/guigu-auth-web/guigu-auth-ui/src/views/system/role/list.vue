@@ -15,7 +15,15 @@
     </el-form>
 
     <!--  主页面  -->
-    <el-table :data="list" style="width: 100%" :row-class-name="tableRowClassName" @selection-change="selectionRemoveByIds">
+    <el-table
+      :data="list"
+      style="width: 100%"
+      :row-class-name="tableRowClassName"
+      @selection-change="selectionRemoveByIds"
+      v-loading="loading"
+      element-loading-text="拼命加载中"
+      element-loading-spinner="el-icon-loading"
+      element-loading-background="rgba(0, 0, 0, 0.8)">
       <el-table-column
         type="selection"
         width="55">
@@ -74,7 +82,8 @@ export default {
       total: 0,
 
       // 批量选择的数据
-      rows: []
+      rows: [],
+      loading: true
     }
   }, methods: {
     batchRemoveByIds() {
@@ -138,6 +147,7 @@ export default {
       sysRole.getRoleList(this.currentNum, this.pageSize, this.searchObj).then((resp) => {
         this.list = resp.data.records
         this.total = resp.data.total
+        this.loading = false
       })
     },
     tableRowClassName({ row, rowIndex }) {
