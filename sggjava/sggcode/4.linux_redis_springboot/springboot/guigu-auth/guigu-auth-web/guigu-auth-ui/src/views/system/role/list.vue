@@ -12,6 +12,8 @@
       <el-form-item>
         <el-button type="danger" @click="searchReset()">重置</el-button>
       </el-form-item>
+
+      <el-button @click="showSavePage" type="success" round>新增角色</el-button>
     </el-form>
 
     <!--  主页面  -->
@@ -46,7 +48,9 @@
         <template slot-scope="scope">
           <el-button @click="removeById(scope.row.id)" class="el-icon-delete" type="danger" size="small">删除
           </el-button>
-          <el-button type="primary" class="el-icon-edit-outline" size="small">编辑</el-button>
+          <el-button @click="edit(scope.row.id)" type="primary" class="el-icon-edit-outline" size="small">
+            编辑
+          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -61,6 +65,25 @@
       :total="total"
     >
     </el-pagination>
+
+    <!--  新增和修改的  -->
+    <el-dialog :visible.sync="dialogVisible" title="新增/修改">
+      <el-form ref="dataForm" :model="sysRole" label-width="150px" size="small" style="padding-right: 40px;">
+        <el-form-item label="角色名称">
+          <el-input v-model="sysRole.roleName"/>
+        </el-form-item>
+        <el-form-item label="角色编码">
+          <el-input v-model="sysRole.roleCode"/>
+        </el-form-item>
+        <el-form-item label="描述">
+          <el-input v-model="sysRole.description"/>
+        </el-form-item>
+      </el-form>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false" size="small" icon="el-icon-refresh-right">取 消</el-button>
+        <el-button type="primary" icon="el-icon-check" @click="saveOrUpdate()" size="small">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -83,9 +106,40 @@ export default {
 
       // 批量选择的数据
       rows: [],
-      loading: true
+      loading: true,
+
+      // 新增和修改弹窗
+      dialogVisible: false,
+      sysRole: {
+        roleName: '',
+        roleCode: '',
+        description: ''
+      }
     }
   }, methods: {
+    edit(id) {
+      this.dialogVisible = true
+      sysRole.edit(id).then(resp => {
+        this.sysRole = resp.data
+      })
+    },
+    saveOrUpdate() {
+      if (!this.sysRole.id) {
+        sysRole.save(this.sysRole).then(resp => {
+          this.$message.success('添加成功！')
+        })
+      } else {
+        sysRole.modifRole(this.sysRole).then(resp => {
+          this.$message.success('修改成功！')
+        })
+      }
+      this.dialogVisible = false
+      this.fetchData()
+    },
+    showSavePage() {
+      this.sysRole = {}
+      this.dialogVisible = true
+    },
     batchRemoveByIds() {
       var ids = []
       this.rows.forEach(o => ids.push(o.id))

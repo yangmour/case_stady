@@ -70,6 +70,14 @@ public class SysRoleController {
         return Result.ok();
     }
 
+    @ApiOperation("根据id寻找角色")
+    @GetMapping("edit/{id}")
+    public Result<Object> getByIdRole(
+            @ApiParam("要修改的对象") @PathVariable Integer id) {
+
+        return Result.ok(sysRoleService.getById(id));
+    }
+
     @ApiOperation("修改角色")
     @PutMapping("modifRole")
     public Result<Object> modifRole(

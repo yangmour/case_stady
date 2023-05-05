@@ -22,5 +22,25 @@ export default {
       method: 'post',
       data: ids
     })
+  },
+  save(sysRole) {
+    return request({
+      url: `${API}/saveRole/`,
+      method: 'post',
+      data: sysRole
+    })
+  },
+  edit(id) {
+    return request({
+      url: `${API}/edit/${id}`,
+      method: 'get'
+    })
+  },
+  modifRole(sysRole) {
+    return request({
+      url: `${API}/modifRole/`,
+      method: 'put',
+      data: sysRole
+    })
   }
 }
