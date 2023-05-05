@@ -99,9 +99,10 @@ public class SysRoleController {
     public Result<Page<SysRole>> findByNamePage(
             @ApiParam("页码") @PathVariable Integer pageNum,
             @ApiParam("条数") @PathVariable Integer sizeNum,
-            @ApiParam(value = "查询条件的", required = true) SysRoleQueryVo sysRoleQueryVo) {
-        Page<SysRole> page = new Page<>(pageNum, sizeNum);
+            @ApiParam(value = "查询条件的", required = true) @RequestBody SysRoleQueryVo sysRoleQueryVo) {
 
+
+        Page<SysRole> page = new Page<>(pageNum, sizeNum);
         sysRoleService.selectPage(page, sysRoleQueryVo);
         System.out.println(page.getRecords());
         return Result.ok(page);

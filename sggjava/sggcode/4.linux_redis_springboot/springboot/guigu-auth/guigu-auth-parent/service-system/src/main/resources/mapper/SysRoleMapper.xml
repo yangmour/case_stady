@@ -12,6 +12,7 @@
             <if test="vo.roleName!=null and vo.roleName!=''">
                 and role_name like concat("%",#{vo.roleName},"%")
             </if>
+            and is_deleted = 0
         </where>
     </select>
 </mapper>

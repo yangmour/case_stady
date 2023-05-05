@@ -1,17 +1,42 @@
 <template>
   <div class="app-container">
+
+    <!-- 搜索  -->
+    <el-form :inline="true" :model="searchObj" class="demo-form-inline">
+      <el-form-item label="名字">
+        <el-input v-model="searchObj.roleName" placeholder="角色名字"></el-input>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="primary" @click="searchNameFunc">查询</el-button>
+      </el-form-item>
+      <el-form-item>
+        <el-button type="danger" @click="searchReset()">重置</el-button>
+      </el-form-item>
+    </el-form>
+
+    <!--  主页面  -->
     <el-table :data="list" style="width: 100%" :row-class-name="tableRowClassName">
       <el-table-column prop="roleName" label="序号" width="50" type="index">
         <template slot-scope="scope">
           {{ (currentNum - 1) * pageSize + scope.$index + 1 }}
         </template>
       </el-table-column>
-      <el-table-column prop="roleName" label="名字" width="180">
+      <el-table-column prop="roleName" label="名字" width="160">
       </el-table-column>
-      <el-table-column prop="roleCode" label="代码编号" width="180">
+      <el-table-column prop="roleCode" label="代码编号" width="160">
       </el-table-column>
       <el-table-column prop="description" label="描述"></el-table-column>
       <el-table-column prop="updateTime" label="修改时间"></el-table-column>
+      <el-table-column
+        fixed="right"
+        label="操作"
+        width="180">
+        <template slot-scope="scope">
+          <el-button @click="removeById(scope.row.id)" class="el-icon-delete" type="danger" size="small">删除
+          </el-button>
+          <el-button type="primary" class="el-icon-edit-outline" size="small">编辑</el-button>
+        </template>
+      </el-table-column>
     </el-table>
 
     <el-pagination
@@ -32,20 +57,57 @@ import sysRole from '@/api/system/sysRole.js'
 export default {
   data() {
     return {
+      // 查询
+      searchObj: {
+        roleName: ''
+      },
+
+      // 获取数据，分页
       list: [],
       currentNum: 1,
       pageSize: 5,
       total: 0
     }
   }, methods: {
+
+    searchReset() {
+      this.searchObj = {}
+      this.fetchData()
+    },
+    searchNameFunc() {
+      console.log(this.searchObj)
+      this.fetchData(1)
+    },
+    removeById(id) {
+      console.log(id)
+
+      this.$confirm('此操作将永久删除该角色, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        sysRole.removeById(id).then(resp => {
+          this.fetchData(this.list.length === 1 ? this.currentNum - 1 : this.currentNum)
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          })
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        })
+      })
+    },
     fetchData(pageNum = 1) {
       this.currentNum = pageNum
-      sysRole.getRoleList(this.currentNum, this.pageSize, {}).then((resp) => {
+      sysRole.getRoleList(this.currentNum, this.pageSize, this.searchObj).then((resp) => {
         this.list = resp.data.records
         this.total = resp.data.total
       })
     },
-    tableRowClassName({ row, rowIndex }) {
+    tableRowClassName({row, rowIndex}) {
       if (rowIndex === 1) {
         return 'warning-row'
       } else if (rowIndex === 3) {
