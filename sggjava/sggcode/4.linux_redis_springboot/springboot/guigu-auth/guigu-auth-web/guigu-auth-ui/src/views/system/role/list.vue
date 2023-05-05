@@ -18,6 +18,8 @@
 
     <!--  主页面  -->
     <el-table
+      ref="table"
+      row-key="id"
       :data="list"
       style="width: 100%"
       :row-class-name="tableRowClassName"
@@ -27,6 +29,7 @@
       element-loading-spinner="el-icon-loading"
       element-loading-background="rgba(0, 0, 0, 0.8)">
       <el-table-column
+        reserve-selection
         type="selection"
         width="55">
       </el-table-column>
@@ -144,6 +147,12 @@ export default {
       var ids = []
       this.rows.forEach(o => ids.push(o.id))
 
+      // 如果没有选择就不删除做提示
+      if (!ids.length) {
+        this.$message.warning('批量删除不能为空！')
+        return
+      }
+
       this.$confirm('此操作将永久删除该角色, 是否继续?', '提示', {
         confirmButtonText: '确定',
         cancelButtonText: '取消',
@@ -155,6 +164,7 @@ export default {
             type: 'success',
             message: '删除成功!'
           })
+          this.$refs.table.clearSelection()
         })
       }).catch(() => {
         this.$message({
