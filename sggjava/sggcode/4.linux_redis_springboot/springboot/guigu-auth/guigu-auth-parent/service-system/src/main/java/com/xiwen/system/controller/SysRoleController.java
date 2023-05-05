@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -82,6 +83,10 @@ public class SysRoleController {
     @PutMapping("modifRole")
     public Result<Object> modifRole(
             @ApiParam("要修改的对象") @RequestBody SysRole sysRole) {
+        //方式2
+        sysRole.setUpdateTime(new Date());
+        //方式2
+//        sysRole.setUpdateTime(null);
         sysRoleService.updateById(sysRole);
         return Result.ok();
     }

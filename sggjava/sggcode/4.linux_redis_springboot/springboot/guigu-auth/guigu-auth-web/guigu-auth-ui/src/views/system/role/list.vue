@@ -71,14 +71,15 @@
 
     <!--  新增和修改的  -->
     <el-dialog :visible.sync="dialogVisible" title="新增/修改">
-      <el-form ref="dataForm" :model="sysRole" label-width="150px" size="small" style="padding-right: 40px;">
-        <el-form-item label="角色名称">
+      <el-form ref="sysRole" :rules="rules" :model="sysRole" label-width="150px" size="small"
+               style="padding-right: 40px;">
+        <el-form-item label="角色名称" prop="roleName">
           <el-input v-model="sysRole.roleName"/>
         </el-form-item>
-        <el-form-item label="角色编码">
+        <el-form-item label="角色编码" prop="roleCode">
           <el-input v-model="sysRole.roleCode"/>
         </el-form-item>
-        <el-form-item label="描述">
+        <el-form-item label="描述" prop="description">
           <el-input v-model="sysRole.description"/>
         </el-form-item>
       </el-form>
@@ -113,9 +114,21 @@ export default {
 
       // 新增和修改弹窗
       dialogVisible: false,
-      sysRole: {
-        roleName: '',
-        roleCode: '',
+      sysRole: {},
+      rules: {
+        roleName: [
+          {
+            required: true, message: '请输入活动名称', trigger: 'blur'
+          },
+          {
+            min: 1, max: 10, message: '长度在 1 到 10 个字符', trigger: 'blur'
+          }
+        ],
+        roleCode: [
+          {
+            required: true, message: '请输入活动名称', trigger: 'blur'
+          }
+        ],
         description: ''
       }
     }
@@ -127,17 +140,25 @@ export default {
       })
     },
     saveOrUpdate() {
-      if (!this.sysRole.id) {
-        sysRole.save(this.sysRole).then(resp => {
-          this.$message.success('添加成功！')
-        })
-      } else {
-        sysRole.modifRole(this.sysRole).then(resp => {
-          this.$message.success('修改成功！')
-        })
-      }
-      this.dialogVisible = false
-      this.fetchData()
+      this.$refs['sysRole'].validate((valid) => {
+        if (valid) {
+          this.dialogVisible = false
+          if (!this.sysRole.id) {
+            sysRole.save(this.sysRole).then(resp => {
+              this.$message.success('添加成功！')
+              this.fetchData()
+            })
+          } else {
+            sysRole.modifRole(this.sysRole).then(resp => {
+              this.$message.success('修改成功！')
+              this.fetchData()
+            })
+          }
+        } else {
+          this.$message.error('表单数据有误!')
+          return false
+        }
+      })
     },
     showSavePage() {
       this.sysRole = {}
@@ -172,18 +193,22 @@ export default {
           message: '已取消删除'
         })
       })
-    },
+    }
+    ,
     selectionRemoveByIds(rows) {
       this.rows = rows
-    },
+    }
+    ,
     searchReset() {
       this.searchObj = {}
       this.fetchData()
-    },
+    }
+    ,
     searchNameFunc() {
       console.log(this.searchObj)
       this.fetchData(1)
-    },
+    }
+    ,
     removeById(id) {
       console.log(id)
 
@@ -205,7 +230,8 @@ export default {
           message: '已取消删除'
         })
       })
-    },
+    }
+    ,
     fetchData(pageNum = 1) {
       this.currentNum = pageNum
       sysRole.getRoleList(this.currentNum, this.pageSize, this.searchObj).then((resp) => {
@@ -213,8 +239,9 @@ export default {
         this.total = resp.data.total
         this.loading = false
       })
-    },
-    tableRowClassName({ row, rowIndex }) {
+    }
+    ,
+    tableRowClassName({row, rowIndex}) {
       if (rowIndex === 1) {
         return 'warning-row'
       } else if (rowIndex === 3) {
