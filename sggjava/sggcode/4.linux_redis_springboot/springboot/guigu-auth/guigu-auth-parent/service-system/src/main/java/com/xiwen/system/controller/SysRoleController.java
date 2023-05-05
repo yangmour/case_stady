@@ -63,8 +63,8 @@ public class SysRoleController {
     }
 
     @ApiOperation("批量删除角色")
-    @PostMapping("removeRole")
-    public Result<Object> removeRole(
+    @PostMapping("batchRemoveRole")
+    public Result<Object> batchRemoveRole(
             @ApiParam("要删除id们") @RequestBody List<Integer> ids) {
         sysRoleService.removeByIds(ids);
         return Result.ok();

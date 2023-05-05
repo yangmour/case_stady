@@ -15,7 +15,11 @@
     </el-form>
 
     <!--  主页面  -->
-    <el-table :data="list" style="width: 100%" :row-class-name="tableRowClassName">
+    <el-table :data="list" style="width: 100%" :row-class-name="tableRowClassName" @selection-change="selectionRemoveByIds">
+      <el-table-column
+        type="selection"
+        width="55">
+      </el-table-column>
       <el-table-column prop="roleName" label="序号" width="50" type="index">
         <template slot-scope="scope">
           {{ (currentNum - 1) * pageSize + scope.$index + 1 }}
@@ -38,6 +42,7 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-button style="margin: 20px" @click="batchRemoveByIds" type="danger" round>批量删除</el-button>
 
     <el-pagination
       @current-change="fetchData"
@@ -66,10 +71,38 @@ export default {
       list: [],
       currentNum: 1,
       pageSize: 5,
-      total: 0
+      total: 0,
+
+      // 批量选择的数据
+      rows: []
     }
   }, methods: {
+    batchRemoveByIds() {
+      var ids = []
+      this.rows.forEach(o => ids.push(o.id))
 
+      this.$confirm('此操作将永久删除该角色, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).then(() => {
+        sysRole.batchRemoveByIds(ids).then(resp => {
+          this.fetchData(this.list.length === 1 ? this.currentNum - 1 : this.currentNum)
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          })
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消删除'
+        })
+      })
+    },
+    selectionRemoveByIds(rows) {
+      this.rows = rows
+    },
     searchReset() {
       this.searchObj = {}
       this.fetchData()
@@ -107,7 +140,7 @@ export default {
         this.total = resp.data.total
       })
     },
-    tableRowClassName({row, rowIndex}) {
+    tableRowClassName({ row, rowIndex }) {
       if (rowIndex === 1) {
         return 'warning-row'
       } else if (rowIndex === 3) {
