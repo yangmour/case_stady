@@ -1,10 +1,12 @@
 <template>
   <div class="app-container">
-
     <!-- 搜索  -->
     <el-form :inline="true" :model="searchObj" class="demo-form-inline">
       <el-form-item label="名字">
-        <el-input v-model="searchObj.roleName" placeholder="角色名字"></el-input>
+        <el-input
+          v-model="searchObj.roleName"
+          placeholder="角色名字"
+        ></el-input>
       </el-form-item>
       <el-form-item>
         <el-button type="primary" @click="searchNameFunc">查询</el-button>
@@ -27,11 +29,9 @@
       v-loading="loading"
       element-loading-text="拼命加载中"
       element-loading-spinner="el-icon-loading"
-      element-loading-background="rgba(0, 0, 0, 0.8)">
-      <el-table-column
-        reserve-selection
-        type="selection"
-        width="55">
+      element-loading-background="rgba(0, 0, 0, 0.8)"
+    >
+      <el-table-column reserve-selection type="selection" width="55">
       </el-table-column>
       <el-table-column prop="roleName" label="序号" width="50" type="index">
         <template slot-scope="scope">
@@ -44,24 +44,37 @@
       </el-table-column>
       <el-table-column prop="description" label="描述"></el-table-column>
       <el-table-column prop="updateTime" label="修改时间"></el-table-column>
-      <el-table-column
-        fixed="right"
-        label="操作"
-        width="180">
+      <el-table-column fixed="right" label="操作" width="180">
         <template slot-scope="scope">
-          <el-button @click="removeById(scope.row.id)" class="el-icon-delete" type="danger" size="small">删除
+          <el-button
+            @click="removeById(scope.row.id)"
+            class="el-icon-delete"
+            type="danger"
+            size="small"
+            >删除
           </el-button>
-          <el-button @click="edit(scope.row.id)" type="primary" class="el-icon-edit-outline" size="small">
+          <el-button
+            @click="edit(scope.row.id)"
+            type="primary"
+            class="el-icon-edit-outline"
+            size="small"
+          >
             编辑
           </el-button>
         </template>
       </el-table-column>
     </el-table>
-    <el-button style="margin: 20px" @click="batchRemoveByIds" type="danger" round>批量删除</el-button>
+    <el-button
+      style="margin: 20px"
+      @click="batchRemoveByIds"
+      type="danger"
+      round
+      >批量删除</el-button
+    >
 
     <el-pagination
       @current-change="fetchData"
-      style="padding: 30px;text-align: center"
+      style="padding: 30px; text-align: center"
       :current-page="currentNum"
       :page-size="pageSize"
       layout="total, prev, pager, next, jumper"
@@ -71,35 +84,52 @@
 
     <!--  新增和修改的  -->
     <el-dialog :visible.sync="dialogVisible" title="新增/修改">
-      <el-form ref="sysRole" :rules="rules" :model="sysRole" label-width="150px" size="small"
-               style="padding-right: 40px;">
+      <el-form
+        ref="sysRole"
+        :rules="rules"
+        :model="sysRole"
+        label-width="150px"
+        size="small"
+        style="padding-right: 40px"
+      >
         <el-form-item label="角色名称" prop="roleName">
-          <el-input v-model="sysRole.roleName"/>
+          <el-input v-model="sysRole.roleName" />
         </el-form-item>
         <el-form-item label="角色编码" prop="roleCode">
-          <el-input v-model="sysRole.roleCode"/>
+          <el-input v-model="sysRole.roleCode" />
         </el-form-item>
         <el-form-item label="描述" prop="description">
-          <el-input v-model="sysRole.description"/>
+          <el-input v-model="sysRole.description" />
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
-        <el-button @click="dialogVisible = false" size="small" icon="el-icon-refresh-right">取 消</el-button>
-        <el-button type="primary" icon="el-icon-check" @click="saveOrUpdate()" size="small">确 定</el-button>
+        <el-button
+          @click="dialogVisible = false"
+          size="small"
+          icon="el-icon-refresh-right"
+          >取 消</el-button
+        >
+        <el-button
+          type="primary"
+          icon="el-icon-check"
+          @click="saveOrUpdate()"
+          size="small"
+          >确 定</el-button
+        >
       </span>
     </el-dialog>
   </div>
 </template>
 
 <script>
-import sysRole from '@/api/system/sysRole.js'
+import sysRole from "@/api/system/sysRole.js";
 
 export default {
   data() {
     return {
       // 查询
       searchObj: {
-        roleName: ''
+        roleName: "",
       },
 
       // 获取数据，分页
@@ -118,142 +148,154 @@ export default {
       rules: {
         roleName: [
           {
-            required: true, message: '请输入活动名称', trigger: 'blur'
+            required: true,
+            message: "请输入活动名称",
+            trigger: "blur",
           },
           {
-            min: 1, max: 10, message: '长度在 1 到 10 个字符', trigger: 'blur'
-          }
+            min: 1,
+            max: 10,
+            message: "长度在 1 到 10 个字符",
+            trigger: "blur",
+          },
         ],
         roleCode: [
           {
-            required: true, message: '请输入活动名称', trigger: 'blur'
-          }
+            required: true,
+            message: "请输入活动名称",
+            trigger: "blur",
+          },
         ],
-        description: ''
-      }
-    }
-  }, methods: {
+        description: "",
+      },
+    };
+  },
+  methods: {
     edit(id) {
-      this.dialogVisible = true
-      sysRole.edit(id).then(resp => {
-        this.sysRole = resp.data
-      })
+      this.dialogVisible = true;
+      sysRole.edit(id).then((resp) => {
+        this.sysRole = resp.data;
+      });
     },
     saveOrUpdate() {
-      this.$refs['sysRole'].validate((valid) => {
+      this.$refs["sysRole"].validate((valid) => {
         if (valid) {
-          this.dialogVisible = false
+          this.dialogVisible = false;
           if (!this.sysRole.id) {
-            sysRole.save(this.sysRole).then(resp => {
-              this.$message.success('添加成功！')
-              this.fetchData()
-            })
+            sysRole.save(this.sysRole).then((resp) => {
+              this.$message.success("添加成功！");
+              this.fetchData();
+            });
           } else {
-            sysRole.modifRole(this.sysRole).then(resp => {
-              this.$message.success('修改成功！')
-              this.fetchData()
-            })
+            sysRole.modifRole(this.sysRole).then((resp) => {
+              this.$message.success("修改成功！");
+              this.fetchData();
+            });
           }
         } else {
-          this.$message.error('表单数据有误!')
-          return false
+          this.$message.error("表单数据有误!");
+          return false;
         }
-      })
+      });
     },
     showSavePage() {
-      this.sysRole = {}
-      this.dialogVisible = true
+      this.sysRole = {};
+      this.dialogVisible = true;
     },
     batchRemoveByIds() {
-      var ids = []
-      this.rows.forEach(o => ids.push(o.id))
+      var ids = [];
+      this.rows.forEach((o) => ids.push(o.id));
 
       // 如果没有选择就不删除做提示
       if (!ids.length) {
-        this.$message.warning('批量删除不能为空！')
-        return
+        this.$message.warning("批量删除不能为空！");
+        return;
       }
 
-      this.$confirm('此操作将永久删除该角色, 是否继续?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        sysRole.batchRemoveByIds(ids).then(resp => {
-          this.fetchData(this.list.length === 1 ? this.currentNum - 1 : this.currentNum)
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          })
-          this.$refs.table.clearSelection()
-        })
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消删除'
-        })
+      this.$confirm("此操作将永久删除该角色, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
       })
-    }
-    ,
+        .then(() => {
+          sysRole.batchRemoveByIds(ids).then((resp) => {
+            this.fetchData(
+              this.list.length === 1 ? this.currentNum - 1 : this.currentNum
+            );
+            this.$message({
+              type: "success",
+              message: "删除成功!",
+            });
+            this.$refs.table.clearSelection();
+          });
+        })
+        .catch(() => {
+          this.$message({
+            type: "info",
+            message: "已取消删除",
+          });
+        });
+    },
     selectionRemoveByIds(rows) {
-      this.rows = rows
-    }
-    ,
+      this.rows = rows;
+    },
     searchReset() {
-      this.searchObj = {}
-      this.fetchData()
-    }
-    ,
+      this.searchObj = {};
+      this.fetchData();
+    },
     searchNameFunc() {
-      console.log(this.searchObj)
-      this.fetchData(1)
-    }
-    ,
+      console.log(this.searchObj);
+      this.fetchData(1);
+    },
     removeById(id) {
-      console.log(id)
+      console.log(id);
 
-      this.$confirm('此操作将永久删除该角色, 是否继续?', '提示', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        type: 'warning'
-      }).then(() => {
-        sysRole.removeById(id).then(resp => {
-          this.fetchData(this.list.length === 1 ? this.currentNum - 1 : this.currentNum)
+      this.$confirm("此操作将永久删除该角色, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      })
+        .then(() => {
+          sysRole.removeById(id).then((resp) => {
+            this.fetchData(
+              this.list.length === 1 ? this.currentNum - 1 : this.currentNum
+            );
+            this.$message({
+              type: "success",
+              message: "删除成功!",
+            });
+          });
+        })
+        .catch(() => {
           this.$message({
-            type: 'success',
-            message: '删除成功!'
-          })
-        })
-      }).catch(() => {
-        this.$message({
-          type: 'info',
-          message: '已取消删除'
-        })
-      })
-    }
-    ,
+            type: "info",
+            message: "已取消删除",
+          });
+        });
+    },
     fetchData(pageNum = 1) {
-      this.currentNum = pageNum
-      sysRole.getRoleList(this.currentNum, this.pageSize, this.searchObj).then((resp) => {
-        this.list = resp.data.records
-        this.total = resp.data.total
-        this.loading = false
-      })
-    }
-    ,
-    tableRowClassName({row, rowIndex}) {
+      this.currentNum = pageNum;
+      sysRole
+        .getRoleList(this.currentNum, this.pageSize, this.searchObj)
+        .then((resp) => {
+          this.list = resp.data.records;
+          this.total = resp.data.total;
+          this.loading = false;
+        });
+    },
+    tableRowClassName({ row, rowIndex }) {
       if (rowIndex === 1) {
-        return 'warning-row'
+        return "warning-row";
       } else if (rowIndex === 3) {
-        return 'success-row'
+        return "success-row";
       }
-      return ''
-    }
+      return "";
+    },
   },
   created() {
-    this.fetchData()
-  }
-}
+    this.fetchData();
+  },
+};
 </script>
 
 <style>

@@ -31,7 +31,6 @@ public class SysUserController {
     @Autowired
     private SysUserService sysUserService;
 
-
     @ApiOperation("添加用户")
     @PostMapping("saveUser")
     public Result<Object> saveUser(@ApiParam(value = "需要添加的对象") @RequestBody SysUser sysUser) {
@@ -83,19 +82,19 @@ public class SysUserController {
             @ApiParam("条数") @PathVariable Integer sizeNum,
             @ApiParam(value = "查询条件的", required = true) @RequestBody SysUserQueryVo sysUserQueryVo) {
 
-
         Page<SysUser> page = new Page<>(pageNum, sizeNum);
         LambdaQueryWrapper<SysUser> queryWrapper = new LambdaQueryWrapper<>();
 
         String keyword = sysUserQueryVo.getKeyword();
-        //如果不为空根据昵称，用户，还有手机号查询
+        // 如果不为空根据昵称，用户，还有手机号查询
         if (!StringUtils.isEmpty(keyword)) {
-            queryWrapper.like(SysUser::getName, keyword)
+            queryWrapper.and(qw -> qw.like(SysUser::getName, keyword)
                     .or().like(SysUser::getUsername, keyword)
-                    .or().eq(SysUser::getPhone, keyword);
+                    .or().eq(SysUser::getPhone, keyword));
+
         }
 
-        //根据时间模糊查询
+        // 根据时间模糊查询
         String createTimeBegin = sysUserQueryVo.getCreateTimeBegin();
         String createTimeEnd = sysUserQueryVo.getCreateTimeEnd();
         queryWrapper.ge(
