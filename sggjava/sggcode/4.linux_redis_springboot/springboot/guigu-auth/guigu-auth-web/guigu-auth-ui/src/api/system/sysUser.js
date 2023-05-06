@@ -1,12 +1,12 @@
 import request from '@/utils/request'
 
-const api_name = '/admin/system/sysUser'
+const API = '/admin/system/sysUser'
 
 export default {
   // 分页及带条件查询的方法
   findPageList(current, size, queryVo) {
     return request({
-      url: `${api_name}/findByNamePage/${current}/${size}`,
+      url: `${API}/findByNamePage/${current}/${size}`,
       method: 'post',
       data: queryVo
     })
@@ -15,7 +15,7 @@ export default {
   // 删除的方法
   delete(id) {
     return request({
-      url: `${api_name}/removeUser/${id}`,
+      url: `${API}/removeUser/${id}`,
       method: 'delete'
     })
   },
@@ -23,7 +23,7 @@ export default {
   // 添加的方法
   save(sysUser) {
     return request({
-      url: `${api_name}/saveUser`,
+      url: `${API}/saveUser`,
       method: 'post',
       data: sysUser
     })
@@ -32,7 +32,7 @@ export default {
   // 根据id查询
   getById(id) {
     return request({
-      url: `${api_name}/edit/${id}`,
+      url: `${API}/edit/${id}`,
       method: 'get'
     })
   },
@@ -40,7 +40,7 @@ export default {
   // 更新
   update(sysUser) {
     return request({
-      url: `${api_name}/modifUser`,
+      url: `${API}/modifUser`,
       method: 'put',
       data: sysUser
     })
@@ -49,7 +49,7 @@ export default {
   // 更新用户状态
   updateStatus(userId, status) {
     return request({
-      url: `${api_name}/updateStatus/${userId}/${status}`,
+      url: `${API}/updateStatus/${userId}/${status}`,
       method: 'get'
     })
   }

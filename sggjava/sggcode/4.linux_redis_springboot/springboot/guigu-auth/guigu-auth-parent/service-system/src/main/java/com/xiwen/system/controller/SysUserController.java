@@ -111,4 +111,12 @@ public class SysUserController {
         return Result.ok(page);
     }
 
+    @ApiOperation("更新用户状态")
+    @GetMapping("updateStatus/{uid}/{status}")
+    public Result<Object> updateStatus(
+            @ApiParam("要修改的对象") @PathVariable Long uid, @PathVariable Integer status) {
+
+        boolean flag = sysUserService.updateStatus(uid, status);
+        return Result.ok(flag);
+    }
 }

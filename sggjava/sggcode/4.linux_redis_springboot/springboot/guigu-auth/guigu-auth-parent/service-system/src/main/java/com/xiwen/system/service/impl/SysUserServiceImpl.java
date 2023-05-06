@@ -15,4 +15,15 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
+    @Override
+    public boolean updateStatus(Long uid, Integer status) {
+        if (status == 0 || status == 1) {
+            SysUser sysUser = new SysUser();
+            sysUser.setId(uid);
+            sysUser.setStatus(status);
+            baseMapper.updateById(sysUser);
+            return true;
+        }
+        return false;
+    }
 }

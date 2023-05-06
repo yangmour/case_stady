@@ -11,4 +11,5 @@ import com.xiwen.model.system.SysUser;
  * @Version: 1.0
  */
 public interface SysUserService extends IService<SysUser> {
+    boolean updateStatus(Long uid, Integer status);
 }
