@@ -42,5 +42,19 @@ export default {
       method: 'put',
       data: sysRole
     })
+  },
+  // 根据用户id查询用户已分配的角色
+  getRolesByUserId(userId) {
+    return request({
+      url: `${API}/toAssign/${userId}`,
+      method: 'get'
+    })
+  },
+  assignRoles(assignRoleVo) {
+    return request({
+      url: `${API}/doAssign`,
+      method: 'post',
+      data: assignRoleVo
+    })
   }
 }

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xiwen.common.result.Result;
 import com.xiwen.model.system.SysRole;
+import com.xiwen.model.vo.AssignRoleVo;
 import com.xiwen.model.vo.SysRoleQueryVo;
 import com.xiwen.system.service.SysRoleService;
 import io.swagger.annotations.Api;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description:
@@ -119,6 +121,20 @@ public class SysRoleController {
         sysRoleService.selectPage(page, sysRoleQueryVo);
         System.out.println(page.getRecords());
         return Result.ok(page);
+    }
+
+    @ApiOperation("根据用户id返回用户和用户已选择的角色信息")
+    @GetMapping("toAssign/{userId}")
+    public Result<Map<String, Object>> toAssign(@PathVariable String userId) {
+        Map<String, Object> map = sysRoleService.getUserRole(userId);
+        return Result.ok(map);
+    }
+
+    @ApiOperation("设置用户的角色信息")
+    @PostMapping("doAssign")
+    public Result<Map<String, Object>> doAssign(@RequestBody AssignRoleVo assignRoleVo) {
+        sysRoleService.doAssign(assignRoleVo);
+        return Result.ok();
     }
 
 }
