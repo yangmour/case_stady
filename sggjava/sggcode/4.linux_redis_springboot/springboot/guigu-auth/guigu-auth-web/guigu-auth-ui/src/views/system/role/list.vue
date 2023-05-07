@@ -51,7 +51,7 @@
             class="el-icon-delete"
             type="danger"
             size="small"
-            >删除
+          >
           </el-button>
           <el-button
             @click="edit(scope.row.id)"
@@ -59,8 +59,9 @@
             class="el-icon-edit-outline"
             size="small"
           >
-            编辑
           </el-button>
+          <el-button type="warning" icon="el-icon-baseball" size="mini" @click="showAssignAuth(scope.row)"
+                     title="分配权限"/>
         </template>
       </el-table-column>
     </el-table>
@@ -69,7 +70,8 @@
       @click="batchRemoveByIds"
       type="danger"
       round
-      >批量删除</el-button
+    >批量删除
+    </el-button
     >
 
     <el-pagination
@@ -93,13 +95,13 @@
         style="padding-right: 40px"
       >
         <el-form-item label="角色名称" prop="roleName">
-          <el-input v-model="sysRole.roleName" />
+          <el-input v-model="sysRole.roleName"/>
         </el-form-item>
         <el-form-item label="角色编码" prop="roleCode">
-          <el-input v-model="sysRole.roleCode" />
+          <el-input v-model="sysRole.roleCode"/>
         </el-form-item>
         <el-form-item label="描述" prop="description">
-          <el-input v-model="sysRole.description" />
+          <el-input v-model="sysRole.description"/>
         </el-form-item>
       </el-form>
       <span slot="footer" class="dialog-footer">
@@ -107,14 +109,14 @@
           @click="dialogVisible = false"
           size="small"
           icon="el-icon-refresh-right"
-          >取 消</el-button
+        >取 消</el-button
         >
         <el-button
           type="primary"
           icon="el-icon-check"
           @click="saveOrUpdate()"
           size="small"
-          >确 定</el-button
+        >确 定</el-button
         >
       </span>
     </el-dialog>
@@ -171,6 +173,9 @@ export default {
     };
   },
   methods: {
+    showAssignAuth(row) {
+      this.$router.push('/system/assignAuth?id=' + row.id + '&roleName=' + row.roleName);
+    },
     edit(id) {
       this.dialogVisible = true;
       sysRole.edit(id).then((resp) => {
@@ -283,7 +288,7 @@ export default {
           this.loading = false;
         });
     },
-    tableRowClassName({ row, rowIndex }) {
+    tableRowClassName({row, rowIndex}) {
       if (rowIndex === 1) {
         return "warning-row";
       } else if (rowIndex === 3) {
