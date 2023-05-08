@@ -76,6 +76,7 @@
             size="mini"
             title="删除"
             @click="removeDataById(scope.row.id)"
+            :disabled="!$hasBP('bnt.sysUser.remove')"
           />
           <el-button
             type="warning"

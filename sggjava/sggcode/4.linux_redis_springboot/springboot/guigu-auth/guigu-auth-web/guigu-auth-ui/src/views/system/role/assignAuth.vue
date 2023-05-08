@@ -86,7 +86,7 @@ export default {
       api.doAssign(assginMenuVo).then(result => {
         this.loading = false
         this.$message.success(result.message || '分配权限成功')
-        this.$router.push('/system/rolelist');
+        this.$router.push('/system/sysRole');
       })
     }
   }

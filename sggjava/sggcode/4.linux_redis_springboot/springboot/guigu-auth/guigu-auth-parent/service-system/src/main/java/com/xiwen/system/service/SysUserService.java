@@ -2,6 +2,9 @@ package com.xiwen.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xiwen.model.system.SysUser;
+import com.xiwen.model.vo.LoginVo;
+
+import java.util.HashMap;
 
 /**
  * Description:
@@ -12,4 +15,8 @@ import com.xiwen.model.system.SysUser;
  */
 public interface SysUserService extends IService<SysUser> {
     boolean updateStatus(Long uid, Integer status);
+
+    HashMap<String, Object> login(LoginVo loginVo);
+
+    HashMap<String, Object> getUserMenuByToken(String token);
 }

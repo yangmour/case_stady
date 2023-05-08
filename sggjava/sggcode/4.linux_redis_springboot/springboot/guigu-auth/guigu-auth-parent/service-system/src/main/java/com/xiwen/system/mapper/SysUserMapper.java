@@ -1,8 +1,11 @@
 package com.xiwen.system.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.xiwen.model.system.SysMenu;
 import com.xiwen.model.system.SysUser;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Description:
@@ -13,4 +16,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface SysUserMapper extends BaseMapper<SysUser> {
+    List<SysMenu> getRolesByUid(Long id);
 }

@@ -1,11 +1,12 @@
 package com.xiwen.system.controller;
 
 import com.xiwen.common.result.Result;
+import com.xiwen.model.vo.LoginVo;
+import com.xiwen.system.service.SysUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Description:
@@ -18,26 +19,18 @@ import java.util.Map;
 @RequestMapping("/admin/system/index")
 public class IndexController {
 
+    @Autowired
+    private SysUserService sysUserService;
+
     @PostMapping("/login")
-    public Result<Object> login(@RequestBody Map<String, Object> map) {
-        map.put("token", "admin");
+    public Result<Object> login(@RequestBody LoginVo loginVo) {
+        HashMap<String, Object> map = sysUserService.login(loginVo);
         return Result.ok(map);
     }
 
     @GetMapping("/info")
     public Result<Object> info(String token) {
-        HashMap<String, Object> map = null;
-        if ("admin".equals(token)) {
-            map = new HashMap<>();
-            ArrayList<String> list = new ArrayList<>();
-            list.add("admin");
-            map.put("roles", list);
-            map.put("introduction", "返回信息");
-            map.put("name", "admin");
-            map.put("avatar", "https://inews.gtimg.com/newsapp_bt/0/13294928426/1000");
-        } else {
-            return Result.fail();
-        }
+        HashMap<String, Object> map = sysUserService.getUserMenuByToken(token);
         return Result.ok(map);
     }
 
