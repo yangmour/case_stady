@@ -136,4 +136,8 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         return sysMenus;
     }
 
+    @Override
+    public SysUser loadUserByUsername(String username) {
+        return baseMapper.selectOne(new QueryWrapper<SysUser>().eq("username", username));
+    }
 }

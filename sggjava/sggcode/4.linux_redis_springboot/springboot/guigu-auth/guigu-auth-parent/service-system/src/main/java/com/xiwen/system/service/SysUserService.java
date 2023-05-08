@@ -19,4 +19,6 @@ public interface SysUserService extends IService<SysUser> {
     HashMap<String, Object> login(LoginVo loginVo);
 
     HashMap<String, Object> getUserMenuByToken(String token);
+
+    SysUser loadUserByUsername(String username);
 }
