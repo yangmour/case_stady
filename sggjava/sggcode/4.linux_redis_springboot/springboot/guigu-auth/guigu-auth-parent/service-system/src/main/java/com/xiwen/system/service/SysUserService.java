@@ -1,10 +1,12 @@
 package com.xiwen.system.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.xiwen.model.system.SysMenu;
 import com.xiwen.model.system.SysUser;
 import com.xiwen.model.vo.LoginVo;
 
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Description:
@@ -21,4 +23,8 @@ public interface SysUserService extends IService<SysUser> {
     HashMap<String, Object> getUserMenuByToken(String token);
 
     SysUser loadUserByUsername(String username);
+
+    List<String> getButtons(List<SysMenu> sysMenus);
+
+    List<SysMenu> getSysMenus(SysUser sysUser);
 }

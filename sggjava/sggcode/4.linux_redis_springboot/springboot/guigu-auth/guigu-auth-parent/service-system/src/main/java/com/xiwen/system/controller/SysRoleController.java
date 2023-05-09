@@ -11,6 +11,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,6 +53,7 @@ public class SysRoleController {
     }
 
     @ApiOperation("添加角色")
+    @PreAuthorize("hasAuthority('bnt.sysRole.add')")
     @PostMapping("saveRole")
     public Result<Object> saveRole(@ApiParam(value = "需要添加的对象") @RequestBody SysRole sysRole) {
         sysRoleService.save(sysRole);
@@ -59,12 +61,14 @@ public class SysRoleController {
     }
 
     @ApiOperation("删除角色")
+    @PreAuthorize("hasAuthority('bnt.sysRole.remove')")
     @DeleteMapping("removeRole/{id}")
     public Result<Object> removeRole(@ApiParam(value = "需要删除的id") @PathVariable Integer id) {
         sysRoleService.removeById(id);
         return Result.ok();
     }
 
+    @PreAuthorize("hasAuthority('bnt.sysRole.remove')")
     @ApiOperation("批量删除角色")
     @PostMapping("batchRemoveRole")
     public Result<Object> batchRemoveRole(
@@ -81,6 +85,7 @@ public class SysRoleController {
         return Result.ok(sysRoleService.getById(id));
     }
 
+    @PreAuthorize("hasAuthority('bnt.sysRole.update')")
     @ApiOperation("修改角色")
     @PutMapping("modifRole")
     public Result<Object> modifRole(
@@ -109,6 +114,7 @@ public class SysRoleController {
         return Result.ok(sysRoleService.list(queryWrapper));
     }
 
+    @PreAuthorize("hasAuthority('bnt.sysUser.list')")
     @ApiOperation("根据带分页的模糊查询名字的")
     @PostMapping("findByNamePage/{pageNum}/{sizeNum}")
     public Result<Page<SysRole>> findByNamePage(

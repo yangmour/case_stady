@@ -2,6 +2,7 @@ package com.xiwen.system.handler;
 
 import com.xiwen.common.result.Result;
 import com.xiwen.system.exception.GuiGuException;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -49,5 +50,13 @@ public class GlobalExceptionHandler {
     public Result<Object> handlerGuiGuException(GuiGuException e) {
         e.printStackTrace();
         return Result.fail().code(e.getCode()).message(e.getMsg());
+    }
+
+
+    //自定义异常
+    @ExceptionHandler(AccessDeniedException.class)
+    public Result<Object> handlerAccessDeniedException(AccessDeniedException e) {
+        e.printStackTrace();
+        return Result.fail().message("没有权限异常！");
     }
 }

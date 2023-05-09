@@ -111,7 +111,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         return map;
     }
 
-    private static List<String> getButtons(List<SysMenu> sysMenus) {
+    public List<String> getButtons(List<SysMenu> sysMenus) {
         List<String> buttons = new ArrayList<>();
         for (SysMenu sysMenu : sysMenus) {
             if (sysMenu.getType() == 2)
@@ -120,7 +120,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         return buttons;
     }
 
-    private List<SysMenu> getSysMenus(SysUser sysUser) {
+    public List<SysMenu> getSysMenus(SysUser sysUser) {
         // 如果是admin用户就直接查询
         List<SysMenu> sysMenus = null;
         if (sysUser.getId() == 1L) {

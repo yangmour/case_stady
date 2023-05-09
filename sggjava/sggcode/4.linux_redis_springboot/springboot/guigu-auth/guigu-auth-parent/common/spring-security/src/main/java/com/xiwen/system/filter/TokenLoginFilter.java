@@ -7,10 +7,13 @@ import com.xiwen.model.system.SysUser;
 import com.xiwen.model.vo.LoginVo;
 import com.xiwen.system.custom.CustomUser;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -34,8 +37,10 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
 
     private RedisTemplate redisTemplate;
 
-    public TokenLoginFilter(RedisTemplate redisTemplate) {
+    public TokenLoginFilter(RedisTemplate redisTemplate, AuthenticationManager authenticationManager) {
         this.redisTemplate = redisTemplate;
+        this.setAuthenticationManager(authenticationManager);
+        this.setRequiresAuthenticationRequestMatcher(new AntPathRequestMatcher("/admin/system/index/login", "POST"));
     }
 
     @Override
@@ -45,8 +50,8 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
             LoginVo loginVo = new ObjectMapper().readValue(request.getInputStream(), LoginVo.class);
             UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(loginVo.getUsername(), loginVo.getPassword());
             return this.getAuthenticationManager().authenticate(authRequest);
-        } catch (IOException e) {
-            throw new RuntimeException(e.getMessage());
+        } catch (Exception e) {
+            throw new BadCredentialsException(e.getMessage());
         }
     }
 
