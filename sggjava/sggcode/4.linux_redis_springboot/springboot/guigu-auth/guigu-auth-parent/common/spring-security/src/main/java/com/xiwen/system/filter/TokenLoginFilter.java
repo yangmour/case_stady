@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Description:
@@ -60,7 +61,7 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
         CustomUser customUser = (CustomUser) authResult.getPrincipal();
         SysUser sysUser = customUser.getSysUser();
         String token = UUID.randomUUID().toString().replaceAll("-", "");
-        redisTemplate.boundValueOps(token).set(sysUser);
+        redisTemplate.boundValueOps(token).set(sysUser, 2, TimeUnit.HOURS);
         Map<String, Object> map = new HashMap<>();
         map.put("token", token);
         ResponseUtil.out(response, Result.ok(map));
