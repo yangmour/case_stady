@@ -24,6 +24,7 @@ hs_err_pid*
 replay_pid*
 
 .idea
+*.iml
 
 
 #maven
@@ -52,3 +53,5 @@ buildNumber.properties
 #前端
 node_modules
 package-lock.json
+
+.vscode
