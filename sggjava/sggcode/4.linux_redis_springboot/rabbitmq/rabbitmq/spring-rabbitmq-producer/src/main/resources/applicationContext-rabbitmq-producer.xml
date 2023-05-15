@@ -11,7 +11,8 @@
                                  host="${rabbitmq.host}" port="${rabbitmq.port}"
                                  virtual-host="${rabbitmq.virtual-host}"
                                  username="${rabbitmq.username}"
-                                 password="${rabbitmq.password}"/>
+                                 password="${rabbitmq.password}"
+                                 publisher-confirms="true"/>
     <!-- 3.创建admin 用于远程创建、管理交换机、队列 -  -->
     <rabbitmq:admin id="rabbitAdmin" connection-factory="connectionFactory"/>
     <!--  4.创建队列  -->
@@ -39,17 +40,25 @@
         </rabbitmq:bindings>
     </rabbitmq:direct-exchange>
     <!--  4.5 topic由交换机的  -->
-    <rabbitmq:queue id="spring-queue-topic01" name="spring-queue-topic01" auto-declare="true"/>
-    <rabbitmq:queue id="spring-queue-topic02" name="spring-queue-topic02" auto-declare="true"/>
-    <rabbitmq:direct-exchange name="spring-routing-exchange">
+    <rabbitmq:queue id="spring-queue-topic01" name="spring-queue-topic01" auto-declare="true" durable="true"/>
+    <rabbitmq:queue id="spring-queue-topic02" name="spring-queue-topic02" auto-declare="true" durable="true"/>
+    <rabbitmq:topic-exchange name="spring-topic-exchange" durable="true">
         <rabbitmq:bindings>
-            <rabbitmq:binding queue="spring-queue-topic01" key="*.orange.*"/>
-            <rabbitmq:binding queue="spring-queue-topic02" key="*.*.rabbit"/>
-            <rabbitmq:binding queue="spring-queue-topic02" key="lazy.#"/>
+            <rabbitmq:binding queue="spring-queue-topic01" pattern="*.orange.*"/>
+            <rabbitmq:binding queue="spring-queue-topic02" pattern="*.*.rabbit"/>
+            <rabbitmq:binding queue="spring-queue-topic02" pattern="lazy.#"/>
         </rabbitmq:bindings>
-    </rabbitmq:direct-exchange>
+    </rabbitmq:topic-exchange>
 
     <!--  5.定义rabbitmqTemplate对象操作可以在代码中方便发送消息  -->
     <rabbitmq:template id="rabbitTemplate" connection-factory="connectionFactory"/>
+
+    <!--  测试消息可靠性  -->
+    <rabbitmq:queue id="spring-queue-topic-confirm-return01" name="spring-queue-topic-confirm-return01"/>
+    <rabbitmq:topic-exchange name="spring-topic-exchange">
+        <rabbitmq:bindings>
+            <rabbitmq:binding queue="spring-queue-topic-confirm-return01" pattern="*.orange.*"/>
+        </rabbitmq:bindings>
+    </rabbitmq:topic-exchange>
 
 </beans>

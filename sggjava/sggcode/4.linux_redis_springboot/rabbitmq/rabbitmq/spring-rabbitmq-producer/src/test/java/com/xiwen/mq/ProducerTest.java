@@ -2,6 +2,7 @@ package com.xiwen.mq;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -48,5 +49,24 @@ public class ProducerTest {
     public void topicTest() {
         rabbitTemplate.convertAndSend("spring-topic-exchange", "lazy.orange.a", "spring整合rabbitmq的模式匹配交换机版1");
         rabbitTemplate.convertAndSend("spring-topic-exchange", "a.b.rabbit", "spring整合rabbitmq的模式匹配交换机版2");
+    }
+
+    @Test
+    public void confirmAndReturnTest() {
+        rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
+            @Override
+            public void confirm(CorrelationData correlationData, boolean ack, String cause) {
+                if (ack) {
+                    //接收成功
+                    System.out.println("接收成功消息:" + cause);
+                } else {
+                    //接收失败
+                    System.out.println("接收失败消息" + cause);
+                    //做一些处理让消息再次发送
+                }
+            }
+        });
+        rabbitTemplate.convertAndSend("spring-topic-exchange", "lazy.orange.a", "spring整合rabbitmq的模式匹配交换机版");
+        rabbitTemplate.convertAndSend("spring-topic-exchange2", "lazy.orange.a", "spring整合rabbitmq的模式匹配交换机版");
     }
 }

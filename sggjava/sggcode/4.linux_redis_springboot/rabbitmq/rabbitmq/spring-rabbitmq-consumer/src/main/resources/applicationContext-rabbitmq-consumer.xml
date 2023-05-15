@@ -40,9 +40,9 @@
         <!--  4.routing路由交换机的消费者监听队列  -->
         <rabbitmq:listener ref="springRoutingQueueListener01" queue-names="spring-queue-routing01"/>
         <rabbitmq:listener ref="springRoutingQueueListener02" queue-names="spring-queue-routing02"/>
-        <!--  4.routing路由交换机的消费者监听队列  -->
-        <rabbitmq:listener ref="springTopicQueueListener01" queue-names="spring-queue-top01"/>
-        <rabbitmq:listener ref="springTopicQueueListener02" queue-names="spring-queue-top02"/>
+        <!--  4.topic路由交换机的消费者监听队列  -->
+        <rabbitmq:listener ref="springTopicQueueListener01" queue-names="spring-queue-topic01"/>
+        <rabbitmq:listener ref="springTopicQueueListener02" queue-names="spring-queue-topic02"/>
     </rabbitmq:listener-container>
 
 </beans>
