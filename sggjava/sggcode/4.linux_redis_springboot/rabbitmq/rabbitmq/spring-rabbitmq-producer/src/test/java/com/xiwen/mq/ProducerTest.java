@@ -37,4 +37,10 @@ public class ProducerTest {
     public void pubsubTest() {
         rabbitTemplate.convertAndSend("spring-pubsub-exchange", "", "spring整合rabbitmq的广播交换机版");
     }
+
+    @Test
+    public void routingTest() {
+        rabbitTemplate.convertAndSend("spring-routing-exchange", "error", "spring整合rabbitmq的路由交换机版1");
+        rabbitTemplate.convertAndSend("spring-routing-exchange", "info", "spring整合rabbitmq的路由交换机版2");
+    }
 }

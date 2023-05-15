@@ -28,6 +28,17 @@
             <rabbitmq:binding queue="spring-queue-pubsub02"/>
         </rabbitmq:bindings>
     </rabbitmq:fanout-exchange>
+    <!--  4.4 routing路由交换机的  -->
+    <rabbitmq:queue id="spring-queue-routing01" name="spring-queue-routing01" auto-declare="true"/>
+    <rabbitmq:queue id="spring-queue-routing02" name="spring-queue-routing02" auto-declare="true"/>
+    <rabbitmq:direct-exchange name="spring-routing-exchange">
+        <rabbitmq:bindings>
+            <rabbitmq:binding queue="spring-queue-routing01" key="error"/>
+            <rabbitmq:binding queue="spring-queue-pubsub02" key="info"/>
+            <rabbitmq:binding queue="spring-queue-pubsub02" key="error"/>
+        </rabbitmq:bindings>
+    </rabbitmq:direct-exchange>
+
     <!--  5.定义rabbitmqTemplate对象操作可以在代码中方便发送消息  -->
     <rabbitmq:template id="rabbitTemplate" connection-factory="connectionFactory"/>
 
