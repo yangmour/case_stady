@@ -9,7 +9,7 @@ import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import com.xiwen.util.ConnectionUtils;
 
-public class Consumer {
+public class SimpleConsumer {
     public static void main(String[] args) throws Exception {
         // 3.创建连接
         Connection connection = ConnectionUtils.getConnection();

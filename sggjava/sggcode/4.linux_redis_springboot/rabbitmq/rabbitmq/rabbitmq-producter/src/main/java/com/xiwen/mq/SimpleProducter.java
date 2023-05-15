@@ -5,7 +5,7 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.xiwen.util.ConnectionUtils;
 
-public class SimpleSend {
+public class SimpleProducter {
 
     public static void main(String[] args) throws Exception {
 
