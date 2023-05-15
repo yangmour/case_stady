@@ -2,6 +2,7 @@ package com.xiwen.mq;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +53,7 @@ public class ProducerTest {
     }
 
     @Test
-    public void confirmAndReturnTest() {
+    public void confirmTest() {
         rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
             @Override
             public void confirm(CorrelationData correlationData, boolean ack, String cause) {
@@ -68,5 +69,21 @@ public class ProducerTest {
         });
         rabbitTemplate.convertAndSend("spring-topic-exchange", "lazy.orange.a", "spring整合rabbitmq的模式匹配交换机版");
         rabbitTemplate.convertAndSend("spring-topic-exchange2", "lazy.orange.a", "spring整合rabbitmq的模式匹配交换机版");
+    }
+
+    @Test
+    public void returnTest() {
+        rabbitTemplate.setMandatory(true);
+        rabbitTemplate.setReturnCallback(new RabbitTemplate.ReturnCallback() {
+            @Override
+            public void returnedMessage(Message message, int replyCode, String replyText, String exchange, String routingKey) {
+                System.out.println(message);
+                System.out.println(replyCode);
+                System.out.println(replyText);
+                System.out.println(exchange);
+                System.out.println(routingKey);
+            }
+        });
+        rabbitTemplate.convertAndSend("spring-topic-exchange2", "lazy.orange.a.a.a", "spring整合rabbitmq的模式匹配交换机版");
     }
 }

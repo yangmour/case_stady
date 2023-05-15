@@ -12,7 +12,8 @@
                                  virtual-host="${rabbitmq.virtual-host}"
                                  username="${rabbitmq.username}"
                                  password="${rabbitmq.password}"
-                                 publisher-confirms="true"/>
+                                 publisher-confirms="true"
+                                 publisher-returns="true"/>
     <!-- 3.创建admin 用于远程创建、管理交换机、队列 -  -->
     <rabbitmq:admin id="rabbitAdmin" connection-factory="connectionFactory"/>
     <!--  4.创建队列  -->
@@ -55,7 +56,7 @@
 
     <!--  测试消息可靠性  -->
     <rabbitmq:queue id="spring-queue-topic-confirm-return01" name="spring-queue-topic-confirm-return01"/>
-    <rabbitmq:topic-exchange name="spring-topic-exchange">
+    <rabbitmq:topic-exchange name="spring-topic-exchange2">
         <rabbitmq:bindings>
             <rabbitmq:binding queue="spring-queue-topic-confirm-return01" pattern="*.orange.*"/>
         </rabbitmq:bindings>
