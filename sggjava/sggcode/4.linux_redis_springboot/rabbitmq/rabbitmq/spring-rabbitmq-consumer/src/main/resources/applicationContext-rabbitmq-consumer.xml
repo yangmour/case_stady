@@ -24,6 +24,9 @@
     <!--  4.routing路由交换机的消费者  -->
     <bean id="springRoutingQueueListener01" class="com.xiwen.mq.listener.SpringRoutingQueueListener01"/>
     <bean id="springRoutingQueueListener02" class="com.xiwen.mq.listener.SpringRoutingQueueListener02"/>
+    <!--  5.topic模式匹配路由交换机的消费者  -->
+    <bean id="springTopicQueueListener01" class="com.xiwen.mq.listener.SpringTopicQueueListener01"/>
+    <bean id="springTopicQueueListener02" class="com.xiwen.mq.listener.SpringTopicQueueListener02"/>
     <!-- 设置监听器   -->
     <rabbitmq:listener-container connection-factory="connectionFactory" auto-declare="true">
         <!--  1.简单的消费者监听队列  -->
@@ -31,12 +34,15 @@
         <!--  2.work的消费者监听队列  -->
         <rabbitmq:listener ref="springWorkQueueListener01" queue-names="spring-queue-work"/>
         <rabbitmq:listener ref="springWorkQueueListener02" queue-names="spring-queue-work"/>
-        <!--  2.pubsub广播交换机的消费者监听队列  -->
+        <!--  3.pubsub广播交换机的消费者监听队列  -->
         <rabbitmq:listener ref="springPubSubQueueListener01" queue-names="spring-queue-pubsub01"/>
         <rabbitmq:listener ref="springPubSubQueueListener02" queue-names="spring-queue-pubsub02"/>
-        <!--  3.routing路由交换机的消费者监听队列  -->
+        <!--  4.routing路由交换机的消费者监听队列  -->
         <rabbitmq:listener ref="springRoutingQueueListener01" queue-names="spring-queue-routing01"/>
         <rabbitmq:listener ref="springRoutingQueueListener02" queue-names="spring-queue-routing02"/>
+        <!--  4.routing路由交换机的消费者监听队列  -->
+        <rabbitmq:listener ref="springTopicQueueListener01" queue-names="spring-queue-top01"/>
+        <rabbitmq:listener ref="springTopicQueueListener02" queue-names="spring-queue-top02"/>
     </rabbitmq:listener-container>
 
 </beans>

@@ -38,6 +38,16 @@
             <rabbitmq:binding queue="spring-queue-pubsub02" key="error"/>
         </rabbitmq:bindings>
     </rabbitmq:direct-exchange>
+    <!--  4.5 topic由交换机的  -->
+    <rabbitmq:queue id="spring-queue-topic01" name="spring-queue-topic01" auto-declare="true"/>
+    <rabbitmq:queue id="spring-queue-topic02" name="spring-queue-topic02" auto-declare="true"/>
+    <rabbitmq:direct-exchange name="spring-routing-exchange">
+        <rabbitmq:bindings>
+            <rabbitmq:binding queue="spring-queue-topic01" key="*.orange.*"/>
+            <rabbitmq:binding queue="spring-queue-topic02" key="*.*.rabbit"/>
+            <rabbitmq:binding queue="spring-queue-topic02" key="lazy.#"/>
+        </rabbitmq:bindings>
+    </rabbitmq:direct-exchange>
 
     <!--  5.定义rabbitmqTemplate对象操作可以在代码中方便发送消息  -->
     <rabbitmq:template id="rabbitTemplate" connection-factory="connectionFactory"/>

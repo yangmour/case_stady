@@ -43,4 +43,10 @@ public class ProducerTest {
         rabbitTemplate.convertAndSend("spring-routing-exchange", "error", "spring整合rabbitmq的路由交换机版1");
         rabbitTemplate.convertAndSend("spring-routing-exchange", "info", "spring整合rabbitmq的路由交换机版2");
     }
+
+    @Test
+    public void topicTest() {
+        rabbitTemplate.convertAndSend("spring-topic-exchange", "lazy.orange.a", "spring整合rabbitmq的模式匹配交换机版1");
+        rabbitTemplate.convertAndSend("spring-topic-exchange", "a.b.rabbit", "spring整合rabbitmq的模式匹配交换机版2");
+    }
 }
