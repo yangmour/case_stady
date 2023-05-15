@@ -32,4 +32,9 @@ public class ProducerTest {
             rabbitTemplate.convertAndSend("spring-queue-work", "spring整合rabbitmq的work版" + i);
         }
     }
+
+    @Test
+    public void pubsubTest() {
+        rabbitTemplate.convertAndSend("spring-pubsub-exchange", "", "spring整合rabbitmq的广播交换机版");
+    }
 }

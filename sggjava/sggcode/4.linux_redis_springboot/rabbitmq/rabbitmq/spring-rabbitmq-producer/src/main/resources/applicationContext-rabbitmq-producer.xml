@@ -19,6 +19,15 @@
     <rabbitmq:queue id="spring-queue" name="spring-queue" auto-declare="true"/>
     <!--  4.2 work队列  -->
     <rabbitmq:queue id="spring-queue-work" name="spring-queue-work" auto-declare="true"/>
+    <!--  4.3 pubsub有交换机的  -->
+    <rabbitmq:queue id="spring-queue-pubsub01" name="spring-queue-pubsub01" auto-declare="true"/>
+    <rabbitmq:queue id="spring-queue-pubsub02" name="spring-queue-pubsub02" auto-declare="true"/>
+    <rabbitmq:fanout-exchange name="spring-pubsub-exchange">
+        <rabbitmq:bindings>
+            <rabbitmq:binding queue="spring-queue-pubsub01"/>
+            <rabbitmq:binding queue="spring-queue-pubsub02"/>
+        </rabbitmq:bindings>
+    </rabbitmq:fanout-exchange>
     <!--  5.定义rabbitmqTemplate对象操作可以在代码中方便发送消息  -->
     <rabbitmq:template id="rabbitTemplate" connection-factory="connectionFactory"/>
 
