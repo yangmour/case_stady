@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rabbitmq="http://www.springframework.org/schema/rabbit"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd">
+    <!-- 1.引入配文件   -->
+    <context:property-placeholder location="classpath:rabbitmq.properties"/>
+    <!-- 2.创建工厂   -->
+    <rabbitmq:connection-factory id="connectionFactory"
+                                 host="${rabbitmq.host}" port="${rabbitmq.port}"
+                                 virtual-host="${rabbitmq.virtual-host}"
+                                 username="${rabbitmq.username}"
+                                 password="${rabbitmq.password}"/>
+
+    <!-- 设置监听器   -->
+    <bean id="springQueueListener" class="com.xiwen.mq.listener.SpringQueueListener"/>
+    <rabbitmq:listener-container connection-factory="connectionFactory" auto-declare="true">
+        <rabbitmq:listener ref="springQueueListener" queue-names="spring-queue"/>
+    </rabbitmq:listener-container>
+
+</beans>
