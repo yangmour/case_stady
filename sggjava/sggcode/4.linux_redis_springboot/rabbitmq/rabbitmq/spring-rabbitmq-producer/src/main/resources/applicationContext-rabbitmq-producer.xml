@@ -15,7 +15,10 @@
     <!-- 3.创建admin 用于远程创建、管理交换机、队列 -  -->
     <rabbitmq:admin id="rabbitAdmin" connection-factory="connectionFactory"/>
     <!--  4.创建队列  -->
+    <!--  4.1 简单队列  -->
     <rabbitmq:queue id="spring-queue" name="spring-queue" auto-declare="true"/>
+    <!--  4.2 work队列  -->
+    <rabbitmq:queue id="spring-queue-work" name="spring-queue-work" auto-declare="true"/>
     <!--  5.定义rabbitmqTemplate对象操作可以在代码中方便发送消息  -->
     <rabbitmq:template id="rabbitTemplate" connection-factory="connectionFactory"/>
 

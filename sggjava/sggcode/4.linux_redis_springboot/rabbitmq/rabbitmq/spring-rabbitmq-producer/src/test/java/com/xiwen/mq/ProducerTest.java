@@ -25,4 +25,11 @@ public class ProducerTest {
     public void simpleTest() {
         rabbitTemplate.convertAndSend("spring-queue", "spring整合rabbitmq");
     }
+
+    @Test
+    public void workTest() {
+        for (int i = 0; i < 20; i++) {
+            rabbitTemplate.convertAndSend("spring-queue-work", "spring整合rabbitmq的work版" + i);
+        }
+    }
 }

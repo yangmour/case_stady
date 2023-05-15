@@ -12,11 +12,20 @@
                                  virtual-host="${rabbitmq.virtual-host}"
                                  username="${rabbitmq.username}"
                                  password="${rabbitmq.password}"/>
+    <!-- 创建监听器对象 -->
+    <!--  1.简单的消费者  -->
+    <bean id="springQueueListener" class="com.xiwen.mq.listener.SpringQueueListener"/>
+    <!--  2.work的消费者  -->
+    <bean id="springWorkQueueListener01" class="com.xiwen.mq.listener.SpringWorkQueueListener01"/>
+    <bean id="springWorkQueueListener02" class="com.xiwen.mq.listener.SpringWorkQueueListener02"/>
 
     <!-- 设置监听器   -->
-    <bean id="springQueueListener" class="com.xiwen.mq.listener.SpringQueueListener"/>
     <rabbitmq:listener-container connection-factory="connectionFactory" auto-declare="true">
+        <!--  1.简单的消费者监听队列  -->
         <rabbitmq:listener ref="springQueueListener" queue-names="spring-queue"/>
+        <!--  2.work的消费者监听队列  -->
+        <rabbitmq:listener ref="springWorkQueueListener01" queue-names="spring-queue-work"/>
+        <rabbitmq:listener ref="springWorkQueueListener02" queue-names="spring-queue-work"/>
     </rabbitmq:listener-container>
 
 </beans>
