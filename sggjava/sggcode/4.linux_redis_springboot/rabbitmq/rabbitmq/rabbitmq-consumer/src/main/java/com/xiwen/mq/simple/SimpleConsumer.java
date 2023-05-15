@@ -1,6 +1,4 @@
-package com.xiwen.mq;
-
-import java.io.IOException;
+package com.xiwen.mq.simple;
 
 import com.rabbitmq.client.AMQP.BasicProperties;
 import com.rabbitmq.client.Channel;
@@ -8,6 +6,8 @@ import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.Envelope;
 import com.xiwen.util.ConnectionUtils;
+
+import java.io.IOException;
 
 public class SimpleConsumer {
     public static void main(String[] args) throws Exception {
@@ -35,7 +35,7 @@ public class SimpleConsumer {
                 System.out.println("消息本身" + new String(body));
 
                 try {
-                    int a = 10 / 0;
+//                    int a = 10 / 0;
                     channel.basicAck(envelope.getDeliveryTag(), false);
                 } catch (Exception e) {
                     channel.basicNack(envelope.getDeliveryTag(), false, true);

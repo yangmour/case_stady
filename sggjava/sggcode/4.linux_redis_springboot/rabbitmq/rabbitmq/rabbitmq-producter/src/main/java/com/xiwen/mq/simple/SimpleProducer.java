@@ -1,11 +1,11 @@
-package com.xiwen.mq;
+package com.xiwen.mq.simple;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.xiwen.util.ConnectionUtils;
 
-public class SimpleProducter {
+public class SimpleProducer {
 
     public static void main(String[] args) throws Exception {
 
