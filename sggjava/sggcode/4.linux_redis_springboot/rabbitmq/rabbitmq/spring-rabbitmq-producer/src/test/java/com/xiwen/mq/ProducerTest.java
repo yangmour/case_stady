@@ -108,4 +108,14 @@ public class ProducerTest {
             }
         });
     }
+
+    //测试死信队列spring-normal-exchange01
+    @Test
+    public void normalTest() {
+//        for (int i = 0; i < 11; i++) {
+//            rabbitTemplate.convertAndSend("spring-normal-exchange01", "a.a.a", "测试死信队列" + i);
+//        }
+
+        rabbitTemplate.convertAndSend("spring-normal-exchange01", "a.a.a", "测试死信队列return");
+    }
 }

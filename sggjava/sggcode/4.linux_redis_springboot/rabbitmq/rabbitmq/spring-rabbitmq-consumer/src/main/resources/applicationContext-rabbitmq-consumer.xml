@@ -32,7 +32,8 @@
     <bean id="ackListener" class="com.xiwen.mq.listener.AckListener"/>
 
     <!-- 设置监听器   -->
-    <rabbitmq:listener-container connection-factory="connectionFactory" auto-declare="true" acknowledge="manual" prefetch="3">
+    <rabbitmq:listener-container connection-factory="connectionFactory" auto-declare="true" acknowledge="manual"
+                                 prefetch="3">
         <!--  1.简单的消费者监听队列  -->
         <rabbitmq:listener ref="springQueueListener" queue-names="spring-queue"/>
         <!--  2.work的消费者监听队列  -->
@@ -50,6 +51,12 @@
         <!--     测试消息可靠性   -->
         <rabbitmq:listener ref="ackListener" queue-names="spring-queue-topic-confirm-return01"/>
 
+    </rabbitmq:listener-container>
+
+    <!-- 测试死信队列   -->
+    <bean id="dlxListener" class="com.xiwen.mq.listener.DLXListener"/>
+    <rabbitmq:listener-container connection-factory="connectionFactory" acknowledge="manual">
+        <rabbitmq:listener ref="dlxListener" queue-names="spring-queue-topic-normal01"/>
     </rabbitmq:listener-container>
 
 </beans>

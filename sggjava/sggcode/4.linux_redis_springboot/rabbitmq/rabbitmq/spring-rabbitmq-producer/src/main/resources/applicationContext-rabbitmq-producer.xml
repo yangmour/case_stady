@@ -81,4 +81,27 @@
         </rabbitmq:bindings>
     </rabbitmq:topic-exchange>
 
+    <!-- 测试死信队列两步  -->
+    <!--  1.正常队列  -->
+    <rabbitmq:queue id="spring-queue-topic-normal01" name="spring-queue-topic-normal01">
+        <rabbitmq:queue-arguments>
+            <entry key="x-dead-letter-exchange" value="spring-dxl-exchange01"/>
+            <entry key="x-dead-letter-routing-key" value="b.b.b"/>
+            <entry key="x-message-ttl" value="15000" value-type="java.lang.Integer"/>
+            <entry key="x-max-length" value="10" value-type="java.lang.Integer"/>
+        </rabbitmq:queue-arguments>
+    </rabbitmq:queue>
+    <rabbitmq:topic-exchange name="spring-normal-exchange01">
+        <rabbitmq:bindings>
+            <rabbitmq:binding queue="spring-queue-topic-normal01" pattern="a.#"/>
+        </rabbitmq:bindings>
+    </rabbitmq:topic-exchange>
+    <!--  2.死信队列  -->
+    <rabbitmq:queue id="spring-queue-topic-dxl01" name="spring-queue-topic-dxl01"/>
+    <rabbitmq:topic-exchange name="spring-dxl-exchange01">
+        <rabbitmq:bindings>
+            <rabbitmq:binding queue="spring-queue-topic-dxl01" pattern="b.#"/>
+        </rabbitmq:bindings>
+    </rabbitmq:topic-exchange>
+
 </beans>
