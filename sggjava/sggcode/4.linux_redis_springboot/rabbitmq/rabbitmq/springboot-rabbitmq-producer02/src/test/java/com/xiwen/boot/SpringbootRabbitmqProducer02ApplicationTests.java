@@ -16,4 +16,9 @@ class SpringbootRabbitmqProducer02ApplicationTests {
         rabbitTemplate.convertAndSend("springboot-topic-test02", "a.b.c", "这是一条测试上springboot的消息".getBytes());
     }
 
+    @Test
+    void contextLoads2() {
+        rabbitTemplate.convertAndSend("springboot-topic-test03", "a.b.c", "这是一条测试上springboot的消息".getBytes());
+    }
+
 }

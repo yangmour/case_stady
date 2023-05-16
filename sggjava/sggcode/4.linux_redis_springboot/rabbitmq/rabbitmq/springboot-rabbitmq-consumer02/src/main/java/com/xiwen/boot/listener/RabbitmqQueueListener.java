@@ -27,4 +27,15 @@ public class RabbitmqQueueListener {
     public void queueMessageListener(Message message, Channel channel) {
         System.out.println(new String(message.getBody()));
     }
+
+    @RabbitListener(bindings = {
+            @QueueBinding(
+                    value = @Queue("mirror-springboot-topic-queue-test03"),
+                    exchange = @Exchange(value = "springboot-topic-test03", type = "topic"),
+                    key = "a.#"
+            )
+    })
+    public void queueMessageListener2(Message message, Channel channel) {
+        System.out.println(new String(message.getBody()));
+    }
 }
