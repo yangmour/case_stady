@@ -2,7 +2,9 @@ package com.xiwen.mq;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,5 +87,25 @@ public class ProducerTest {
             }
         });
         rabbitTemplate.convertAndSend("spring-topic-exchange2", "lazy.orange.a.a.a", "spring整合rabbitmq的模式匹配交换机版");
+    }
+
+    //ttl过期时间队列
+    @Test
+    public void ttlTest1() {
+        for (int i = 0; i < 20; i++) {
+            rabbitTemplate.convertAndSend("spring-topic-ttl-exchange", "a.b", "测试ttl过期时间" + i);
+        }
+    }
+
+    //测试单条消息ttl过期时间
+    @Test
+    public void ttlTest2() {
+        rabbitTemplate.convertAndSend("spring-topic-ttl-exchange02", "a.b", "测试ttl过期时间", new MessagePostProcessor() {
+            @Override
+            public Message postProcessMessage(Message message) throws AmqpException {
+                message.getMessageProperties().setExpiration("15000");
+                return message;
+            }
+        });
     }
 }

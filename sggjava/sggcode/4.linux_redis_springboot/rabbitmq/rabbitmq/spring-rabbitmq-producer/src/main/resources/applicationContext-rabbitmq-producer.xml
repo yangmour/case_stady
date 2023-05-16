@@ -62,4 +62,23 @@
         </rabbitmq:bindings>
     </rabbitmq:topic-exchange>
 
+    <!--  测试ttl过期时间队列  -->
+    <rabbitmq:queue id="spring-queue-topic-ttl" name="spring-queue-topic-ttl" durable="true">
+        <rabbitmq:queue-arguments>
+            <entry key="x-message-ttl" value="15000" value-type="java.lang.Integer"/>
+        </rabbitmq:queue-arguments>
+    </rabbitmq:queue>
+    <rabbitmq:topic-exchange name="spring-topic-ttl-exchange">
+        <rabbitmq:bindings>
+            <rabbitmq:binding queue="spring-queue-topic-ttl" pattern="a.#"/>
+        </rabbitmq:bindings>
+    </rabbitmq:topic-exchange>
+    <!--  测试单条消息ttl过期时间  -->
+    <rabbitmq:queue id="spring-queue-topic-ttl02" name="spring-queue-topic-ttl02"/>
+    <rabbitmq:topic-exchange name="spring-topic-ttl-exchange02">
+        <rabbitmq:bindings>
+            <rabbitmq:binding queue="spring-queue-topic-ttl02" pattern="a.#"/>
+        </rabbitmq:bindings>
+    </rabbitmq:topic-exchange>
+
 </beans>
