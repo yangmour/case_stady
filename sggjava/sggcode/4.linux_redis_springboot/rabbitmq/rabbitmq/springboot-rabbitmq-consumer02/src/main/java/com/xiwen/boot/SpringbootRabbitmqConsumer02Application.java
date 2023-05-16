@@ -1,0 +1,13 @@
+package com.xiwen.boot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringbootRabbitmqConsumer02Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringbootRabbitmqConsumer02Application.class, args);
+    }
+
+}
