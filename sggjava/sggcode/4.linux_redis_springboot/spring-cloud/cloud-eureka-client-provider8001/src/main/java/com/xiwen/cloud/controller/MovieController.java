@@ -28,7 +28,7 @@ public class MovieController {
     @GetMapping("info/{id}")
     public Movie info(@PathVariable Integer id) throws InterruptedException {
         // 默认feign客户端请求时间是1秒，超过了时间就报错了
-        Thread.sleep(2000);
+//        Thread.sleep(2000);
         if (id==1){
             throw new RuntimeException("测试降级处理");
         }
