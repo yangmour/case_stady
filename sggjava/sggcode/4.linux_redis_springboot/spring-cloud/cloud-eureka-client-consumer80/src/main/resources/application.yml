@@ -24,3 +24,12 @@ eureka:
 CLOUD-EUREKA-CLIENT-PROVIDER:
   ribbon:
     NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #负载策略调整
+
+#hystrix容错框架设置超时时间
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 4000 #设置hystrix的超时等待时间

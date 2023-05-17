@@ -2,11 +2,12 @@ package com.xiwen.cloud;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.client.SpringCloudApplication;
 
-@SpringBootApplication
-@EnableEurekaClient
+//@SpringBootApplication
+//@EnableEurekaClient
+//@EnableHystrix //断路保护功能
+@SpringCloudApplication // @SpringCloudApplication=@SpringBootApplication+@EnableDiscoveryClient+@EnableCircuitBreaker
 @MapperScan("com.xiwen.cloud.mapper")
 public class CloudEurekaClientConsumer80Application {
 
