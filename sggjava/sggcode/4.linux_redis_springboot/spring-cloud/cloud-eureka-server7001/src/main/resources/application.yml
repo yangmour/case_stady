@@ -1,0 +1,13 @@
+spring:
+  application:
+    #当前微服务实例运行后在注册中心的服务名称，
+    name: cloud-eureka-server #注意：一个集群的服务名称要保持相同，服务名称不同于实例名称，不带端口号\
+eureka:
+  client:
+    #作为Eureka服务端，其它服务如果需要注册到Eureka服务端，注册地址在这里指定。
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+    fetch-registry: false #单机版Eureka,不需要去其它EurekaServer获取注册信息
+    register-with-eureka: false #当前EurekaServer不需要注册到其它EurekaServer
+server:
+  port: 7001
