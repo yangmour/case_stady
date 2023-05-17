@@ -20,3 +20,7 @@ eureka:
     #设置成当前客户端ip,显示的时候直接显示ip
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
 
+#针对的被调用方微服务名称,不加就是全局⽣效
+CLOUD-EUREKA-CLIENT-PROVIDER:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #负载策略调整
