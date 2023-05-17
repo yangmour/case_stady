@@ -26,7 +26,9 @@ public class MovieController {
     public Integer port;
 
     @GetMapping("info/{id}")
-    public Movie info(@PathVariable Integer id) {
+    public Movie info(@PathVariable Integer id) throws InterruptedException {
+        // 默认feign客户端请求时间是1秒，超过了时间就报错了
+//        Thread.sleep(2000);
         System.out.println(port);
         return movieService.getById(id);
     }
