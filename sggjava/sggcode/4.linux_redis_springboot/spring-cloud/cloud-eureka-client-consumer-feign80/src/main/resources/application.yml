@@ -34,3 +34,8 @@ ribbon:
 logging:
   level:
     com.xiwen.cloud.feign.MovieFeignClient: debug
+
+#开启feign的断路保护功能
+feign:
+  hystrix:
+    enabled: true

@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;
 
 //@SpringBootApplication
-//@EnableEurekaClient
+//@EnableCircuitBreaker
 //@EnableHystrix //断路保护功能
 @SpringCloudApplication // @SpringCloudApplication=@SpringBootApplication+@EnableDiscoveryClient+@EnableCircuitBreaker
 @MapperScan("com.xiwen.cloud.mapper")
