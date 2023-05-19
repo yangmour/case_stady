@@ -33,6 +33,7 @@ spring:
           filters:
             - AddRequestParameter=requestid,10001 # 在匹配请求的请求参数中添加一对请求参数
             - AddResponseHeader=company,atguigu # 在匹配的请求的响应头中添加一对响应头
+#            - myFilter #自定义局部filter
 
 
 eureka:
