@@ -17,6 +17,11 @@
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
     </properties>
     <dependencies>
+        <!--包含了sleuth+zipkin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--    可视化监控 Dashboard    -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

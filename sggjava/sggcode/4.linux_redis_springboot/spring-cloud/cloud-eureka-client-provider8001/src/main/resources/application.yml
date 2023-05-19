@@ -8,6 +8,12 @@ spring:
     url: jdbc:mysql://192.168.232.201:3306/test
     username: root
     password: xiwen123
+  zipkin:
+    #指定数据提交到的zipkin服务端接收
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1 #采样率值介于0~1之间，1表示全部采样
 eureka:
   client:
     fetch-registry: true
@@ -19,4 +25,5 @@ eureka:
     prefer-ip-address: true
     #设置成当前客户端ip,显示的时候直接显示ip
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
 
