@@ -30,7 +30,9 @@ spring:
 #            - Cookie=username,atguigu # 断言，请求头中携带Cookie: username=atguigu才可以匹配
 #            - Method=POST # 断言，请求方式为post方式才会被匹配
 #            - Query=pwd,[a-z0-9_-]{6} # 断言，请求参数中包含pwd并且值长度为6才会被匹配
-
+          filters:
+            - AddRequestParameter=requestid,10001 # 在匹配请求的请求参数中添加一对请求参数
+            - AddResponseHeader=company,atguigu # 在匹配的请求的响应头中添加一对响应头
 
 
 eureka:
