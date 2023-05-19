@@ -17,6 +17,16 @@
         <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
     </properties>
     <dependencies>
+        <!--    可视化监控 Dashboard    -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix-dashboard</artifactId>
+        </dependency>
+        <!--   springboot开放端点     -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <!-- 引入hystrix进行服务熔断 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>

@@ -39,3 +39,14 @@ logging:
 feign:
   hystrix:
     enabled: true
+
+# 暴露项目的hystrix数据流
+management:
+  endpoints:
+    web:
+      exposure: # 访问/actuator/hystrix.stream能看到不断更新的监控流
+        include: hystrix.stream,info
+
+hystrix:
+  dashboard:
+    proxy-stream-allow-list: "192.168.126.1" #要把监控地址加入proxyStreamAllowList"localhost"
