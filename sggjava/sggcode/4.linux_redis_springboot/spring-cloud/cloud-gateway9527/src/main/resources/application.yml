@@ -3,6 +3,35 @@ server:
 spring:
   application:
     name: cloud-gateway
+  cloud:
+    gateway:
+      routes:
+        # -表示给list创建一个元素(RouteDefinition类型的一个实例)
+        # id表示当前route路由配置的唯一id,建议和要路由的微服务名一样
+        - id: cloud-eureka-client-consumer-feign80
+          #不使用-开始表示继续设置对象的属性值
+          #如果当前路由断言成功，请求交由哪个微服务处理
+          #访问gateway地址:http://localhost/user/movie/2
+          uri: http://localhost #直接url方式
+          predicates:
+            #断言访问的路径可以匹配/**
+            - Path=/user/**
+        - id: cloud-eureka-client-provider8001
+          #集群负载均衡轮询的配置
+          #注册中心的app名字方式
+          uri: lb://CLOUD-EUREKA-CLIENT-PROVIDER
+          #设置断言，有需要去官网找或者百度
+          #官网：https://docs.spring.io/spring-cloud-gateway/docs/3.0.8/reference/html/#gateway-request-predicates-factories
+          predicates:
+            - Path=/movie/**
+            - After=2020-05-01T08:00:00.0+08:00 # 断言，在此时间后请求才会被匹配
+#            - Before=2023-05-19T09:08+08:00 # 断言，在此时间前请求才会被匹配
+#            - Between=2020-05-01T08:00:00.0+08:00,2020-05-02T09:10+08:00 # 断言，在此时间区间内访问的请求才会被匹配
+#            - Cookie=username,atguigu # 断言，请求头中携带Cookie: username=atguigu才可以匹配
+#            - Method=POST # 断言，请求方式为post方式才会被匹配
+#            - Query=pwd,[a-z0-9_-]{6} # 断言，请求参数中包含pwd并且值长度为6才会被匹配
+
+
 
 eureka:
   client:
