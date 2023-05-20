@@ -13,3 +13,7 @@ spring:
     url: jdbc:mysql://192.168.232.201:3306/user
     username: root
     password: xiwen123
+#开启熔断保护
+feign:
+  hystrix:
+    enabled: true
