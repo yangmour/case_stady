@@ -8,6 +8,10 @@ spring:
   cloud:
     nacos:
       server-addr: 192.168.232.201:8848
+      discovery:
+        cluster-name: bj
+        #指定nacos中的命名空间
+#        namespace: 33d5b185-93e3-41bb-8886-d2748ad86a22
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.232.201:3306/user
@@ -17,3 +21,9 @@ spring:
 feign:
   hystrix:
     enabled: true
+
+
+#被调用方在nacos注册中心的服务名,就是一个集群内优先使用，如果当前集群都挂了在使用其他集群的
+cloud-nacos-provider-movie:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
