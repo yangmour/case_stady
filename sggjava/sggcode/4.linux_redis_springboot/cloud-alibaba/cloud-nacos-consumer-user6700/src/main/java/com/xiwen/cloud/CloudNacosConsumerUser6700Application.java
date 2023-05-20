@@ -8,10 +8,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @SpringBootApplication
 @EnableDiscoveryClient
 @MapperScan("com.xiwen.cloud.mapper")
-public class CloudNacosProviderMovie6600Application {
+public class CloudNacosConsumerUser6700Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudNacosProviderMovie6600Application.class, args);
+        SpringApplication.run(CloudNacosConsumerUser6700Application.class, args);
     }
 
 }

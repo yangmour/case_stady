@@ -1,0 +1,15 @@
+server:
+  port: 6700
+
+
+spring:
+  application:
+    name: cloud-nacos-consumer-user
+  cloud:
+    nacos:
+      server-addr: 192.168.232.201:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.232.201:3306/user
+    username: root
+    password: xiwen123
