@@ -1,0 +1,19 @@
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.232.201:8848
+        #\u914D\u7F6E\u6587\u4EF6\u9ED8\u8BA4\u7684\u540E\u7F00\u662Fproperties\u6587\u4EF6\uFF0C\u5982\u679C\u662Fyml\uFF0C\u5FC5\u987B\u6307\u5B9A
+        file-extension: yml
+        #\u5207\u6362\u547D\u540D\u7A7A\u95F4
+        namespace: bc93fb7d-bdf9-4d9d-8bfd-729336f3192a
+        #\u591A\u4E2A\u914D\u7F6E\u6587\u4EF6
+        extension-configs:
+          - data-id: mysql.yml
+            refresh: true
+          - data-id: redis.yml
+            refresh: true
+          - data-id: aaa.yml
+            refresh: true
+            group: aaa
