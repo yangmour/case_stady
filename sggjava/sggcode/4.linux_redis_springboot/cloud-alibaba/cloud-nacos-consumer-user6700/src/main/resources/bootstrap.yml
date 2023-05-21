@@ -17,3 +17,6 @@ spring:
           - data-id: aaa.yml
             refresh: true
             group: aaa
+    sentinel:
+      transport:
+        dashboard: localhost:8080
