@@ -1,0 +1,21 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: 192.168.232.201:8848
+    gateway:
+      routes:
+        - id: cloud-nacos-consumer-user
+          uri: lb://cloud-nacos-consumer-user
+          predicates:
+            - Path=/user/**
+        - id: cloud-nacos-provider-movie
+          uri: lb://cloud-nacos-provider-movie
+          predicates:
+            - Path=/movie/**
+      default-filters:
+        - AddRequestHeader=k1,v1 # 添加名为origin的请求头，值为gateway
+

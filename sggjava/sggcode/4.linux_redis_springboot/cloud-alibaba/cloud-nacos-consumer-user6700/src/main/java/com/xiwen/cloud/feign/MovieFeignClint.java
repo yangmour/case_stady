@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @Create: 2023/05/20 -14:02
  * @Version: 1.0
  */
-@FeignClient(value = "cloud-nacos-provider-movie",fallback = MovieFeignClintExceptionHandler.class)
+@FeignClient(value = "cloud-nacos-provider-movie", fallbackFactory = MovieFeignClientFallbackFactory.class)
 public interface MovieFeignClint {
     @GetMapping("/movie/info/{id}")
     Movie info(@PathVariable("id") Integer id);

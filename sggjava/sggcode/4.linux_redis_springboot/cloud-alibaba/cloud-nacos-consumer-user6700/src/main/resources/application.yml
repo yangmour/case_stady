@@ -11,21 +11,35 @@ spring:
       discovery:
         cluster-name: bj
         #指定nacos中的命名空间
+        #namespace: 33d5b185-93e3-41bb-8886-d2748ad86a22
+
     sentinel:
       web-context-unify: false #链路需要设置 如果不关闭，所有controller层的方法对service层调用都认为是同一个根链路
-  #        namespace: 33d5b185-93e3-41bb-8886-d2748ad86a22
+      datasource:
+        ds1:
+          nacos:
+            username: nacos #高版本的nacos一定要指定用户名和密码，否则连接不上，报错
+            password: nacos
+            server-addr: 192.168.232.201:8848
+            dataId: cloudalibaba-sentinel-service
+            groupId: DEFAULT_GROUP
+            data-type: json
+            rule-type: flow # 还可以是：degrade、authority、param-flow,system
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.232.201:3306/user
     username: root
     password: xiwen123
 #开启熔断保护
-feign:
-  hystrix:
-    enabled: true
+#feign:
+#  hystrix:
+#    enabled: true
 
 
 #被调用方在nacos注册中心的服务名,就是一个集群内优先使用，如果当前集群都挂了在使用其他集群的
 cloud-nacos-provider-movie:
   ribbon:
     NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule # 负载均衡规则
+feign:
+  sentinel:
+    enabled: true # 开启Feign的Sentinel功能

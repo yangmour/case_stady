@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -107,10 +108,13 @@ public class UserController {
             defaultFallback = "defaultFallbackMethod" //默认方法
     )
     @GetMapping("info/{id}")
-    public User info(@PathVariable Integer id) {
-//        if (id == 1) {
-//            throw new RuntimeException("测试降级");
-//        }
+    public User info(@PathVariable Integer id) throws InterruptedException {
+        if (id == 1) {
+            throw new RuntimeException("测试降级，熔断");
+        }
+        if (id == 2) {
+            Thread.sleep(1000);
+        }
         return userService.getById(id);
     }
 
@@ -134,6 +138,7 @@ public class UserController {
     }
 
 
+    @SentinelResource(value = "xxx", fallback = "movieAndUserFallback")
     @GetMapping("movie/{id}")
     public Map<String, Object> movieAndUser(@PathVariable Integer id) {
         System.out.println(port);
@@ -141,6 +146,12 @@ public class UserController {
 //        System.out.println("----------------");
 //        System.out.println(datasourceUsername + ":" + datasourcePassword + ";" + redisUsername + ";" + aaa);
         return userService.movieAndUser(id);
+    }
+
+    public Map<String, Object> movieAndUserFallback(@PathVariable Integer id) {
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("key","hhh");
+        return map;
     }
 
 }
