@@ -42,6 +42,13 @@ public class UserController {
 //    @Value("${cs.aaa}")
 //    private String aaa;
 
+    @SentinelResource(value = "hot")
+    @GetMapping("hot/{hid}")
+    public Long hotResource(@PathVariable("hid") Long hid) {
+        System.out.println(hid);
+        return hid;
+    }
+
 
     @SentinelResource
     @GetMapping("/test1")
