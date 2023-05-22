@@ -1,7 +1,9 @@
 package com.xiwen.cloud.service.impl;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.xiwen.cloud.bean.User;
 import com.xiwen.cloud.feign.MovieFeignClint;
+import com.xiwen.cloud.handler.UserBlockHandler;
 import com.xiwen.cloud.mapper.UserMapper;
 import com.xiwen.cloud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,4 +38,10 @@ public class UserServiceImpl implements UserService {
         map.put("user", userMapper.getById(id));
         return map;
     }
+
+    @SentinelResource(value = "common", blockHandler = "commonBlockHandler", blockHandlerClass = UserBlockHandler.class)
+    public String common() {
+        return "请求来了.....";
+    }
+
 }

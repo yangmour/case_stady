@@ -14,5 +14,7 @@ import java.util.Map;
 public interface UserService {
     User getById(Integer id);
 
-    Map<String,Object> movieAndUser(Integer id);
+    Map<String, Object> movieAndUser(Integer id);
+
+    String common();
 }

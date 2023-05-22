@@ -11,7 +11,9 @@ spring:
       discovery:
         cluster-name: bj
         #指定nacos中的命名空间
-#        namespace: 33d5b185-93e3-41bb-8886-d2748ad86a22
+    sentinel:
+      web-context-unify: false #链路需要设置 如果不关闭，所有controller层的方法对service层调用都认为是同一个根链路
+  #        namespace: 33d5b185-93e3-41bb-8886-d2748ad86a22
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://192.168.232.201:3306/user

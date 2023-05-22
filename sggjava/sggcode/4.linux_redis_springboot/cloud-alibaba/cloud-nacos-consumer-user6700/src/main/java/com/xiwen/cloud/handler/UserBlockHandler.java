@@ -18,4 +18,20 @@ public class UserBlockHandler {
         ex.printStackTrace();
         return new User(-1, "sentinel测试备用方法", 0, "", "", 0);
     }
+
+    public static String writeBlockHandler(BlockException ex) {
+        ex.printStackTrace();
+        return "writeBlockHandlerException";
+    }
+
+    public static String readBlockHandler(BlockException ex) {
+        ex.printStackTrace();
+        return "readBlockHandlerException";
+    }
+
+
+    public static String commonBlockHandler(BlockException ex) {
+        ex.printStackTrace();
+        return "commonBlockHandlerException";
+    }
 }

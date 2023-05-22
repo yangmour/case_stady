@@ -42,6 +42,35 @@ public class UserController {
 //    @Value("${cs.aaa}")
 //    private String aaa;
 
+
+    @SentinelResource
+    @GetMapping("/test1")
+    public String test1() {
+        System.out.println(System.currentTimeMillis());
+        return userService.common();
+    }
+
+    @SentinelResource
+    @GetMapping("/test2")
+    public String test2() {
+        System.out.println(System.currentTimeMillis());
+        return userService.common();
+    }
+
+
+    //测试关联流控测试
+    @SentinelResource(value = "write", blockHandler = "writeBlockHandler", blockHandlerClass = UserBlockHandler.class)
+    @GetMapping("/write")
+    public String write() {
+        return "write";
+    }
+
+    @SentinelResource(value = "read", blockHandler = "readBlockHandler", blockHandlerClass = UserBlockHandler.class)
+    @GetMapping("/read")
+    public String read() {
+        return "read";
+    }
+
     /**
      * @SentinelResource: value:用来指定资源名称,随便写，可以和接口地址一致，也可以不一致
      * blockHandler:当违反了sentinel流控、热点key、熔断、授权规则时，走的异常处理方法,指定异常处理方法名
