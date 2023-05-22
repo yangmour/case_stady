@@ -7,16 +7,16 @@ spring:
         ##配置文件默认的后缀是properties文件，如果是yml，必须指定
         file-extension: yml
         #设置命名空间
-        namespace: bc93fb7d-bdf9-4d9d-8bfd-729336f3192a
+#        namespace: bc93fb7d-bdf9-4d9d-8bfd-729336f3192a
         #设置多个配置文件
-        extension-configs:
-          - data-id: mysql.yml
-            refresh: true
-          - data-id: redis.yml
-            refresh: true
-          - data-id: aaa.yml
-            refresh: true
-            group: aaa
+#        extension-configs:
+#          - data-id: mysql.yml
+#            refresh: true
+#          - data-id: redis.yml
+#            refresh: true
+#          - data-id: aaa.yml
+#            refresh: true
+#            group: aaa
     sentinel:
       transport:
         dashboard: localhost:8080
