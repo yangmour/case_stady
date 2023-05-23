@@ -12,11 +12,10 @@
     <artifactId>fescar-api</artifactId>
 
     <dependencies>
-        <!--Seata依赖
+        <!--Seata依赖-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-alibaba-seata</artifactId>
-            <version>2.1.0.RELEASE</version>
-        </dependency>-->
+        </dependency>
     </dependencies>
 </project>

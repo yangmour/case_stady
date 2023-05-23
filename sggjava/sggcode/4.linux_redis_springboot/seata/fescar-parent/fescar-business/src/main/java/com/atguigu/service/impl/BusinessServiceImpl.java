@@ -5,6 +5,7 @@ import com.atguigu.feign.OrderInfoFeign;
 import com.atguigu.feign.UserInfoFeign;
 import com.atguigu.pojo.LogInfo;
 import com.atguigu.service.BusinessService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +32,7 @@ public class BusinessServiceImpl implements BusinessService {
      * @param id
      * @param count
      */
+    @GlobalTransactional
     @Override
     public void add(String username, int id, int count) {
         //添加订单日志
