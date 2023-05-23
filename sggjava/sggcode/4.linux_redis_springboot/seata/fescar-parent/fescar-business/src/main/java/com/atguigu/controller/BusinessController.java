@@ -13,6 +13,7 @@ public class BusinessController {
     private BusinessService businessService;
 
     /***
+     * http://localhost:18081/business/addorder
      * 购买商品分布式事务测试
      * @return
      */
