@@ -22,11 +22,13 @@ public class BaseEntity implements Serializable {
 
     @ApiModelProperty(value = "创建时间", example = "2022-01-01 8:00:00")
     @TableField("create_time")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
 
     @ApiModelProperty(value = "更新时间", example = "2022-01-01 8:00:00")
     @TableField("update_time")
+//    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date updateTime;
 
     @ApiModelProperty(value = "逻辑删除(1:已删除，0:未删除)")
@@ -37,5 +39,5 @@ public class BaseEntity implements Serializable {
     @ApiModelProperty(value = "其他参数")
     @TableField(exist = false)
     //扩展字段：被该注解标注的，将不会被录入到数据库中。只作为普通的javaBean属性
-    private Map<String,Object> param = new HashMap<>();
+    private Map<String, Object> param = new HashMap<>();
 }
