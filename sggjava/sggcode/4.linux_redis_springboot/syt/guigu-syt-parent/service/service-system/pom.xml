@@ -18,13 +18,6 @@
     </properties>
 
     <dependencies>
-        <!--实体-->
-        <dependency>
-            <groupId>com.atguigu</groupId>
-            <artifactId>model</artifactId>
-            <version>1.0</version>
-        </dependency>
-
         <!--服务通用配置-->
         <dependency>
             <groupId>com.atguigu</groupId>
