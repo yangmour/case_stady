@@ -1,7 +1,9 @@
 package com.atguigu.syt.hosp.controller.admin;
 
 
+import com.atguigu.common.service.exception.GuiguException;
 import com.atguigu.common.util.result.Result;
+import com.atguigu.common.util.result.ResultCodeEnum;
 import com.atguigu.common.util.tools.MD5;
 import com.atguigu.syt.hosp.service.HospitalSetService;
 import com.atguigu.syt.model.hosp.HospitalSet;
@@ -12,6 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,16 +40,20 @@ public class AdminHospitalSetController {
     @ApiOperation("新增医院设置")
     @PostMapping("saveHospSet")
     public Result<Object> add(@ApiParam("医院设置对象") @RequestBody HospitalSet hospitalSet) {
-        // 生成秘钥
-        Random random = new Random();
-        String signKey = MD5.encrypt(System.currentTimeMillis() + "" + random.nextInt(1000));
-        hospitalSet.setSignKey(signKey);
+        try {
+            // 生成秘钥
+            Random random = new Random();
+            String signKey = MD5.encrypt(System.currentTimeMillis() + "" + random.nextInt(1000));
+            hospitalSet.setSignKey(signKey);
 
-        boolean flag = hospitalSetService.save(hospitalSet);
-        if (flag) {
-            return Result.ok();
+            boolean flag = hospitalSetService.save(hospitalSet);
+            if (flag) {
+                return Result.ok();
+            }
+            return Result.fail();
+        } catch (DuplicateKeyException e) {
+            throw new GuiguException(ResultCodeEnum.HOSCODE_EXIST, e);
         }
-        return Result.fail();
     }
 
     // 删
@@ -73,7 +80,7 @@ public class AdminHospitalSetController {
     // 改:回显
     @ApiOperation("根据医院id进行回显")
     @GetMapping("edit/{id}")
-    public Result<Object> edit(@ApiParam("医院的id") @PathVariable Long id) {
+    public Result<Object> edit(@ApiParam("医院的id") @PathVariable String id) {
         return Result.ok(hospitalSetService.getById(id));
     }
 

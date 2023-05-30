@@ -63,13 +63,10 @@
 
       <el-table-column label="操作" align="center">
         <template slot-scope="scope">
-          <el-button
-            type="primary"
-            size="mini"
-            @click="handleEdit(scope.$index, scope.row)"
-            class="el-icon-edit"
-            >编辑</el-button
-          >
+          <router-link :to="'/syt/hospset/edit/'+scope.row.id">>
+                <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
+            </router-link>
+
           <el-button
             size="mini"
             type="danger"
@@ -141,9 +138,6 @@ export default {
     };
   },
   methods: {
-    handleEdit(index, row) {
-      console.log(index + ":" + row);
-    },
     updateStatus(id, status, index) {
       hospsetApi.updateStatus(id, status).then((resp) => {
         this.tableData[index].status = status;
