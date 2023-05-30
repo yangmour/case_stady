@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -59,6 +60,16 @@ public class AdminHospitalSetController {
         return Result.fail();
     }
 
+    @ApiOperation("根据id删除医院")
+    @DeleteMapping("batchDelete")
+    public Result<Object> batchDelete(@ApiParam("医院的id") @RequestBody List<Long> ids) {
+        boolean flag = hospitalSetService.removeByIds(ids);
+        if (flag) {
+            return Result.ok();
+        }
+        return Result.fail();
+    }
+
     // 改:回显
     @ApiOperation("根据医院id进行回显")
     @GetMapping("edit/{id}")
@@ -77,6 +88,20 @@ public class AdminHospitalSetController {
         return Result.fail();
     }
 
+    @ApiOperation("根据医院id进行修改状态设置")
+    @PutMapping("updateStatus/{id}/{status}")
+    public Result<Object> updateStatus(@ApiParam(value = "医院设置对象") @PathVariable Long id,
+                                       @ApiParam("医院设置状态") @PathVariable Integer status) {
+        HospitalSet hospitalSet = new HospitalSet();
+        hospitalSet.setId(id);
+        hospitalSet.setStatus(status);
+        boolean flag = hospitalSetService.updateById(hospitalSet);
+        if (flag) {
+            return Result.ok();
+        }
+        return Result.fail();
+    }
+
 
     // 查
     @ApiOperation("根据医院id进行回显")
@@ -87,10 +112,7 @@ public class AdminHospitalSetController {
 
     // 查
     @PostMapping("page/{pageNum}/{pageSize}")
-    public Result<Object> page(
-            @ApiParam("页码") @PathVariable Long pageNum,
-            @ApiParam("数量") @PathVariable Long pageSize,
-            @ApiParam(value = "要搜索的医院名字和医院编号") @RequestBody HospitalSetQueryVo hospitalSetQueryVo) {
+    public Result<Object> page(@ApiParam("页码") @PathVariable Long pageNum, @ApiParam("数量") @PathVariable Long pageSize, @ApiParam(value = "要搜索的医院名字和医院编号") @RequestBody HospitalSetQueryVo hospitalSetQueryVo) {
         Page<HospitalSet> page = hospitalSetService.getPageByHospitalQuery(pageNum, pageSize, hospitalSetQueryVo);
         System.out.println(page.getTotal());
         System.out.println(page.getSize());
