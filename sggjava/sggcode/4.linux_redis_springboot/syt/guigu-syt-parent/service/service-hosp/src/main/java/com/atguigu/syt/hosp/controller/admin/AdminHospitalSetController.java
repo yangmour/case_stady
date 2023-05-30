@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ import java.util.Random;
 @Api(tags = "医院设置管理")
 @RestController
 @RequestMapping("/admin/hosp/hospitalSet")
+@Slf4j
 public class AdminHospitalSetController {
     @Autowired
     private HospitalSetService hospitalSetService;
@@ -95,5 +97,17 @@ public class AdminHospitalSetController {
         return Result.ok(page);
     }
 
+    @ApiOperation(value = "日志测试")
+    @GetMapping("/log")
+    public Result log() {
+
+        log.trace("getHospSet trace");
+        log.debug("getHospSet debug");
+        log.info("getHospSet info");
+        log.warn("getHospSet warn");
+        log.error("getHospSet error");
+
+        return Result.ok();
+    }
 }
 

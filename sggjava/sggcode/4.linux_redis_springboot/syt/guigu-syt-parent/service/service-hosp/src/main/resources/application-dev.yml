@@ -13,3 +13,10 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: Asia/Shanghai
+
+logging:
+  level:
+    root: info
+  #    com.atguigu.syt.hosp.controller.admin: info
+  file:
+    path: hosp
