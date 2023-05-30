@@ -37,9 +37,27 @@ module.exports = {
       errors: true
     },
     // before: require('./mock/mock-server.js'),
-    proxy: {
-      '/dev-api': { // 匹配所有以 '/dev-api'开头的请求路径
+   /*  proxy: {
+      '/dev-api/admin/system': { // 匹配所有以 '/dev-api/admin/system'开头的请求路径
         target: 'http://localhost:8800',
+        changeOrigin: true, // 支持跨域
+        pathRewrite: { // 重写路径: 去掉路径中开头的'/dev-api'
+          '^/dev-api': ''
+        }
+      },
+      '/dev-api/admin/hosp': { // 匹配所有以 '/dev-api/admin/hosp'开头的请求路径
+        target: 'http://localhost:8201',
+        changeOrigin: true, // 支持跨域
+        pathRewrite: { // 重写路径: 去掉路径中开头的'/dev-api'
+          '^/dev-api': ''
+        }
+      }
+    } */
+
+    //后端网关
+    proxy: {
+      '/dev-api/admin/': { // 匹配所有以 '/dev-api/admin/system'开头的请求路径
+        target: 'http://localhost:8000',
         changeOrigin: true, // 支持跨域
         pathRewrite: { // 重写路径: 去掉路径中开头的'/dev-api'
           '^/dev-api': ''
