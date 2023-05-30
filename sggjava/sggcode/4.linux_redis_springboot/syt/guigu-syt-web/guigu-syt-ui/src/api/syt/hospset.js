@@ -46,7 +46,7 @@ export default {
     },
     edit(id) {
         return request({
-            url: `${API}/edit/${id}}`,
+            url: `${API}/edit/${id}`,
             method: "get"
         })
     }

@@ -80,7 +80,7 @@ public class AdminHospitalSetController {
     // 改:回显
     @ApiOperation("根据医院id进行回显")
     @GetMapping("edit/{id}")
-    public Result<Object> edit(@ApiParam("医院的id") @PathVariable String id) {
+    public Result<Object> edit(@ApiParam("医院的id") @PathVariable Long id) {
         return Result.ok(hospitalSetService.getById(id));
     }
 
