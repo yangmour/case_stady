@@ -13,6 +13,12 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: Asia/Shanghai
+  cloud:
+    nacos:
+      server-addr: 124.221.11.162:8848
+
+  application:
+    name: service-hosp
 
 logging:
   level:
