@@ -1,0 +1,15 @@
+server:
+  port: 8000
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: service-system
+          uri: lb://service-system
+          predicates:
+            - Path=/*/system/**
+        - id: service-hosp
+          uri: lb://service-hosp
+          predicates:
+            - Path=/*/hosp/**

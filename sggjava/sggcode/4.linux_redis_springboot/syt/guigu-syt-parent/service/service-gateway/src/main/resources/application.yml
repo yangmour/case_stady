@@ -6,15 +6,5 @@ spring:
     nacos:
       discovery:
         server-addr: 124.221.11.162:8848/
-    gateway:
-      routes:
-        - id: service-system
-          uri: lb://service-system
-          predicates:
-            - Path=/admin/system/**
-        - id: service-hosp
-          uri: lb://service-hosp
-          predicates:
-            - Path=/admin/hosp/**
-server:
-  port: 8000
+  profiles:
+    active: dev
