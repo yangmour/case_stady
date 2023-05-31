@@ -2,7 +2,10 @@ package com.atguigu.syt.cmn.service;
 
 
 import com.atguigu.syt.model.cmn.Region;
+import com.atguigu.syt.vo.cmn.RegionVo;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -14,4 +17,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface RegionService extends IService<Region> {
 
+    List<RegionVo> getByParentCode(String parentCode);
 }
