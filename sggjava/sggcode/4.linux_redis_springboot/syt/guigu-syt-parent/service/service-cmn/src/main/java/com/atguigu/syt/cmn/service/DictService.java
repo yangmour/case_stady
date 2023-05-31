@@ -1,7 +1,10 @@
 package com.atguigu.syt.cmn.service;
 
 import com.atguigu.syt.model.cmn.Dict;
+import com.atguigu.syt.vo.cmn.DictTypeVo;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface DictService extends IService<Dict> {
 
+    List<DictTypeVo> findAll();
 }

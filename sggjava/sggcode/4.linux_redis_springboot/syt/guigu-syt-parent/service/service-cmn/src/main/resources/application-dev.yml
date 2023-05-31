@@ -18,8 +18,7 @@ spring:
       server-addr: 124.221.11.162:8848
 
   application:
-    name: service-common
-
+    name: service-cmn
 logging:
   level:
     root: info
