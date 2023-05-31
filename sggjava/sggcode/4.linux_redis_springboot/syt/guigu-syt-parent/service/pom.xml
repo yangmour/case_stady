@@ -15,6 +15,7 @@
         <module>service-system</module>
         <module>service-hosp</module>
         <module>service-gateway</module>
+        <module>service-cmn</module>
     </modules>
 
     <properties>

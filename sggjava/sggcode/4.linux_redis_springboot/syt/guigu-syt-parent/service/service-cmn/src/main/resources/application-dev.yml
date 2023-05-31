@@ -1,0 +1,28 @@
+server:
+  port: 8003
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: xiwen123
+    url: jdbc:mysql://124.221.11.162:3306/guigu_syt_cmn?characterEncoding=utf-8&serverTimezone=GMT%2B8&useSSL=false
+    username: root
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai
+  cloud:
+    nacos:
+      server-addr: 124.221.11.162:8848
+
+  application:
+    name: service-common
+
+logging:
+  level:
+    root: info
+  #    com.atguigu.syt.hosp.controller.admin: info
+  file:
+    path: common

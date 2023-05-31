@@ -1,4 +1,4 @@
-package com.atguigu.syt.hosp.mpGenerator;
+package com.atguigu.common.service.mpGenerator;
 
 
 import com.baomidou.mybatisplus.annotation.DbType;
@@ -13,7 +13,7 @@ public class CodeGen {
 
     public static void main(String[] args) {
 
-        String  moduleName = "hosp";
+        String  moduleName = "cmn";
         //String projectPath = "D:/project/yygh/guigu-syt-parent";
         String projectPath = System.getProperty("user.dir");
 

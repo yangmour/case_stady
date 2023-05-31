@@ -1,19 +1,20 @@
-package com.atguigu.gateway;
+package com.atguigu.syt.cmn;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Description:
  *
  * @author: yf
- * @Create: 2023/05/30 -15:19
+ * @Create: 2023/05/31 -10:35
  * @Version: 1.0
  */
 @SpringBootApplication
-
-public class GateWayApplication {
+@ComponentScan("com.atguigu")
+public class ServiceCmnApplication {
     public static void main(String[] args) {
-        SpringApplication.run(GateWayApplication.class, args);
+        SpringApplication.run(ServiceCmnApplication.class, args);
     }
 }

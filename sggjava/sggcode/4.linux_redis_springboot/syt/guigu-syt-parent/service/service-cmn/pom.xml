@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>service-hosp</artifactId>
+    <artifactId>service-cmn</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -18,18 +18,26 @@
     </properties>
 
     <dependencies>
-        <!--    权限认证    -->
-        <dependency>
-            <groupId>com.atguigu</groupId>
-            <artifactId>spring-security</artifactId>
-            <version>1.0</version>
-        </dependency>
+        <!--服务通用配置-->
         <dependency>
             <groupId>com.atguigu</groupId>
             <artifactId>service-util</artifactId>
             <version>1.0</version>
         </dependency>
 
+        <!--自定义安全模块-->
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>spring-security</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- 单元测试 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
 </project>
