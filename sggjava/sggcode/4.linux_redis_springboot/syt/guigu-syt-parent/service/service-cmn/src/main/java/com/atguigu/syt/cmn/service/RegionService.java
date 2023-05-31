@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author xiwen
@@ -18,4 +18,19 @@ import java.util.List;
 public interface RegionService extends IService<Region> {
 
     List<RegionVo> getByParentCode(String parentCode);
+
+    /**
+     * 测试 @CachePut
+     *
+     * @param region
+     * @return
+     */
+    Region saveRegionWithCacheManager(Region region);
+
+    /**
+     * 测试 @CacheEvict
+     *
+     * @param id
+     */
+    void deleteRegionWithCacheManager(Long id);
 }
