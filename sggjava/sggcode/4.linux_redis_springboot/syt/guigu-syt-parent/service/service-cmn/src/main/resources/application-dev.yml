@@ -4,6 +4,7 @@ server:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/atguigu/syt/cmn/mapper/xml/*.xml
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

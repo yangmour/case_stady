@@ -2,4 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.syt.cmn.mapper.DictTypeMapper">
 
+    <resultMap id="dictTypeVo" type="com.atguigu.syt.vo.cmn.DictTypeVo">
+        <id property="id" column="dt_id"/>
+        <id property="id" column="dt_id"/>
+        <result property="name" column="dt_name"/>
+        <collection property="children" ofType="com.atguigu.syt.vo.cmn.DictVo">
+            <id property="id" column="d_id"/>
+            <result property="name" column="d_name"/>
+            <result property="value" column="d_value"/>
+        </collection>
+    </resultMap>
+
+    <select id="findAll" resultMap="dictTypeVo">
+        select  concat("parent-",dt.id) dt_id, dt.name dt_name,concat("children-",d.id)  d_id, d.name d_name, d.value d_value
+        from dict_type dt
+                 left join dict d on dt.id = d.dict_type_id order by d_id
+    </select>
 </mapper>

@@ -2,4 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.syt.cmn.mapper.RegionMapper">
 
+    <insert id="batchInsert">
+        insert into region(id,parent_code,name,code,level)
+        values
+        <foreach collection="list" item="region" separator=",">
+            (#{region.id},#{region.parentCode},#{region.name},#{region.code},#{region.level})
+        </foreach>
+    </insert>
 </mapper>

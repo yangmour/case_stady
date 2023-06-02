@@ -28,18 +28,23 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
     @Autowired
     private DictTypeMapper dictTypeMapper;
 
-    @Override
     public List<DictTypeVo> findAll() {
+        return dictTypeMapper.findAll();
+    }
+
+    //    @Override
+    public List<DictTypeVo> findAll1() {
         List<DictType> dictTypes = dictTypeMapper.selectList(null);
         List<Dict> dicts = baseMapper.selectList(null);
 
         List<DictTypeVo> dictTypeVoList = dictTypes.stream()
-                .map(item -> {
+                .map(dictType -> {
                     DictTypeVo dictTypeVo = new DictTypeVo();
-                    dictTypeVo.setId("parent-" + item.getId());
-                    dictTypeVo.setName(item.getName());
+                    dictTypeVo.setId("parent-" + dictType.getId());
+                    dictTypeVo.setName(dictType.getName());
 
                     List<DictVo> dictVoList = dicts.stream()
+                            .filter(dict -> dict.getDictTypeId().longValue() == dictType.getId().longValue())
                             .map(dict -> {
                                 DictVo dictVo = new DictVo();
                                 dictVo.setId("children-" + dict.getId());

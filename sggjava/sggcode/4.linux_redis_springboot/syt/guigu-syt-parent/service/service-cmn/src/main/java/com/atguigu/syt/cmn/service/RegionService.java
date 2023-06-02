@@ -2,8 +2,10 @@ package com.atguigu.syt.cmn.service;
 
 
 import com.atguigu.syt.model.cmn.Region;
+import com.atguigu.syt.vo.cmn.RegionExcelVo;
 import com.atguigu.syt.vo.cmn.RegionVo;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -33,4 +35,8 @@ public interface RegionService extends IService<Region> {
      * @param id
      */
     void deleteRegionWithCacheManager(Long id);
+
+    List<RegionExcelVo> findRegionExcelVoList();
+
+    void importData(MultipartFile file);
 }

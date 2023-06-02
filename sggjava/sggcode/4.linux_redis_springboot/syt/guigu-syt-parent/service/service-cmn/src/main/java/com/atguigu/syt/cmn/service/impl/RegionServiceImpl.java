@@ -1,17 +1,24 @@
 package com.atguigu.syt.cmn.service.impl;
 
 
+import com.alibaba.excel.EasyExcel;
+import com.atguigu.syt.cmn.listener.RegionVoListener;
 import com.atguigu.syt.cmn.mapper.RegionMapper;
 import com.atguigu.syt.cmn.service.RegionService;
 import com.atguigu.syt.model.cmn.Region;
+import com.atguigu.syt.vo.cmn.RegionExcelVo;
 import com.atguigu.syt.vo.cmn.RegionVo;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.lang3.exception.ExceptionUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,9 +52,7 @@ public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region> impleme
         regionQueryWrapper.eq("parent_code", parentCode);
         List<Region> regions = baseMapper.selectList(regionQueryWrapper);
 
-        List<RegionVo> regionVoList = regions.stream()
-                .map(item -> new RegionVo(item.getId(), item.getName(), item.getCode(), item.getLevel(), item.getLevel() < 3 ? true : false))
-                .collect(Collectors.toList());
+        List<RegionVo> regionVoList = regions.stream().map(item -> new RegionVo(item.getId(), item.getName(), item.getCode(), item.getLevel(), item.getLevel() < 3 ? true : false)).collect(Collectors.toList());
 
         return regionVoList;
     }
@@ -66,6 +71,29 @@ public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region> impleme
     }
 
 //    第一种使用RedisTemplate对象缓存
+
+    @Override
+    public List<RegionExcelVo> findRegionExcelVoList() {
+
+        List<Region> regions = baseMapper.selectList(null);
+        List<RegionExcelVo> regionVoList = regions.stream().map(item -> {
+            RegionExcelVo regionVo = new RegionExcelVo();
+            BeanUtils.copyProperties(item, regionVo);
+            return regionVo;
+        }).collect(Collectors.toList());
+
+        return regionVoList;
+    }
+
+    @Override
+    public void importData(MultipartFile file) {
+        try {
+            EasyExcel.read(file.getInputStream(), RegionExcelVo.class, new RegionVoListener(baseMapper)).sheet().doRead();
+        } catch (IOException e) {
+            log.error(ExceptionUtils.getStackTrace(e));
+            throw new RuntimeException(e);
+        }
+    }
 //    @Autowired
 //    private RedisTemplate redisTemplate;
 //
