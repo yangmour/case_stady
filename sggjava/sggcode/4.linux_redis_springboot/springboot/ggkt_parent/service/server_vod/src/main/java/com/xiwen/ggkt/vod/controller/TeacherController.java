@@ -2,6 +2,7 @@ package com.xiwen.ggkt.vod.controller;
 
 
 import com.xiwen.ggkt.model.vod.Teacher;
+import com.xiwen.ggkt.utils.R;
 import com.xiwen.ggkt.vod.service.TeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -28,18 +29,20 @@ public class TeacherController {
 
     @ApiOperation("查询所有教师")
     @GetMapping("findAll")
-    public List<Teacher> findAll() {
+    public R findAll() {
         List<Teacher> list = teacherService.list();
-        System.out.println(list);
-        return list;
+        return R.ok(list);
     }
 
     @ApiOperation("根据id逻辑删除教师")
     @DeleteMapping("/{id}")
-    public boolean removeById(
+    public R removeById(
             @ApiParam(name = "id", value = "ID") @PathVariable Integer id) {
-        return teacherService.removeById(id);
-
+        boolean flag = teacherService.removeById(id);
+        if (flag) {
+            return R.ok();
+        }
+        return R.fail();
     }
 }
 
