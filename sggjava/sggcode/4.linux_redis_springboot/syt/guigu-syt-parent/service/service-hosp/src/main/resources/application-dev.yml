@@ -19,10 +19,22 @@ spring:
 
   application:
     name: service-hosp
+  data:
+    mongodb:
+      host: 124.221.11.162
+      port: 27017
+      username: syt
+      password: syt123
+      database: syt
 
 logging:
   level:
     root: info
   #    com.atguigu.syt.hosp.controller.admin: info
+    org:
+      mongodb:
+        driver:
+          protocol:
+            command: debug
   file:
     path: hosp
