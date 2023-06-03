@@ -1,5 +1,6 @@
 package com.xiwen.ggkt.vod;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,7 +13,8 @@ import org.springframework.context.annotation.ComponentScan;
  * @Version: 1.0
  */
 @SpringBootApplication
-@ComponentScan("com.xiwen.ggkt")
+@ComponentScan("com.xiwen")
+@MapperScan("com.xiwen.ggkt.vod.mapper")
 public class ServerApplication {
     public static void main(String[] args) {
         SpringApplication.run(ServerApplication.class, args);

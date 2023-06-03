@@ -1,8 +1,11 @@
 package com.xiwen.ggkt.vod.controller;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.xiwen.ggkt.exception.GuiGuException;
 import com.xiwen.ggkt.model.vod.Teacher;
 import com.xiwen.ggkt.utils.R;
+import com.xiwen.ggkt.vo.vod.TeacherQueryVo;
 import com.xiwen.ggkt.vod.service.TeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -39,6 +42,59 @@ public class TeacherController {
     public R removeById(
             @ApiParam(name = "id", value = "ID") @PathVariable Integer id) {
         boolean flag = teacherService.removeById(id);
+        if (flag) {
+            return R.ok();
+        }
+        return R.fail();
+    }
+
+    @ApiOperation("分页查询")
+    @PostMapping("findQueryPage/{pageNum}/{pageSize}")
+    public R findQueryPage(
+            @ApiParam("页码") @PathVariable Integer pageNum,
+            @ApiParam("页数") @PathVariable Integer pageSize,
+            @ApiParam("查询条件对象") @RequestBody(required = false) TeacherQueryVo teacherQueryVo) {
+        try {
+            int i = 10 / 0;
+        } catch (Exception e) {
+            throw new GuiGuException(401,"出现异常");
+        }
+        Page<Teacher> teacherPage = teacherService.findQueryPage(pageNum, pageSize, teacherQueryVo);
+        return R.ok(teacherPage);
+    }
+
+    @ApiOperation("新增")
+    @PostMapping("saveTeacher")
+    public R saveTeacher(@ApiParam("添加的对象") @RequestBody Teacher teacher) {
+        boolean flag = teacherService.save(teacher);
+        if (flag) {
+            return R.ok();
+        }
+        return R.fail();
+    }
+
+    @ApiOperation("批量删除")
+    @DeleteMapping("batchRemove")
+    public R batchRemove(@RequestBody List<Long> ids) {
+        boolean flag = teacherService.removeByIds(ids);
+
+        if (flag) {
+            return R.ok();
+        }
+        return R.fail();
+    }
+
+    @ApiOperation("根据id获取")
+    @GetMapping("getTeacherById/{id}")
+    public R getTeacherById(@ApiParam("查询的id") @PathVariable Long id) {
+        Teacher teacher = teacherService.getById(id);
+        return R.ok(teacher);
+    }
+
+    @ApiOperation("修改老师信息")
+    @PutMapping("updateTeacher")
+    public R updateTeacher(@ApiParam("修改的对象") @RequestBody Teacher teacher) {
+        boolean flag = teacherService.updateById(teacher);
         if (flag) {
             return R.ok();
         }

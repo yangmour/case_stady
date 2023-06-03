@@ -26,7 +26,7 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.3.2</version>
+            <version>3.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.velocity</groupId>
