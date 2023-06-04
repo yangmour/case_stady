@@ -86,6 +86,7 @@ public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region> impleme
     }
 
     @Override
+    @CacheEvict(value = "regionList", allEntries = true)
     public void importData(MultipartFile file) {
         try {
             EasyExcel.read(file.getInputStream(), RegionExcelVo.class, new RegionVoListener(baseMapper)).sheet().doRead();
