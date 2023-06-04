@@ -30,4 +30,13 @@ public class HospitalSetServiceImpl extends ServiceImpl<HospitalSetMapper, Hospi
         queryWrapper.eq(!StringUtils.isEmpty(hospitalSetQueryVo.getHoscode()), "hoscode", hospitalSetQueryVo.getHoscode());
         return baseMapper.selectPage(page, queryWrapper);
     }
+
+    @Override
+    public String getHospitalSignKey(String hoscode) {
+        QueryWrapper<HospitalSet> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("hoscode", hoscode);
+
+        HospitalSet hospitalSet = baseMapper.selectOne(queryWrapper);
+        return hospitalSet.getSignKey();
+    }
 }

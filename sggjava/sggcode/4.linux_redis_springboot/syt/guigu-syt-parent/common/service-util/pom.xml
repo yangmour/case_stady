@@ -18,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <!--fastjson-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
         <!--自定义工具-->
         <dependency>
             <groupId>com.atguigu</groupId>
