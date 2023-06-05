@@ -12,4 +12,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * @Version: 1.0
  */
 public interface DepartmentRepository extends MongoRepository<Department, ObjectId> {
+
+    Department findByHoscodeAndDepcode(String hoscode, String Depcode);
 }
