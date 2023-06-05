@@ -1,6 +1,7 @@
 package com.atguigu.syt.hosp.service;
 
 import com.atguigu.syt.model.hosp.Hospital;
+import org.springframework.data.domain.Page;
 
 import java.util.Map;
 
@@ -15,4 +16,8 @@ public interface HospitalService {
     void saveHospital(Map<String, Object> hospitalMap);
 
     Hospital getByHoscode(String hoscode);
+
+    Page<Hospital> selectPage(Integer pageNum, Integer pageSize, String hosname);
+
+    void updateStatus(String hoscode, Integer status);
 }

@@ -30,7 +30,7 @@ spring:
 logging:
   level:
     root: info
-  #    com.atguigu.syt.hosp.controller.admin: info
+    #    com.atguigu.syt.hosp.controller.admin: info
     org:
       mongodb:
         driver:
@@ -38,3 +38,12 @@ logging:
             command: debug
   file:
     path: hosp
+
+feign:
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:
+        connect-timeout: 3000 #连接建立的超时时长，单位是ms，默认1s
+        read-timeout: 4000 #处理请求的超时时间，单位是ms，默认为1s

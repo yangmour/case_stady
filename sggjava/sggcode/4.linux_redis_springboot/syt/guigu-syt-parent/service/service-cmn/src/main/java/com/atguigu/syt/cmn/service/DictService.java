@@ -17,4 +17,7 @@ import java.util.List;
 public interface DictService extends IService<Dict> {
 
     List<DictTypeVo> findAll();
+
+    String getHostName(Long dictTypeId, String value);
+
 }

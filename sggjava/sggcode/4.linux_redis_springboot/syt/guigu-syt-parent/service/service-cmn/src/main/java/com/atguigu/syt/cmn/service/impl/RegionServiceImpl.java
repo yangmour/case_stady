@@ -95,6 +95,14 @@ public class RegionServiceImpl extends ServiceImpl<RegionMapper, Region> impleme
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public String getRegionName(String code) {
+        QueryWrapper<Region> regionQueryWrapper = new QueryWrapper<>();
+        regionQueryWrapper.eq("code", code);
+        Region region = baseMapper.selectOne(regionQueryWrapper);
+        return region.getName();
+    }
 //    @Autowired
 //    private RedisTemplate redisTemplate;
 //

@@ -39,4 +39,7 @@ public interface RegionService extends IService<Region> {
     List<RegionExcelVo> findRegionExcelVoList();
 
     void importData(MultipartFile file);
+
+    String getRegionName(String code);
+
 }

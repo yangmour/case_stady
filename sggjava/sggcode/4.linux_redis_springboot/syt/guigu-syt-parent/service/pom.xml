@@ -25,11 +25,23 @@
     </properties>
 
     <dependencies>
+        <!--服务注册-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>service-cmn-client</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <!-- 熔断和降级 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

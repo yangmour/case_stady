@@ -7,6 +7,7 @@ import com.atguigu.syt.model.cmn.Dict;
 import com.atguigu.syt.model.cmn.DictType;
 import com.atguigu.syt.vo.cmn.DictTypeVo;
 import com.atguigu.syt.vo.cmn.DictVo;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,16 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
 
     @Autowired
     private DictTypeMapper dictTypeMapper;
+
+
+    @Override
+    public String getHostName(Long dictTypeId, String value) {
+        QueryWrapper<Dict> dictQueryWrapper = new QueryWrapper<>();
+        dictQueryWrapper.eq("dict_type_id", dictTypeId);
+        dictQueryWrapper.eq("value", value);
+        Dict dict = baseMapper.selectOne(dictQueryWrapper);
+        return dict.getName();
+    }
 
     public List<DictTypeVo> findAll() {
         return dictTypeMapper.findAll();
