@@ -3,6 +3,7 @@ package com.atguigu.syt.hosp.service;
 import com.atguigu.syt.model.hosp.Schedule;
 import org.springframework.data.domain.Page;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,4 +19,8 @@ public interface ScheduleService {
     Page<Schedule> findSchedule(Map<String, Object> departmentMap);
 
     void scheduleRemove(Map<String, Object> scheduleMap);
+
+    Map<String, Object> getScheduleRule(String hoscode, String depCode, Integer pageNum, Integer pageSize);
+
+    List<Schedule> getScheduleDetail(String hoscode, String depcode, String workDate);
 }

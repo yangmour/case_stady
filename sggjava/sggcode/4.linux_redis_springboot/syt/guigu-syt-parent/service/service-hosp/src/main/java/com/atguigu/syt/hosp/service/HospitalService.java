@@ -20,4 +20,6 @@ public interface HospitalService {
     Page<Hospital> selectPage(Integer pageNum, Integer pageSize, String hosname);
 
     void updateStatus(String hoscode, Integer status);
+
+    Hospital getDetail(String hoscode);
 }

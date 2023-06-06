@@ -21,10 +21,19 @@ import org.springframework.web.bind.annotation.*;
 @Api(tags = "医院管理")
 @RestController
 @RequestMapping("/admin/hosp/hospital")
-public class HospitalController {
+public class AdminHospitalController {
 
     @Autowired
     private HospitalService hospitalService;
+
+    @ApiOperation("获取医院详情信息")
+    @ApiImplicitParam(value = "医院编号", name = "hoscode", required = true)
+    @GetMapping("/detail/{hoscode}")
+    public Result<Object> detail(@PathVariable String hoscode) {
+
+        Hospital hospital = hospitalService.getDetail(hoscode);
+        return Result.ok(hospital);
+    }
 
     @ApiOperation(value = "获取分页列表")
     @ApiImplicitParams({
@@ -44,7 +53,7 @@ public class HospitalController {
             @ApiImplicitParam(name = "hoscode", value = "医院编码", required = true),
             @ApiImplicitParam(name = "status", value = "状态（0：未上线 1：已上线）", required = true)})
     @GetMapping("/updateStatus/{hoscode}/{status}")
-    public Result<Object> updateStatus(@PathVariable String hoscode,@PathVariable Integer status) {
+    public Result<Object> updateStatus(@PathVariable String hoscode, @PathVariable Integer status) {
         hospitalService.updateStatus(hoscode, status);
         return Result.ok();
     }

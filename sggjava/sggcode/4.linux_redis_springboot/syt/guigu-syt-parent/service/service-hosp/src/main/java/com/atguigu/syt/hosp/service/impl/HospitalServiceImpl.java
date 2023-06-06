@@ -92,7 +92,7 @@ public class HospitalServiceImpl implements HospitalService {
         String districtName = regionFeignClient.getRegionName(districtCode);
 
         hospital.getParam().put("hospName", hostName);
-        hospital.getParam().put("address", provinceName + cityName + districtName+hospital.getAddress());
+        hospital.getParam().put("address", provinceName + cityName + districtName + hospital.getAddress());
     }
 
     @Override
@@ -104,5 +104,13 @@ public class HospitalServiceImpl implements HospitalService {
         Hospital hospital = hospitalRepository.findByHoscode(hoscode);
         hospital.setStatus(status);
         hospitalRepository.save(hospital);
+    }
+
+    @Override
+    public Hospital getDetail(String hoscode) {
+
+        Hospital hospital = hospitalRepository.findByHoscode(hoscode);
+        packageHospital(hospital);
+        return hospital;
     }
 }
