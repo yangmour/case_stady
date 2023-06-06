@@ -33,7 +33,11 @@ public class InnerDictController {
             @ApiImplicitParam(name = "value", value = "字典值", required = true)})
     @GetMapping(value = "/getName/{dictTypeId}/{value}")
     public String getHostName(@PathVariable Long dictTypeId, @PathVariable String value) {
-
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         return dictService.getHostName(dictTypeId, value);
 
     }
