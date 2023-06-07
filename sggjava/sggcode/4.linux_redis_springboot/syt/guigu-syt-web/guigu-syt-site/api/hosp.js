@@ -10,4 +10,12 @@ export default {
             params: searchObj
         })
     },
+    //根据医院编号显示医院详情
+    show(hoscode) {
+        return request({
+            url: `${hospitalApi}/show/${hoscode}`,
+            method: 'get'
+        })
+    },
+    
 }
