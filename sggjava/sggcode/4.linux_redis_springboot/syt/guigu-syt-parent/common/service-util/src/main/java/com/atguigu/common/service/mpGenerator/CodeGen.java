@@ -13,7 +13,7 @@ public class CodeGen {
 
     public static void main(String[] args) {
 
-        String  moduleName = "cmn";
+        String  moduleName = "user";
         //String projectPath = "D:/project/yygh/guigu-syt-parent";
         String projectPath = System.getProperty("user.dir");
 
