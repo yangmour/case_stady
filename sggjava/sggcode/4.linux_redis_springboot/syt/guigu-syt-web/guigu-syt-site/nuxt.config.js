@@ -1,7 +1,7 @@
 module.exports = {
 
   env: {
-    BASE_API: 'http://localhost:8200'
+    BASE_API: 'http://localhost:8000'
   },
   
   /*

@@ -20,4 +20,5 @@ public interface DictService extends IService<Dict> {
 
     String getHostName(Long dictTypeId, String value);
 
+    List<Dict> getDictListByDictTypeId(Long dictTypeId);
 }

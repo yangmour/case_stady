@@ -2,7 +2,7 @@
   <div class="home page-component">
     <el-carousel indicator-position="outside">
       <el-carousel-item>
-        <img src="~/assets/images/web-banner1.png" alt="" />
+        <img src="~assets/images/web-banner1.png" alt="" />
       </el-carousel-item>
     </el-carousel>
     <!-- 搜索 -->
@@ -34,106 +34,74 @@
             <div class="filter-wrapper">
               <span class="label">等级：</span>
               <div class="condition-wrapper">
-                <span class="item v-link clickable selected">
-                  全部 </span
-                ><span class="item v-link clickable"> 三级医院 </span
-                ><span class="item v-link clickable"> 二级医院 </span
-                ><span class="item v-link clickable"> 一级医院 </span>
+                <span
+                  class="item v-link clickable"
+                  :class="hostypeActiveIndex == -1 ? 'selected' : ''"
+                  @click="hostypeSelect(undefined, -1)"
+                >
+                  全部
+                </span>
+                <span
+                  class="item v-link clickable"
+                  :class="hostypeActiveIndex == index ? 'selected' : ''"
+                  v-for="(item, index) in hostypeList"
+                  :key="item.id"
+                  @click="hostypeSelect(item.value, index)"
+                >
+                  {{ item.name }}
+                </span>
               </div>
             </div>
             <div class="filter-wrapper">
               <span class="label">地区：</span>
               <div class="condition-wrapper">
-                <span class="item v-link clickable selected">
+                <span
+                  class="item v-link clickable"
+                  :class="areaActiveIndex == -1 ? 'selected' : ''"
+                  @click="areaSelect(undefined, -1)"
+                >
                   全部 </span
-                ><span class="item v-link clickable"> 东城区 </span
-                ><span class="item v-link clickable"> 西城区 </span
-                ><span class="item v-link clickable"> 朝阳区 </span
-                ><span class="item v-link clickable"> 丰台区 </span
-                ><span class="item v-link clickable"> 石景山区 </span
-                ><span class="item v-link clickable"> 海淀区 </span
-                ><span class="item v-link clickable"> 门头沟区 </span
-                ><span class="item v-link clickable"> 房山区 </span
-                ><span class="item v-link clickable"> 通州区 </span
-                ><span class="item v-link clickable"> 顺义区 </span
-                ><span class="item v-link clickable"> 昌平区 </span
-                ><span class="item v-link clickable"> 大兴区 </span
-                ><span class="item v-link clickable"> 怀柔区 </span
-                ><span class="item v-link clickable"> 平谷区 </span
-                ><span class="item v-link clickable"> 密云区 </span
-                ><span class="item v-link clickable"> 延庆区 </span>
+                ><span
+                  class="item v-link clickable"
+                  :class="areaActiveIndex == index ? 'selected' : ''"
+                  v-for="(item, index) in areaList"
+                  :key="item.id"
+                  @click="areaSelect(item.code, index)"
+                >
+                  {{ item.name }}
+                </span>
               </div>
             </div>
           </div>
         </div>
         <div class="v-scroll-list hospital-list">
-          <div class="v-card clickable list-item">
+          <div
+            v-for="item in hospitalList"
+            :key="item.hoscode"
+            class="v-card clickable list-item"
+          >
             <div class="">
-              <div class="hospital-list-item hos-item" index="0">
+              <div
+                @click="show(item.hoscode)"
+                class="hospital-list-item hos-item"
+                index="0"
+              >
                 <div class="wrapper">
-                  <div class="hospital-title">北京协和医院</div>
+                  <div class="hospital-title">{{ item.hosname }}</div>
                   <div class="bottom-container">
                     <div class="icon-wrapper">
                       <span class="iconfont"></span>
-                      三级甲等
+                      {{ item.param.hospName }}
                     </div>
                     <div class="icon-wrapper">
                       <span class="iconfont"></span>
-                      每天8:30放号
+                      每天{{ item.bookingRule.releaseTime }}放号
                     </div>
                   </div>
                 </div>
                 <img
-                  src="~/assets/images/yy.png"
-                  alt="北京协和医院"
-                  class="hospital-img"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="v-card clickable list-item space">
-            <div class="">
-              <div class="hospital-list-item hos-item" index="0">
-                <div class="wrapper">
-                  <div class="hospital-title">北京协和医院</div>
-                  <div class="bottom-container">
-                    <div class="icon-wrapper">
-                      <span class="iconfont"></span>
-                      三级甲等
-                    </div>
-                    <div class="icon-wrapper">
-                      <span class="iconfont"></span>
-                      每天8:30放号
-                    </div>
-                  </div>
-                </div>
-                <img
-                  src="~/assets/images/yy.png"
-                  alt="北京协和医院"
-                  class="hospital-img"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="v-card clickable list-item">
-            <div class="">
-              <div class="hospital-list-item hos-item" index="0">
-                <div class="wrapper">
-                  <div class="hospital-title">北京协和医院</div>
-                  <div class="bottom-container">
-                    <div class="icon-wrapper">
-                      <span class="iconfont"></span>
-                      三级甲等
-                    </div>
-                    <div class="icon-wrapper">
-                      <span class="iconfont"></span>
-                      每天8:30放号
-                    </div>
-                  </div>
-                </div>
-                <img
-                  src="~/assets/images/yy.png"
-                  alt="北京协和医院"
+                  :src="'data:image/jpeg;base64,' + item.logoData"
+                  :alt="item.hosname"
                   class="hospital-img"
                 />
               </div>
@@ -233,12 +201,72 @@
     </div>
   </div>
 </template>
+<!-- 客户端渲染实例 -->
 <script>
+import dictApi from "~/api/dict";
+import regionApi from "~/api/region";
+import hospApi from "~/api/hosp";
+
 export default {
-  data () {
+  // <!-- 服务端渲染异步实例 -->
+  // asyncData(){
+  //   return dictApi.dictList(1).then((response) => {
+  //     const hostypeList = response.data;
+  //     return {
+  //       hostypeList
+  //     }
+  //   });
+  // },
+
+  // <!-- 服务端渲染同步实例 -->
+  async asyncData() {
+    //获取等级
+    const hostypeResponse = await dictApi.dictList(1);
+    //获取地区
+    const areaResponse = await regionApi.regionList("110100");
+    //获取医院
+    const hospitalResponse = await hospApi.hospList({});
+
     return {
-      searchObj:{}
-    }
-  }
-}
+      hostypeList: hostypeResponse.data,
+      areaList: areaResponse.data,
+      hospitalList: hospitalResponse.data
+    };
+  },
+  data() {
+    return {
+      hostypeActiveIndex: -1, //类别高亮索引
+      areaActiveIndex: -1, //地区高亮索引
+      searchObj: {}, //查询对象
+      hostypeList: [], //医院类型列表
+      hospitalList: [],
+      areaList: [],
+    };
+  },
+  created() {},
+  methods: {
+    //根据医院等级查询
+    hostypeSelect(hostype, index) {
+      this.hostypeActiveIndex = index;
+      this.searchObj.hostype = hostype;
+      this.fetchData();
+    },
+    //根据地区查询
+    areaSelect(districtCode, index) {
+      this.areaActiveIndex = index;
+      this.searchObj.districtCode = districtCode;
+      this.fetchData();
+    },
+    //查询医院数据
+    fetchData() {
+      hospApi.hospList(this.searchObj).then((response) => {
+        this.hospitalList = response.data;
+      });
+    },
+    //点击某个医院名称，跳转到详情页面中
+    show(hoscode) {
+      window.location.href = "/hospital/" + hoscode;
+    },
+  },
+};
 </script>

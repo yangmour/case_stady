@@ -3,6 +3,7 @@ package com.atguigu.syt.hosp.service;
 import com.atguigu.syt.model.hosp.Hospital;
 import org.springframework.data.domain.Page;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -22,4 +23,6 @@ public interface HospitalService {
     void updateStatus(String hoscode, Integer status);
 
     Hospital getDetail(String hoscode);
+
+    List<Hospital> getHospital(String hoscode, String hostype, String hosname);
 }

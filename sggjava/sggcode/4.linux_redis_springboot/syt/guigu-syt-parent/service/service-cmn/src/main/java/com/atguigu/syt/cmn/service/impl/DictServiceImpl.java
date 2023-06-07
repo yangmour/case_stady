@@ -73,4 +73,14 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
 
         return dictTypeVoList;
     }
+
+
+    @Override
+    public List<Dict> getDictListByDictTypeId(Long dictTypeId) {
+        QueryWrapper<Dict> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("dict_type_id", dictTypeId);
+        return baseMapper.selectList(queryWrapper);
+    }
+
+
 }

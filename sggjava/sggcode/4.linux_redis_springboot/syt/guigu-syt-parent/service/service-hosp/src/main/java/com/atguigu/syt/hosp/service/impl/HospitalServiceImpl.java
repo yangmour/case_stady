@@ -10,13 +10,11 @@ import com.atguigu.syt.model.hosp.Hospital;
 import com.atguigu.syt.cmn.client.DictFeignClient;
 import com.atguigu.syt.cmn.client.RegionFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -112,5 +110,27 @@ public class HospitalServiceImpl implements HospitalService {
         Hospital hospital = hospitalRepository.findByHoscode(hoscode);
         packageHospital(hospital);
         return hospital;
+    }
+
+    @Override
+    public List<Hospital> getHospital(String hostype, String districtCode, String hosname) {
+        Hospital queryHospital = new Hospital();
+        queryHospital.setHostype(hostype);
+        queryHospital.setDistrictCode(districtCode);
+        queryHospital.setHosname(hosname);
+
+        ExampleMatcher matching = ExampleMatcher.matching()
+                .withMatcher("hosname", ExampleMatcher.GenericPropertyMatchers.contains())
+                .withMatcher("hostype", ExampleMatcher.GenericPropertyMatchers.exact())
+                .withMatcher("districtCode", ExampleMatcher.GenericPropertyMatchers.exact());
+
+        Example<Hospital> example = Example.of(queryHospital, matching);
+        List<Hospital> hospitals = hospitalRepository.findAll(example, Sort.by(Sort.Order.asc("hoscode")));
+
+        for (Hospital hospital : hospitals) {
+            packageHospital(hospital);
+        }
+
+        return hospitals;
     }
 }
