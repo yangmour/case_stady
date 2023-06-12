@@ -17,6 +17,7 @@
         <module>service-gateway</module>
         <module>service-cmn</module>
         <module>service-user</module>
+        <module>service-yun</module>
     </modules>
 
     <properties>

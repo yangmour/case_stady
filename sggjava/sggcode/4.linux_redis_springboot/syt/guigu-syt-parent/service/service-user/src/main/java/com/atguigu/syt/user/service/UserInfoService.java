@@ -1,6 +1,7 @@
 package com.atguigu.syt.user.service;
 
 import com.atguigu.syt.model.user.UserInfo;
+import com.atguigu.syt.vo.user.UserAuthVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -14,4 +15,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface UserInfoService extends IService<UserInfo> {
 
     UserInfo getUserInfoByOpenId(String openid);
+
+    int userAuth(Long userId, UserAuthVo userAuthVo);
 }

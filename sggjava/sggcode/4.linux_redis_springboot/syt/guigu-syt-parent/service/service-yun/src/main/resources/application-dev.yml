@@ -1,0 +1,23 @@
+server:
+  port: 8005
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.221.11.162:8848
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+logging:
+  level:
+    root: info
+  file:
+    path: yun
+
+aliyun:
+  oss:
+    endpoint: oss-cn-beijing.aliyuncs.com
+    key-id: LTAI5tKDVyuMMxiN1drD7oiR
+    key-secret: WnuWX8xIFgkIaOf9sx50sLpurIIeoJ
+    bucket-name: syt-demo
