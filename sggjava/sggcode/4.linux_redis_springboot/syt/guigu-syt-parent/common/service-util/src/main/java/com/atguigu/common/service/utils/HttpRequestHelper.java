@@ -1,4 +1,4 @@
-package com.atguigu.syt.hosp.utils;
+package com.atguigu.common.service.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.atguigu.common.service.exception.GuiguException;

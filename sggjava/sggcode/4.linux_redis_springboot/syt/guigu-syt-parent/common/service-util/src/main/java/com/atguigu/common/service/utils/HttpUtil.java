@@ -1,4 +1,4 @@
-package com.atguigu.syt.hosp.utils;
+package com.atguigu.common.service.utils;
 
 import lombok.extern.slf4j.Slf4j;
 

@@ -3,6 +3,7 @@ package com.atguigu.syt.user.service.impl;
 import com.atguigu.syt.model.user.UserInfo;
 import com.atguigu.syt.user.mapper.UserInfoMapper;
 import com.atguigu.syt.user.service.UserInfoService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +18,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> implements UserInfoService {
 
+    @Override
+    public UserInfo getUserInfoByOpenId(String openid) {
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("openid", openid);
+        return baseMapper.selectOne(queryWrapper);
+    }
 }

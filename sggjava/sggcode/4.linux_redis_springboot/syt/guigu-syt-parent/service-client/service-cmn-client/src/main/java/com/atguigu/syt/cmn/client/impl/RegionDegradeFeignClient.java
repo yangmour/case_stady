@@ -2,6 +2,7 @@ package com.atguigu.syt.cmn.client.impl;
 
 import com.atguigu.syt.cmn.client.RegionFeignClient;
 import feign.hystrix.FallbackFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,11 +13,12 @@ import org.springframework.stereotype.Component;
  * @Version: 1.0
  */
 @Component
+@Slf4j
 public class RegionDegradeFeignClient implements FallbackFactory<RegionFeignClient> {
     @Override
     public RegionFeignClient create(Throwable cause) {
         return code -> {
-//            log.info("RegionDegradeFeignClient.create执行完毕,结果:{}",code);
+            log.info("RegionDegradeFeignClient.create执行完毕,结果:{}",code);
             return "数据获取失败!";
         };
     }

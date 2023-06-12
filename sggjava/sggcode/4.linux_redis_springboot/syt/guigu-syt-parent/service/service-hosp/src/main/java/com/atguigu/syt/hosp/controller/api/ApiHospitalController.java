@@ -5,7 +5,7 @@ import com.atguigu.syt.hosp.service.DepartmentService;
 import com.atguigu.syt.hosp.service.HospitalService;
 import com.atguigu.syt.hosp.service.HospitalSetService;
 import com.atguigu.syt.hosp.service.ScheduleService;
-import com.atguigu.syt.hosp.utils.HttpRequestHelper;
+import com.atguigu.common.service.utils.HttpRequestHelper;
 import com.atguigu.syt.model.hosp.Department;
 import com.atguigu.syt.model.hosp.Hospital;
 import com.atguigu.syt.model.hosp.Schedule;
