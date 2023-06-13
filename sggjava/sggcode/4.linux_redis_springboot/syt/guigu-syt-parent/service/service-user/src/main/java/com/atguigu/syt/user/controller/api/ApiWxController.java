@@ -7,7 +7,7 @@ import com.atguigu.common.util.result.ResultCodeEnum;
 import com.atguigu.syt.enums.UserStatusEnum;
 import com.atguigu.syt.model.user.UserInfo;
 import com.atguigu.syt.user.service.UserInfoService;
-import com.atguigu.syt.user.utils.CookieUtils;
+import com.atguigu.common.service.utils.CookieUtils;
 import com.atguigu.syt.user.utils.WxProperties;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
