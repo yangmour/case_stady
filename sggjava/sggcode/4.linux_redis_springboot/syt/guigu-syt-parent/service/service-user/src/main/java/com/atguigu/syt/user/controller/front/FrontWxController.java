@@ -72,4 +72,16 @@ public class FrontWxController {
         }
         return "redirect:" + qrcodeUrl;
     }
+
+
+    @GetMapping("testSaveSession") //在8203执行session存储
+    public void testSaveSession(HttpSession session){
+        session.setAttribute("user", "helen");
+    }
+
+    @GetMapping("testGetSession") //在8213执行session获取
+    public void testGetSession(HttpSession session){
+        String user = (String)session.getAttribute("user");
+        log.info(user);
+    }
 }

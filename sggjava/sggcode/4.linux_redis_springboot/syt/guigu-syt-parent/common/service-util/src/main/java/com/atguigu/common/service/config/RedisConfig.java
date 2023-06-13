@@ -10,6 +10,7 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializationContext;
+import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 import java.time.Duration;
@@ -19,6 +20,11 @@ import java.time.Duration;
  */
 @Configuration
 public class RedisConfig {
+
+    @Bean //(name = "springSessionDefaultRedisSerializer")
+    public RedisSerializer<Object> springSessionDefaultRedisSerializer() {
+        return new GenericJackson2JsonRedisSerializer();
+    }
     @Bean
     public CacheManager cacheManager(LettuceConnectionFactory connectionFactory) {
 

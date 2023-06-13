@@ -27,6 +27,11 @@
     </properties>
 
     <dependencies>
+        <!--spring session-->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
         <!--服务注册-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
