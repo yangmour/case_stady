@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * Description:
@@ -34,8 +35,8 @@ public class FrontUserController {
     @ApiOperation(value = "用户认证")
     @ApiImplicitParam(name = "userAuthVo", value = "用户实名认证对象", required = true)
     @PostMapping("/auth/userAuth")
-    public Result<Object> userAuth(@RequestBody UserAuthVo userAuthVo, HttpServletRequest httpServletRequest) {
-        Long userId = authContextHolder.checkAuth(httpServletRequest);
+    public Result<Object> userAuth(@RequestBody UserAuthVo userAuthVo, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+        Long userId = authContextHolder.checkAuth(httpServletRequest, httpServletResponse);
         int rows = userInfoService.userAuth(userId, userAuthVo);
         return rows == 1 ? Result.ok() : Result.fail();
     }
@@ -43,8 +44,8 @@ public class FrontUserController {
 
     @ApiOperation(value = "获取认证信息")
     @GetMapping("/auth/getUserInfo")
-    public Result<Object> getUserInfo(HttpServletRequest httpServletRequest) {
-        Long userId = authContextHolder.checkAuth(httpServletRequest);
+    public Result<Object> getUserInfo(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+        Long userId = authContextHolder.checkAuth(httpServletRequest, httpServletResponse);
 
         UserInfo userInfo = userInfoService.getUserInfoByUserId(userId);
         return Result.ok(userInfo);

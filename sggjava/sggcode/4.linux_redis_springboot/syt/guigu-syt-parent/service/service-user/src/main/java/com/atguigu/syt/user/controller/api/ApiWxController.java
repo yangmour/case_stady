@@ -2,13 +2,14 @@ package com.atguigu.syt.user.controller.api;
 
 import com.alibaba.fastjson2.JSONObject;
 import com.atguigu.common.service.exception.GuiguException;
+import com.atguigu.common.service.utils.AuthContextHolder;
 import com.atguigu.common.service.utils.HttpUtil;
 import com.atguigu.common.util.result.ResultCodeEnum;
 import com.atguigu.syt.enums.UserStatusEnum;
 import com.atguigu.syt.model.user.UserInfo;
 import com.atguigu.syt.user.service.UserInfoService;
-import com.atguigu.common.service.utils.CookieUtils;
 import com.atguigu.syt.user.utils.WxProperties;
+import com.atguigu.syt.vo.user.UserVo;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,11 +19,10 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.net.URLEncoder;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Description:
@@ -41,10 +41,11 @@ public class ApiWxController {
     private final WxProperties WX_PROPERTIES;
     private final UserInfoService userInfoService;
     private final RedisTemplate redisTemplate;
+    private final AuthContextHolder authContextHolder;
 
 
     @GetMapping("callback")
-    public String callback(String code, String state, HttpSession httpSession, HttpServletResponse httpServletResponse) {
+    public String callback(String code, String state, HttpSession httpSession, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
 
         try {
             if (StringUtils.isEmpty(code) || StringUtils.isEmpty(state) || !state.equals(httpSession.getAttribute("wx_open_state"))) {
@@ -119,18 +120,22 @@ public class ApiWxController {
                 name = getUserInfo.getNickName();
             }
 
-            String token = UUID.randomUUID().toString().replaceAll("-", "");
-
+           /*
+           String token = UUID.randomUUID().toString().replaceAll("-", "");
             //登陆完成后返回一些用户信息
             //30分钟
             int cookieMaxTime = 30 * 60;
             CookieUtils.setCookie(httpServletResponse, "token", token, cookieMaxTime);
             CookieUtils.setCookie(httpServletResponse, "name", URLEncoder.encode(name), cookieMaxTime);
             CookieUtils.setCookie(httpServletResponse, "headimgurl", URLEncoder.encode(getUserInfo.getHeadImgUrl()), cookieMaxTime);
-
             //把token放入redis中
             redisTemplate.opsForValue().set("user:token:" + token, getUserInfo.getId(), 30, TimeUnit.MINUTES);
-            //把用户信息保存到redis中，方便后续认证使用。
+            */
+            UserVo userVo = new UserVo();
+            userVo.setName(name);
+            userVo.setUserId(getUserInfo.getId());
+            userVo.setHeadimgurl(getUserInfo.getHeadImgUrl());
+            authContextHolder.saveToken(userVo, httpServletResponse);
             //重定向：回到用户系统首页
             return "redirect:" + WX_PROPERTIES.getSytBaseUrl();
         } catch (GuiguException e) {

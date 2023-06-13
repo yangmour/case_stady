@@ -68,14 +68,13 @@ export default {
   methods: {
 
     showInfo() {
-      let token = cookie.get('token')
-      if (token) {
+    let refreshToken = cookie.get('refreshToken')
+    if (refreshToken) {
         this.name = cookie.get('name')
         this.headimgurl = cookie.get('headimgurl')
-      }
-    },
-
-    login() {
+    }
+  },
+  login() {
       window.location = process.env.BASE_API + '/front/user/wx/login'
     },
 
@@ -83,6 +82,7 @@ export default {
       if ('/logout' == command) {
         cookie.set('name', '', {domain: 'localhost'})
         cookie.set('token', '', {domain: 'localhost'})
+        cookie.set('refreshToken', '', {domain: 'localhost'})
         cookie.set('headimgurl', '', {domain: 'localhost'})
 
         //跳转页面

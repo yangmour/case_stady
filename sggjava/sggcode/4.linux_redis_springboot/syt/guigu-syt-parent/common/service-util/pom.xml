@@ -18,6 +18,12 @@
     </properties>
 
     <dependencies>
+        <!--实体-->
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>model</artifactId>
+            <version>1.0</version>
+        </dependency>
         <!--fastjson-->
         <dependency>
             <groupId>com.alibaba</groupId>
