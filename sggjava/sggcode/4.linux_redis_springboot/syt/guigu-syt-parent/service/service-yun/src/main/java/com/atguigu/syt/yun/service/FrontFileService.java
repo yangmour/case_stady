@@ -13,4 +13,6 @@ import java.util.Map;
  */
 public interface FrontFileService {
     Map<String, String> upload(MultipartFile file);
+
+    String getPreviewUrl(String objectName);
 }

@@ -36,13 +36,22 @@ public class AuthContextHolder {
         if (StringUtils.isEmpty(token)) {
             throw new GuiguException(ResultCodeEnum.LOGIN_AUTH);
         }
-        String userIdStr = (String) redisTemplate.opsForValue().get("user:token:" + token);
+        Object o = redisTemplate.opsForValue().get("user:token:" + token);
 
-        if (StringUtils.isEmpty(userIdStr)) {
+        if (o == null) {
             throw new GuiguException(ResultCodeEnum.LOGIN_AUTH);
         }
 
-        return Long.parseLong(userIdStr);
+        long userId;
+        if (o instanceof Integer) {
+            userId = ((Integer) o).longValue();
+        } else if (o instanceof Long) {
+            userId = (Long) o;
+        } else {
+            userId = Long.parseLong((String) o);
+        }
+
+        return userId;
     }
 
 }

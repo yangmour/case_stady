@@ -17,4 +17,6 @@ public interface UserInfoService extends IService<UserInfo> {
     UserInfo getUserInfoByOpenId(String openid);
 
     int userAuth(Long userId, UserAuthVo userAuthVo);
+
+    UserInfo getUserInfoByUserId(Long userId);
 }

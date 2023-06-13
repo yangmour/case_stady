@@ -1,6 +1,6 @@
 import request from "@/utils/request"
 
-const API = "/cmn/region"
+const API = "/admin/cmn/region"
 export default {
     getRegionList(parentCode) {
         return request({

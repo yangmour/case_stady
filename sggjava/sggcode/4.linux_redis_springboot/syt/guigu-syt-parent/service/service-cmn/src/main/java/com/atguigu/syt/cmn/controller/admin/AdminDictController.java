@@ -20,7 +20,7 @@ import java.util.List;
  * @since 2023-05-31
  */
 @RestController
-@RequestMapping("/cmn/dict")
+@RequestMapping("/admin/cmn/dict")
 public class AdminDictController {
 
     @Autowired

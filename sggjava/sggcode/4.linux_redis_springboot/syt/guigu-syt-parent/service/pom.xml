@@ -27,21 +27,26 @@
     </properties>
 
     <dependencies>
-        <!--spring session-->
         <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-data-redis</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
-        <!--服务注册-->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <groupId>com.atguigu</groupId>
+            <artifactId>service-yun-client</artifactId>
+            <version>1.0</version>
         </dependency>
-
         <dependency>
             <groupId>com.atguigu</groupId>
             <artifactId>service-cmn-client</artifactId>
             <version>1.0</version>
+        </dependency>
+
+        <!--服务注册-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
         <!-- 熔断和降级 -->

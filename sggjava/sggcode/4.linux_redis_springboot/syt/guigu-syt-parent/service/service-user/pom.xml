@@ -18,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <!--spring session-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.session</groupId>-->
+        <!--            <artifactId>spring-session-data-redis</artifactId>-->
+        <!--        </dependency>-->
         <!--服务通用配置-->
         <dependency>
             <groupId>com.atguigu</groupId>

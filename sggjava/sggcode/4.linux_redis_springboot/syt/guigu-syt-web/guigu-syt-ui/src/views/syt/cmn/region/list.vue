@@ -44,7 +44,7 @@
             :on-progress="onUploadProgress"
             :on-success="onUploadSuccess"
             :on-error="onUploadError"
-            :action="VUE_APP_BASE_API + '/cmn/region/upload'"
+            :action="VUE_APP_BASE_API + '/admin/cmn/region/upload'"
           >
             <el-button size="small" type="primary">点击上传</el-button>
             <div slot="tip" class="el-upload__tip">
@@ -113,7 +113,7 @@ export default {
       //使用当前方式传递token
       const config = {
         method: "get",
-        url: "/dev-api/cmn/region/download",
+        url: "/dev-api/admin/cmn/region/download",
         headers: {
           token: store.getters.token, //
         },

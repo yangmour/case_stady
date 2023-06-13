@@ -1,6 +1,6 @@
 import request from "@/utils/request"
 
-const API = "/cmn/dict"
+const API = "/admin/cmn/dict"
 export default {
 
     getList() {

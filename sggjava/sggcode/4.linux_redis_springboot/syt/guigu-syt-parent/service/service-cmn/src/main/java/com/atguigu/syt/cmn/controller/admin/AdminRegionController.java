@@ -26,7 +26,7 @@ import java.util.List;
  * @since 2023-05-31
  */
 @RestController
-@RequestMapping("/cmn/region")
+@RequestMapping("/admin/cmn/region")
 @Slf4j
 public class AdminRegionController {
 
