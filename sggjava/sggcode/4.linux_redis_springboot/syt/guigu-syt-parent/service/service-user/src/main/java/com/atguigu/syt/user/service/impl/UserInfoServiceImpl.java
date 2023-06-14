@@ -8,12 +8,15 @@ import com.atguigu.syt.model.user.UserInfo;
 import com.atguigu.syt.user.mapper.UserInfoMapper;
 import com.atguigu.syt.user.service.UserInfoService;
 import com.atguigu.syt.vo.user.UserAuthVo;
+import com.atguigu.syt.vo.user.UserInfoQueryVo;
 import com.atguigu.syt.yun.client.FileFeignClient;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 /**
  * <p>
@@ -56,6 +59,28 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         UserInfo userInfo = baseMapper.selectById(userId);
         packInfo(userInfo);
         return userInfo;
+    }
+
+    @Override
+    public Page<UserInfo> getList(Integer pageNum, Integer pageSize, UserInfoQueryVo userInfoQueryVo) {
+
+        Page<UserInfo> page = new Page<>(pageNum, pageSize);
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
+
+        String keyword = userInfoQueryVo.getKeyword();
+        queryWrapper.and(!StringUtils.isEmpty(keyword), wrapper -> {
+            wrapper.like("name", keyword);
+            wrapper.eq("phone", keyword);
+        });
+
+        queryWrapper.ge(!StringUtils.isEmpty(userInfoQueryVo.getCreateTimeBegin()), "create_time", userInfoQueryVo.getCreateTimeBegin());
+        queryWrapper.le(!StringUtils.isEmpty(userInfoQueryVo.getCreateTimeEnd()),"create_time", userInfoQueryVo.getCreateTimeEnd());
+
+        baseMapper.selectPage(page, queryWrapper);
+
+        //封装
+        page.getRecords().forEach(this::packInfo);
+        return page;
     }
 
     public void packInfo(UserInfo userInfo) {

@@ -2,6 +2,8 @@ package com.atguigu.syt.user.service;
 
 import com.atguigu.syt.model.user.UserInfo;
 import com.atguigu.syt.vo.user.UserAuthVo;
+import com.atguigu.syt.vo.user.UserInfoQueryVo;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -19,4 +21,6 @@ public interface UserInfoService extends IService<UserInfo> {
     int userAuth(Long userId, UserAuthVo userAuthVo);
 
     UserInfo getUserInfoByUserId(Long userId);
+
+    Page<UserInfo> getList(Integer pageNum, Integer pageSize, UserInfoQueryVo userInfoService);
 }
