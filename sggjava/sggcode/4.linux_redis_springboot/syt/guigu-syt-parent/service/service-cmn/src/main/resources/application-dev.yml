@@ -22,7 +22,7 @@ spring:
     name: service-cmn
 logging:
   level:
-    root: debug
+    root: info
   #    com.atguigu.syt.hosp.controller.admin: info
   file:
     path: common
