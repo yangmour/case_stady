@@ -172,7 +172,7 @@
                   <div class="button-wrapper">
                     <div
                       class="v-button"
-                      @click="booking(item.param, item.availableNumber)"
+                      @click="booking(item.param.id, item.availableNumber)"
                       :style="
                         item.availableNumber == 0 || pageFirstStatus == -1
                           ? 'background-color: #7f828b;'
