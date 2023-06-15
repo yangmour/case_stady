@@ -23,4 +23,8 @@ public interface ScheduleService {
     Map<String, Object> getScheduleRule(String hoscode, String depCode, Integer pageNum, Integer pageSize);
 
     List<Schedule> getScheduleDetail(String hoscode, String depcode, String workDate);
+
+    Map<String, Object> getBookingScheduleRule(Integer pageNum, Integer pageSize, String hoscode, String depcode);
+
+    Schedule getScheduleDetailById(String scheduleId);
 }
