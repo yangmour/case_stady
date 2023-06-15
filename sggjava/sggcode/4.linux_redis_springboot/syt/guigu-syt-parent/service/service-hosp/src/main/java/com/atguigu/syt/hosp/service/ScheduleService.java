@@ -1,6 +1,7 @@
 package com.atguigu.syt.hosp.service;
 
 import com.atguigu.syt.model.hosp.Schedule;
+import com.atguigu.syt.vo.hosp.ScheduleOrderVo;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -27,4 +28,7 @@ public interface ScheduleService {
     Map<String, Object> getBookingScheduleRule(Integer pageNum, Integer pageSize, String hoscode, String depcode);
 
     Schedule getScheduleDetailById(String scheduleId);
+
+    ScheduleOrderVo getScheduleOrderVo(String scheduleId);
+
 }

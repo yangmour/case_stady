@@ -4,9 +4,12 @@ import com.atguigu.syt.hosp.mapper.HospitalSetMapper;
 import com.atguigu.syt.hosp.service.HospitalSetService;
 import com.atguigu.syt.model.hosp.HospitalSet;
 import com.atguigu.syt.vo.hosp.HospitalSetQueryVo;
+import com.atguigu.syt.vo.order.SignInfoVo;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -38,5 +41,15 @@ public class HospitalSetServiceImpl extends ServiceImpl<HospitalSetMapper, Hospi
 
         HospitalSet hospitalSet = baseMapper.selectOne(queryWrapper);
         return hospitalSet.getSignKey();
+    }
+
+    @Override
+    public SignInfoVo getSignInfoVoByHocode(String hoscode) {
+        LambdaQueryWrapper<HospitalSet> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(HospitalSet::getHoscode, hoscode);
+        HospitalSet hospitalSet = baseMapper.selectOne(queryWrapper);
+        SignInfoVo signInfoVo = new SignInfoVo();
+        BeanUtils.copyProperties(hospitalSet, signInfoVo);
+        return signInfoVo;
     }
 }

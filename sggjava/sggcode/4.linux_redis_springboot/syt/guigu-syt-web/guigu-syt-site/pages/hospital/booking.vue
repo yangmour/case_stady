@@ -203,7 +203,9 @@
             <!-- 用户信息 #end -->
             <div class="bottom-wrapper">
               <div class="button-wrapper">
-                <div class="v-button" @click="submitOrder()">确认挂号</div>
+                <div class="v-button" @click="submitOrder()">
+                  {{ orderText }}
+                </div>
               </div>
             </div>
           </div>
@@ -221,10 +223,13 @@ import "~/assets/css/hospital.css";
 
 import scheduleApi from "~/api/schedule";
 import patientApi from "~/api/patient";
+import orderInfoApi from "~/api/orderInfo";
 
 export default {
   data() {
     return {
+      orderBtnDisabled: false, //防止重复提交
+      orderText: "确认挂号",
       scheduleId: null,
       schedule: {
         //预约详情
@@ -278,7 +283,16 @@ export default {
     },
 
     //确认挂号
-    submitOrder() {},
+    submitOrder() {
+      if (this.orderBtnDisabled) return;
+      this.orderBtnDisabled = true;
+      this.orderText = "预约挂号中...";
+      orderInfoApi
+        .submitOrder(this.scheduleId, this.patient.id)
+        .then((response) => {
+          window.location.href = "/order/show?orderId=" + response.data;
+        });
+    },
 
     //跳转到添加就诊人页面
     addPatient() {

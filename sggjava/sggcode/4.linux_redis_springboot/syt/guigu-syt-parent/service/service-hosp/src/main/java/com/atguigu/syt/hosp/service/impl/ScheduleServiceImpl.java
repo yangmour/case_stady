@@ -11,11 +11,13 @@ import com.atguigu.syt.model.hosp.Department;
 import com.atguigu.syt.model.hosp.Hospital;
 import com.atguigu.syt.model.hosp.Schedule;
 import com.atguigu.syt.vo.hosp.BookingScheduleRuleVo;
+import com.atguigu.syt.vo.hosp.ScheduleOrderVo;
 import com.atguigu.syt.vo.hosp.ScheduleRuleVo;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -143,7 +145,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 
         scheduleList.forEach(schedule -> {
             schedule.getParam().put("id", schedule.getId().toString());
-            System.out.println("-------------------"+schedule.getParam());
+            System.out.println("-------------------" + schedule.getParam());
 
         });
         return scheduleList;
@@ -240,6 +242,35 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
 
         return null;
+    }
+
+    @Override
+    public ScheduleOrderVo getScheduleOrderVo(String scheduleId) {
+        Schedule schedule = getScheduleDetailById(scheduleId);
+
+        //医院编号
+        Hospital hospital = hospitalRepository.findByHoscode(schedule.getHoscode());
+        //科室编号
+        Department department = departmentRepository.findByHoscodeAndDepcode(schedule.getHoscode(), schedule.getDepcode());
+
+        ScheduleOrderVo scheduleOrderVo = new ScheduleOrderVo();
+
+        scheduleOrderVo.setHosname(hospital.getHosname());
+        scheduleOrderVo.setDepname(department.getDepname());
+        BeanUtils.copyProperties(hospital, scheduleOrderVo);
+        BeanUtils.copyProperties(department, scheduleOrderVo);
+        scheduleOrderVo.setReserveDate(schedule.getWorkDate());
+        scheduleOrderVo.setReserveTime(schedule.getWorkTime());
+
+        scheduleOrderVo.setHosScheduleId(schedule.getHosScheduleId());
+        scheduleOrderVo.setTitle(schedule.getTitle());
+        scheduleOrderVo.setAvailableNumber(schedule.getAvailableNumber());
+        scheduleOrderVo.setAmount(schedule.getAmount());
+
+        scheduleOrderVo.setQuitTime(new DateTime(schedule.getWorkDate()).plusDays(hospital.getBookingRule().getQuitDay()).toDate());
+
+
+        return scheduleOrderVo;
     }
 
     private void packSchedule(Schedule schedule) {
