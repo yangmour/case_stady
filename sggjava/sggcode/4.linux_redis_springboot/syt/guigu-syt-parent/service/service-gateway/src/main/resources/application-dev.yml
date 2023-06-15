@@ -25,3 +25,7 @@ spring:
           uri: lb://service-yun
           predicates:
             - Path=/*/yun/**
+        - id: service-order
+          uri: lb://service-order
+          predicates:
+            - Path=/*/order/**
