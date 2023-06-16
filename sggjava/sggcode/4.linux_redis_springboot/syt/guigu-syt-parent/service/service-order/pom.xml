@@ -18,6 +18,12 @@
     </properties>
 
     <dependencies>
+        <!--微信支付APIv3-->
+        <dependency>
+            <groupId>com.github.wechatpay-apiv3</groupId>
+            <artifactId>wechatpay-java</artifactId>
+            <version>0.2.6</version>
+        </dependency>
         <!--服务通用配置-->
         <dependency>
             <groupId>com.atguigu</groupId>

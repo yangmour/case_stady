@@ -16,4 +16,6 @@ public interface OrderInfoService extends IService<OrderInfo> {
     Long submitOrder(Long userId, String scheduleId, Long patientId);
 
     OrderInfo getOrderInfoById(Long userId, Long oid);
+
+    OrderInfo getOrderInfoByIdAndOutTradeNo(Long userId, String outTradeNo);
 }

@@ -142,4 +142,13 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         log.info("OrderInfoServiceImpl.getOrderInfoById执行完毕,结果:{}", orderInfo);
         return orderInfo;
     }
+
+    @Override
+    public OrderInfo getOrderInfoByIdAndOutTradeNo(Long userId, String outTradeNo) {
+        LambdaQueryWrapper<OrderInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(OrderInfo::getUserId, userId);
+        queryWrapper.eq(OrderInfo::getOutTradeNo, outTradeNo);
+
+        return baseMapper.selectOne(queryWrapper);
+    }
 }
