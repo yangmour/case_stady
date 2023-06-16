@@ -32,7 +32,7 @@ public class InnerDictController {
             @ApiImplicitParam(name = "dictTypeId", value = "字典类型id", required = true),
             @ApiImplicitParam(name = "value", value = "字典值", required = true)})
     @GetMapping(value = "/getName/{dictTypeId}/{value}")
-    public String getHostName(@PathVariable Long dictTypeId, @PathVariable String value) {
+    public String getHostName(@PathVariable("dictTypeId") Long dictTypeId, @PathVariable("value") String value) {
 //        try {
 //            Thread.sleep(3000);
 //        } catch (InterruptedException e) {

@@ -10,7 +10,6 @@ import com.atguigu.syt.hosp.repository.HospitalRepository;
 import com.atguigu.syt.hosp.service.HospitalService;
 import com.atguigu.syt.model.hosp.Hospital;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -31,7 +30,6 @@ public class HospitalServiceImpl implements HospitalService {
     @Autowired
     private HospitalRepository hospitalRepository;
 
-    @Qualifier("dictDegradeFeignClient")
     @Autowired
     private DictFeignClient dictFeignClient;
 

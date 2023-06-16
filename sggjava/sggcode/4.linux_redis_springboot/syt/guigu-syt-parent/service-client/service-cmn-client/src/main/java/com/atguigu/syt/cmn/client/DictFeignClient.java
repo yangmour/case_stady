@@ -16,6 +16,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface DictFeignClient {
 
     @GetMapping(value = "/inner/cmn/dict/getName/{dictTypeId}/{value}")
-    String getHostName(@PathVariable Long dictTypeId, @PathVariable String value);
-
+    String getHostName(@PathVariable("dictTypeId") Long dictTypeId, @PathVariable("value") String value);
 }
