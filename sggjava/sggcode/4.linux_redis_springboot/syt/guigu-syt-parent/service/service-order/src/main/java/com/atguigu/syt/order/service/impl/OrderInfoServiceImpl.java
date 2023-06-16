@@ -14,7 +14,9 @@ import com.atguigu.syt.order.service.OrderInfoService;
 import com.atguigu.syt.user.client.PatientFeignClient;
 import com.atguigu.syt.vo.hosp.ScheduleOrderVo;
 import com.atguigu.syt.vo.order.SignInfoVo;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,7 @@ import java.util.UUID;
  * @since 2023-06-15
  */
 @Service
+@Slf4j
 public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo> implements OrderInfoService {
 
 
@@ -57,7 +60,6 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         if (scheduleInfo == null) {
             throw new GuiguException(ResultCodeEnum.PARAM_ERROR);
         }
-
 
 
         //基本信息
@@ -122,10 +124,22 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         Integer availableNumber = data.getInteger("availableNumber");
 
         //预约数不足
-        if(scheduleInfo.getAvailableNumber() <= 0) {
+        if (scheduleInfo.getAvailableNumber() <= 0) {
             throw new GuiguException(ResultCodeEnum.NUMBER_NO);
         }
 
         return orderInfo.getId();
+    }
+
+    @Override
+    public OrderInfo getOrderInfoById(Long userId, Long oid) {
+        LambdaQueryWrapper<OrderInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(OrderInfo::getUserId, userId);
+        queryWrapper.eq(OrderInfo::getId, oid);
+
+        OrderInfo orderInfo = baseMapper.selectOne(queryWrapper);
+        orderInfo.getParam().put("orderStatusString", OrderStatusEnum.getStatusNameByStatus(orderInfo.getOrderStatus()));
+        log.info("OrderInfoServiceImpl.getOrderInfoById执行完毕,结果:{}", orderInfo);
+        return orderInfo;
     }
 }

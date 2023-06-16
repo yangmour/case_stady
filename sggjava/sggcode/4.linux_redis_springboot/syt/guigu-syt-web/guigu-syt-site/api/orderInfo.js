@@ -6,5 +6,12 @@ export default {
       url: `/front/order/orderInfo/submitOrder/${scheduleId}/${patientId}`,
       method: 'get'
     })
-  }
+  },
+  //订单详情
+  getOrder(orderId) {
+    return request({
+      url: `/front/order/orderInfo/getOrderInfo/${orderId}`,
+      method: `get`
+    })
+  },
 }

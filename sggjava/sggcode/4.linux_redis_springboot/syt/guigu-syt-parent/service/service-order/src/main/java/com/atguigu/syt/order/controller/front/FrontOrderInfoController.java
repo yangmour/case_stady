@@ -2,6 +2,7 @@ package com.atguigu.syt.order.controller.front;
 
 import com.atguigu.common.service.utils.AuthContextHolder;
 import com.atguigu.common.util.result.Result;
+import com.atguigu.syt.model.order.OrderInfo;
 import com.atguigu.syt.order.service.OrderInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -43,6 +44,17 @@ public class FrontOrderInfoController {
         Long userId = authContextHolder.checkAuth(httpServletRequest, httpServletResponse);
         Long orderId = orderInfoService.submitOrder(userId, scheduleId, patientId);
         return Result.ok(orderId);
+    }
+
+    @ApiOperation("查询订单详情")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "oid", value = "订单id", required = true),
+    })
+    @GetMapping("getOrderInfo/{oid}")
+    public Result<Object> getOrderInfo(@PathVariable Long oid, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+        Long userId = authContextHolder.checkAuth(httpServletRequest, httpServletResponse);
+        OrderInfo orderInfo = orderInfoService.getOrderInfoById(userId, oid);
+        return Result.ok(orderInfo);
     }
 
 }
