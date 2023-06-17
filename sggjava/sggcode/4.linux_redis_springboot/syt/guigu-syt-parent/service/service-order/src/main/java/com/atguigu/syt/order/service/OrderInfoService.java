@@ -18,4 +18,6 @@ public interface OrderInfoService extends IService<OrderInfo> {
     OrderInfo getOrderInfoById(Long userId, Long oid);
 
     OrderInfo getOrderInfoByIdAndOutTradeNo(Long userId, String outTradeNo);
+
+    void updateStatus(String outTradeNo, Integer status);
 }

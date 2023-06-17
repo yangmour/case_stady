@@ -154,7 +154,7 @@
         <div class="operate-view" style="height: 350px">
           <div class="wrapper wechat">
             <div>
-              <qriously :value="codeUrl" :size="220"/>
+              <qriously :value="codeUrl" :size="220" />
               <div
                 style="
                   text-align: center;
@@ -217,10 +217,34 @@ export default {
       wxpayApi.nativePay(this.orderInfo.outTradeNo).then((response) => {
         this.codeUrl = response.data;
         this.dialogPayVisible = true;
+        //每隔3秒查单
+        // this.timer = setInterval(() => {
+        //   console.log("轮询查单:" + new Date());
+        //   this.queryPayStatus();
+        // }, 3000);
+
+        //每隔3秒查单
+        this.timer = setInterval(() => {
+          console.log("轮询查单:" + new Date());
+          this.queryPayStatus();
+        }, 3000);
+      });
+    },
+    //查询订单状态
+    queryPayStatus() {
+      wxpayApi.queryPayStatus(this.orderInfo.outTradeNo).then((response) => {
+        if (response.code == 250) {
+          return;
+        }
+        //清空定时器
+        clearInterval(this.timer);
+        window.location.reload();
       });
     },
     //关闭对话框
     closeDialog() {
+      //停止定时器
+      clearInterval(this.timer);
       //恢复支付按钮
       this.isPayShow = false;
       this.payText = "支付";

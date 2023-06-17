@@ -37,17 +37,16 @@ service.interceptors.response.use(
             }).catch(() => {
                 window.location.href = '/'
             })
-        } else
-            if (response.data.code !== 200) {
-                Message({
-                    message: response.data.message,
-                    type: 'error',
-                    duration: 5 * 1000
-                })
-                return Promise.reject(response.data)
-            } else {
-                return response.data
-            }
+        } else if (response.data.code !== 200 && response.data.code !== 250) {
+            Message({
+                message: response.data.message,
+                type: 'error',
+                duration: 5 * 1000
+            })
+            return Promise.reject(response.data)
+        } else {
+            return response.data
+        }
     },
     error => {
         return Promise.reject(error.response)

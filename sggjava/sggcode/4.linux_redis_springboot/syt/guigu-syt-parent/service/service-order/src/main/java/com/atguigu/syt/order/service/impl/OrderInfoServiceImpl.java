@@ -128,6 +128,8 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
             throw new GuiguException(ResultCodeEnum.NUMBER_NO);
         }
 
+        //todo 通知修改库存等
+
         return orderInfo.getId();
     }
 
@@ -150,5 +152,14 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         queryWrapper.eq(OrderInfo::getOutTradeNo, outTradeNo);
 
         return baseMapper.selectOne(queryWrapper);
+    }
+
+    @Override
+    public void updateStatus(String outTradeNo, Integer status) {
+        LambdaQueryWrapper<OrderInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(OrderInfo::getOutTradeNo, outTradeNo);
+        OrderInfo orderInfo = new OrderInfo();
+        orderInfo.setOrderStatus(status);
+        baseMapper.update(orderInfo, queryWrapper);
     }
 }
