@@ -141,42 +141,5 @@ public class WxPayServiceImpl implements WxPayService {
         }
     }
 
-    @Override
-    public void cancelOrderByUidAndOutTradeNo(Long userId, String outTradeNo) {
-        OrderInfo orderInfo = orderInfoService.getOrderInfoByIdAndOutTradeNo(userId, outTradeNo);
 
-
-        SignInfoVo signInfoVo = hospitalSetFeignClient.getSignInfoVo(orderInfo.getHoscode());
-        Map<String, Object> paramMap = new HashMap<>();
-        paramMap.put("hoscode", orderInfo.getHoscode());
-        paramMap.put("hosOrderId", orderInfo.getHosOrderId());
-        paramMap.put("hosScheduleId", orderInfo.getHosScheduleId());
-        paramMap.put("timestamp", HttpRequestHelper.getTimestamp());
-        paramMap.put("sign", HttpRequestHelper.getSign(paramMap, signInfoVo.getSignKey()));
-        JSONObject jsonObject = HttpRequestHelper.sendRequest(paramMap, signInfoVo.getApiUrl() + "/order/updateCancelStatus");
-
-        //检查第三方医院是否能用
-        if (jsonObject == null || 200 != jsonObject.getInteger("code")) {
-            log.info("WxPayServiceImpl.cancelOrderByUidAndOutTradeNo执行完毕,结果:code {},msg {}", jsonObject.get("code"), jsonObject.get("message"));
-            throw new GuiguException(ResultCodeEnum.CANCEL_ORDER_NO);
-        }
-        //已支付状态
-        if (orderInfo.getOrderStatus().intValue() == OrderStatusEnum.PAID.getStatus()) {
-            DateTime quitTime = new DateTime(orderInfo.getQuitTime());
-//            如果以及过了退号时间就不能取消
-            if (quitTime.isBeforeNow()) {
-                throw new GuiguException(ResultCodeEnum.CANCEL_ORDER_NO);
-            }
-            //可以取消预约
-            log.info("WxPayServiceImpl.cancelOrderByUidAndOutTradeNo执行完毕,结果:{}", "已支付的退款申请!");
-            //todo：申请退款
-
-            //修改状态
-            orderInfoService.updateStatus(outTradeNo, OrderStatusEnum.CANCLE_UNREFUND.getStatus());
-        } else {//未支付状态
-            orderInfoService.updateStatus(outTradeNo, OrderStatusEnum.CANCLE.getStatus());
-        }
-
-
-    }
 }

@@ -57,4 +57,17 @@ public class FrontOrderInfoController {
         return Result.ok(orderInfo);
     }
 
+    @ApiOperation("取消预约")
+    @ApiImplicitParam(name = "outTradeNo", value = "订单id", required = true)
+    @GetMapping("cancelOrder/{outTradeNo}")
+    public Result<Object> cancelOrder(@PathVariable String outTradeNo,
+                                      HttpServletRequest httpServletRequest,
+                                      HttpServletResponse httpServletResponse) {
+        Long userId = authContextHolder.checkAuth(httpServletRequest, httpServletResponse);
+
+        orderInfoService.cancelOrderByUidAndOutTradeNo(userId, outTradeNo);
+        return Result.ok();
+
+    }
+
 }

@@ -11,6 +11,4 @@ public interface WxPayService {
     String createNativePay(Long userId, String outTradeNo);
 
     boolean queryPayStatus(Long userId, String outTradeNo);
-
-    void cancelOrderByUidAndOutTradeNo(Long userId, String outTradeNo);
 }
