@@ -18,5 +18,11 @@ export default {
             url: `${api}/auth/getUserInfo`,
             method: `get`,
         })
-    }
+    },
+     bindPhone(phone, code) {
+        return request({
+            url: `/front/user/userInfo/bindPhone/${phone}/${code}`,
+            method: `get`
+        })
+    },
 }

@@ -207,6 +207,7 @@ export default {
   },
 
   methods: {
+    
     init() {
       this.getUserInfo()
 

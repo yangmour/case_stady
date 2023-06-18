@@ -23,4 +23,6 @@ public interface UserInfoService extends IService<UserInfo> {
     UserInfo getUserInfoByUserId(Long userId);
 
     Page<UserInfo> getList(Integer pageNum, Integer pageSize, UserInfoQueryVo userInfoService);
+
+    void bindPhone(Long userId, String phone, String code);
 }

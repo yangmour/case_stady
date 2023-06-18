@@ -21,3 +21,8 @@ aliyun:
     key-id: LTAI5tKDVyuMMxiN1drD7oiR
     key-secret: WnuWX8xIFgkIaOf9sx50sLpurIIeoJ
     bucket-name: syt-demo
+  sms:
+    host: https://dfsns.market.alicloudapi.com
+    path: /data/send_sms
+    method: POST
+    appcode: 26d5751ab60548ab8878e9516d798d2b
