@@ -267,7 +267,10 @@ public class ScheduleServiceImpl implements ScheduleService {
         scheduleOrderVo.setAvailableNumber(schedule.getAvailableNumber());
         scheduleOrderVo.setAmount(schedule.getAmount());
 
-        scheduleOrderVo.setQuitTime(new DateTime(schedule.getWorkDate()).plusDays(hospital.getBookingRule().getQuitDay()).toDate());
+        BookingRule bookingRule = hospital.getBookingRule();
+        DateTime dateTime = new DateTime(schedule.getWorkDate()).plusDays(bookingRule.getQuitDay());
+        DateTime quitTime = parseDateToDateTime(dateTime.toDate(), bookingRule.getQuitTime());
+        scheduleOrderVo.setQuitTime(quitTime.toDate());
 
 
         return scheduleOrderVo;

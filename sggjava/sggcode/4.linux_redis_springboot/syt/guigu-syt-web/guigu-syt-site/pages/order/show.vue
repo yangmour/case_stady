@@ -201,6 +201,20 @@ export default {
   },
 
   methods: {
+    //取消预约方法
+    cancelOrder() {
+      this.$confirm("确定取消预约吗?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      }).then(() => {
+        // 点击确定，远程调用
+        orderInfoApi.cancelOrder(this.orderInfo.outTradeNo).then((response) => {
+          this.$message.success("取消成功");
+          this.init();
+        });
+      });
+    },
     init() {
       orderInfoApi.getOrder(this.orderId).then((response) => {
         this.orderInfo = response.data;

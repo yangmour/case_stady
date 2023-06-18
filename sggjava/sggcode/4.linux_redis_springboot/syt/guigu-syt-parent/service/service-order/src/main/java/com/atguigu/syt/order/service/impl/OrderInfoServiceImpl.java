@@ -11,6 +11,7 @@ import com.atguigu.syt.model.order.OrderInfo;
 import com.atguigu.syt.model.user.Patient;
 import com.atguigu.syt.order.mapper.OrderInfoMapper;
 import com.atguigu.syt.order.service.OrderInfoService;
+import com.atguigu.syt.order.service.WxPayService;
 import com.atguigu.syt.user.client.PatientFeignClient;
 import com.atguigu.syt.vo.hosp.ScheduleOrderVo;
 import com.atguigu.syt.vo.order.SignInfoVo;
@@ -48,6 +49,9 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
     @Autowired
     private HospitalSetFeignClient hospitalSetFeignClient;
 
+    @Autowired
+    private WxPayService wxPayService;
+
     @Override
     public Long submitOrder(Long userId, String scheduleId, Long patientId) {
 
@@ -68,6 +72,7 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         orderInfo.setOrderStatus(OrderStatusEnum.UNPAID.getStatus());
         String outTradeNo = UUID.randomUUID().toString().replaceAll("-", "");
         orderInfo.setOutTradeNo(outTradeNo);
+        orderInfo.setUserId(userId);
 
         //医院信息
         BeanUtils.copyProperties(scheduleInfo, orderInfo);
@@ -77,7 +82,6 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
         orderInfo.setPatientId(patientId);
         orderInfo.setPatientName(patientInfo.getName());
         orderInfo.setPatientPhone(patientInfo.getPhone());
-        BeanUtils.copyProperties(patientInfo, orderInfo);
 
         //给第三方医院发送请求
         SignInfoVo signInfoVo = hospitalSetFeignClient.getSignInfoVo(scheduleInfo.getHoscode());
@@ -193,6 +197,7 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
             //可以取消预约
             log.info("WxPayServiceImpl.cancelOrderByUidAndOutTradeNo执行完毕,结果:{}", "已支付的退款申请!");
             //todo：申请退款
+            wxPayService.refund(orderInfo);
 
             //修改状态
             updateStatus(outTradeNo, OrderStatusEnum.CANCLE_UNREFUND.getStatus());

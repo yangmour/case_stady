@@ -1,5 +1,7 @@
 package com.atguigu.syt.order.service;
 
+import com.atguigu.syt.model.order.OrderInfo;
+
 /**
  * Description:
  *
@@ -11,4 +13,6 @@ public interface WxPayService {
     String createNativePay(Long userId, String outTradeNo);
 
     boolean queryPayStatus(Long userId, String outTradeNo);
+
+    void refund(OrderInfo orderInfo);
 }

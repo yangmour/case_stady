@@ -10,9 +10,12 @@ import com.atguigu.syt.model.order.OrderInfo;
 import com.atguigu.syt.order.config.WxPayConfig;
 import com.atguigu.syt.order.service.OrderInfoService;
 import com.atguigu.syt.order.service.PaymentInfoService;
+import com.atguigu.syt.order.service.RefundInfoService;
 import com.atguigu.syt.order.service.WxPayService;
 import com.atguigu.syt.vo.order.SignInfoVo;
-import com.wechat.pay.java.core.Config;
+import com.wechat.pay.java.core.RSAAutoCertificateConfig;
+import com.wechat.pay.java.core.exception.HttpException;
+import com.wechat.pay.java.core.exception.MalformedMessageException;
 import com.wechat.pay.java.core.exception.ServiceException;
 import com.wechat.pay.java.service.payments.model.Transaction;
 import com.wechat.pay.java.service.payments.nativepay.NativePayService;
@@ -20,12 +23,14 @@ import com.wechat.pay.java.service.payments.nativepay.model.Amount;
 import com.wechat.pay.java.service.payments.nativepay.model.PrepayRequest;
 import com.wechat.pay.java.service.payments.nativepay.model.PrepayResponse;
 import com.wechat.pay.java.service.payments.nativepay.model.QueryOrderByOutTradeNoRequest;
+import com.wechat.pay.java.service.refund.RefundService;
+import com.wechat.pay.java.service.refund.model.*;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.joda.time.DateTime;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,10 +47,11 @@ import java.util.Map;
 public class WxPayServiceImpl implements WxPayService {
 
     private final OrderInfoService orderInfoService;
-    private final Config wxConfig;
+    private final RSAAutoCertificateConfig rsaAutoCertificateConfig;
     private final WxPayConfig wxPayConfig;
     private final PaymentInfoService paymentInfoService;
     private final HospitalSetFeignClient hospitalSetFeignClient;
+    private final RefundInfoService refundInfoService;
 
     @Override
     public String createNativePay(Long userId, String outTradeNo) {
@@ -53,7 +59,7 @@ public class WxPayServiceImpl implements WxPayService {
         OrderInfo orderInfo = orderInfoService.getOrderInfoByIdAndOutTradeNo(userId, outTradeNo);
 
         // 构建service
-        NativePayService service = new NativePayService.Builder().config(wxConfig).build();
+        NativePayService service = new NativePayService.Builder().config(rsaAutoCertificateConfig).build();
         // request.setXxx(val)设置所需参数，具体参数可见Request定义
         PrepayRequest request = new PrepayRequest();
         Amount amount = new Amount();
@@ -97,7 +103,7 @@ public class WxPayServiceImpl implements WxPayService {
 
 
         // 构建service
-        NativePayService service = new NativePayService.Builder().config(wxConfig).build();
+        NativePayService service = new NativePayService.Builder().config(rsaAutoCertificateConfig).build();
         try {
             Transaction result = service.queryOrderByOutTradeNo(queryRequest);
             log.info("WxPayServiceImpl.queryPayStatus执行完毕,结果:{}", result.getTradeState());
@@ -139,6 +145,77 @@ public class WxPayServiceImpl implements WxPayService {
             log.info("WxPayServiceImpl.queryPayStatus执行完毕,结果:{}", e.getMessage());
             throw new GuiguException(ResultCodeEnum.FAIL);
         }
+    }
+
+    @Override
+    public void refund(OrderInfo orderInfo) {
+
+        // 初始化服务
+        RefundService service = new RefundService.Builder().config(rsaAutoCertificateConfig).build();
+        // ... 调用接口
+        try {
+            // 退款申请
+            Refund response = create(service, orderInfo);
+            //判断是否申请成功
+            Status statusResp = response.getStatus();
+            //SUCCESS：退款成功（退款申请成功） || PROCESSING：退款处理中
+            //记录支退款日志
+            if (Status.SUCCESS.equals(statusResp) || Status.PROCESSING.equals(statusResp)) {
+                //添加退款信息
+                refundInfoService.saveRefundInfo(orderInfo, response);
+                //修改订单状态
+                orderInfoService.updateStatus(orderInfo.getOutTradeNo(), OrderStatusEnum.CANCLE_REFUND.getStatus());
+
+            } else { // 失败!其他情况
+                throw new GuiguException(ResultCodeEnum.FAIL.getCode(), "退款异常");
+            }
+
+        } catch (HttpException e) { // 发送HTTP请求失败
+            // 调用e.getHttpRequest()获取请求打印日志或上报监控，更多方法见HttpException定义
+            log.error(e.getMessage());
+            throw new GuiguException(ResultCodeEnum.FAIL);
+        } catch (ServiceException e) { // 服务返回状态小于200或大于等于300，例如500
+            // 调用e.getResponseBody()获取返回体打印日志或上报监控，更多方法见ServiceException定义
+            log.error(e.getMessage());
+            throw new GuiguException(ResultCodeEnum.FAIL);
+        } catch (MalformedMessageException e) { // 服务返回成功，返回体类型不合法，或者解析返回体失败
+            // 调用e.getMessage()获取信息打印日志或上报监控，更多方法见MalformedMessageException定义
+            log.error(e.getMessage());
+            throw new GuiguException(ResultCodeEnum.FAIL);
+        }
+    }
+
+
+    /**
+     * 退款申请
+     */
+    public Refund create(RefundService service, OrderInfo orderInfo) {
+        CreateRequest request = new CreateRequest();
+        // 调用request.setXxx(val)设置所需参数，具体参数可见Request定义
+        request.setOutTradeNo(orderInfo.getOutTradeNo());
+        request.setOutRefundNo("TK_" + orderInfo.getOutTradeNo());
+
+        AmountReq amountReq = new AmountReq();
+        amountReq.setRefund(orderInfo.getAmount().multiply(new BigDecimal("0.01")).longValue());
+        amountReq.setTotal(orderInfo.getAmount().multiply(new BigDecimal("0.01")).longValue());
+        amountReq.setCurrency("CNY");
+        request.setAmount(amountReq);
+        //微信支付申请退款回调地址
+        request.setNotifyUrl(wxPayConfig.getNotifyRefundUrl());
+
+        // 调用接口
+        return service.create(request);
+    }
+
+    /**
+     * 查询单笔退款（通过商户退款单号）
+     */
+    public static Refund queryByOutRefundNo(RefundService service) {
+
+        QueryByOutRefundNoRequest request = new QueryByOutRefundNoRequest();
+        // 调用request.setXxx(val)设置所需参数，具体参数可见Request定义
+        // 调用接口
+        return service.queryByOutRefundNo(request);
     }
 
 
