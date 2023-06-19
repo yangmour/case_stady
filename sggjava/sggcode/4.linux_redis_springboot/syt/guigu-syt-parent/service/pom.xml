@@ -19,6 +19,7 @@
         <module>service-user</module>
         <module>service-yun</module>
         <module>service-order</module>
+        <module>service-doing-cron</module>
     </modules>
 
     <properties>
@@ -28,6 +29,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.atguigu</groupId>
+            <artifactId>service-order-client</artifactId>
+            <version>1.0</version>
+        </dependency>
         <dependency>
             <groupId>com.atguigu</groupId>
             <artifactId>service-user-client</artifactId>

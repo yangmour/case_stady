@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: service-doing-cron
+  profiles:
+    active: dev,mq

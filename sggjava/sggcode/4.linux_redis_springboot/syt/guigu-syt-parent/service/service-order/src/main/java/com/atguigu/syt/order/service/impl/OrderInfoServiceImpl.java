@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.atguigu.common.service.exception.GuiguException;
 import com.atguigu.common.service.utils.HttpRequestHelper;
 import com.atguigu.common.util.result.ResultCodeEnum;
+import com.atguigu.syt.enums.MQConstant;
 import com.atguigu.syt.enums.OrderStatusEnum;
 import com.atguigu.syt.hosp.client.HospitalSetFeignClient;
 import com.atguigu.syt.hosp.client.ScheduleFeignClient;
@@ -14,16 +15,20 @@ import com.atguigu.syt.order.service.OrderInfoService;
 import com.atguigu.syt.order.service.WxPayService;
 import com.atguigu.syt.user.client.PatientFeignClient;
 import com.atguigu.syt.vo.hosp.ScheduleOrderVo;
+import com.atguigu.syt.vo.order.OrderMqVo;
 import com.atguigu.syt.vo.order.SignInfoVo;
+import com.atguigu.syt.vo.sms.SmsVo;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.joda.time.DateTime;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -51,6 +56,9 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
 
     @Autowired
     private WxPayService wxPayService;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
 
     @Override
     public Long submitOrder(Long userId, String scheduleId, Long patientId) {
@@ -133,7 +141,26 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
             throw new GuiguException(ResultCodeEnum.NUMBER_NO);
         }
 
-        //todo 通知修改库存等
+        //通知修改库存等
+        OrderMqVo orderMqVo = new OrderMqVo();
+        orderMqVo.setScheduleId(scheduleId);
+        orderMqVo.setReservedNumber(reservedNumber);
+        orderMqVo.setAvailableNumber(availableNumber);
+        rabbitTemplate.convertSendAndReceive(MQConstant.EXCHANGE_DIRECT_ORDER, MQConstant.ROUTING_ORDER, orderMqVo);
+
+        //发送提示短信
+        SmsVo smsVo = new SmsVo();
+        smsVo.setPhone(orderInfo.getPatientPhone());
+        smsVo.setTemplateCode("xxxxxxxx");
+
+        Map<String, Object> paramsSms = new HashMap<String, Object>() {{
+            put("hosname", orderInfo.getHosname());
+            put("hosdepname", orderInfo.getDepname());
+            put("date", new DateTime(orderInfo.getReserveDate()).toString("yyyy-MM-dd"));
+            put("name", orderInfo.getPatientName());
+        }};
+        smsVo.setParam(paramsSms);
+        rabbitTemplate.convertSendAndReceive(MQConstant.EXCHANGE_DIRECT_SMS, MQConstant.ROUTING_SMS, smsVo);
 
         return orderInfo.getId();
     }
@@ -196,7 +223,6 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
             }
             //可以取消预约
             log.info("WxPayServiceImpl.cancelOrderByUidAndOutTradeNo执行完毕,结果:{}", "已支付的退款申请!");
-            //todo：申请退款
             wxPayService.refund(orderInfo);
 
             //修改状态
@@ -205,6 +231,36 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
             updateStatus(outTradeNo, OrderStatusEnum.CANCLE.getStatus());
         }
 
+        //修改数量
+        OrderMqVo orderMqVo = new OrderMqVo();
+        orderMqVo.setScheduleId(orderInfo.getScheduleId());
+
+        JSONObject data = jsonObject.getJSONObject("data");
+        Integer reservedNumber = data.getInteger("reservedNumber");
+        Integer availableNumber = data.getInteger("availableNumber");
+
+        orderMqVo.setReservedNumber(reservedNumber);
+        orderMqVo.setAvailableNumber(availableNumber);
+        rabbitTemplate.convertAndSend(MQConstant.EXCHANGE_DIRECT_ORDER, MQConstant.ROUTING_ORDER, orderMqVo);
+        //发送取消订单信息
+        SmsVo smsVo = new SmsVo();
+        smsVo.setPhone(orderInfo.getPatientPhone());
+        smsVo.setTemplateCode("xxxxxx");
+        rabbitTemplate.convertAndSend(MQConstant.EXCHANGE_DIRECT_SMS_CANCEL, MQConstant.ROUTING_SMS_CANCEL, smsVo);
+
+    }
+
+    @Override
+    public List<OrderInfo> getPatientAdviceList() {
+        LambdaQueryWrapper<OrderInfo> queryWrapper = new LambdaQueryWrapper<>();
+        String dateTime = new DateTime().plusDays(1).toString("yyyy-MM-dd");
+        queryWrapper.eq(OrderInfo::getReserveDate, dateTime);
+        queryWrapper.notIn(OrderInfo::getOrderStatus,
+                OrderStatusEnum.CANCLE.getStatus(),
+                OrderStatusEnum.CANCLE_UNREFUND.getStatus(),
+                OrderStatusEnum.CANCLE_REFUND.getStatus());
+
+        return baseMapper.selectList(queryWrapper);
 
     }
 }

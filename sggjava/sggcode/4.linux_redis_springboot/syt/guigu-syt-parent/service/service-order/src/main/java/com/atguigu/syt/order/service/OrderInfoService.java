@@ -3,6 +3,8 @@ package com.atguigu.syt.order.service;
 import com.atguigu.syt.model.order.OrderInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  * 订单表 服务类
@@ -22,4 +24,6 @@ public interface OrderInfoService extends IService<OrderInfo> {
     void updateStatus(String outTradeNo, Integer status);
 
     void cancelOrderByUidAndOutTradeNo(Long userId, String outTradeNo);
+
+    List<OrderInfo> getPatientAdviceList();
 }

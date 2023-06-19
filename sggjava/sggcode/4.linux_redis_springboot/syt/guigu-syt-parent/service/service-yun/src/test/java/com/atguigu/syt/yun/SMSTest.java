@@ -8,7 +8,7 @@ package com.atguigu.syt.yun;
 
 import com.atguigu.syt.yun.prop.SmsProperties;
 import com.atguigu.syt.yun.utils.HttpUtils;
-import com.atguigu.syt.yun.utils.RandomUtil;
+import com.atguigu.common.service.utils.RandomUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.http.HttpResponse;

@@ -1,4 +1,4 @@
-package com.atguigu.syt.yun.utils;
+package com.atguigu.common.service.utils;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

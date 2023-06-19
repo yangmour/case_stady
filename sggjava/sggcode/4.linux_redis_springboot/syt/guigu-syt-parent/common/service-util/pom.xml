@@ -18,6 +18,11 @@
     </properties>
 
     <dependencies>
+        <!--rabbitmq消息队列-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
         <!--实体-->
         <dependency>
             <groupId>com.atguigu</groupId>

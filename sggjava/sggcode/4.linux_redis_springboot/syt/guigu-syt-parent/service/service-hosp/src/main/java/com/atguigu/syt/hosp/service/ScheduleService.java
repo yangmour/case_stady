@@ -2,6 +2,7 @@ package com.atguigu.syt.hosp.service;
 
 import com.atguigu.syt.model.hosp.Schedule;
 import com.atguigu.syt.vo.hosp.ScheduleOrderVo;
+import com.atguigu.syt.vo.order.OrderMqVo;
 import org.springframework.data.domain.Page;
 
 import java.util.List;
@@ -31,4 +32,5 @@ public interface ScheduleService {
 
     ScheduleOrderVo getScheduleOrderVo(String scheduleId);
 
+    void updateOrderInfo(OrderMqVo orderMqVo);
 }
