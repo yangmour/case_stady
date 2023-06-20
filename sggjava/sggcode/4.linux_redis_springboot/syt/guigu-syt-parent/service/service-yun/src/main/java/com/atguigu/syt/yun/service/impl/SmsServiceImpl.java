@@ -3,7 +3,7 @@ package com.atguigu.syt.yun.service.impl;
 import com.alibaba.fastjson2.JSONObject;
 import com.atguigu.common.service.exception.GuiguException;
 import com.atguigu.common.util.result.ResultCodeEnum;
-import com.atguigu.syt.yun.prop.SmsProperties;
+import com.atguigu.common.service.prop.SmsProperties;
 import com.atguigu.syt.yun.service.SmsService;
 import com.atguigu.syt.yun.utils.HttpUtils;
 import com.atguigu.common.service.utils.RandomUtil;

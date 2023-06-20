@@ -6,7 +6,7 @@ package com.atguigu.syt.yun;
       描 述:   尚硅谷教学团队
 ===================================*/
 
-import com.atguigu.syt.yun.prop.SmsProperties;
+import com.atguigu.common.service.prop.SmsProperties;
 import com.atguigu.syt.yun.utils.HttpUtils;
 import com.atguigu.common.service.utils.RandomUtil;
 import lombok.extern.slf4j.Slf4j;

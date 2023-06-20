@@ -44,11 +44,7 @@
             <artifactId>service-hosp-client</artifactId>
             <version>1.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
+
         <dependency>
             <groupId>com.atguigu</groupId>
             <artifactId>service-yun-client</artifactId>

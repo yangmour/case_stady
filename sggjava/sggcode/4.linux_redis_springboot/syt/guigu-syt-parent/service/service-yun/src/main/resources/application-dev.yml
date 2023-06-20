@@ -16,11 +16,11 @@ logging:
     path: yun
 
 aliyun:
-  oss:
-    endpoint: oss-cn-beijing.aliyuncs.com
-    key-id: LTAI5tKDVyuMMxiN1drD7oiR
-    key-secret: WnuWX8xIFgkIaOf9sx50sLpurIIeoJ
-    bucket-name: syt-demo
+#  oss:
+#    endpoint: oss-cn-beijing.aliyuncs.com
+#    key-id: LTAI5tKDVyuMMxiN1drD7oiR
+#    key-secret: WnuWX8xIFgkIaOf9sx50sLpurIIeoJ
+#    bucket-name: syt-demo
   sms:
     host: https://dfsns.market.alicloudapi.com
     path: /data/send_sms

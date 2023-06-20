@@ -1,4 +1,4 @@
-package com.atguigu.syt.yun.prop;
+package com.atguigu.common.service.prop;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

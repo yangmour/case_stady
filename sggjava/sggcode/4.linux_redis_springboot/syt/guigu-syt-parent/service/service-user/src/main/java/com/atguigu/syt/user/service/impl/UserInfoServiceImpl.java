@@ -5,6 +5,7 @@ import com.atguigu.common.util.result.ResultCodeEnum;
 import com.atguigu.syt.cmn.client.DictFeignClient;
 import com.atguigu.syt.enums.AuthStatusEnum;
 import com.atguigu.syt.enums.DictTypeEnum;
+import com.atguigu.syt.enums.RedisImagesConstant;
 import com.atguigu.syt.enums.UserStatusEnum;
 import com.atguigu.syt.model.user.UserInfo;
 import com.atguigu.syt.user.mapper.UserInfoMapper;
@@ -55,6 +56,23 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         userInfo.setId(userId);
         BeanUtils.copyProperties(userAuthVo, userInfo);
         userInfo.setAuthStatus(AuthStatusEnum.AUTH_RUN.getStatus());
+
+        //现在数据库中查一下用户的认证状态如果失败就先将数据库中的那个url在这个成功的集合中删掉
+        LambdaQueryWrapper<UserInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(UserInfo::getId, userId);
+        queryWrapper.eq(UserInfo::getAuthStatus, AuthStatusEnum.AUTH_FAIL);
+        UserInfo queryUserInfo = baseMapper.selectOne(queryWrapper);
+        String certificatesUrl = queryUserInfo.getCertificatesUrl();
+
+        if (!StringUtils.isEmpty(certificatesUrl)) {
+            //把这张没用的图片加入全部缓存中
+            redisTemplate.opsForSet().add(RedisImagesConstant.OSS_IMAGES_ALL_SET, certificatesUrl);
+            //在认证的缓存中删除
+            redisTemplate.opsForSet().remove(RedisImagesConstant.OSS_IMAGES_AUTH_SET, certificatesUrl);
+        }
+
+        // 将图片地址保存到redis中
+        redisTemplate.opsForSet().add(RedisImagesConstant.OSS_IMAGES_AUTH_SET, userAuthVo.getCertificatesUrl());
 
         //信息更新
         return baseMapper.updateById(userInfo);

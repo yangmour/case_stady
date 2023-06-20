@@ -95,7 +95,7 @@
               </div>
             </div>
           </div>
-          <div class="sub-dept-container">
+          <!-- <div class="sub-dept-container">
             <div
               v-for="item in departmentList"
               :key="item.id"
@@ -117,34 +117,32 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
-          <!-- 
-                <div class="sub-dept-container">
-              <div
-                v-for="(item, index) in departmentList"
-                :key="item.id"
-                v-show="index == activeIndex"
-                class="sub-dept-wrapper"
-                :id="item.depcode"
-              >
-                <div class="sub-title">
-                  <div class="block selected"></div>
-                  {{ item.depname }}
-                </div>
-                <div class="sub-item-wrapper">
-                  <div
-                    v-for="it in item.children"
-                    :key="it.id"
-                    class="sub-item"
-                    @click="schedule(it.depcode)"
-                  >
-                    <span class="v-link clickable">{{ it.depname }} </span>
-                  </div>
+          <div class="sub-dept-container">
+            <div
+              v-for="(item, index) in departmentList"
+              :key="item.id"
+              v-show="index == activeIndex"
+              class="sub-dept-wrapper"
+              :id="item.depcode"
+            >
+              <div class="sub-title">
+                <div class="block selected"></div>
+                {{ item.depname }}
+              </div>
+              <div class="sub-item-wrapper">
+                <div
+                  v-for="it in item.children"
+                  :key="it.id"
+                  class="sub-item"
+                  @click="schedule(it.depcode)"
+                >
+                  <span class="v-link clickable">{{ it.depname }} </span>
                 </div>
               </div>
             </div>
-             -->
+          </div>
         </div>
       </div>
     </div>
