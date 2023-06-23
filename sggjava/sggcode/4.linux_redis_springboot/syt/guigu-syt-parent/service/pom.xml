@@ -20,6 +20,7 @@
         <module>service-yun</module>
         <module>service-order</module>
         <module>service-doing-cron</module>
+        <module>service-statistics</module>
     </modules>
 
     <properties>

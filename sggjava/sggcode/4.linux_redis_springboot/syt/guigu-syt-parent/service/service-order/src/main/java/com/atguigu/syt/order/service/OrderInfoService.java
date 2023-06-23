@@ -1,9 +1,11 @@
 package com.atguigu.syt.order.service;
 
 import com.atguigu.syt.model.order.OrderInfo;
+import com.atguigu.syt.vo.statistics.OrderCountQueryVo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -26,4 +28,6 @@ public interface OrderInfoService extends IService<OrderInfo> {
     void cancelOrderByUidAndOutTradeNo(Long userId, String outTradeNo);
 
     List<OrderInfo> getPatientAdviceList();
+
+    Map<String, Object> getOrderStatisticMap(OrderCountQueryVo orderCountQueryVo);
 }

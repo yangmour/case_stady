@@ -2,12 +2,12 @@ package com.atguigu.syt.order.controller.inner;
 
 import com.atguigu.syt.model.order.OrderInfo;
 import com.atguigu.syt.order.service.OrderInfoService;
+import com.atguigu.syt.vo.statistics.OrderCountQueryVo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description:
@@ -26,6 +26,12 @@ public class InnerOrderController {
     @GetMapping("getPatientAdviceList")
     public List<OrderInfo> getPatientAdviceList() {
         return orderInfoService.getPatientAdviceList();
+    }
+
+    @PostMapping("getOrderStatistic")
+    public Map<String, Object> getOrderStatistic(@RequestBody OrderCountQueryVo orderCountQueryVo) {
+        return orderInfoService.getOrderStatisticMap(orderCountQueryVo);
+
     }
 
     @GetMapping("a")

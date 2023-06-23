@@ -1,7 +1,11 @@
 package com.atguigu.syt.order.mapper;
 
 import com.atguigu.syt.model.order.OrderInfo;
+import com.atguigu.syt.vo.statistics.OrderCountQueryVo;
+import com.atguigu.syt.vo.statistics.OrderCountVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface OrderInfoMapper extends BaseMapper<OrderInfo> {
 
+    List<OrderCountVo> getOrderStatisticList(OrderCountQueryVo orderCountQueryVo);
 }

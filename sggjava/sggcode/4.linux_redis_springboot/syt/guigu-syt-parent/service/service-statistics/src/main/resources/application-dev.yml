@@ -1,0 +1,21 @@
+server:
+  port: 8008
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 124.221.11.162:8848
+
+logging:
+  level:
+    root: info
+  file:
+    path: statistics
+feign:
+  sentinel:
+    enabled: true
+  client:
+    config:
+      default:
+        connect-timeout: 4000 #连接建立的超时时长，单位是ms，默认1s
+        read-timeout: 4000 #处理请求的超时时间，单位是ms，默认为1s

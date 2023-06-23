@@ -2,10 +2,14 @@ package com.atguigu.syt.order.client;
 
 import com.atguigu.syt.model.order.OrderInfo;
 import com.atguigu.syt.order.client.callback.OrderInfoFeignClientCallback;
+import com.atguigu.syt.vo.statistics.OrderCountQueryVo;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Description:
@@ -20,4 +24,7 @@ public interface OrderInfoFeignClient {
 
     @GetMapping("getPatientAdviceList")
     List<OrderInfo> getPatientAdviceList();
+
+    @PostMapping("getOrderStatistic")
+    Map<String, Object> getOrderStatistic(@RequestBody OrderCountQueryVo orderCountQueryVo);
 }

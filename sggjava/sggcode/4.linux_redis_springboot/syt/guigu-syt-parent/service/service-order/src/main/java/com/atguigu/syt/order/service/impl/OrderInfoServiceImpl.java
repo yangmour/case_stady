@@ -18,6 +18,8 @@ import com.atguigu.syt.vo.hosp.ScheduleOrderVo;
 import com.atguigu.syt.vo.order.OrderMqVo;
 import com.atguigu.syt.vo.order.SignInfoVo;
 import com.atguigu.syt.vo.sms.SmsVo;
+import com.atguigu.syt.vo.statistics.OrderCountQueryVo;
+import com.atguigu.syt.vo.statistics.OrderCountVo;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -27,10 +29,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * <p>
@@ -262,5 +262,22 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
 
         return baseMapper.selectList(queryWrapper);
 
+    }
+
+    @Override
+    public Map<String, Object> getOrderStatisticMap(OrderCountQueryVo orderCountQueryVo) {
+        List<OrderCountVo> list = baseMapper.getOrderStatisticList(orderCountQueryVo);
+
+        List<String> dateList = list.stream()
+                .map(OrderCountVo::getReserveDate)
+                .collect(Collectors.toList());
+        List<Integer> countList = list.stream()
+                .map(OrderCountVo::getCount)
+                .collect(Collectors.toList());
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("dateList", dateList);
+        map.put("countList", countList);
+
+        return map;
     }
 }

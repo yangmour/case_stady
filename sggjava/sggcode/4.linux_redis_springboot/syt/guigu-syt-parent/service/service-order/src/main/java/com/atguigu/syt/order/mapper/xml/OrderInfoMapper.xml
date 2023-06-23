@@ -2,4 +2,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.syt.order.mapper.OrderInfoMapper">
 
+    <select id="getOrderStatisticList" resultType="com.atguigu.syt.vo.statistics.OrderCountVo">
+        SELECT reserve_date,count(1) count
+        FROM order_info
+        <where>
+            <if test="hosname!='' and hosname != null">
+                hosname LIKE concat('%',#{hosname},'%')
+            </if>
+            <if test="reserveDateBegin!=''  and reserveDateBegin != null">
+                AND reserve_date >= #{reserveDateBegin}
+            </if>
+            <if test="reserveDateEnd!='' and reserveDateEnd != null">
+                AND reserve_date <![CDATA[ <= ]]> #{reserveDateEnd}
+            </if>
+        </where>
+        GROUP BY reserve_date
+        ORDER by reserve_date
+    </select>
 </mapper>
