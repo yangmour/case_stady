@@ -21,4 +21,12 @@ export default {
       method: 'get'
     })
   },
+  //获取订单列表
+  getList() {
+    return request({
+      url: `/front/order/orderInfo/getOrderList`,
+      method: 'get'
+    })
+  },
+
 }

@@ -280,4 +280,17 @@ public class OrderInfoServiceImpl extends ServiceImpl<OrderInfoMapper, OrderInfo
 
         return map;
     }
+
+    @Override
+    public List<OrderInfo> getOrderList(Long userId) {
+        LambdaQueryWrapper<OrderInfo> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(OrderInfo::getUserId, userId);
+        List<OrderInfo> list = baseMapper.selectList(queryWrapper);
+        list.stream().forEach(orderInfo -> {
+            HashMap<String, Object> params = new HashMap<>();
+            params.put("orderStatusString", OrderStatusEnum.getStatusNameByStatus(orderInfo.getOrderStatus()));
+            orderInfo.setParam(params);
+        });
+        return list;
+    }
 }

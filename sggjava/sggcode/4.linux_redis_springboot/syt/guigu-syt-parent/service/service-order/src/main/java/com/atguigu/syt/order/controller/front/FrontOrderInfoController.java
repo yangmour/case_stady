@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * Description:
@@ -67,6 +68,16 @@ public class FrontOrderInfoController {
 
         orderInfoService.cancelOrderByUidAndOutTradeNo(userId, outTradeNo);
         return Result.ok();
+
+    }
+
+    @ApiOperation("获取订单列表")
+    @GetMapping("getOrderList")
+    public Result<Object> getOrderList(HttpServletRequest httpServletRequest,
+                                       HttpServletResponse httpServletResponse) {
+        Long userId = authContextHolder.checkAuth(httpServletRequest, httpServletResponse);
+        List<OrderInfo> list = orderInfoService.getOrderList(userId);
+        return Result.ok(list);
 
     }
 

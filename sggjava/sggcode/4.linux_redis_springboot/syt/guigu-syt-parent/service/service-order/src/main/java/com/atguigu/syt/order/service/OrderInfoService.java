@@ -30,4 +30,6 @@ public interface OrderInfoService extends IService<OrderInfo> {
     List<OrderInfo> getPatientAdviceList();
 
     Map<String, Object> getOrderStatisticMap(OrderCountQueryVo orderCountQueryVo);
+
+    List<OrderInfo> getOrderList(Long userId);
 }
