@@ -1,6 +1,8 @@
 package com.xiwen.shardingjdbcdemo;
 
+import com.xiwen.shardingjdbcdemo.entity.Order;
 import com.xiwen.shardingjdbcdemo.entity.User;
+import com.xiwen.shardingjdbcdemo.mapper.OrderMapper;
 import com.xiwen.shardingjdbcdemo.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +10,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.util.List;
+
 @SpringBootTest
 class ShardingJdbcDemoApplicationTests {
 
     @Autowired
     private UserMapper userMapper;
-
+    @Autowired
+    private OrderMapper orderMapper;
 
     /**
      * 读写分离
@@ -50,4 +56,26 @@ class ShardingJdbcDemoApplicationTests {
 
         userMapper.selectList(null);
     }
+
+    /**
+     * 垂直分库测试
+     */
+    @Test
+    public void test3() {
+
+        User user = new User();
+        user.setUname("张三");
+        userMapper.insert(user);
+        List<User> users = userMapper.selectList(null);
+        System.out.println(users);
+
+        Order order = new Order();
+        order.setOrderNo("ATGUIGU001");
+        order.setUserId(user.getId());
+        order.setAmount(new BigDecimal(100));
+        orderMapper.insert(order);
+        List<Order> orders = orderMapper.selectList(null);
+        System.out.println(orders);
+    }
+
 }
