@@ -1,10 +1,8 @@
 package com.xiwen.shardingjdbcdemo;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.xiwen.shardingjdbcdemo.entity.Order;
-import com.xiwen.shardingjdbcdemo.entity.OrderItem;
-import com.xiwen.shardingjdbcdemo.entity.OrderVo;
-import com.xiwen.shardingjdbcdemo.entity.User;
+import com.xiwen.shardingjdbcdemo.entity.*;
+import com.xiwen.shardingjdbcdemo.mapper.DictMapper;
 import com.xiwen.shardingjdbcdemo.mapper.OrderItemMapper;
 import com.xiwen.shardingjdbcdemo.mapper.OrderMapper;
 import com.xiwen.shardingjdbcdemo.mapper.UserMapper;
@@ -206,6 +204,31 @@ class ShardingJdbcDemoApplicationTests {
 
         List<OrderVo> orderAmountList = orderMapper.getOrderAmount();
         orderAmountList.forEach(System.out::println);
+    }
+
+    @Autowired
+    private DictMapper dictMapper;
+
+    /**
+     * 广播表：每个服务器中的t_dict同时添加了新数据
+     */
+    @Test
+    public void testBroadcast(){
+
+        Dict dict = new Dict();
+        dict.setDictType("type1");
+        dictMapper.insert(dict);
+    }
+
+    /**
+     * 查询操作，只从一个节点获取数据
+     * 随机负载均衡规则
+     */
+    @Test
+    public void testSelectBroadcast(){
+
+        List<Dict> dicts = dictMapper.selectList(null);
+        dicts.forEach(System.out::println);
     }
 
 }
