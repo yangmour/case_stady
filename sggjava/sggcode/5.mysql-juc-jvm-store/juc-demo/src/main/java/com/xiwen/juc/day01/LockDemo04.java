@@ -1,4 +1,4 @@
-package com.xiwen.juc;
+package com.xiwen.juc.day01;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

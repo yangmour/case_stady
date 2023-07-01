@@ -1,4 +1,4 @@
-package com.xiwen.juc;
+package com.xiwen.juc.day01;
 
 /**
  * Description:
