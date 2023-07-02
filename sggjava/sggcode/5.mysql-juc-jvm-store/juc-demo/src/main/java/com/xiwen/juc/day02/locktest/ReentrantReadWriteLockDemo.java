@@ -1,4 +1,4 @@
-package com.xiwen.juc.day02;
+package com.xiwen.juc.day02.locktest;
 
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
