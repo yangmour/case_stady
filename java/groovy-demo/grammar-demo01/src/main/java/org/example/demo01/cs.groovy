@@ -1,6 +1,7 @@
 package org.example.demo01
 
 import groovy.transform.CompileStatic
+import groovy.transform.ToString
 import groovy.transform.TypeChecked
 /**
  * @ClassName: cs
@@ -262,3 +263,38 @@ people = [
         4: [name:'Amy', age: 54, gender:'F']
 ]
 people.findAll {}
+
+
+String[] vowels = ['a', 'e', 'i', 'o', 'u']
+var result = ''
+vowels.each {
+    result += it
+}
+assert result == 'aeiou'
+result = ''
+vowels.eachWithIndex { v, i ->
+    result += v * i         // index starts from 0
+}
+assert result == 'eiiooouuuu'
+
+
+class Foo {
+    static def $static_methodMissing(String name, Object args) {
+        return "Missing static method name is $name"
+    }
+}
+
+assert Foo.bar() == 'Missing static method name is bar'
+
+
+@ToString
+class Person4 {
+    String firstName
+    String lastName
+}
+
+
+
+def p4 = new Person4(firstName: 'Jack', lastName: 'Nicholson')
+assert p4.toString() == 'org.example.demo01.Person4(Jack, Nicholson)'
+println(p4.toString())
